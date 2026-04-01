@@ -1,0 +1,39 @@
+{
+    "name": "projects/project/locations/location/instances/instance/integrations/AzureSecurityCenter/jobs/13/jobInstances/2",
+    "id": 0,
+    "job": "Refresh Token Renewal Job",
+    "integration": "AzureSecurityCenter",
+    "createTime": 1774860166827,
+    "updateTime": 1774862525572,
+    "custom": false,
+    "script": "from __future__ import annotations\n\nfrom TIPCommon.base.job import RefreshTokenRenewalJob, validate_param_csv_to_multi_value\n\nfrom AzureSecurityCenterManager import AzureSecurityCenterManager\nfrom consts import INTEGRATION_IDENTIFIER, TOKEN_RENEWAL_SCRIPT_NAME\nfrom exceptions import AzureSecurityCenterManagerError\n\n\nclass RefreshTokenJob(RefreshTokenRenewalJob):\n    \"\"\"Refresh Token Renewal Job to update refresh token periodically.\"\"\"\n\n    def __init__(self, script_name: str, integration_identifier: str) -> None:\n        super().__init__(script_name, integration_identifier)\n        self.error_msg = f\"{script_name} failed to run because \"\n\n    def _get_integration_envs(self) -> str:\n        return self.params.integration_environments\n\n    def _get_connector_names(self) -> str:\n        return self.params.connector_names\n\n    def _validate_params(self) -> None:\n        \"\"\"Validate the parameters values.\n\n        Raises:\n           AzureSecurityCenterManagerError: In case of integration environments and\n               connector names are not provided.\n\n        \"\"\"\n        self.params.integration_environments = validate_param_csv_to_multi_value(\n            param_name=\"Integration Environments\",\n            param_csv_value=self.params.integration_environments,\n        )\n        self.params.connector_names = validate_param_csv_to_multi_value(\n            param_name=\"Connector Names\",\n            param_csv_value=self.params.connector_names,\n        )\n        if not self.params.integration_environments and not self.params.connector_names:\n            raise AzureSecurityCenterManagerError(\n                f\"{self.error_msg} both Integration Environments \"\n                \"and Connector Names parameters are not provided.\",\n            )\n\n    def _refresh_integration_token(\n        self,\n        instance_identifier: str,\n    ) -> None:\n        \"\"\"Renew refresh token and set it in integration's configuration.\n\n        Args:\n            instance_identifier (str): integration instance identifier.\n                e.g.: \"ce0027a2-2b53-4cce-ad08-430df6d002f3\"\n\n        Returns:\n            None\n\n        \"\"\"\n        refresh_token = self.api_client.new_refresh_token\n        self.soar_job.set_configuration_property(\n            integration_instance_identifier=instance_identifier,\n            property_name=\"Refresh Token\",\n            property_value=refresh_token,\n        )\n\n    def _refresh_connector_token(\n        self,\n        instance_identifier: str,\n    ) -> None:\n        \"\"\"Renew refresh token and set it in connector's configuration.\n\n        Args:\n            instance_identifier (str): connector instance identifier.\n                e.g.: \"Test_OauthConnector_75098aae-de81-44cc-a807-4843d5ae7ea5\"\n\n        Returns:\n            None\n\n        \"\"\"\n        refresh_token = self.api_client.new_refresh_token\n        self.soar_job.set_connector_parameter(\n            connector_instance_identifier=instance_identifier,\n            parameter_name=\"Refresh Token\",\n            parameter_value=refresh_token,\n        )\n\n    def _build_manager_for_instance(\n        self,\n        instance_settings: dict(str, str),\n    ) -> AzureSecurityCenterManager:\n        \"\"\"Build Manager object to get the refresh token for integration instances.\n\n        Args:\n            instance_settings (dict): instance configuration settings.\n\n        Returns:\n            AzureSecurityCenterManagerError: exception while creating\n                AzureSecurityCenterManagerError object.\n\n        \"\"\"\n        return AzureSecurityCenterManager(\n            client_id=instance_settings.get(\"Client ID\"),\n            client_secret=instance_settings.get(\"Client Secret\"),\n            username=instance_settings.get(\"Username\"),\n            password=instance_settings.get(\"Password\"),\n            subscription_id=instance_settings.get(\"Subscription ID\"),\n            tenant_id=instance_settings.get(\"Tenant ID\"),\n            refresh_token=instance_settings.get(\"Refresh Token\"),\n            verify_ssl=instance_settings.get(\"Verify SSL\").lower() == \"true\",\n        )\n\n\ndef main() -> None:\n    RefreshTokenJob(TOKEN_RENEWAL_SCRIPT_NAME, INTEGRATION_IDENTIFIER).start()\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "author": "151fb2ed-1872-4f3c-9434-2fef6043e9ed",
+    "lastRunStatus": "Success",
+    "lastRunTime": 1774862525565,
+    "agent": "",
+    "uniqueIdentifier": "f860bb6e-ef22-47dc-a0bd-09a282497aaa",
+    "enabled": false,
+    "displayName": "Refresh Token Renewal Job",
+    "description": "Token renewal job should be used to periodically update the refresh token configured for the integration. By default, the refresh token expires every 90 days, making integration unusable upon expiration. It is recommended to run this job every 7 or 14 days to make sure that refresh token will be up to date.",
+    "intervalSeconds": 60,
+    "advanced": false,
+    "advancedConfig": {
+        "timeZone": "Europe/London",
+        "scheduleType": "Once",
+        "oneTimeSchedule": {
+            "startDate": {
+                "year": 2026,
+                "month": 3,
+                "day": 31
+            },
+            "time": {
+                "hours": 8,
+                "minutes": 42,
+                "seconds": 0,
+                "nanos": 0
+            },
+            "interval": 0
+        }
+    },
+    "documentationLink": "https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/azure-security-center#refresh_token_renewal_job"
+}

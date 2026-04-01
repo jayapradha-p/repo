@@ -1,0 +1,38 @@
+{
+    "name": "projects/project/locations/location/instances/instance/integrations/AzureApi/jobs/15/jobInstances/3",
+    "id": 0,
+    "job": "Refresh Token Renewal Job",
+    "integration": "AzureApi",
+    "createTime": 1774863182150,
+    "updateTime": 1774864337976,
+    "custom": false,
+    "script": "from __future__ import annotations\n\nfrom typing import NoReturn\n\nfrom collections.abc import MutableMapping\n\nfrom TIPCommon.base.job import RefreshTokenRenewalJob, validate_param_csv_to_multi_value\nfrom TIPCommon.transformation import string_to_multi_value\n\nfrom constants import (\n    INTEGRATION_IDENTIFIER,\n    TOKEN_RENEWAL_SCRIPT_NAME,\n)\nfrom auth import (\n    generate_tokens,\n    get_authenticated_session,\n    SessionAuthenticationParameters,\n)\nfrom exceptions import AzureApiInvalidParameterError, AzureApiJobNotSupportedError\n\n\nclass RefreshTokenJob(RefreshTokenRenewalJob):\n    \"\"\"Refresh Token Renewal Job to update refresh token periodically.\"\"\"\n\n    def __init__(self, script_name: str, integration_identifier: str) -> None:\n        super().__init__(script_name, integration_identifier)\n        self.error_msg = f\"{script_name} failed to run because \"\n\n    def _get_integration_envs(self) -> str:\n        return self.params.integration_environments\n\n    def _get_connector_names(self) -> str:\n        \"\"\"Get the names of connectors to refresh the token.\"\"\"\n\n    def _validate_params(self) -> None:\n        \"\"\"Validate the parameters values.\n\n        Raises:\n           AzureApiInvalidParameterError: If both integration environments and connector\n                names are not provided.\n        \"\"\"\n        self.params.integration_environments = validate_param_csv_to_multi_value(\n            param_name=\"Integration Environments\",\n            param_csv_value=self.params.integration_environments,\n        )\n        if not self.params.integration_environments:\n            raise AzureApiInvalidParameterError(\n                f\"{self.error_msg} Integration Environments parameter \"\n                \"is not provided.\"\n            )\n\n    def _refresh_integration_token(\n        self,\n        instance_identifier: str,\n    ) -> None:\n        \"\"\"Refreshes the refresh token for a specific integration instance.\n\n        Args:\n            instance_identifier (str): The identifier of the integration instance.\n                e.g.: \"ce0027a2-2b53-4cce-ad08-430df6d002f3\"\n        \"\"\"\n        instance_settings = self._get_integration_configuration_params(\n            integration_instance_identifier=instance_identifier,\n        )\n        auth_params = self._build_manager_for_instance(\n            instance_settings=instance_settings\n        )\n        auth_session = get_authenticated_session(auth_params)\n        tokens = generate_tokens(auth_session, auth_params)\n\n        self.soar_job.set_configuration_property(\n            integration_instance_identifier=instance_identifier,\n            property_name=\"Refresh Token\",\n            property_value=tokens.refresh_token,\n        )\n\n    def _refresh_connector_token(\n        self,\n        instance_identifier: str,\n    ) -> None:\n        \"\"\"Renew refresh token and set it in connector's configuration.\"\"\"\n\n    def _build_manager_for_instance(\n        self,\n        instance_settings: MutableMapping[str, str],\n    ) -> SessionAuthenticationParameters:\n        \"\"\"\n        Builds SessionAuthenticationParameters from instance settings.\n\n        Args:\n            instance_settings(dict(str, str)):  A dictionary containing the instance\n            settings.\n\n        Returns:\n            SessionAuthenticationParameters: A SessionAuthenticationParameters object.\n        \"\"\"\n        refresh_token: str = instance_settings.get(\"Refresh Token\", \"\")\n        if not refresh_token:\n            raise AzureApiJobNotSupportedError(\n                \"Refresh Token is not configured for the instance. \"\n                \"Configure Integration/Connector with \\\"Refresh Token\\\" parameter to \"\n                \"utilize this job.\"\n            )\n        return SessionAuthenticationParameters(\n            login_api_root=instance_settings.get(\"Microsoft Login API Root\"),\n            api_root=instance_settings.get(\"Microsoft Graph API Root\"),\n            client_id=instance_settings.get(\"Client ID\"),\n            client_secret=instance_settings.get(\"Client Secret\"),\n            tenant_id=instance_settings.get(\"Tenant ID\"),\n            refresh_token=instance_settings.get(\"Refresh Token\"),\n            verify_ssl=instance_settings.get(\"Verify SSL\").lower() == \"true\",\n            scopes=string_to_multi_value(instance_settings.get(\"Scopes\")),\n            redirect_url=instance_settings.get(\"Redirect URL\"),\n        )\n\n\ndef main() -> NoReturn:\n    RefreshTokenJob(TOKEN_RENEWAL_SCRIPT_NAME, INTEGRATION_IDENTIFIER).start()\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "author": "151fb2ed-1872-4f3c-9434-2fef6043e9ed",
+    "lastRunStatus": "Error",
+    "lastRunTime": 1774864337970,
+    "agent": "",
+    "uniqueIdentifier": "4cea3a3d-4da2-490b-86c6-e1680265dcf8",
+    "enabled": false,
+    "displayName": "Refresh Token Renewal Job - azureapi",
+    "description": "Token renewal job should be used to periodically update the refresh token configured for the integration. By default, the refresh token expires every 90 days, making integration unusable upon expiration. It is recommended to run this job every 7 or 14 days to make sure that refresh token will be up to date.",
+    "intervalSeconds": 60,
+    "advanced": false,
+    "advancedConfig": {
+        "timeZone": "Europe/London",
+        "scheduleType": "Once",
+        "oneTimeSchedule": {
+            "startDate": {
+                "year": 2026,
+                "month": 3,
+                "day": 31
+            },
+            "time": {
+                "hours": 9,
+                "minutes": 32,
+                "seconds": 0,
+                "nanos": 0
+            },
+            "interval": 0
+        }
+    }
+}
