@@ -4,7 +4,7 @@
     "LatestVersion": null,
     "Id": 0,
     "Identifier": "AzureApi",
-    "Custom": false,
+    "Custom": true,
     "Parameters": [
         {
             "Id": 0,

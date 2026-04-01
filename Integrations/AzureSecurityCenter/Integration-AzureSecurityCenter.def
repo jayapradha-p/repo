@@ -4,7 +4,7 @@
     "LatestVersion": null,
     "Id": 0,
     "Identifier": "AzureSecurityCenter",
-    "Custom": false,
+    "Custom": true,
     "Parameters": [
         {
             "Id": 0,
