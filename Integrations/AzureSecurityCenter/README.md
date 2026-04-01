@@ -46,6 +46,42 @@ Python Version - V3_11
 
 
 
+## Jobs
+
+#### Refresh Token Renewal Job
+Token renewal job should be used to periodically update the refresh token configured for the integration. By default, the refresh token expires every 90 days, making integration unusable upon expiration. It is recommended to run this job every 7 or 14 days to make sure that refresh token will be up to date.
+
+|Name|IsMandatory|Type|DefaultValue|
+|----|-----------|----|------------|
+|||None||
+|||None||
+
+
+
+## Connectors
+#### Azure Security Center - Security Alerts Connector
+Pull security alerts from Azure Security Center. Note: whitelist works with alertType field.
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.||None||
+||A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field via regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.||None|.*|
+||Client ID of the Microsoft Azure application. ||None||
+||Client Secret of the Microsoft Azure application.||None||
+||Username of the Microsoft Azure account.||None||
+||Password of the Microsoft Azure account.||None||
+||Subscription ID of the Microsoft Azure application.||None||
+||Tenant ID of the Microsoft Azure application.||None||
+||Refresh token for the OAuth authorization.||None||
+||Number of hours before the first connector iteration to retrieve alerts from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|1|
+||How many alerts to process per one connector iteration.||None|50|
+||Lowest severity that will be used to fetch Alert. Possible values: Low, Medium, High||None|Low|
+||If enabled, whitelist will be used as a blacklist.||None|false|
+||If enabled, verify the SSL certificate for the connection to the Azure Security Center server is valid.||None|false|
+||The address of the proxy server to use.||None||
+||The proxy username to authenticate with.||None||
+||The proxy password to authenticate with.||None||
+
 
 
 
