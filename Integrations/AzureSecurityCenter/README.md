@@ -45,6 +45,79 @@ Python Version - V3_11
 |httplib2-0.31.2-py3-none-any.whl|
 
 
+## Actions
+#### Get OAuth Authorization Code
+Generate an OAuth authorization code in Azure Security Center. Please refer to the documentation portal for more information.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the redirect URL that was used when the app was created.||None||
+
+
+
+#### Get OAuth Refresh Token
+Generate the refresh token that is needed for the integration configuration. Authorization code can be generated using "Get OAuth Authorization Code". Please refer to the documentation portal for more information.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the redirect URL that was used when the app was created.||None||
+||Specify the authorization code from action "Get OAuth Authorization Code"||None||
+
+
+
+#### List Regulatory Standard Controls
+List available controls related to standards in Microsoft Azure Security Center.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
+||Specify a comma-separated list of standard names for which you want to retrieve details. Example: Azure-CIS-1.1.0||None||
+||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None||
+||Specify how many controls to return per standard.||None||
+
+
+
+#### Update Alert Status
+Update status of the alert in Microsoft Azure Security Center.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
+||Specify an ID of the alert, where you want to update status.||None||
+||Specify the location of the alert. Example: centralus.||None||
+||Specify the status for the alert.||None||
+
+
+
+#### Ping
+Test connectivity to Azure Security Center with parameters provided at the integration configuration page on Marketplace tab.
+Timeout - 600 Seconds
+
+
+
+#### List Regulatory Standards
+List available regulatory standards in Microsoft Azure Security Center
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
+||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None||
+||Specify how many standards to return.||None||
+
+
+
+
+
 
 ## Jobs
 
