@@ -45,6 +45,115 @@ Python Version - V3_11
 |httplib2-0.31.2-py3-none-any.whl|
 
 
+## Actions
+#### Get OAuth Authorization Code
+Generate an OAuth authorization code in Azure Security Center. Please refer to the documentation portal for more information.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the redirect URL that was used when the app was created.||None||
+
+
+
+#### Get OAuth Refresh Token
+Generate the refresh token that is needed for the integration configuration. Authorization code can be generated using "Get OAuth Authorization Code". Please refer to the documentation portal for more information.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the redirect URL that was used when the app was created.||None||
+||Specify the authorization code from action "Get OAuth Authorization Code"||None||
+
+
+
+#### List Regulatory Standard Controls
+List available controls related to standards in Microsoft Azure Security Center.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
+||Specify a comma-separated list of standard names for which you want to retrieve details. Example: Azure-CIS-1.1.0||None||
+||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None||
+||Specify how many controls to return per standard.||None||
+
+
+
+#### Update Alert Status
+Update status of the alert in Microsoft Azure Security Center.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
+||Specify an ID of the alert, where you want to update status.||None||
+||Specify the location of the alert. Example: centralus.||None||
+||Specify the status for the alert.||None||
+
+
+
+#### Ping
+Test connectivity to Azure Security Center with parameters provided at the integration configuration page on Marketplace tab.
+Timeout - 600 Seconds
+
+
+
+#### List Regulatory Standards
+List available regulatory standards in Microsoft Azure Security Center
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
+||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None||
+||Specify how many standards to return.||None||
+
+
+
+
+
+
+## Jobs
+
+#### Refresh Token Renewal Job
+Token renewal job should be used to periodically update the refresh token configured for the integration. By default, the refresh token expires every 90 days, making integration unusable upon expiration. It is recommended to run this job every 7 or 14 days to make sure that refresh token will be up to date.
+
+|Name|IsMandatory|Type|DefaultValue|
+|----|-----------|----|------------|
+|||None||
+|||None||
+
+
+
+## Connectors
+#### Azure Security Center - Security Alerts Connector
+Pull security alerts from Azure Security Center. Note: whitelist works with alertType field.
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.||None||
+||A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field via regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.||None|.*|
+||Client ID of the Microsoft Azure application. ||None||
+||Client Secret of the Microsoft Azure application.||None||
+||Username of the Microsoft Azure account.||None||
+||Password of the Microsoft Azure account.||None||
+||Subscription ID of the Microsoft Azure application.||None||
+||Tenant ID of the Microsoft Azure application.||None||
+||Refresh token for the OAuth authorization.||None||
+||Number of hours before the first connector iteration to retrieve alerts from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|1|
+||How many alerts to process per one connector iteration.||None|50|
+||Lowest severity that will be used to fetch Alert. Possible values: Low, Medium, High||None|Low|
+||If enabled, whitelist will be used as a blacklist.||None|false|
+||If enabled, verify the SSL certificate for the connection to the Azure Security Center server is valid.||None|false|
+||The address of the proxy server to use.||None||
+||The proxy username to authenticate with.||None||
+||The proxy password to authenticate with.||None||
 
 
 
