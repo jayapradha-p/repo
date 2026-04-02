@@ -1,422 +1,179 @@
 {
-    "IsAvailableForCommunity": false,
+    "Name": null,
+    "UpdateAvailable": null,
+    "LatestVersion": null,
+    "Id": 0,
     "Identifier": "Exchange",
-    "ShouldInstalledInSystem": false,
-    "Version": 122.0,
+    "Custom": true,
+    "Parameters": [
+        {
+            "Id": 0,
+            "Mandatory": true,
+            "DefaultValue": "",
+            "Description": null,
+            "DisplayName": "Mail Server Address",
+            "PropertyName": "ServerAddress",
+            "Type": "String"
+        },
+        {
+            "Id": 0,
+            "Mandatory": true,
+            "DefaultValue": "",
+            "Description": null,
+            "DisplayName": "Mail address",
+            "PropertyName": "Mail Address",
+            "Type": "String"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "",
+            "Description": null,
+            "DisplayName": "Domain",
+            "PropertyName": "Domain",
+            "Type": "String"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "False",
+            "Description": null,
+            "DisplayName": "Use Domain For Authentication",
+            "PropertyName": "Use Domain For Authentication",
+            "Type": "Boolean"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "False",
+            "Description": null,
+            "DisplayName": "Use Autodiscover Service",
+            "PropertyName": "Use Autodiscover Service",
+            "Type": "Boolean"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "False",
+            "Description": "If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.",
+            "DisplayName": "Use Delegated Access",
+            "PropertyName": "Use Delegated Access",
+            "Type": "Boolean"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "",
+            "Description": null,
+            "DisplayName": "Username",
+            "PropertyName": "Username",
+            "Type": "String"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": null,
+            "Description": null,
+            "DisplayName": "Password",
+            "PropertyName": "Password",
+            "Type": "Password"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "",
+            "Description": null,
+            "DisplayName": "Client ID",
+            "PropertyName": "Client ID",
+            "Type": "String"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": null,
+            "Description": null,
+            "DisplayName": "Client Secret",
+            "PropertyName": "Client Secret",
+            "Type": "Password"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "",
+            "Description": null,
+            "DisplayName": "Tenant (Directory) ID",
+            "PropertyName": "Tenant (Directory) ID",
+            "Type": "String"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "http://localhost",
+            "Description": null,
+            "DisplayName": "Redirect URL",
+            "PropertyName": "Redirect URL",
+            "Type": "String"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": null,
+            "Description": null,
+            "DisplayName": "Refresh Token",
+            "PropertyName": "Refresh Token",
+            "Type": "Password"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": null,
+            "Description": "Specify a base64 encoded private key that will be used to decrypt the email.",
+            "DisplayName": "Base64 Encoded Private Key",
+            "PropertyName": "Base64 Encoded Private Key",
+            "Type": "Password"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": null,
+            "Description": "Specify a base64 encoded certificate that will be used to decrypt the email.",
+            "DisplayName": "Base64 Encoded Certificate",
+            "PropertyName": "Base64 Encoded Certificate",
+            "Type": "Password"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": null,
+            "Description": "Specify a base64 encoded trusted CA certificate for signature verification.",
+            "DisplayName": "Base64 Encoded CA certificate",
+            "PropertyName": "Base64 Encoded CA certificate",
+            "Type": "Password"
+        },
+        {
+            "Id": 0,
+            "Mandatory": false,
+            "DefaultValue": "False",
+            "Description": null,
+            "DisplayName": "Verify SSL",
+            "PropertyName": "Verify SSL",
+            "Type": "Boolean"
+        }
+    ],
+    "Certified": false,
+    "ProductionIdentifier": null,
+    "Type": "Response",
+    "Internal": false,
+    "Version": "122",
     "DisplayName": "Exchange",
     "Description": "Integration provides support for Microsoft Exchange 2010 - 2019 and Microsoft Office365 mail servers. Integration uses Exchange Web Services (EWS) for communication. Integration includes a series of actions to send out emails and work with received emails, along with a connector to monitor specific mailboxes and ingest emails from that mailboxes as alerts to Google SecOps for further analysis.",
     "ImageBase64": "iVBORw0KGgoAAAANSUhEUgAAALYAAABjCAMAAAAB3QqqAAAAtFBMVEX///8qKio8Nzc5OTm1tLRTU1P19fWPjY1AQEBubm5hYWGpqKiYmJhPTU3s7Ozh4eFzcHDNzc3BwMCdm5tiX1/My8uBf38tLS08PDwwMDA2NjaJiYlbW1vX1tbIyMjDw8N7e3t1dXVWVlZDQ0MzMzP9/f26urpoaGj39/fy8vLp6enb29vQ0NC7u7uFhYXU1NSrq6uioqJlZWVQUFBJSUn5+fn09PSRkZHl5eWzs7NLS0uVlZVL/URUAAADuklEQVR42u2aC1PiMBCAtxFbHjbplbZYnoI8VPAF+P7//+t2G4qFu2LAOSY9842j242d+ZJsAu0EDAaDwWAwGAwGg8FQHJ7vx/WK24bCcCX8h4tq2SIWUAR49+1usmxYa05Bb+zp7Vml3ZSyRdAeiVmtXy3LIS6E9s392Jm4sTQsiHb9YrCqiUJpU1UUUPvEaOdjtP9/7QHohpJ2+SwXfwTHh7S/yQsooJ/2OShyfO3lrxxmVasJimi0JG+W1gkoo8sG6F9aBdR+jC1dtBdRa36upG1H2NLUQvvifkQV+xJ/rS2qljXs9TXQHj6k2dv4K+2wbFnvHahooP0Ia24bu7UfsL3CQQftCtXHmde/BeRup3YLk9ET6KAdC4BpmaI7zPPzfO3rCRYUTY26dok5/0h7AjAKZDjDhn626OuQoeNa1mUXtrXJLaF2VO0aQHcV9rFhvLnFXEHKG85D+xU00W50qGQl59cA09jK0p6C5IU68QR/13aOXiSXOJ7zVdzkAHamuMtUFj1AeB87iGW9W9tjJQDusg7mAsY8H5vqOBeUxpTHWOBj4LCOswpFxAgXgEeUUtfGEXxPR74LcJ3RHlxXpG1ngFPRhd3aZOxyiEiyzgjSdimglGAJIWnLpADbDTj+b51ulXfsM9qL9KK3qX0Kow/80yqdYCwgX1taUBThD0okor6NCQoiykFJ0HzUEu0Q7ABbfDIWzKN+ejZeBvtov2e0nze0Acay1j0OCtooyFyOwmQim0gkpEt5LbXrGNYwlNrUqYCFSZUJ5SL5rO3h6/ZoI91l+gj2ZZGQIIqkGRmk2rxGdSC1S1JbFkmNSoPaiFBReygyO8kzwOyP99s3TuSDorbH5IJk0ZY2Gro+XWe1qWW1EAN1bUnvc9+mqXzI+ZRU0abVFVJZiKSkQ5HRxrwNwtvSDoL0TroCUQJV7QuAUXvdA5gfop1Qk2qoThZEKaPNGeFuaXuMcGzgcrg9ZW3arGcn6XeSaXy4tp2sK/xN1YDFGmVHG3zMOMLd0OYOI6ijNvU0Ut4Apa1IvwF6lrr29wlckfYqRVk77mUGzjqmti1XLmfRQU83a+9xfFRt8Nww+Vjv7K1NNJxXQESrYR1Xm9eTRcEPfXJvtlut9lDxhYMWTzcZjPYKo62uvbDzmOis3SjnEev8ongXFVDk+NrNai4tDvuhw2v5vdBoJ1HEaBvtPfjZ50kKenqnoGelinsyrcjnAAt96nL7jOugSGdcN08Uf8yLdKLYYDAYDAaDwWAw/BB+Aw2VR2VEmuxbAAAAAElFTkSuQmCC",
-    "SvgImage": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\n<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 25 25\" style=\"enable-background:new 0 0 25 25;\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<path d=\"M17.9,12.3c0,0-1.4,1.2-2.8-0.3v5.5H22c0,0,1-0.1,0.9-1.5l0-7.2L17.9,12.3z M22.9,7.1c0-0.9-0.8-0.8-0.8-0.8h-7v4.1l1.5,1\n\t\t\tL22.9,7.1z M2.1,20.6L14.3,23V2L2.1,4.1V20.6z M8.2,8.6c1.5,0,2.8,1.7,2.8,3.7c0,2.1-1.2,3.7-2.8,3.7c-1.5,0-2.8-1.7-2.8-3.7\n\t\t\tC5.4,10.3,6.7,8.6,8.2,8.6z M8.2,14.5c0.7,0,1.3-1,1.3-2.2s-0.6-2.2-1.3-2.2c-0.7,0-1.3,1-1.3,2.2S7.4,14.5,8.2,14.5z\"/>\n\t</g>\n</g>\n</svg>\n",
-    "IsCustom": false,
-    "PythonVersion": 3,
-    "IntegrationProperties": [
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "ServerAddress",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Mail Server Address",
-            "PropertyType": 2,
-            "IsMandatory": true,
-            "Value": "",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Mail Address",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Mail address",
-            "PropertyType": 2,
-            "IsMandatory": true,
-            "Value": "",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Domain",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Domain",
-            "PropertyType": 2,
-            "IsMandatory": false,
-            "Value": "",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Use Domain For Authentication",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Use Domain For Authentication",
-            "PropertyType": 0,
-            "IsMandatory": false,
-            "Value": "False",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Use Autodiscover Service",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Use Autodiscover Service",
-            "PropertyType": 0,
-            "IsMandatory": false,
-            "Value": "False",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Use Delegated Access",
-            "PropertyDescription": "If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.",
-            "PropertyDisplayName": "Use Delegated Access",
-            "PropertyType": 0,
-            "IsMandatory": false,
-            "Value": "False",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Username",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Username",
-            "PropertyType": 2,
-            "IsMandatory": false,
-            "Value": "",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Password",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Password",
-            "PropertyType": 3,
-            "IsMandatory": false,
-            "Value": null,
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Client ID",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Client ID",
-            "PropertyType": 2,
-            "IsMandatory": false,
-            "Value": "",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Client Secret",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Client Secret",
-            "PropertyType": 3,
-            "IsMandatory": false,
-            "Value": null,
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Tenant (Directory) ID",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Tenant (Directory) ID",
-            "PropertyType": 2,
-            "IsMandatory": false,
-            "Value": "",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Redirect URL",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Redirect URL",
-            "PropertyType": 2,
-            "IsMandatory": false,
-            "Value": "http://localhost",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Refresh Token",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Refresh Token",
-            "PropertyType": 3,
-            "IsMandatory": false,
-            "Value": null,
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Base64 Encoded Private Key",
-            "PropertyDescription": "Specify a base64 encoded private key that will be used to decrypt the email.",
-            "PropertyDisplayName": "Base64 Encoded Private Key",
-            "PropertyType": 3,
-            "IsMandatory": false,
-            "Value": null,
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Base64 Encoded Certificate",
-            "PropertyDescription": "Specify a base64 encoded certificate that will be used to decrypt the email.",
-            "PropertyDisplayName": "Base64 Encoded Certificate",
-            "PropertyType": 3,
-            "IsMandatory": false,
-            "Value": null,
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Base64 Encoded CA certificate",
-            "PropertyDescription": "Specify a base64 encoded trusted CA certificate for signature verification.",
-            "PropertyDisplayName": "Base64 Encoded CA certificate",
-            "PropertyType": 3,
-            "IsMandatory": false,
-            "Value": null,
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        },
-        {
-            "IntegrationIdentifier": "Exchange",
-            "PropertyName": "Verify SSL",
-            "PropertyDescription": null,
-            "PropertyDisplayName": "Verify SSL",
-            "PropertyType": 0,
-            "IsMandatory": false,
-            "Value": "False",
-            "Id": 0,
-            "CreationTimeUnixTimeInMs": 1774865176614,
-            "ModificationTimeUnixTimeInMs": 1774865176614
-        }
-    ],
-    "IntegrationSupportedActions": [
-        {
-            "Name": "Delete Mail",
-            "Description": "Delete one or multiple email from the mailbox that matches search criterias. Delete can be done for the first email that matched the search criteria, or it can be done for all matching emails. NOTICE - to delete emails in all mailboxes, please configure impersonation permissions. https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange. Note: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 171,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Wait for mail from user",
-            "Description": "Wait for user's response based on an email sent via Send Email action. Note: please adjust the async timeout for action (polling timeout) and global action timeout in Siemplify server configuration as needed. Action input parameter \"How long to wait for recipient reply (minutes)\" cant be bigger than Siemplify server global timeout value.",
-            "Id": 146,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Wait for Vote Mail Results",
-            "Description": "Use this action to fetch the responses of a vote mail sent by the \"Send Vote Mail\" action, in order to wait for the responses and get them inside Siemplify.",
-            "Id": 147,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Unblock Sender by Message ID",
-            "Description": "Action will get as a parameter a list of message IDs, and will be able to unmark it as junk. Unmarking an item as junk using this action will remove the item sender's mail address from the \"Blocked Senders List\". To move it back to the inbox, please tick the appropriate checkbox in the action parameters. NOTICE - to unmark emails in all mailboxes, please configure impersonation permissions: https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange. NOTE: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed. NOTE: Action is supported only from Exchange Server version 2013 and newer, if a lower version is used, action will fail with the appropriate message.",
-            "Id": 148,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Send Mail HTML",
-            "Description": "Send an email with HTML template content, Send to field is comma separated. Note: Sender's display name can be configured in the client under the account settings",
-            "Id": 149,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Add Senders to Exchange-Siemplify Inbox Rule",
-            "Description": "Action will get as a parameter a list of Email Addresses, or will work on User entities with Email regexes (if parameters are not provided), and will be able to create a new rule, filtering the senders from your mailboxes. Actions can be modified in the parameters using the rule parameter. WARNING: Action will modify your current users inbox rules, using EWS. NOTICE - to perform operation, please configure EDiscovery Group and Author permissions. For full details, please visit: https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/exchang. NOTE: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 169,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Send Vote Mail",
-            "Description": "Send emails with easy answering options, to allow stakeholders to be combined in the automated processes without accessing the Siemplify UI.",
-            "Id": 150,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Send Thread Reply",
-            "Description": "Send a message as a reply to the email thread.",
-            "Id": 151,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Send Mail",
-            "Description": "Send Email from specific mailbox to an arbitrary list of recipients. Action can be used to inform users about specific alerts created in the Siemplify or inform about the results of processing of specific alerts.",
-            "Id": 152,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Send Email And Wait",
-            "Description": "Send email and wait action, Send to field is comma separated. Note: Sender's display name can be configured in the client under the account settings",
-            "Id": 153,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Remove Senders from Exchange-Siemplify Inbox Rules",
-            "Description": "Action will get as a parameter a list of Senders, or will work on User entities (if parameters are not provided), and will be able to remove the provided Senders from the existing rules. WARNING: Action will modify your current users inbox rules, using EWS. NOTICE - to perform operation, please configure EDiscovery Group and Author permissions. For full details, please visit: https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/exchang. NOTE: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 154,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Block Sender by Message ID",
-            "Description": "Action will get as a parameter a list of message IDs, and will be able to mark it as junk. Marking an item as junk using this action will add the item sender's mail address to the \"Blocked Senders List\", and will also move it to the \"Junk\" folder. NOTICE - to mark emails in all mailboxes, please configure impersonation permissions: https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange. NOTE: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed. NOTE: Action is supported only from Exchange Server version 2013 and newer, if a lower version is used, action will fail with the appropriate message.",
-            "Id": 170,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Save Mail Attachments To The Case",
-            "Description": "Save email attachments from email stored in monitored mailbox to the Case Wall.",
-            "Id": 155,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Ping",
-            "Description": "Test connectivity to Microsoft Exchange instance with parameters provided at the integration configuration page on Marketplace tab.",
-            "Id": 156,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Remove Domains from Exchange-Siemplify Inbox Rules",
-            "Description": "Action will get as a parameter a list of Domains, and will be able to remove the provided domains from the existing rules. WARNING: Action will modify your current users inbox rules, using EWS. NOTICE - to perform operation, please configure EDiscovery Group and Author permissions. For full details, please visit: https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/exchang. NOTE: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 157,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Move Mail To Folder",
-            "Description": "Move one or multiple emails from source email folder to another folder in mailbox. NOTICE - to search and move emails in all mailboxes, please configure impersonation permissions. https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange. Note: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 158,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Search Mails",
-            "Description": "Search for specific emails in configured mailbox using multiple provided search criteria. Action return information on found in mailbox emails in JSON format. NOTICE - to search for an email in all mailboxes, please configure impersonation permissions. https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange. Note: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 159,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Get Mail EML File",
-            "Description": "Fetch message EML file.",
-            "Id": 160,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Get Authorization",
-            "Description": "For integration configuration with Oauth authentication, run the action and browse to the received URL to get a link with access code. That link needs to be provided to the Generate Token action next to get the refresh token.",
-            "Id": 161,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "List Exchange-Siemplify Inbox Rules",
-            "Description": "Action will get as a parameter a rule name, from the Exchange-Siemplify Inbox rules, and will list it. If no mailboxes to list for will be provided, the rules for the logged in user will be listed. NOTICE - to perform operation, please configure EDiscovery Group and Author permissions. For full details, please visit: https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/exchang. NOTE: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 162,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Get Account Out Of Facility Settings",
-            "Description": "Get account out of facility (OOF) settings for the provided Siemplify User entity. Note 1: If the target User entity is a username, not a mail address, please run Enrich Entities from Active Directory integration first to try to use the information about User's mail stored in Active Directory. Note 2: For integration to return the information, it should have delegation or impersonation permissions to the target account mailbox. Link to impersonation permission configuration: https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange",
-            "Id": 163,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Extract EML Data",
-            "Description": "Extract data from email's EML attachments.",
-            "Id": 164,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Generate Token",
-            "Description": "For integration configuration with Oauth authentication, get a refresh token using the authorization URL received in the Get Authorization action.",
-            "Id": 165,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Delete Exchange-Siemplify Inbox Rules",
-            "Description": "Action will get as a parameter a rule name and will delete it from all the specified mailboxes. WARNING: Action will modify your current users inbox rules, using EWS. NOTICE - to perform operation, please configure EDiscovery Group and Author permissions. For full details, please visit: https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/exchang. NOTE: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 166,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Download Attachments",
-            "Description": "Download email attachments from email to specific file path on Siemplify server. NOTICE - to search for an email in all mailboxes, please configure impersonation permissions. https://docs.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange. Note: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed. Additionally, please note that if the downloaded attachments have \"/\" or \"\\\" characters in the names, those will be replaced with the '_' character.",
-            "Id": 167,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        },
-        {
-            "Name": "Add Domains to Exchange-Siemplify Inbox Rules",
-            "Description": "Action will get as a parameter a list of Domains, and will be able to create or update a rule, filtering the domains from your mailboxes. Actions can be modified in the parameters using rule parameter. WARNING: Action will modify your current users inbox rules, using EWS. NOTICE - to perform operation, please configure EDiscovery Group and Author permissions. For full details, please visit: https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/exchang. NOTE: Action is running as async, please adjust script timeout value in Siemplify IDE for action as needed.",
-            "Id": 168,
-            "CreationTimeUnixTimeInMs": 1774865176624,
-            "ModificationTimeUnixTimeInMs": 1774865176624
-        }
-    ],
+    "SvgIcon": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->\n<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 25 25\" style=\"enable-background:new 0 0 25 25;\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<path d=\"M17.9,12.3c0,0-1.4,1.2-2.8-0.3v5.5H22c0,0,1-0.1,0.9-1.5l0-7.2L17.9,12.3z M22.9,7.1c0-0.9-0.8-0.8-0.8-0.8h-7v4.1l1.5,1\n\t\t\tL22.9,7.1z M2.1,20.6L14.3,23V2L2.1,4.1V20.6z M8.2,8.6c1.5,0,2.8,1.7,2.8,3.7c0,2.1-1.2,3.7-2.8,3.7c-1.5,0-2.8-1.7-2.8-3.7\n\t\t\tC5.4,10.3,6.7,8.6,8.2,8.6z M8.2,14.5c0.7,0,1.3-1,1.3-2.2s-0.6-2.2-1.3-2.2c-0.7,0-1.3,1-1.3,2.2S7.4,14.5,8.2,14.5z\"/>\n\t</g>\n</g>\n</svg>\n",
+    "PythonVersion": "V3_11",
     "Categories": [
         "IT & Infrastructure",
         "Email"
     ],
-    "HasConnectors": false,
-    "DocumentationLink": "https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/exchange",
-    "IsCertified": false,
-    "UploaderFullName": null,
-    "PublishComment": null,
-    "UploaderEmail": null,
-    "UploaderImageBase64": null,
-    "UploaderProfileLink": null,
-    "MinimumSystemVersion": 0.0,
-    "ProductionIntegrationIdentifier": null,
-    "Type": 0,
-    "Internal": false,
-    "GoogleSecOpsProduct": false,
-    "Id": 0,
-    "CreationTimeUnixTimeInMs": 1774865176614,
-    "ModificationTimeUnixTimeInMs": 1774865176614
+    "Staging": false,
+    "IsCustom": null
 }

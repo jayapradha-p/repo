@@ -4,7 +4,7 @@
     "LatestVersion": null,
     "Id": 0,
     "Identifier": "GoogleSecOpsAiAgents",
-    "Custom": false,
+    "Custom": true,
     "Parameters": [
         {
             "Id": 0,
@@ -33,5 +33,5 @@
         "Google"
     ],
     "Staging": false,
-    "IsCustom": false
+    "IsCustom": null
 }
