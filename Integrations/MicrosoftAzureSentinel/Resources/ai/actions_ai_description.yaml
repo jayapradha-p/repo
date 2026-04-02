@@ -1,0 +1,1621 @@
+Add Comment to Incident:
+  ai_description: >-
+    Adds a comment to a specific Microsoft Azure Sentinel incident. This action allows
+    users to append notes or updates directly to an incident within the Azure Sentinel
+    platform by providing the incident's unique number and the desired comment text.
+
+
+    ### Parameters
+
+    | Parameter Name | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Incident Number | Integer | Yes | The unique identification number of the Azure
+    Sentinel incident to which the comment will be added. |
+
+    | Comment to Add | String | Yes | The text content of the comment to be appended
+    to the incident. |
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action initializes the Microsoft Azure Sentinel manager
+    using the provided integration configuration (API Root, Client ID, Tenant ID,
+    etc.).
+
+    2. **Incident Retrieval**: It searches for the specific incident in Azure Sentinel
+    using the provided `Incident Number`.
+
+    3. **Comment Addition**: If the incident is successfully located, the action sends
+    a request to the Azure Sentinel API to add the specified `Comment to Add` to that
+    incident.
+
+    4. **Result Reporting**: The action returns the details of the created comment
+    in JSON format and provides a success message upon completion.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Adds a new comment to a specific incident in the Microsoft Azure Sentinel platform.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Create Alert Rule:
+  ai_description: >-
+    ### General Description
+
+    Creates a new scheduled alert rule in Microsoft Azure Sentinel. This action allows
+    security teams to programmatically define detection logic, severities, and query
+    frequencies directly from Google SecOps. It supports full configuration of the
+    rule, including KQL queries, trigger thresholds, and suppression settings.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Enable Alert Rule | Boolean | Yes | Specifies whether the new alert rule should
+    be enabled immediately upon creation. |
+
+    | Name | String | Yes | The display name for the new alert rule. |
+
+    | Severity | Enum | Yes | The severity level assigned to the alert rule (Informational,
+    Low, Medium, High). |
+
+    | Query | String | Yes | The KQL (Kusto Query Language) query that the alert rule
+    will execute. |
+
+    | Frequency | String | Yes | How often the query should run, formatted as an ISO8601
+    duration (e.g., PT1H for 1 hour). |
+
+    | Period of Lookup Data | String | Yes | The time window of data the query will
+    look back at, formatted as an ISO8601 duration. |
+
+    | Trigger Operator | Enum | Yes | The operator used to compare the query results
+    against the threshold (GreaterThan, LessThan, Equal, NotEqual). |
+
+    | Trigger Threshold | Integer | Yes | The numeric value that triggers the alert
+    based on the query results. |
+
+    | Enable Suppression | Boolean | Yes | If true, stops the query from running for
+    a specified duration after an alert is generated. |
+
+    | Suppression Duration | String | Yes | The duration for which the query is suppressed,
+    formatted as an ISO8601 duration. |
+
+    | Description | String | No | A detailed description of the alert rule's purpose.
+    |
+
+    | Tactics | String | No | A comma-separated list of MITRE ATT&CK tactics associated
+    with the rule. |
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action retrieves configuration details for the Azure
+    Sentinel environment and extracts all user-provided parameters.
+
+    2. **Validation**: It validates that the provided tactics, severities, trigger
+    operators, and ISO8601 durations (Frequency, Period, Suppression) conform to Azure
+    Sentinel's requirements.
+
+    3. **API Interaction**: The action generates a unique identifier (UUID) and sends
+    a PUT request to the Azure Sentinel alert rules endpoint with the constructed
+    rule properties.
+
+    4. **Result Processing**: Upon successful creation, the action returns the full
+    JSON representation of the new alert rule and marks the execution as completed.
+
+
+    ### Additional Notes
+
+    - Durations must follow the ISO8601 format (e.g., "PT5M" for 5 minutes, "P1D"
+    for 1 day).
+
+    - The minimum allowed duration is 5 minutes, and the maximum is 14 days.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Creates a new scheduled alert rule in the Microsoft Azure Sentinel workspace.
+    fetches_data: false
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Create Custom Hunting Rule:
+  ai_description: >-
+    ### General Description
+
+    Creates a new custom hunting rule in Microsoft Azure Sentinel. This action allows
+    security teams to programmatically define and deploy KQL-based hunting queries
+    to their Sentinel workspace, facilitating proactive threat detection. The rule
+    can be tagged with specific MITRE ATT&CK tactics and a detailed description for
+    better categorization and context.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Display Name | String | Yes | The display name for the new custom hunting rule.
+    |
+
+    | Query | String | Yes | The KQL (Kusto Query Language) query that defines the
+    hunting logic. |
+
+    | Description | String | No | A detailed description of what the hunting rule
+    is intended to detect. |
+
+    | Tactics | String | No | A comma-separated list of MITRE ATT&CK tactics (e.g.,
+    'InitialAccess, Persistence') to associate with the rule. |
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction:** The action retrieves the necessary configuration
+    (API credentials, workspace details) and action parameters (Display Name, Query,
+    Description, Tactics).
+
+    2. **Validation:** It validates the provided 'Tactics' against a list of supported
+    Azure Sentinel tactics to ensure API compatibility.
+
+    3. **Payload Construction:** A hunting rule request object is created, encapsulating
+    the query, display name, and metadata (description and tactics) as tags.
+
+    4. **External API Call:** The action performs a PUT request to the Azure Sentinel
+    'savedSearches' endpoint to create the rule.
+
+    5. **Result Processing:** Upon success, the details of the newly created hunting
+    rule are returned as JSON and the action completes successfully.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Creates a new custom hunting rule (saved search) in the Microsoft Azure Sentinel
+      workspace.
+    fetches_data: false
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Delete Alert Rule:
+  ai_description: "Deletes a scheduled alert rule in Microsoft Azure Sentinel. This\
+    \ action interacts with the Azure Sentinel API to permanently remove a specific\
+    \ alert rule based on its unique identifier. \n\n### Parameters Description:\n\
+    \n| Parameter | Type | Mandatory | Description |\n| :--- | :--- | :--- | :---\
+    \ |\n| Alert Rule ID | String | Yes | The unique identifier of the scheduled alert\
+    \ rule to be deleted from the Azure Sentinel workspace. |\n\n### Flow Description:\n\
+    \n1. **Initialization**: The action initializes the Microsoft Azure Sentinel manager\
+    \ using the provided configuration parameters (API Root, Client ID, Client Secret,\
+    \ Tenant ID, etc.).\n2. **Validation**: The action first attempts to retrieve\
+    \ the alert rule using the provided 'Alert Rule ID' to verify its existence before\
+    \ deletion.\n3. **Execution**: If the rule is found, the action sends a DELETE\
+    \ request to the Azure Sentinel API endpoint associated with that specific rule\
+    \ ID.\n4. **Completion**: The action returns a success message if the rule is\
+    \ deleted or an error message if the operation fails (e.g., rule not found or\
+    \ permission issues)."
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Permanently deletes a scheduled alert rule configuration from the Microsoft
+      Azure Sentinel workspace.
+    fetches_data: false
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Delete Custom Hunting Rule:
+  ai_description: >-
+    ### General Description
+
+    Deletes a specific custom hunting rule from Microsoft Azure Sentinel using its
+    unique identifier. This action is used to manage and clean up hunting rules within
+    the Azure Sentinel workspace directly from Google SecOps.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Hunting Rule ID | String | Yes | The unique identifier (GUID) of the custom
+    hunting rule to be deleted from the Azure Sentinel workspace. |
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action initializes the Siemplify environment and retrieves
+    the necessary configuration parameters for Azure Sentinel (API Root, Client ID,
+    Secret, Tenant ID, Workspace Name, etc.).
+
+    2. **Parameter Extraction**: The action extracts the mandatory `Hunting Rule ID`
+    provided by the user.
+
+    3. **Manager Setup**: It initializes the `MicrosoftAzureSentinelManager` which
+    handles authentication and communication with the Azure Sentinel API.
+
+    4. **Execution**: The manager first verifies the existence of the rule and then
+    sends a DELETE request to the Azure Sentinel endpoint associated with the provided
+    Rule ID.
+
+    5. **Completion**: The action returns a success message if the rule is deleted
+    or an error message if the operation fails (e.g., rule not found or permission
+    issues).
+
+
+    ### Additional Notes
+
+    - This action performs a permanent deletion in the external system (Azure Sentinel).
+
+    - Ensure the provided `Hunting Rule ID` is correct, as this operation cannot be
+    undone via this action.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Deletes a custom hunting rule configuration from the Microsoft Azure Sentinel
+      workspace via a DELETE API request.
+    fetches_data: false
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Get Alert Rule Details:
+  ai_description: >-
+    ### General Description
+
+    The **Get Alert Rule Details** action retrieves comprehensive configuration information
+    for a specific scheduled alert rule within Microsoft Azure Sentinel. This action
+    is designed to provide visibility into the logic, frequency, and metadata of detection
+    rules, which is essential for auditing and incident investigation.
+
+
+    ### Parameters
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Alert Rule ID | String | Yes | The unique identifier (GUID) of the scheduled
+    alert rule to retrieve details for. |
+
+
+    ### Flow Description
+
+    1. **Authentication**: The action initializes a connection to the Microsoft Azure
+    Sentinel API using the configured credentials (Client ID, Secret, Tenant ID, etc.).
+
+    2. **Data Retrieval**: It executes a GET request to the Azure Sentinel workspace
+    to fetch the specific alert rule details associated with the provided `Alert Rule
+    ID`.
+
+    3. **Data Processing**: The retrieved raw JSON data is parsed into a structured
+    data model, extracting key attributes such as the query logic, severity, tactics,
+    and suppression settings.
+
+    4. **Output Generation**: The action populates the result JSON with the full rule
+    configuration and generates a data table for the case wall, summarizing the rule's
+    operational parameters.
+
+
+    ### Additional Notes
+
+    - This action does not require or process any entities from the Google SecOps
+    case.
+
+    - The `Alert Rule ID` must be a valid GUID recognized by the target Azure Sentinel
+    workspace.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Get Custom Hunting Rule Details:
+  ai_description: >-
+    ### General Description
+
+    Retrieves comprehensive details for a specific Microsoft Azure Sentinel Custom
+    Hunting Rule using its unique identifier. This action allows analysts to programmatically
+    inspect the configuration, KQL query logic, associated MITRE ATT&CK tactics, and
+    metadata of hunting rules directly within Google SecOps.
+
+
+    ### Parameters
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Hunting Rule ID | String | Yes | The unique identifier (often a GUID or the
+    'Name' attribute) of the custom hunting rule in Azure Sentinel. |
+
+
+    ### Flow Description
+
+    1. **Initialization:** The action initializes the connection to Microsoft Azure
+    Sentinel using configuration parameters such as Client ID, Client Secret, Tenant
+    ID, and Workspace details.
+
+    2. **Parameter Extraction:** It extracts the mandatory `Hunting Rule ID` provided
+    by the user.
+
+    3. **API Request:** The `MicrosoftAzureSentinelManager` executes a GET request
+    to the Azure Sentinel 'savedSearches' endpoint for the specific rule ID.
+
+    4. **Data Processing:** The retrieved rule details are parsed into a structured
+    `CustomHuntingRule` data model.
+
+    5. **Output:** The action populates the execution results with a JSON representation
+    of the rule and creates a formatted data table titled 'Microsoft Azure Sentinel
+    Hunting Rule Details' for visibility in the case wall.
+
+
+    ### Additional Notes
+
+    This action does not process entities from the case context; it relies entirely
+    on the provided `Hunting Rule ID` parameter. If the rule ID is not found, the
+    action will complete with a message indicating no rule was found.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Get Incident Statistic:
+  ai_description: >-
+    ### General Description
+
+    The **Get Incident Statistic** action retrieves aggregated statistics for incidents
+    within a Microsoft Azure Sentinel workspace. It provides a high-level overview
+    of incident distribution based on severity and status over a defined period, allowing
+    analysts to monitor workload and threat trends.
+
+
+    ### Parameters
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Time Frame | Integer | No | Specifies the time window in hours (from the current
+    time) for which to fetch incident statistics. If not provided, it defaults to
+    3 hours. |
+
+
+    ### Flow Description
+
+    1. **Authentication**: The action establishes a connection to the Microsoft Azure
+    Sentinel API using the configured credentials, including Client ID, Client Secret,
+    Tenant ID, and Workspace details.
+
+    2. **Time Window Calculation**: It calculates the start and end timestamps based
+    on the current UTC time and the provided `Time Frame` parameter.
+
+    3. **Data Retrieval**: The action sends a request to the Azure Sentinel aggregation
+    endpoint to fetch incident counts grouped by severity (Critical, High, Medium,
+    Low, Informational) and status (New, Active, Closed, etc.).
+
+    4. **Output Generation**: The retrieved statistics are processed into a JSON result.
+    Additionally, the action generates two data tables: "Microsoft Azure Sentinel
+    Incident statistics by Severity" and "Microsoft Azure Sentinel Incident statistics
+    by Status" for visual representation in the SOAR interface.
+
+
+    ### Additional Notes
+
+    This action does not operate on specific entities and is intended for global reporting
+    or dashboarding purposes within a playbook. It is a read-only action that does
+    not modify any data in Azure Sentinel.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+List Alert Rules:
+  ai_description: >-
+    ### General Description
+
+    Retrieves a list of scheduled alert rules from Microsoft Azure Sentinel. This
+    action allows users to filter rules based on their severity, type, tactics, and
+    whether they are currently enabled. The results are presented in a structured
+    data table and as a raw JSON object for further processing in the playbook.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Alert Rule Severity | String | No | Comma-separated list of severities (Informational,
+    Low, Medium, High) to filter the rules. |
+
+    | Fetch Specific Alert Rule Types | String | No | Comma-separated list of alert
+    rule types to return (e.g., Scheduled). |
+
+    | Fetch Specific Alert Rule Tactics | String | No | Comma-separated list of MITRE
+    tactics to filter the rules. |
+
+    | Fetch only Enabled Alert Rules | Boolean | No | If set to True, only rules that
+    are currently enabled will be returned. |
+
+    | Max rules to return | Integer | No | The maximum number of alert rules to include
+    in the output. |
+
+
+    ### Additional Notes
+
+    This action does not run on specific entities and instead queries the global configuration
+    of the Azure Sentinel workspace. If no filters are provided, the action will attempt
+    to retrieve all available alert rules up to the specified limit.
+
+
+    ### Flow Description
+
+    1. **Authentication**: Connects to Azure Sentinel using the provided API Root,
+    Client ID, Client Secret, and Tenant ID.
+
+    2. **Data Retrieval**: Requests the list of alert rules from the configured Azure
+    Sentinel workspace.
+
+    3. **Filtering**: Applies client-side filtering based on the provided severity,
+    rule type, and tactics parameters.
+
+    4. **Status Check**: If 'Fetch only Enabled Alert Rules' is enabled, it excludes
+    any rules that are currently disabled.
+
+    5. **Limiting**: Truncates the list of rules to match the 'Max rules to return'
+    parameter.
+
+    6. **Output**: Returns the filtered list as a JSON object and populates a data
+    table in the Google SecOps UI.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+List Custom Hunting Rules:
+  ai_description: >-
+    ### General Description
+
+    This action retrieves a list of Custom Hunting Rules (saved searches) from a Microsoft
+    Azure Sentinel workspace. It allows users to discover available hunting queries,
+    their associated tactics, and metadata. The results are presented both as a raw
+    JSON output and a structured data table within the Google SecOps environment.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Hunting Rule Names to Return | String | No | A comma-separated list of specific
+    hunting rule names to filter the results. If empty, all rules are considered.
+    |
+
+    | Fetch Specific Hunting Rule Tactics | String | No | A comma-separated list of
+    MITRE ATT&CK tactics (e.g., 'Execution', 'Persistence') to filter the rules. |
+
+    | Max rules to return | Integer | No | The maximum number of hunting rules to
+    return in the output. If not specified or less than 1, all matching rules are
+    returned. |
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action extracts configuration parameters (API credentials,
+    workspace details) and user-provided filters (names, tactics, and limit).
+
+    2. **Validation**: It validates the provided tactics against a predefined list
+    of supported Azure Sentinel tactics.
+
+    3. **API Request**: The action connects to the Azure Sentinel API and fetches
+    the list of custom hunting rules (saved searches) from the specified workspace.
+
+    4. **Filtering**: The retrieved rules are filtered client-side based on the provided
+    names and tactics.
+
+    5. **Output Generation**: The filtered list is truncated according to the 'Max
+    rules to return' parameter. The final list is then added to the action's execution
+    results as a JSON object and formatted into a data table for display in the case
+    wall.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+List Incidents:
+  ai_description: >-
+    ### General Description
+
+    The **List Incidents** action retrieves a list of incidents from Microsoft Azure
+    Sentinel based on specific search criteria. It allows security analysts to query
+    the external system for incidents within a defined time window, filtered by their
+    current status and severity levels. The results are presented as a structured
+    data table and a raw JSON output for further automation steps.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Time Frame** | Integer | No | The number of hours back from the current time
+    to search for incidents. Defaults to 3 hours if not specified. |
+
+    | **Status** | String | No | A comma-separated list of incident statuses to include
+    (e.g., 'New, Active, Closed'). Defaults to all three. |
+
+    | **Severity** | String | No | A comma-separated list of incident severities to
+    include (e.g., 'Informational, Low, Medium, High'). Defaults to all four. |
+
+    | **How Many Incidents to Fetch** | Integer | No | The maximum number of incident
+    records to retrieve. Defaults to 200. |
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action extracts integration configuration (API credentials,
+    workspace details) and user-provided search parameters.
+
+    2. **Validation**: It validates that the provided `Status` and `Severity` strings
+    contain values recognized by the Microsoft Azure Sentinel API.
+
+    3. **Query Construction**: A query is built using the `QueryBuilder` utility to
+    filter incidents by `createdTimeUtc`, `status`, and `severity` using OData filter
+    syntax.
+
+    4. **Data Retrieval**: The action sends a GET request to the Azure Sentinel incidents
+    endpoint.
+
+    5. **Output Generation**: Retrieved incidents are parsed into a standardized data
+    model. The action then populates a data table in the Google SecOps UI and attaches
+    the full incident details as a JSON result.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: true
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Ping:
+  ai_description: >-
+    ### General Description
+
+    The **Ping** action is designed to verify the connectivity between Google SecOps
+    and the Microsoft Azure Sentinel environment. It validates the integration's configuration
+    by attempting to authenticate and perform a basic API call to ensure that the
+    service is reachable and the credentials provided are correct.
+
+
+    ### Parameters Description
+
+    There are no specific input parameters for this action. It utilizes the global
+    integration configuration parameters, including:
+
+    * **Api Root**: The base URL for the Azure Sentinel API.
+
+    * **OAUTH2 Login Endpoint Url**: The URL used for OAuth2 authentication.
+
+    * **Client ID**: The application ID for authentication.
+
+    * **Client Secret**: The application secret for authentication.
+
+    * **Azure Active Directory ID**: The tenant ID.
+
+    * **Azure Sentinel Workspace Name**: The specific workspace identifier.
+
+    * **Azure Resource Group**: The resource group containing the workspace.
+
+    * **Azure Subscription ID**: The subscription identifier.
+
+    * **Verify SSL**: Boolean flag to enable/disable SSL verification.
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action initializes the Siemplify environment and logs
+    the start of the process.
+
+    2. **Configuration Extraction**: It retrieves all necessary connection parameters
+    from the integration settings.
+
+    3. **Connectivity Test**: The action instantiates the `MicrosoftAzureSentinelManager`
+    with the `force_check_connectivity` flag enabled. This triggers an internal process
+    that:
+        * Requests an OAuth2 token from the Microsoft login endpoint.
+        * Executes a test GET request to the Sentinel incidents endpoint (limiting
+    the result to one) to verify API access.
+    4. **Status Reporting**: If the authentication and API call succeed, the action
+    returns a success message. If an exception occurs (e.g., authentication failure
+    or network timeout), the error is caught, logged, and the action is marked as
+    failed.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Run Custom Hunting Rule Query:
+  ai_description: >-
+    ### General Description
+
+    The **Run Custom Hunting Rule Query** action executes a specific predefined hunting
+    rule in Microsoft Azure Sentinel. It retrieves the KQL (Kusto Query Language)
+    query associated with a provided Hunting Rule ID and runs it against the Sentinel
+    workspace. This action is used to programmatically trigger hunting rule logic
+    and retrieve the resulting data for further analysis within Google SecOps.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Hunting Rule ID** | String | Yes | The unique identifier (GUID) of the custom
+    hunting rule to be executed. |
+
+    | **Timeout** | Integer | No | The maximum time (in seconds) to wait for the Azure
+    Sentinel API to return query results. Defaults to 180 seconds. |
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction**: The action retrieves the connection configuration
+    and the specific Hunting Rule ID and Timeout parameters.
+
+    2. **Manager Initialization**: It initializes the Microsoft Azure Sentinel manager
+    using the provided credentials.
+
+    3. **Rule Retrieval**: The action fetches the metadata for the specified hunting
+    rule from Azure Sentinel to obtain its KQL query string.
+
+    4. **Query Execution**: It executes the KQL query against the Sentinel workspace
+    via a POST request to the query API.
+
+    5. **Result Processing**: If results are returned, the action parses the data
+    into a structured format.
+
+    6. **Output Generation**: The results are added to the action output as a JSON
+    object and a data table titled 'Microsoft Azure Sentinel hunting rule results'.
+
+
+    ### Additional Notes
+
+    - This action is a read-only operation; it does not modify any data or configurations
+    within Microsoft Azure Sentinel.
+
+    - It does not operate on specific entities (like IPs or Hostnames) from the Google
+    SecOps context; it relies entirely on the provided Hunting Rule ID.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: true
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Run KQL Query:
+  ai_description: >-
+    ### General Description
+
+    This action executes a Kusto Query Language (KQL) query against a Microsoft Azure
+    Sentinel workspace. It is designed to retrieve log data and security events based
+    on custom logic provided by the user. The action supports filtering by time span
+    and limiting the number of returned records, making it a versatile tool for hunting,
+    investigation, and data retrieval within the Sentinel environment.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **KQL Query** | String | Yes | The KQL query string to execute in Azure Sentinel
+    (e.g., `SecurityAlert`). |
+
+    | **Time Span** | String | No | The time range for the query in ISO8601 duration
+    format (e.g., `PT1H` for 1 hour, `P1D` for 1 day). |
+
+    | **Query Timeout** | Integer | No | The timeout value (in seconds) for the Azure
+    Sentinel API call. Default is 180. |
+
+    | **Record Limit** | Integer | No | The maximum number of records to fetch. If
+    provided, it appends a `| limit x` clause to the query. Default is 100. |
+
+
+    ### Flow Description
+
+    1.  **Initialization**: The action initializes the connection using configuration
+    parameters such as Client ID, Client Secret, Tenant ID, and Workspace ID.
+
+    2.  **Parameter Extraction**: It retrieves the KQL query, time span, timeout,
+    and record limit from the action input.
+
+    3.  **Validation**: The action validates the provided `Time Span` to ensure it
+    follows the ISO8601 duration format.
+
+    4.  **Execution**: The `MicrosoftAzureSentinelManager` sends a POST request to
+    the Azure Sentinel query endpoint with the constructed KQL query and parameters.
+
+    5.  **Output**: If results are returned, they are formatted into a JSON object
+    and a data table named 'KQL Query results' which are then attached to the action
+    output in Google SecOps.
+
+
+    ### Additional Notes
+
+    - If the `Record Limit` is set, the action automatically modifies the KQL query
+    to include the limit clause unless it is already present.
+
+    - The action result `is_success` will be `true` if the query executes without
+    errors, even if no results are found.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Alert Rule:
+  ai_description: >-
+    Updates an existing scheduled alert rule in Microsoft Azure Sentinel. This action
+    allows for the modification of various rule properties including its status (enabled/disabled),
+    display name, severity, KQL query, execution frequency, and lookback period. It
+    also supports updating alert triggers, suppression settings, descriptions, and
+    associated MITRE ATT&CK tactics.
+
+
+    ### Parameters
+
+    | Parameter | Type | Mandatory | Description |
+
+    | --- | --- | --- | --- |
+
+    | Alert Rule ID | String | Yes | The unique identifier (GUID) of the alert rule
+    to be updated. |
+
+    | Enable Alert Rule | Boolean | No | Determines whether the alert rule should
+    be enabled (True) or disabled (False). |
+
+    | Name | String | No | The new display name for the alert rule. |
+
+    | Severity | Enum | No | The severity level of the alert rule (Informational,
+    Low, Medium, High). |
+
+    | Query | String | No | The KQL query that the alert rule will execute. |
+
+    | Frequency | String | No | How frequently the query runs (e.g., PT5M, PT1H).
+    Minimum 5 minutes, maximum 14 days. |
+
+    | Period of Lookup Data | String | No | The time window of data the query looks
+    back at (e.g., PT1H, P1D). Minimum 5 minutes, maximum 14 days. |
+
+    | Trigger Operator | Enum | No | The operator used to evaluate the trigger threshold
+    (GreaterThan, LessThan, Equal, NotEqual). |
+
+    | Trigger Threshold | Integer | No | The numerical threshold that triggers the
+    alert. |
+
+    | Enable Suppression | Boolean | No | Whether to stop running the query for a
+    period after an alert is generated. |
+
+    | Suppression Duration | String | No | How long to suppress the alert rule after
+    a trigger (e.g., PT5H). Minimum 5 minutes, maximum 14 days. |
+
+    | Description | String | No | A descriptive summary of the alert rule's purpose.
+    |
+
+    | Tactics | String | No | Comma-separated list of MITRE ATT&CK tactics associated
+    with the rule. |
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction and Validation**: The action retrieves configuration
+    and action parameters. It validates that durations (Frequency, Period, Suppression)
+    follow the ISO8601 format and fall within the allowed range (5m to 14d). It also
+    validates tactics, severities, and trigger operators against allowed values.
+
+    2. **Manager Initialization**: Initializes the Microsoft Azure Sentinel Manager
+    using provided credentials and workspace details.
+
+    3. **Rule Retrieval**: Fetches the current configuration of the specified alert
+    rule from Azure Sentinel to ensure a base for the update.
+
+    4. **Payload Construction**: Merges the provided update parameters with the existing
+    rule data, ensuring read-only fields like `lastModifiedUtc` are handled correctly.
+
+    5. **External Update**: Sends a PUT request to the Azure Sentinel API to update
+    the alert rule configuration.
+
+    6. **Result Processing**: Returns the updated alert rule details as a JSON result
+    and completes the action.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the configuration of an existing scheduled alert rule in Microsoft Azure
+      Sentinel via a PUT request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Custom Hunting Rule:
+  ai_description: >-
+    Updates an existing Custom Hunting Rule in Microsoft Azure Sentinel. This action
+    allows users to modify the display name, KQL query, description, and associated
+    MITRE ATT&CK tactics of a specific hunting rule identified by its ID.
+
+
+    ### Parameters
+
+    | Parameter Name | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Hunting Rule ID | String | Yes | The unique identifier (GUID) of the custom
+    hunting rule to be updated. |
+
+    | Display Name | String | No | The new display name for the hunting rule. If not
+    provided, the existing name is retained. |
+
+    | Query | String | No | The new KQL (Kusto Query Language) query for the hunting
+    rule. If not provided, the existing query is retained. |
+
+    | Description | String | No | The new description for the hunting rule. If provided,
+    it updates the 'description' tag in the rule's metadata. |
+
+    | Tactics | String | No | A comma-separated list of MITRE ATT&CK tactics (e.g.,
+    'InitialAccess, Execution') to associate with the rule. |
+
+
+    ### Flow Description
+
+    1. **Validation**: The action first validates the provided 'Tactics' against a
+    predefined list of supported Azure Sentinel tactics.
+
+    2. **Retrieval**: It fetches the current configuration of the hunting rule from
+    Azure Sentinel using the provided 'Hunting Rule ID'.
+
+    3. **Modification**: The action merges the provided updates (Display Name, Query,
+    Description, Tactics) with the existing rule properties. If a parameter is not
+    provided, the original value is kept.
+
+    4. **Update**: It performs a PUT request to the Azure Sentinel API to save the
+    modified hunting rule configuration.
+
+    5. **Output**: Upon success, the action returns the updated rule's metadata as
+    a JSON result.
+
+
+    ### Additional Notes
+
+    - This action does not operate on SecOps entities; it requires a specific Hunting
+    Rule ID as input.
+
+    - If the 'Tactics' parameter is provided, it will be added to the existing tactics
+    of the rule as unique values.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the configuration (Display Name, Query, Description, or Tactics) of
+      an existing Custom Hunting Rule in Microsoft Azure Sentinel via a PUT request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Incident Details:
+  ai_description: >-
+    Updates the details of a specific incident in Microsoft Azure Sentinel. This action
+    allows for modifying various incident attributes such as title, status, severity,
+    description, and ownership. It also supports closing incidents with specific reasons
+    and comments. The action includes a built-in retry mechanism to handle potential
+    API conflicts (HTTP 409) during the update process.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Incident Case Number | String | Yes | The specific Azure Sentinel incident number
+    to be updated. |
+
+    | Title | String | No | The new title to assign to the incident. |
+
+    | Status | Enum | No | The new status for the incident (New, Active, Closed).
+    If set to 'Not Updated', the status remains unchanged. |
+
+    | Severity | Enum | No | The new severity level (Informational, Low, Medium, High).
+    If set to 'Not Updated', the severity remains unchanged. |
+
+    | Description | String | No | The new description text for the incident. |
+
+    | Assigned To | String | No | The user principal name or email of the user to
+    whom the incident should be assigned. |
+
+    | Closed Reason | Enum | No | If the status is set to 'Closed', this specifies
+    the reason (e.g., True Positive, False Positive). |
+
+    | Closing Comment | String | No | An optional comment to include when closing
+    the incident. |
+
+    | Number of retries | Integer | No | The number of times to retry the update if
+    a conflict error occurs. Default is 1. |
+
+    | Retry Every | Integer | No | The wait time (in seconds) between retry attempts.
+    Default is 20. |
+
+
+    ### Additional Notes
+
+    - If the 'Status' is changed from 'Closed' to another status, the classification
+    and closing reasons are cleared in the external system.
+
+    - The action performs a lookup to find the internal Azure Sentinel resource name
+    associated with the provided 'Incident Case Number' before applying updates.
+
+
+    ### Flow Description
+
+    1. **Initialization**: Retrieves configuration parameters (API credentials, workspace
+    details) and action parameters.
+
+    2. **Validation**: Validates that the provided Severity, Status, and Closed Reason
+    match the allowed values defined by the Microsoft Azure Sentinel API.
+
+    3. **Incident Lookup**: Queries Azure Sentinel to find the unique resource identifier
+    for the incident based on the provided 'Incident Case Number'.
+
+    4. **Update Execution**: Constructs a payload with the new details and sends a
+    PUT request to the Azure Sentinel API.
+
+    5. **Conflict Handling**: If the API returns a 409 Conflict error, the action
+    waits for the specified 'Retry Every' interval and attempts the update again,
+    up to the 'Number of retries' limit.
+
+    6. **Result Processing**: Returns the updated incident object as a JSON result
+    and provides a success message.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates incident attributes (title, status, severity, description, owner, and
+      closing details) in the Microsoft Azure Sentinel platform via a PUT request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Incident Details v2:
+  ai_description: >-
+    ### General Description
+
+    Updates the details of a specific incident in Microsoft Azure Sentinel. This action
+    allows for the modification of various incident attributes including its title,
+    status, severity, description, and ownership. It is particularly useful for synchronizing
+    case management states between Google SecOps and Azure Sentinel or for automated
+    incident remediation flows.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Incident Case Number** | String | Yes | The unique identifier (number) of
+    the Azure Sentinel incident to be updated. |
+
+    | **Title** | String | No | The new title to assign to the incident. |
+
+    | **Status** | Enum | No | The new status for the incident. Options: `New`, `Active`,
+    `Closed`. Default is `Not Updated`. |
+
+    | **Severity** | Enum | No | The new severity level. Options: `Informational`,
+    `Low`, `Medium`, `High`. Default is `Not Updated`. |
+
+    | **Description** | String | No | A new description for the incident. |
+
+    | **Assigned To** | String | No | The User Principal Name (UPN) of the user to
+    whom the incident should be assigned. |
+
+    | **Closed Reason** | Enum | No | If the status is set to `Closed`, this specifies
+    the reason. Options include `True Positive`, `Benign Positive`, `False Positive`,
+    etc. |
+
+    | **Closing Comment** | String | No | An optional comment to include when closing
+    the incident. |
+
+    | **Number of retries** | Integer | No | The number of times the action should
+    retry the update if a conflict (HTTP 409) occurs. Default is 1. |
+
+
+    ### Additional Notes
+
+    - This is an **asynchronous action**. If a conflict occurs during the update (e.g.,
+    another process is updating the incident simultaneously), the action will enter
+    an `IN_PROGRESS` state and retry based on the `Number of retries` parameter.
+
+    - If the `Status` is changed from `Closed` to another state, the classification
+    and closing comments in Azure Sentinel will be cleared.
+
+
+    ### Flow Description
+
+    1. **Initialization**: Extracts integration configuration (API keys, Tenant ID,
+    etc.) and action parameters.
+
+    2. **Validation**: Validates that the provided `Status`, `Severity`, and `Closed
+    Reason` are compatible with Azure Sentinel's expected values.
+
+    3. **Authentication**: Connects to the Microsoft Azure Sentinel API using OAuth2
+    credentials.
+
+    4. **Incident Retrieval**: Fetches the existing incident from Sentinel using the
+    `Incident Case Number` to obtain the internal system name required for the update.
+
+    5. **Update Execution**: Constructs a payload with the new details and sends a
+    `PUT` request to the Azure Sentinel API.
+
+    6. **Conflict Handling**: If the API returns a 409 Conflict error, the action
+    increments the retry counter and yields execution to retry later.
+
+    7. **Completion**: Upon a successful update, the action returns the updated incident
+    object as JSON and completes the execution.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates incident properties such as title, status, severity, and assignment
+      in the Microsoft Azure Sentinel platform via a PUT request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Incident Labels:
+  ai_description: >-
+    Updates labels for a specific Microsoft Azure Sentinel incident. This action allows
+    users to append new labels to an existing incident in the Azure Sentinel workspace.
+    It includes a built-in retry mechanism to handle potential concurrency conflicts
+    during the update process.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Incident Case Number | String | Yes | The unique identifier (number) of the
+    Azure Sentinel incident to be updated. |
+
+    | Labels | String | Yes | A comma-separated string of labels to be appended to
+    the incident. |
+
+    | Number of retries | Integer | No | The number of times the action will attempt
+    to retry the update if a conflict error occurs. Default is 1. |
+
+    | Retry Every | Integer | No | The duration in seconds to wait between retry attempts.
+    Default is 20. |
+
+
+    ### Flow Description
+
+
+    1.  **Initialization**: The action initializes the Microsoft Azure Sentinel manager
+    using provided credentials (API Root, Client ID, Secret, etc.).
+
+    2.  **Parameter Extraction**: It retrieves the incident number and the list of
+    labels to be added from the action parameters.
+
+    3.  **Incident Retrieval**: The action fetches the current state of the incident
+    from Azure Sentinel to identify existing labels.
+
+    4.  **Label Comparison**: It determines which of the provided labels are new and
+    which already exist on the incident to prevent redundant updates.
+
+    5.  **Update Execution**: It performs a PUT request to the Azure Sentinel API
+    to update the incident with the new labels.
+
+    6.  **Retry Logic**: If a `MicrosoftAzureSentinelConflictError` is encountered
+    (indicating the incident was modified by another process simultaneously), the
+    action waits for the specified 'Retry Every' period and attempts the update again,
+    up to the 'Number of retries' limit.
+
+    7.  **Result Reporting**: The action returns the updated incident data as a JSON
+    result and provides a summary message of the added labels.
+
+
+    ### Additional Notes
+
+
+    *   **Note**: Users are encouraged to use the v2 version of this action for more
+    consistent results as it is implemented as an asynchronous SOAR action.
+
+    *   **Entity Support**: This action does not run on specific entities; it targets
+    a specific incident via its case number.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the 'labels' property of an existing incident in Microsoft Azure Sentinel
+      via a PUT request to the Azure management API.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Incident Labels v2:
+  ai_description: >-
+    Updates the labels of a specific incident in Microsoft Azure Sentinel. This action
+    allows users to append new labels to an existing incident identified by its case
+    number. It operates asynchronously and includes a retry mechanism to handle potential
+    API conflicts during the update process.
+
+
+    ### Flow Description:
+
+    1. **Parameter Extraction:** The action retrieves integration configuration (API
+    credentials, workspace details) and action parameters (Incident Case Number, Labels,
+    and Retry count).
+
+    2. **Manager Initialization:** Initializes the `MicrosoftAzureSentinelManager`
+    to handle communication with the Azure Sentinel API.
+
+    3. **Incident Update:** Calls the `update_incident_labels` method, which first
+    fetches the current incident to identify existing labels and then sends a `PUT`
+    request to update the incident with the new appended labels.
+
+    4. **Conflict Handling (Async):** If a `MicrosoftAzureSentinelConflictError` occurs
+    (e.g., concurrent updates), the action increments a retry counter and sets the
+    execution state to `INPROGRESS` for an asynchronous retry.
+
+    5. **Result Processing:** Upon success, it provides a summary of which labels
+    were added and which already existed, and attaches the full updated incident data
+    as a JSON result.
+
+
+    ### Parameters Description:
+
+    | Parameter Name | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Incident Case Number | String | Yes | The specific Azure Sentinel incident number
+    (e.g., '106') that needs to be updated. |
+
+    | Labels | String | Yes | A comma-separated string of labels to be appended to
+    the incident. |
+
+    | Number of retries | Integer | No | The number of retry attempts the action should
+    make if the incident update fails due to a conflict. Default is 1. |
+
+
+    ### Additional Notes:
+
+    - This action is asynchronous, meaning it can yield and resume if retries are
+    necessary.
+
+    - It does not replace existing labels; it only appends new ones that are not already
+    present on the incident.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the 'labels' property of an incident in Microsoft Azure Sentinel via
+      a PUT request to the Azure Security Insights API.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
