@@ -83,16 +83,16 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A filter condition that specifies the period in minutes to search for emails.||None||
-||If selected, the action searches only for unread emails.||None||
-||The number of mailboxes to process in a single batch (a single connection to the Microsoft 365 server). The default value is 25.||None||
-||If enabled, the amount of information returned by the action will be limited only to the key email fields.||None|false|
-||If enabled, action will not return JSON result.||None|true|
-||The default mailbox to execute the delete operation in. If permissions allow it, the action executes search in other mailboxes. This parameter accepts multiple values as a comma-separated string.||None|Default Mailbox|
-||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Inbox|
-||A filter condition to search for emails with specific email IDs. This parameter accepts a comma-separated list of email IDs to search for. If this parameter is provided, the search ignores the Subject Filter and Sender Filter parameters.||None||
-||A filter condition that specifies the email subject to search for. This filter uses the contains logic.||None||
-||A filter condition that specifies the sender of requested emails. This filter uses the equals logic.||None||
+||A filter condition that specifies the period in minutes to search for emails.|False|None||
+||If selected, the action searches only for unread emails.|False|None||
+||The number of mailboxes to process in a single batch (a single connection to the Microsoft 365 server). The default value is 25.|False|None||
+||If enabled, the amount of information returned by the action will be limited only to the key email fields.|False|None||
+||If enabled, action will not return JSON result.|False|None||
+||The default mailbox to execute the delete operation in. If permissions allow it, the action executes search in other mailboxes. This parameter accepts multiple values as a comma-separated string.|True|None||
+||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|True|None||
+||A filter condition to search for emails with specific email IDs. This parameter accepts a comma-separated list of email IDs to search for. If this parameter is provided, the search ignores the Subject Filter and Sender Filter parameters.|False|None||
+||A filter condition that specifies the email subject to search for. This filter uses the contains logic.|False|None||
+||A filter condition that specifies the sender of requested emails. This filter uses the equals logic.|False|None||
 
 
 
@@ -109,16 +109,16 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||An optional email address from which to send an email if permissions allow it. By default, the email is sent from the default mailbox that is specified in the integration configuration.||None|Default Mailbox|
-||The email subject.||None||
-||A comma-separated list of email addresses for the email recipients, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of email addresses for the email CC field, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of email addresses for the email BCC field, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.||None||
-||The type of the HTML template to use. The default value is Email HTML Template.||None|Email HTML Template|
-||The structure of the vote to send to recipients. The possible values are Yes/No or Approve/Reject. The default value is Yes/No.||None|Yes/No|
-||A comma-separated list of recipients to use in the Reply-To header. Use the Reply-To header to redirect reply emails to the specific email address instead of the sender address that is stated in the From field.||None||
-||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.||None|GCP Bucket|
+||An optional email address from which to send an email if permissions allow it. By default, the email is sent from the default mailbox that is specified in the integration configuration.|True|None||
+||The email subject.|True|None||
+||A comma-separated list of email addresses for the email recipients, such as user1@example.com, user2@example.com.|True|None||
+||A comma-separated list of email addresses for the email CC field, such as user1@example.com, user2@example.com.|False|None||
+||A comma-separated list of email addresses for the email BCC field, such as user1@example.com, user2@example.com.|False|None||
+||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.|False|None||
+||The type of the HTML template to use. The default value is Email HTML Template.|True|None||
+||The structure of the vote to send to recipients. The possible values are Yes/No or Approve/Reject. The default value is Yes/No.|True|None||
+||A comma-separated list of recipients to use in the Reply-To header. Use the Reply-To header to redirect reply emails to the specific email address instead of the sender address that is stated in the From field.|False|None||
+||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.|True|None||
 
 
 
@@ -129,10 +129,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The default mailbox to execute the search operation in. If permissions allow it, the action can search in other mailboxes. This parameter accepts multiple values as a comma-separated string.||None|Default Mailbox|
-||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Inbox|
-||A filter condition to search for emails with specific email IDs or internetMessageId values. This parameter accepts a comma-separated list of email IDs to search for.||None||
-||A JSON definition that contains regular expressions to apply to the attached email file and generate additional key values in the action JSON result. The example of this parameter value is as follows: {ips: \b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\b}||None|{}|
+||The default mailbox to execute the search operation in. If permissions allow it, the action can search in other mailboxes. This parameter accepts multiple values as a comma-separated string.|True|None||
+||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|False|None||
+||A filter condition to search for emails with specific email IDs or internetMessageId values. This parameter accepts a comma-separated list of email IDs to search for.|True|None||
+||A JSON definition that contains regular expressions to apply to the attached email file and generate additional key values in the action JSON result. The example of this parameter value is as follows: {ips: \b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\b}|False|None||
 
 
 
@@ -143,16 +143,16 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The default mailbox to execute the search operation in. If permissions allow it, the action can search in other mailboxes. This parameter accepts multiple values as a comma-separated string.||None|Default Mailbox|
-||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Inbox|
-||A location to save the downloaded attachments. By default, the action attempts to save the attachment to the Cloud Storage bucket. Saving an attachment to the local file system is a fallback option. The possible values are GCP Bucket and Local File System. The default value is GCP Bucket.||None|GCP Bucket|
-||A path to download attachments to. When saving attachments to the Cloud Storage bucket or a local file system, the action expects you to specify the download path in the Unix-like format, such as"/tmp/test"||None||
-||A filter condition to search for emails with specific email IDs or internetMessageId values. This parameter accepts a comma-separated list of email IDs to search for. If this parameter is provided, the search ignores the Subject Filter and Sender Filter parameters.||None||
-||A filter condition that specifies the email subject to search for. This filter uses the contains logic.||None||
-||A filter condition that specifies the sender of requested emails. This filter uses the equals logic.||None||
-||If selected, the action downloads attachments from EML files.||None|False|
-||If selected, the action downloads attachments to the unique path provided in the Download Path parameter to avoid overwriting any previously downloaded attachments.||None|False|
-||The number of mailboxes to process in a single batch (a single connection to the Microsoft 365 server). The default value is 25.||None|25|
+||The default mailbox to execute the search operation in. If permissions allow it, the action can search in other mailboxes. This parameter accepts multiple values as a comma-separated string.|True|None||
+||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|False|None||
+||A location to save the downloaded attachments. By default, the action attempts to save the attachment to the Cloud Storage bucket. Saving an attachment to the local file system is a fallback option. The possible values are GCP Bucket and Local File System. The default value is GCP Bucket.|True|None||
+||A path to download attachments to. When saving attachments to the Cloud Storage bucket or a local file system, the action expects you to specify the download path in the Unix-like format, such as"/tmp/test"|True|None||
+||A filter condition to search for emails with specific email IDs or internetMessageId values. This parameter accepts a comma-separated list of email IDs to search for. If this parameter is provided, the search ignores the Subject Filter and Sender Filter parameters.|False|None||
+||A filter condition that specifies the email subject to search for. This filter uses the contains logic.|False|None||
+||A filter condition that specifies the sender of requested emails. This filter uses the equals logic.|False|None||
+||If selected, the action downloads attachments from EML files.|False|None||
+||If selected, the action downloads attachments to the unique path provided in the Download Path parameter to avoid overwriting any previously downloaded attachments.|False|None||
+||The number of mailboxes to process in a single batch (a single connection to the Microsoft 365 server). The default value is 25.|False|None||
 
 
 
@@ -163,16 +163,16 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.||None|GCP Bucket|
-||An optional email address from which to send an email if permissions allow it. By default, the email is sent from the default mailbox that is specified in the integration configuration.||None|Default Mailbox|
-||The email ID or the internetMessageId value of the email to forward.||None||
-||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Inbox|
-||The email subject.||None||
-||A comma-separated list of email addresses for the email recipients, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of email addresses for the email CC field, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of email addresses for the email BCC field, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.||None||
-||The email body.||None||
+||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.|True|None||
+||An optional email address from which to send an email if permissions allow it. By default, the email is sent from the default mailbox that is specified in the integration configuration.|True|None||
+||The email ID or the internetMessageId value of the email to forward.|True|None||
+||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|False|None||
+||The email subject.|True|None||
+||A comma-separated list of email addresses for the email recipients, such as user1@example.com, user2@example.com.|True|None||
+||A comma-separated list of email addresses for the email CC field, such as user1@example.com, user2@example.com.|False|None||
+||A comma-separated list of email addresses for the email BCC field, such as user1@example.com, user2@example.com.|False|None||
+||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.|False|None||
+||The email body.|True|None||
 
 
 
@@ -183,13 +183,13 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The default mailbox in which to execute the search operation. If permissions allow it, the action can search in other mailboxes.||None|Default Mailbox|
-||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Inbox|
-||The email ID or the internetMessageId value to search for. This parameter accepts a comma-separated list of email IDs to search for. If you used the Send Mail action to send emails, set the parameter value to the {SendEmail.JSONResult|id} or {SendEmail.JSONResult|internetMessageId}  placeholder.||None||
-||If selected, the action saves only attachments from the specified email.||None|False|
-||If you select the Save Only Email Attachments parameter, the action only saves attachments specified by this parameter. This parameter accepts multiple values as a comma-separated string.||None||
-||If selected, the action encodes the email file into the base64 format.||None|false|
-||If selected, the action saves the specified email to the action Case Wall in Google Secops.||None|false|
+||The default mailbox in which to execute the search operation. If permissions allow it, the action can search in other mailboxes.|True|None||
+||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|False|None||
+||The email ID or the internetMessageId value to search for. This parameter accepts a comma-separated list of email IDs to search for. If you used the Send Mail action to send emails, set the parameter value to the {SendEmail.JSONResult|id} or {SendEmail.JSONResult|internetMessageId}  placeholder.|True|None||
+||If selected, the action saves only attachments from the specified email.|False|None||
+||If you select the Save Only Email Attachments parameter, the action only saves attachments specified by this parameter. This parameter accepts multiple values as a comma-separated string.|False|None||
+||If selected, the action encodes the email file into the base64 format.|False|None||
+||If selected, the action saves the specified email to the action Case Wall in Google Secops.|False|None||
 
 
 
@@ -200,17 +200,17 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The default mailbox to execute the search operation in. If permissions allow it, the action can search in other mailboxes. This parameter accepts multiple values as a comma-separated string. For complex searches against a significant number of mailboxes, use the Exchange Extension Pack integration.||None|Default Mailbox|
-||A mailbox folder to execute the search in. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Inbox|
-||A filter condition that specifies the email subject to search for. This filter uses the contains logic.||None||
-||A filter condition that specifies the sender of requested emails. This filter uses the equals logic.||None||
-||A filter condition that specifies the period in minutes to search for emails.||None||
-||The number of emails for the action to return. If you don't set a value, the action uses the API default value. The default value is 10.||None||
-||If selected, the action searches only for unread emails.||None|false|
-||If selected, the action returns all available fields for the obtained email.||None|false|
-||The number of mailboxes to process in a single batch (a single connection to the Microsoft 365 server). The default value is 25.||None||
-||If enabled, the amount of information returned by the action will be limited only to the key email fields.||None|false|
-||If enabled, action will not return JSON result.||None|false|
+||The default mailbox to execute the search operation in. If permissions allow it, the action can search in other mailboxes. This parameter accepts multiple values as a comma-separated string. For complex searches against a significant number of mailboxes, use the Exchange Extension Pack integration.|True|None||
+||A mailbox folder to execute the search in. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|True|None||
+||A filter condition that specifies the email subject to search for. This filter uses the contains logic.|False|None||
+||A filter condition that specifies the sender of requested emails. This filter uses the equals logic.|False|None||
+||A filter condition that specifies the period in minutes to search for emails.|False|None||
+||The number of emails for the action to return. If you don't set a value, the action uses the API default value. The default value is 10.|False|None||
+||If selected, the action searches only for unread emails.|False|None||
+||If selected, the action returns all available fields for the obtained email.|False|None||
+||The number of mailboxes to process in a single batch (a single connection to the Microsoft 365 server). The default value is 25.|False|None||
+||If enabled, the amount of information returned by the action will be limited only to the key email fields.|False|None||
+||If enabled, action will not return JSON result.|False|None||
 
 
 
@@ -221,13 +221,13 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The ID of the email. If you used the Send Mail action to send emails, set the parameter value to the {SendEmail.JSONResult|id} or {SendEmail.JSONResult|internetMessageId} placeholder.||None||
-||If selected, the action waits for responses from all recipients until reaching timeout or proceeding with the first reply.||None|False|
-||A regular expression to exclude specific replies from the wait stage. This parameter works with the email body. For example, if you configure the “Out of Office.*” regular expression, the action doesn't consider automatic out-of-office messages as recipient replies and waits for an actual user reply.||None||
-||A mailbox email folder to search for the user reply in. The search is run in the mailbox which the email containing a question was sent from. This parameter accepts a comma-separated list of folders to check the user response in multiple folders. This parameter is case-sensitive. The default value is Inbox.||None|Inbox|
-||If selected and the recipient reply contains attachments, the action fetches the reply and adds it as an attachment to the action result.||None|False|
-||If enabled, the amount of information returned by the action will be limited only to the key email fields.||None|true|
-||If enabled, action will not return JSON result.||None|false|
+||The ID of the email. If you used the Send Mail action to send emails, set the parameter value to the {SendEmail.JSONResult|id} or {SendEmail.JSONResult|internetMessageId} placeholder.|True|None||
+||If selected, the action waits for responses from all recipients until reaching timeout or proceeding with the first reply.|False|None||
+||A regular expression to exclude specific replies from the wait stage. This parameter works with the email body. For example, if you configure the “Out of Office.*” regular expression, the action doesn't consider automatic out-of-office messages as recipient replies and waits for an actual user reply.|False|None||
+||A mailbox email folder to search for the user reply in. The search is run in the mailbox which the email containing a question was sent from. This parameter accepts a comma-separated list of folders to check the user response in multiple folders. This parameter is case-sensitive. The default value is Inbox.|False|None||
+||If selected and the recipient reply contains attachments, the action fetches the reply and adds it as an attachment to the action result.|False|None||
+||If enabled, the amount of information returned by the action will be limited only to the key email fields.|False|None||
+||If enabled, action will not return JSON result.|False|None||
 
 
 
@@ -238,7 +238,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||An authorization URL that you received in the Get Authorization action. The URL is required to request a refresh token.||None||
+||An authorization URL that you received in the Get Authorization action. The URL is required to request a refresh token.|True|None||
 
 
 
@@ -249,15 +249,15 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||An optional email address from which to send an email if permissions allow it. By default, the email is sent from the default mailbox that is specified in the integration configuration||None|Default Mailbox|
-||The email subject.||None||
-||A comma-separated list of email addresses for the email recipients, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of email addresses for the email CC field, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of email addresses for the email BCC field, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.||None||
-||The type of the HTML template to use. The default value is Email HTML Template.||None|Email HTML Template|
-||A comma-separated list of recipients to use in the Reply-To header. Use the Reply-To header to redirect reply emails to the specific email address instead of the sender address that is stated in the From field.||None||
-||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.||None|GCP Bucket|
+||An optional email address from which to send an email if permissions allow it. By default, the email is sent from the default mailbox that is specified in the integration configuration|True|None||
+||The email subject.|True|None||
+||A comma-separated list of email addresses for the email recipients, such as user1@example.com, user2@example.com.|True|None||
+||A comma-separated list of email addresses for the email CC field, such as user1@example.com, user2@example.com.|False|None||
+||A comma-separated list of email addresses for the email BCC field, such as user1@example.com, user2@example.com.|False|None||
+||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.|False|None||
+||The type of the HTML template to use. The default value is Email HTML Template.|True|None||
+||A comma-separated list of recipients to use in the Reply-To header. Use the Reply-To header to redirect reply emails to the specific email address instead of the sender address that is stated in the From field.|False|None||
+||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.|True|None||
 
 
 
@@ -268,13 +268,13 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The mailbox from which an email is sent using the Send Vote Email action. The default value is the mailbox that you specified in the integration configuration. Optionally, you can set a different value for this parameter if the vote mail is sent from a different mailbox.||None|Default Mailbox|
-||The ID of the email. If the email is sent using the Send Vote Email action, set the parameter value to the SendVoteEmail.JSONResult|id or SendEmail.JSONResult|internetMessageId placeholder. To return email IDs, you can use the Search Emails action.||None||
-||If selected, the action waits for responses from all recipients until reaching timeout or proceeding with the first reply. Selected by default.||None|False|
-||A regular expression to exclude specific replies from the wait stage. This parameter works with the email body. For example, if you configure the “Out of Office.*” regular expression, the action doesn't consider automatic out-of-office messages as recipient replies and waits for an actual user reply.||None||
-||A mailbox email folder to search for the user reply. The action searches in the mailbox from which you sent the email with a question. This parameter accepts a comma-separated list of folders to check the user response in multiple folders. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}. This parameter is case-sensitive. The default value is Inbox.||None|Inbox|
-||A mailbox folder to search for the sent mail. The action searches in the mailbox from which you sent the email with a question. This parameter accepts a comma-separated list of folders to check the user response in multiple folders. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}. This parameter is case-sensitive. The default value is Sent Items.||None|Sent Items|
-||If selected and the recipient reply contains attachments, the action fetches the reply and adds it as an attachment to the action result.||None|False|
+||The mailbox from which an email is sent using the Send Vote Email action. The default value is the mailbox that you specified in the integration configuration. Optionally, you can set a different value for this parameter if the vote mail is sent from a different mailbox.|True|None||
+||The ID of the email. If the email is sent using the Send Vote Email action, set the parameter value to the SendVoteEmail.JSONResult|id or SendEmail.JSONResult|internetMessageId placeholder. To return email IDs, you can use the Search Emails action.|True|None||
+||If selected, the action waits for responses from all recipients until reaching timeout or proceeding with the first reply. Selected by default.|False|None||
+||A regular expression to exclude specific replies from the wait stage. This parameter works with the email body. For example, if you configure the “Out of Office.*” regular expression, the action doesn't consider automatic out-of-office messages as recipient replies and waits for an actual user reply.|False|None||
+||A mailbox email folder to search for the user reply. The action searches in the mailbox from which you sent the email with a question. This parameter accepts a comma-separated list of folders to check the user response in multiple folders. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}. This parameter is case-sensitive. The default value is Inbox.|False|None||
+||A mailbox folder to search for the sent mail. The action searches in the mailbox from which you sent the email with a question. This parameter accepts a comma-separated list of folders to check the user response in multiple folders. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}. This parameter is case-sensitive. The default value is Sent Items.|False|None||
+||If selected and the recipient reply contains attachments, the action fetches the reply and adds it as an attachment to the action result.|False|None||
 
 
 
@@ -285,17 +285,17 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The default mailbox to execute the move operation in. If permissions allow it, the action can search in other mailboxes as well. This parameter accepts multiple values as a comma-separated string.||None|Default Mailbox|
-||A source folder from which to move the email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None||
-||A destination folder to move the email to. Provide the parameter value in the following format: {Inbox/folder_name/subfolder_name}. This parameter is case-insensitive.||None||
-||A filter condition to search for emails with specific email IDs. This parameter accepts a comma-separated list of email IDs to search for. If you configure this parameter, the search ignores the Subject Filter and Sender Filter parameters.||None||
-||A filter condition that specifies the email subject to search for. This filter uses the contains logic.||None||
-||A filter condition that specifies the sender of requested emails. This filter uses the equals logic.||None||
-||A filter condition that specifies the period in minutes to search for emails.||None||
-||If selected, the action searches only for unread emails.||None|False|
-||The number of mailboxes to process in a single batch (a single connection to the Microsoft 365 server). The default value is 25.||None||
-||If enabled, the amount of information returned by the action will be limited only to the key email fields.||None|false|
-||If enabled, action will not return JSON result.||None|false|
+||The default mailbox to execute the move operation in. If permissions allow it, the action can search in other mailboxes as well. This parameter accepts multiple values as a comma-separated string.|True|None||
+||A source folder from which to move the email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|True|None||
+||A destination folder to move the email to. Provide the parameter value in the following format: {Inbox/folder_name/subfolder_name}. This parameter is case-insensitive.|True|None||
+||A filter condition to search for emails with specific email IDs. This parameter accepts a comma-separated list of email IDs to search for. If you configure this parameter, the search ignores the Subject Filter and Sender Filter parameters.|False|None||
+||A filter condition that specifies the email subject to search for. This filter uses the contains logic.|False|None||
+||A filter condition that specifies the sender of requested emails. This filter uses the equals logic.|False|None||
+||A filter condition that specifies the period in minutes to search for emails.|False|None||
+||If selected, the action searches only for unread emails.|False|None||
+||The number of mailboxes to process in a single batch (a single connection to the Microsoft 365 server). The default value is 25.|False|None||
+||If enabled, the amount of information returned by the action will be limited only to the key email fields.|False|None||
+||If enabled, action will not return JSON result.|False|None||
 
 
 
@@ -306,11 +306,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A comma-separated list of expected resource types for the search response. The possible values are as follows: event, message, driveItem, externalItem, site, list, listItem, drive, chatMessage, person, acronym, bookmark.||None||
-||The fields to return in the search response. If you don’t configure this parameter, the action returns all available fields.||None||
-||The query to run the search. For more information about the search query examples, see Use the Microsoft Search API to search Outlook messages(https://learn.microsoft.com/en-us/graph/search-concept-messages).||None||
-||The maximum number of rows for the action to return. If you don’t configure this parameter, the action uses the default value. The default value is 25.||None|25|
-||The full search payload to use instead of constructing the search query with other action parameters. Format the search payload as a JSON string. If you configure this parameter, the action ignores all other parameters.||None||
+||A comma-separated list of expected resource types for the search response. The possible values are as follows: event, message, driveItem, externalItem, site, list, listItem, drive, chatMessage, person, acronym, bookmark.|False|None||
+||The fields to return in the search response. If you don’t configure this parameter, the action returns all available fields.|False|None||
+||The query to run the search. For more information about the search query examples, see Use the Microsoft Search API to search Outlook messages(https://learn.microsoft.com/en-us/graph/search-concept-messages).|False|None||
+||The maximum number of rows for the action to return. If you don’t configure this parameter, the action uses the default value. The default value is 25.|False|None||
+||The full search payload to use instead of constructing the search query with other action parameters. Format the search payload as a JSON string. If you configure this parameter, the action ignores all other parameters.|False|None||
 
 
 
@@ -321,14 +321,14 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||An optional email address from which to send emails if permissions allow it. By default, the action sends emails from the default mailbox that is specified in the integration configuration.||None|Default Mailbox|
-||The email ID or the internetMessageId value of the email to reply to.||None||
-||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Inbox|
-||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.||None||
-||The email body.||None||
-||If selected, the action sends a reply to all recipients related to the original email. Not selected by default. This parameter has priority over the Reply To parameter.||None||
-||A comma-separated list of emails to reply to. If you don't set a value and the Reply All checkbox is clear, the action only sends a reply to the original email sender. If you select the Reply All checkbox, the action ignores this parameter.||None||
-||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.||None|GCP Bucket|
+||An optional email address from which to send emails if permissions allow it. By default, the action sends emails from the default mailbox that is specified in the integration configuration.|True|None||
+||The email ID or the internetMessageId value of the email to reply to.|True|None||
+||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|True|None||
+||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.|False|None||
+||The email body.|True|None||
+||If selected, the action sends a reply to all recipients related to the original email. Not selected by default. This parameter has priority over the Reply To parameter.|False|None||
+||A comma-separated list of emails to reply to. If you don't set a value and the Reply All checkbox is clear, the action only sends a reply to the original email sender. If you select the Reply All checkbox, the action ignores this parameter.|False|None||
+||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.|True|None||
 
 
 
@@ -339,16 +339,16 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||An optional email address from which to send emails if permissions allow it. By default, the action sends emails from the default mailbox specified in the integration configuration.||None|Default Mailbox|
-||The email subject.||None||
-||A comma-separated list of email addresses for the email recipients, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of email addresses for the email CC field, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of email addresses for the email BCC field, such as user1@example.com, user2@example.com.||None||
-||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.||None||
-||The type of the email content. The default value is Text.||None|Text|
-||The email body.||None||
-||A comma-separated list of recipients to use in the Reply-To header. Use the Reply-To header to redirect reply emails to the specific email address instead of the sender address that is stated in the From field.||None||
-||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.||None|GCP Bucket|
+||An optional email address from which to send emails if permissions allow it. By default, the action sends emails from the default mailbox specified in the integration configuration.|True|None||
+||The email subject.|True|None||
+||A comma-separated list of email addresses for the email recipients, such as user1@example.com, user2@example.com.|True|None||
+||A comma-separated list of email addresses for the email CC field, such as user1@example.com, user2@example.com.|False|None||
+||A comma-separated list of email addresses for the email BCC field, such as user1@example.com, user2@example.com.|False|None||
+||A comma-separated list of paths for file attachments stored on the server, for example, /{FILE_DIRECTORY}/file.pdf, /{FILE_DIRECTORY}/image.jpg.|False|None||
+||The type of the email content. The default value is Text.|False|None||
+||The email body.|True|None||
+||A comma-separated list of recipients to use in the Reply-To header. Use the Reply-To header to redirect reply emails to the specific email address instead of the sender address that is stated in the From field.|False|None||
+||A location where the attachments are stored. By default, the action attempts to upload attachments from the Cloud Storage bucket. The possible values are GCP Bucket or Local File System. The default value is GCP Bucket.|True|None||
 
 
 
@@ -359,9 +359,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A mailbox to search for an email in. By default, the action attempts to search for the email in the default mailbox that you specified in the integration configuration. To execute a search in other mailboxes, configure appropriate permissions for the action. This parameter accepts multiple values as a comma-separated string.||None|Default Mailbox|
-||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Inbox|
-||A comma-separated string of the mail IDs or internetMessageId values of the emails to mark as junk.||None||
+||A mailbox to search for an email in. By default, the action attempts to search for the email in the default mailbox that you specified in the integration configuration. To execute a search in other mailboxes, configure appropriate permissions for the action. This parameter accepts multiple values as a comma-separated string.|True|None||
+||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|True|None||
+||A comma-separated string of the mail IDs or internetMessageId values of the emails to mark as junk.|True|None||
 
 
 
@@ -384,9 +384,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A mailbox to search for an email in. By default, the action attempts to search for the email in the default mailbox that you specified in the integration configuration. To execute a search in other mailboxes, configure appropriate permissions for the action. This parameter accepts multiple values as a comma-separated string.||None|Default Mailbox|
-||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.||None|Junk Email|
-||A comma-separated string of the mail IDs or internetMessageId values of the emails to mark as not junk.||None||
+||A mailbox to search for an email in. By default, the action attempts to search for the email in the default mailbox that you specified in the integration configuration. To execute a search in other mailboxes, configure appropriate permissions for the action. This parameter accepts multiple values as a comma-separated string.|True|None||
+||A mailbox folder in which to search for an email. To specify a subfolder, use the “/” forward slash, such as {Inbox/Subfolder}.|True|None||
+||A comma-separated string of the mail IDs or internetMessageId values of the emails to mark as not junk.|True|None||
 
 
 

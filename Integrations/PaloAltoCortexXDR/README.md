@@ -59,8 +59,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||ID of the incident that needs to be updated.||None||
-||Comment for the incident.||None||
+||ID of the incident that needs to be updated.|True|None||
+||Comment for the incident.|True|None||
 
 
 
@@ -71,7 +71,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Provide additional comment that represents additional information regarding the action.||None||
+||Provide additional comment that represents additional information regarding the action.|False|None||
 
 
 
@@ -88,11 +88,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Query that needs to be executed in Palo Alto XDR. Note: don't provide "limit" as part of the query. Action will provide it automatically based on the value provided in the “Max Results To Return” parameter.||None||
-||Time frame for the results. If “Custom” is selected, you also need to provide "Start Time".||None|Last Hour|
-||Start time for the results. This parameter is mandatory, if “Custom” is selected for the "Time Frame" parameter. Format: ISO 8601.||None||
-||End time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.||None||
-||How many results to return for the query. Action will append "limit" to the provided query. Default: 50. Maximum: 1000.||None|50|
+||Query that needs to be executed in Palo Alto XDR. Note: don't provide "limit" as part of the query. Action will provide it automatically based on the value provided in the “Max Results To Return” parameter.|True|None||
+||Time frame for the results. If “Custom” is selected, you also need to provide "Start Time".|False|None||
+||Start time for the results. This parameter is mandatory, if “Custom” is selected for the "Time Frame" parameter. Format: ISO 8601.|False|None||
+||End time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.|False|None||
+||How many results to return for the query. Action will append "limit" to the provided query. Default: 50. Maximum: 1000.|False|None||
 
 
 
@@ -109,9 +109,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||ID of the incident that needs to be returned.||None||
-||Lowest severity for the alert to be returned.||None|High|
-||How many alerts to return for the query. Default: 50. Maximum: 1000.||None|50|
+||ID of the incident that needs to be returned.|True|None||
+||Lowest severity for the alert to be returned.|False|None||
+||How many alerts to return for the query. Default: 50. Maximum: 1000.|False|None||
 
 
 
@@ -122,7 +122,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A comma-separated list of agent IDs to isolate. This parameter works in conjunction with the provided entities.||None||
+||A comma-separated list of agent IDs to isolate. This parameter works in conjunction with the provided entities.|False|None||
 
 
 
@@ -133,8 +133,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The ID of the incident to associate the scan activity with, allowing the results to appear in the incident timeline.||None||
-||A comma-separated list of agent IDs to include in the scan. This parameter works in conjunction with the provided entities||None||
+||The ID of the incident to associate the scan activity with, allowing the results to appear in the incident timeline.|False|None||
+||A comma-separated list of agent IDs to include in the scan. This parameter works in conjunction with the provided entities|False|None||
 
 
 
@@ -151,7 +151,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The ID of the incident for which you want to retrieve data.||None||
+||The ID of the incident for which you want to retrieve data.|True|None||
 
 
 
@@ -162,7 +162,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A comma-separated list of agent IDs to unisolate. This parameter works in conjunction with the provided entities.||None||
+||A comma-separated list of agent IDs to unisolate. This parameter works in conjunction with the provided entities.|False|None||
 
 
 
@@ -173,10 +173,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The updated full name of the incident assignee.||None||
-||Administrator-defined severity||None|Select One|
-||Updated incident status||None|Select One|
-||The ID of the incident to be updated.||None||
+||The updated full name of the incident assignee.|False|None||
+||Administrator-defined severity|False|None||
+||Updated incident status|False|None||
+||The ID of the incident to be updated.|True|None||
 
 
 
@@ -187,9 +187,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The ID of the incident to be updated.||None||
-||Updated incident status||None|UNDER_INVESTIGATION|
-||Descriptive comment explaining the incident change.||None||
+||The ID of the incident to be updated.|True|None||
+||Updated incident status|True|None||
+||Descriptive comment explaining the incident change.|False|None||
 
 
 

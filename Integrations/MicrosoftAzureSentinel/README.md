@@ -59,8 +59,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify Incident number to add comment to.||None||
-||Specify comment to add to Incident||None||
+||Specify Incident number to add comment to.|True|None||
+||Specify comment to add to Incident|True|None||
 
 
 
@@ -71,7 +71,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Time frame in hours for which to fetch Incidents||None|3|
+||Time frame in hours for which to fetch Incidents|False|None||
 
 
 
@@ -82,10 +82,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Time frame in hours for which to fetch Incidents||None|3|
-||Statuses of the incidents to look for. Comma-separated string||None|New, Active, Closed|
-||Severities of the incidents to look for. Comma-separated string.||None|Informational, Low, Medium, High|
-||How many incidents to fetch||None|200|
+||Time frame in hours for which to fetch Incidents|False|None||
+||Statuses of the incidents to look for. Comma-separated string|False|None||
+||Severities of the incidents to look for. Comma-separated string.|False|None||
+||How many incidents to fetch|False|None||
 
 
 
@@ -96,16 +96,16 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify Azure Sentinel incident number to update.||None||
-||Specify new title for the Azure Sentinel incident.||None||
-||Specify new status for the Azure Sentinel incident.||None|Not Updated|
-||Specify new severity for the Azure Sentinel incident.||None|Not Updated|
-||Specify new description for the Azure Sentinel incident.||None||
-||Specify the user to assign the incident to.||None||
-||If status of the incident is set to Closed, provide a Closed Reason for the incident.||None|Not Updated|
-||Optional closing comment to provide for the closed Azure Sentinel Incident.||None||
-||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None|1|
-||Specify what time period action should wait between incident update retries.||None|20|
+||Specify Azure Sentinel incident number to update.|True|None||
+||Specify new title for the Azure Sentinel incident.|False|None||
+||Specify new status for the Azure Sentinel incident.|False|None||
+||Specify new severity for the Azure Sentinel incident.|False|None||
+||Specify new description for the Azure Sentinel incident.|False|None||
+||Specify the user to assign the incident to.|False|None||
+||If status of the incident is set to Closed, provide a Closed Reason for the incident.|False|None||
+||Optional closing comment to provide for the closed Azure Sentinel Incident.|False|None||
+||Specify the number of retry attempts the action should make if the incident update was unsuccessful.|False|None||
+||Specify what time period action should wait between incident update retries.|False|None||
 
 
 
@@ -116,19 +116,19 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Alert Rule ID||None||
-||Enable or disable new alert rule||None|True|
-||Display name of the new alert rule||None||
-||Severity of the new alert rule||None|Informational|
-||Query of the new alert rule||None||
-||How frequently to run the query, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
-||Time of the last lookup data, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
-||Trigger operator for this alert rule.Possible values are: GreaterThan, LessThan, Equal, NotEqual||None|GreaterThan|
-||Trigger threshold for this alert rule||None||
-||Whether you want to stop running query after alert is generated||None|True|
-||How long you want to stop running query after alert is generated, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
-||Description of the new alert rule||None||
-||Tactics of the new alert rule. Comma-separated values.||None||
+||Alert Rule ID|True|None||
+||Enable or disable new alert rule|False|None||
+||Display name of the new alert rule|False|None||
+||Severity of the new alert rule|False|None||
+||Query of the new alert rule|False|None||
+||How frequently to run the query, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.|False|None||
+||Time of the last lookup data, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.|False|None||
+||Trigger operator for this alert rule.Possible values are: GreaterThan, LessThan, Equal, NotEqual|False|None||
+||Trigger threshold for this alert rule|False|None||
+||Whether you want to stop running query after alert is generated|False|None||
+||How long you want to stop running query after alert is generated, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.|False|None||
+||Description of the new alert rule|False|None||
+||Tactics of the new alert rule. Comma-separated values.|False|None||
 
 
 
@@ -139,15 +139,15 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify Azure Sentinel incident number to update.||None||
-||Specify new title for the Azure Sentinel incident.||None||
-||Specify new status for the Azure Sentinel incident.||None|Not Updated|
-||Specify new severity for the Azure Sentinel incident.||None|Not Updated|
-||Specify new description for the Azure Sentinel incident.||None||
-||Specify the user to assign the incident to.||None||
-||If status of the incident is set to Closed, provide a Closed Reason for the incident.||None|Not Updated|
-||Optional closing comment to provide for the closed Azure Sentinel Incident.||None||
-||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None|1|
+||Specify Azure Sentinel incident number to update.|True|None||
+||Specify new title for the Azure Sentinel incident.|False|None||
+||Specify new status for the Azure Sentinel incident.|False|None||
+||Specify new severity for the Azure Sentinel incident.|False|None||
+||Specify new description for the Azure Sentinel incident.|False|None||
+||Specify the user to assign the incident to.|False|None||
+||If status of the incident is set to Closed, provide a Closed Reason for the incident.|False|None||
+||Optional closing comment to provide for the closed Azure Sentinel Incident.|False|None||
+||Specify the number of retry attempts the action should make if the incident update was unsuccessful.|False|None||
 
 
 
@@ -158,18 +158,18 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Enable or disable new alert rule||None|True|
-||Display name of the new alert rule||None||
-||Severity of the new alert rule||None|Informational|
-||Query of the new alert rule||None||
-||How frequently to run the query, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
-||Time of the last lookup data, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
-||Trigger operator for this alert rule.Possible values are: GreaterThan, LessThan, Equal, NotEqual||None|GreaterThan|
-||Trigger threshold for this alert rule||None||
-||Whether you want to stop running query after alert is generated||None|True|
-||How long you want to stop running query after alert is generated, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
-||Description of the new alert rule||None||
-||Tactics of the new alert rule. Comma-separated values.||None||
+||Enable or disable new alert rule|False|None||
+||Display name of the new alert rule|True|None||
+||Severity of the new alert rule|True|None||
+||Query of the new alert rule|True|None||
+||How frequently to run the query, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.|True|None||
+||Time of the last lookup data, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.|True|None||
+||Trigger operator for this alert rule.Possible values are: GreaterThan, LessThan, Equal, NotEqual|True|None||
+||Trigger threshold for this alert rule|True|None||
+||Whether you want to stop running query after alert is generated|False|None||
+||How long you want to stop running query after alert is generated, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.|True|None||
+||Description of the new alert rule|False|None||
+||Tactics of the new alert rule. Comma-separated values.|False|None||
 
 
 
@@ -180,7 +180,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Hunting Rule ID||None||
+||Hunting Rule ID|True|None||
 
 
 
@@ -191,10 +191,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Display name of the new custom hunting rule||None||
-||Query of the new custom hunting rule||None||
-||Description of the new custom hunting rule||None||
-||Tactics of the new custom hunting rule. Comma-separated values.||None||
+||Display name of the new custom hunting rule|True|None||
+||Query of the new custom hunting rule|True|None||
+||Description of the new custom hunting rule|False|None||
+||Tactics of the new custom hunting rule. Comma-separated values.|False|None||
 
 
 
@@ -205,7 +205,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Alert Rule ID||None||
+||Alert Rule ID|True|None||
 
 
 
@@ -216,9 +216,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Names for the hunting rules action should return. Comma-separated string||None||
-||What hunting rule tactics action should return. Comma-separated string||None||
-||How many scheduled alert rules the action should return, for example, 50.||None||
+||Names for the hunting rules action should return. Comma-separated string|False|None||
+||What hunting rule tactics action should return. Comma-separated string|False|None||
+||How many scheduled alert rules the action should return, for example, 50.|False|None||
 
 
 
@@ -229,7 +229,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Hunting Rule ID||None||
+||Hunting Rule ID|True|None||
 
 
 
@@ -240,9 +240,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify Azure Sentinel incident number to update with new labels.||None||
-||Specify new labels that should be appended to the Incident. Parameter accepts multiple values as a comma-separated string.||None||
-||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None|1|
+||Specify Azure Sentinel incident number to update with new labels.|True|None||
+||Specify new labels that should be appended to the Incident. Parameter accepts multiple values as a comma-separated string.|True|None||
+||Specify the number of retry attempts the action should make if the incident update was unsuccessful.|False|None||
 
 
 
@@ -253,8 +253,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Hunting Rule ID||None||
-||Timeout value for the Azure Sentinel hunting rule API call||None|180|
+||Hunting Rule ID|True|None||
+||Timeout value for the Azure Sentinel hunting rule API call|False|None||
 
 
 
@@ -265,11 +265,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Severities of the alert rules to look for. Comma-separated string||None|Informational, Low, Medium, High|
-||What alert rule types action should return. Comma-separated string||None||
-||What alert rule tactics action should return. Comma-separated string||None||
-||If action should return only enabled alert rules||None|False|
-||How many scheduled alert rules the action should return, for example, 50.||None||
+||Severities of the alert rules to look for. Comma-separated string|False|None||
+||What alert rule types action should return. Comma-separated string|False|None||
+||What alert rule tactics action should return. Comma-separated string|False|None||
+||If action should return only enabled alert rules|False|None||
+||How many scheduled alert rules the action should return, for example, 50.|False|None||
 
 
 
@@ -280,7 +280,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Alert Rule ID||None||
+||Alert Rule ID|True|None||
 
 
 
@@ -297,10 +297,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A KQL Query to execute in Azure Sentinel. For example, to get security alerts available in Sentinel, query will be "SecurityAlert". Use other action input parameters (time span, limit) to filter the query results. For the examples of KQL queries consider Sentinel "Logs" Web page||None||
-||Time span to look for, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute.||None||
-||Timeout value for the Azure Sentinel hunting rule API call. Note that Siemplify action python process timeout should be adjusted accordingly for this parameter, to not timeout action sooner than specified value because of the python process timeout.||None|180|
-||How many records should be fetched. Optional parameter, if set, adds a "| limit x" to the kql query where x is the value set for the record limit. Can be removed if "limit" is already set in kql query or not needed.||None|100|
+||A KQL Query to execute in Azure Sentinel. For example, to get security alerts available in Sentinel, query will be "SecurityAlert". Use other action input parameters (time span, limit) to filter the query results. For the examples of KQL queries consider Sentinel "Logs" Web page|True|None||
+||Time span to look for, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute.|False|None||
+||Timeout value for the Azure Sentinel hunting rule API call. Note that Siemplify action python process timeout should be adjusted accordingly for this parameter, to not timeout action sooner than specified value because of the python process timeout.|False|None||
+||How many records should be fetched. Optional parameter, if set, adds a "| limit x" to the kql query where x is the value set for the record limit. Can be removed if "limit" is already set in kql query or not needed.|False|None||
 
 
 
@@ -311,10 +311,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify Azure Sentinel incident number to update with new labels.||None||
-||Specify new labels that should be appended to the Incident. Parameter accepts multiple values as a comma-separated string.||None||
-||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None|1|
-||Specify what time period in seconds action should wait between incident update retries.||None|20|
+||Specify Azure Sentinel incident number to update with new labels.|True|None||
+||Specify new labels that should be appended to the Incident. Parameter accepts multiple values as a comma-separated string.|True|None||
+||Specify the number of retry attempts the action should make if the incident update was unsuccessful.|False|None||
+||Specify what time period in seconds action should wait between incident update retries.|False|None||
 
 
 
@@ -325,11 +325,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Hunting Rule ID||None||
-||Display name of the new custom hunting rule||None||
-||Query of the new custom hunting rule||None||
-||Description of the new custom hunting rule||None||
-||Tactics of the new custom hunting rule. Comma-separated values.||None||
+||Hunting Rule ID|True|None||
+||Display name of the new custom hunting rule|False|None||
+||Query of the new custom hunting rule|False|None||
+||Description of the new custom hunting rule|False|None||
+||Tactics of the new custom hunting rule. Comma-separated values.|False|None||
 
 
 

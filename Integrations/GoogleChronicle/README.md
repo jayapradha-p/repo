@@ -51,12 +51,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the query that needs to be executed in Chronicle.||None||
-||If selected, the action retrieves the original raw log file associated with the UDM search results. Raw Log data is not available for aggregated searches. This option is only available when using Chronicle API authentication.||None|false|
-||Specify a time frame for the results. If "Alert Time Till Now" is selected, action will use start time of the alert as start time for the search and end time will be current time. If "30 Minutes Around Alert Time" is selected, action will search the alerts 30 minutes before the alert happened till the 30 minutes after the alert has happened.  Same idea applies to "1 Hour Around Alert Time" and "5 Minutes Around Alert Time". If "Custom" is selected, you also need to provide "Start Time".||None|Last Hour|
-||Specify the start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601. Note: The maximum time window (start time to end time) is 90 days.||None||
-||Specify the end time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time. Note: The maximum time window (start time to end time) is 90 days.||None||
-||Specify how many results to return for the query. Default: 50. Maximum: 10000.||None|50|
+||Specify the query that needs to be executed in Chronicle.|True|None||
+||If selected, the action retrieves the original raw log file associated with the UDM search results. Raw Log data is not available for aggregated searches. This option is only available when using Chronicle API authentication.|False|None||
+||Specify a time frame for the results. If "Alert Time Till Now" is selected, action will use start time of the alert as start time for the search and end time will be current time. If "30 Minutes Around Alert Time" is selected, action will search the alerts 30 minutes before the alert happened till the 30 minutes after the alert has happened.  Same idea applies to "1 Hour Around Alert Time" and "5 Minutes Around Alert Time". If "Custom" is selected, you also need to provide "Start Time".|False|None||
+||Specify the start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601. Note: The maximum time window (start time to end time) is 90 days.|False|None||
+||Specify the end time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time. Note: The maximum time window (start time to end time) is 90 days.|False|None||
+||Specify how many results to return for the query. Default: 50. Maximum: 10000.|False|None||
 
 
 
@@ -67,7 +67,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The prompt that the system uses to generate the structured UDM query.||None||
+||The prompt that the system uses to generate the structured UDM query.|True|None||
 
 
 
@@ -78,7 +78,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the rule for which you want to fetch details.||None||
+||Specify the ID of the rule for which you want to fetch details.|True|None||
 
 
 
@@ -89,8 +89,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the display name of the reference list that needs to be updated||None||
-||Specify a comma-separated list of values that need to be added to a reference list||None||
+||Specify the display name of the reference list that needs to be updated|True|None||
+||Specify a comma-separated list of values that need to be added to a reference list|True|None||
 
 
 
@@ -101,10 +101,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||If enabled, action will create an insight containing information about the entities.||None|true|
-||If enabled, action will only create an insight for entities that are marked as suspicious. Note: "Create Insight" parameter needs to be enabled.||None|false|
-||Specify the lowest severity that should be associated with domain in order to mark it suspicious.||None|Medium|
-||If enabled, action will mark the entity as suspicious, if information about severity is not available.||None|True|
+||If enabled, action will create an insight containing information about the entities.|False|None||
+||If enabled, action will only create an insight for entities that are marked as suspicious. Note: "Create Insight" parameter needs to be enabled.|False|None||
+||Specify the lowest severity that should be associated with domain in order to mark it suspicious.|True|None||
+||If enabled, action will mark the entity as suspicious, if information about severity is not available.|False|None||
 
 
 
@@ -115,8 +115,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the display name of the data table that needs to be updated.||None||
-||Specify a list of JSON objects that will be used to search rows in data tables. At least 1 valid column should be provided as part of payload. Action will search for all rows, where a specific column has that value and delete them.||None||
+||Specify the display name of the data table that needs to be updated.|True|None||
+||Specify a list of JSON objects that will be used to search rows in data tables. At least 1 valid column should be provided as part of payload. Action will search for all rows, where a specific column has that value and delete them.|True|None||
 
 
 
@@ -127,8 +127,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The name of the Risk Analytics Watchlist to add the entry to.||None||
-||The JSON object representing the entity to add to the Watchlist. The JSON structure requires the entity value, entity type, and an optional namespace.||None|[{"entity": "","type": "ASSET_IP_ADDRESS/MAC/HOSTNAME/PRODUCT_SPECIFIC_ID/USERNAME/EMAIL/EMPLOYEE_ID/WINDOWS_SID/PRODUCT_OBJECT_ID","namespace": "Optional"}]|
+||The name of the Risk Analytics Watchlist to add the entry to.|True|None||
+||The JSON object representing the entity to add to the Watchlist. The JSON structure requires the entity value, entity type, and an optional namespace.|True|None||
 
 
 
@@ -139,12 +139,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the key that needs to be used to filter reference lists. Name option refers to a display name of the data table.||None|Select One|
-||Specify what filter logic should be applied.||None|Equal|
-||Specify what value should be used in the filter. If “Equal“ is selected, action will try to find the exact match among results and if “Contains“ is selected, action will try to find results that contain that substring. “Equal” works with “title” parameter, while “Contains” works with all values in response. If nothing is provided in this parameter, the filter will not be applied.||None||
-||If enabled, action will return data table rows as part of response.||None|false|
-||Specify how many data tables to return. Maximum: 1000.||None|100|
-||Specify how many data table rows to return. Note: this parameter is only used if “Expanded Rows” is enabled. Maximum: 1000.||None|1000|
+||Specify the key that needs to be used to filter reference lists. Name option refers to a display name of the data table.|False|None||
+||Specify what filter logic should be applied.|False|None||
+||Specify what value should be used in the filter. If “Equal“ is selected, action will try to find the exact match among results and if “Contains“ is selected, action will try to find results that contain that substring. “Equal” works with “title” parameter, while “Contains” works with all values in response. If nothing is provided in this parameter, the filter will not be applied.|False|None||
+||If enabled, action will return data table rows as part of response.|False|None||
+||Specify how many data tables to return. Maximum: 1000.|True|None||
+||Specify how many data table rows to return. Note: this parameter is only used if “Expanded Rows” is enabled. Maximum: 1000.|True|None||
 
 
 
@@ -155,11 +155,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the key that needs to be used to filter reference lists. Name option refers to a display name of the reference list.||None|Select One|
-||Specify what filter logic should be applied.||None|Equal|
-||Specify what value should be used in the filter. If “Equal“ is selected, action will try to find the exact match among results and if “Contains“ is selected, action will try to find results that contain that substring. “Equal” works with “title” parameter, while “Contains” works with all values in response. If nothing is provided in this parameter, the filter will not be applied.||None||
-||If enabled, action will return detailed information about the reference lists.||None|false|
-||Specify how many reference lists to return. Default: 100.||None|100|
+||Specify the key that needs to be used to filter reference lists. Name option refers to a display name of the reference list.|False|None||
+||Specify what filter logic should be applied.|False|None||
+||Specify what value should be used in the filter. If “Equal“ is selected, action will try to find the exact match among results and if “Contains“ is selected, action will try to find results that contain that substring. “Equal” works with “title” parameter, while “Contains” works with all values in response. If nothing is provided in this parameter, the filter will not be applied.|False|None||
+||If enabled, action will return detailed information about the reference lists.|False|None||
+||Specify how many reference lists to return. Default: 100.|False|None||
 
 
 
@@ -170,8 +170,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||If enabled, action will do an automatic opt-in for Gemini.||None|true|
-||Specify the prompt that should be executed.||None||
+||If enabled, action will do an automatic opt-in for Gemini.|False|None||
+||Specify the prompt that should be executed.|True|None||
 
 
 
@@ -182,9 +182,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the rule, which is related to the detection.||None|[Alert.rule_id]|
-||Specify the ID of the detection for which you want to fetch details.||None|[Alert.SiemID]|
-||If selected, the action retrieves the original raw log file associated with the UDM search results. Note: This option is only available when using Chronicle API authentication.||None|false|
+||Specify the ID of the rule, which is related to the detection.|True|None||
+||Specify the ID of the detection for which you want to fetch details.|True|None||
+||If selected, the action retrieves the original raw log file associated with the UDM search results. Note: This option is only available when using Chronicle API authentication.|False|None||
 
 
 
@@ -195,11 +195,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the display name of the data table that needs to be updated.||None||
-||Specify a comma-separated list of columns that need to be searched within the data table. If nothing is provided, action will search within all columns.||None||
-||Specify a comma-separated list of values that need to be searched inside the data table.||None||
-||If enabled, action will perform case insensitive matching.||None|true|
-||Specify how many data table rows to return per value that was matched. Maximum: 1000.||None|1000|
+||Specify the display name of the data table that needs to be updated.|True|None||
+||Specify a comma-separated list of columns that need to be searched within the data table. If nothing is provided, action will search within all columns.|False|None||
+||Specify a comma-separated list of values that need to be searched inside the data table.|True|None||
+||If enabled, action will perform case insensitive matching.|False|None||
+||Specify how many data table rows to return per value that was matched. Maximum: 1000.|True|None||
 
 
 
@@ -210,13 +210,13 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify a comma-separated list of the event types that need to be returned. If nothing is provided, action will fetch all event types. Possible values: EVENTTYPE_UNSPECIFIED, PROCESS_UNCATEGORIZED, PROCESS_LAUNCH, PROCESS_INJECTION, PROCESS_PRIVILEGE_ESCALATION, PROCESS_TERMINATION, PROCESS_OPEN, PROCESS_MODULE_LOAD, REGISTRY_UNCATEGORIZED, REGISTRY_CREATION, REGISTRY_MODIFICATION, REGISTRY_DELETION, SETTING_UNCATEGORIZED, SETTING_CREATION, SETTING_MODIFICATION, SETTING_DELETION, MUTEX_UNCATEGORIZED, MUTEX_CREATION, FILE_UNCATEGORIZED, FILE_CREATION, FILE_DELETION, FILE_MODIFICATION, FILE_READ, FILE_COPY, FILE_OPEN, FILE_MOVE, FILE_SYNC, USER_UNCATEGORIZED, USER_LOGIN, USER_LOGOUT, USER_CREATION, USER_CHANGE_PASSWORD, USER_CHANGE_PERMISSIONS, USER_STATS, USER_BADGE_IN, USER_DELETION, USER_RESOURCE_CREATION, USER_RESOURCE_UPDATE_CONTENT, USER_RESOURCE_UPDATE_PERMISSIONS, USER_COMMUNICATION, USER_RESOURCE_ACCESS, USER_RESOURCE_DELETION, GROUP_UNCATEGORIZED, GROUP_CREATION, GROUP_DELETION, GROUP_MODIFICATION, EMAIL_UNCATEGORIZED, EMAIL_TRANSACTION, EMAIL_URL_CLICK, NETWORK_UNCATEGORIZED, NETWORK_FLOW, NETWORK_CONNECTION, NETWORK_FTP, NETWORK_DHCP, NETWORK_DNS, NETWORK_HTTP, NETWORK_SMTP, STATUS_UNCATEGORIZED, STATUS_HEARTBEAT, STATUS_STARTUP, STATUS_SHUTDOWN, STATUS_UPDATE, SCAN_UNCATEGORIZED, SCAN_FILE, SCAN_PROCESS_BEHAVIORS, SCAN_PROCESS, SCAN_HOST, SCAN_VULN_HOST, SCAN_VULN_NETWORK, SCAN_NETWORK, SCHEDULED_TASK_UNCATEGORIZED, SCHEDULED_TASK_CREATION, SCHEDULED_TASK_DELETION, SCHEDULED_TASK_ENABLE, SCHEDULED_TASK_DISABLE, SCHEDULED_TASK_MODIFICATION, SYSTEM_AUDIT_LOG_UNCATEGORIZED, SYSTEM_AUDIT_LOG_WIPE, SERVICE_UNSPECIFIED, SERVICE_CREATION, SERVICE_DELETION, SERVICE_START, SERVICE_STOP, SERVICE_MODIFICATION, GENERIC_EVENT, RESOURCE_CREATION, RESOURCE_DELETION, RESOURCE_PERMISSIONS_CHANGE, RESOURCE_READ, RESOURCE_WRITTEN, ANALYST_UPDATE_VERDICT, ANALYST_UPDATE_REPUTATION, ANALYST_UPDATE_SEVERITY_SCORE, ANALYST_UPDATE_STATUS, ANALYST_ADD_COMMENT||None||
-||Specify a time frame for the results. If "Custom" is selected, you also need to provide "Start Time".||None|Custom|
-||Specify the start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601||None||
-||Specify the end time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time. Note: value "now" can also be used.||None||
-||Specify the reference time for the event search. Format: YYYY-MM-DDThh:mmTZD. Note: if nothing is provided, action will use end time as reference time.||None||
-||Specify what should be the output for this action.||None|Events + Statistics|
-||Specify how many events to process per entity type. Default: 100.||None|100|
+||Specify a comma-separated list of the event types that need to be returned. If nothing is provided, action will fetch all event types. Possible values: EVENTTYPE_UNSPECIFIED, PROCESS_UNCATEGORIZED, PROCESS_LAUNCH, PROCESS_INJECTION, PROCESS_PRIVILEGE_ESCALATION, PROCESS_TERMINATION, PROCESS_OPEN, PROCESS_MODULE_LOAD, REGISTRY_UNCATEGORIZED, REGISTRY_CREATION, REGISTRY_MODIFICATION, REGISTRY_DELETION, SETTING_UNCATEGORIZED, SETTING_CREATION, SETTING_MODIFICATION, SETTING_DELETION, MUTEX_UNCATEGORIZED, MUTEX_CREATION, FILE_UNCATEGORIZED, FILE_CREATION, FILE_DELETION, FILE_MODIFICATION, FILE_READ, FILE_COPY, FILE_OPEN, FILE_MOVE, FILE_SYNC, USER_UNCATEGORIZED, USER_LOGIN, USER_LOGOUT, USER_CREATION, USER_CHANGE_PASSWORD, USER_CHANGE_PERMISSIONS, USER_STATS, USER_BADGE_IN, USER_DELETION, USER_RESOURCE_CREATION, USER_RESOURCE_UPDATE_CONTENT, USER_RESOURCE_UPDATE_PERMISSIONS, USER_COMMUNICATION, USER_RESOURCE_ACCESS, USER_RESOURCE_DELETION, GROUP_UNCATEGORIZED, GROUP_CREATION, GROUP_DELETION, GROUP_MODIFICATION, EMAIL_UNCATEGORIZED, EMAIL_TRANSACTION, EMAIL_URL_CLICK, NETWORK_UNCATEGORIZED, NETWORK_FLOW, NETWORK_CONNECTION, NETWORK_FTP, NETWORK_DHCP, NETWORK_DNS, NETWORK_HTTP, NETWORK_SMTP, STATUS_UNCATEGORIZED, STATUS_HEARTBEAT, STATUS_STARTUP, STATUS_SHUTDOWN, STATUS_UPDATE, SCAN_UNCATEGORIZED, SCAN_FILE, SCAN_PROCESS_BEHAVIORS, SCAN_PROCESS, SCAN_HOST, SCAN_VULN_HOST, SCAN_VULN_NETWORK, SCAN_NETWORK, SCHEDULED_TASK_UNCATEGORIZED, SCHEDULED_TASK_CREATION, SCHEDULED_TASK_DELETION, SCHEDULED_TASK_ENABLE, SCHEDULED_TASK_DISABLE, SCHEDULED_TASK_MODIFICATION, SYSTEM_AUDIT_LOG_UNCATEGORIZED, SYSTEM_AUDIT_LOG_WIPE, SERVICE_UNSPECIFIED, SERVICE_CREATION, SERVICE_DELETION, SERVICE_START, SERVICE_STOP, SERVICE_MODIFICATION, GENERIC_EVENT, RESOURCE_CREATION, RESOURCE_DELETION, RESOURCE_PERMISSIONS_CHANGE, RESOURCE_READ, RESOURCE_WRITTEN, ANALYST_UPDATE_VERDICT, ANALYST_UPDATE_REPUTATION, ANALYST_UPDATE_SEVERITY_SCORE, ANALYST_UPDATE_STATUS, ANALYST_ADD_COMMENT|False|None||
+||Specify a time frame for the results. If "Custom" is selected, you also need to provide "Start Time".|False|None||
+||Specify the start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601|False|None||
+||Specify the end time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time. Note: value "now" can also be used.|False|None||
+||Specify the reference time for the event search. Format: YYYY-MM-DDThh:mmTZD. Note: if nothing is provided, action will use end time as reference time.|False|None||
+||Specify what should be the output for this action.|True|None||
+||Specify how many events to process per entity type. Default: 100.|False|None||
 
 
 
@@ -227,9 +227,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify a comma-separated list of display names of the reference list that needs to be searched.||None||
-||Specify a comma-separated list of values that need to be searched in reference lists.||None||
-||If enabled, action will perform case insensitive matching.||None|true|
+||Specify a comma-separated list of display names of the reference list that needs to be searched.|True|None||
+||Specify a comma-separated list of values that need to be searched in reference lists.|True|None||
+||If enabled, action will perform case insensitive matching.|False|None||
 
 
 
@@ -240,8 +240,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Fetches IOC Domain from the specified time. Value should be in RFC 3339 format (e.g. 2018-11-05T12:00:00Z). If not supplied, the default is the UTC time corresponding to 3 days earlier than current time.||None||
-||Specify the maximum number of IoCs to return. You can specify between 1 and 10,000. The default is 50.||None|50|
+||Fetches IOC Domain from the specified time. Value should be in RFC 3339 format (e.g. 2018-11-05T12:00:00Z). If not supplied, the default is the UTC time corresponding to 3 days earlier than current time.|False|None||
+||Specify the maximum number of IoCs to return. You can specify between 1 and 10,000. The default is 50.|False|None||
 
 
 
@@ -252,9 +252,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify a time frame for the results. If "Alert Time Till Now" is selected, action will use start time of the alert as start time for the search and end time will be current time. If "30 Minutes Around Alert Time" is selected, action will search the alerts 30 minutes before the alert happened till the 30 minutes after the alert has happened.  Same idea applies to "1 Hour Around Alert Time" and "5 Minutes Around Alert Time".||None|Last Hour|
-||Specify a comma-separated list of IOCs or assets that you want to find in the alerts. Note: action will perform a different search for each item provided.||None||
-||Specify what attributes need to be used, when the action is to search for similar alerts. If "Alert Name and Alert Type" is selected, action will try to find all of the alerts that have the same alert name and IOCs/Assets for the underlying alert type. If "Product" is selected, then action will try to find all of the alerts that originate from the same product and have the same IOCs/Assets, action will search among both "EXTERNAL" and "Rule" alerts. If "Only IOCs/Assets" is enabled, action will match the similarity only based upon the items provided in the parameter "IOCs/Assets", action will search among both "EXTERNAL" and "Rule" alerts.||None|Alert Name and Product|
+||Specify a time frame for the results. If "Alert Time Till Now" is selected, action will use start time of the alert as start time for the search and end time will be current time. If "30 Minutes Around Alert Time" is selected, action will search the alerts 30 minutes before the alert happened till the 30 minutes after the alert has happened.  Same idea applies to "1 Hour Around Alert Time" and "5 Minutes Around Alert Time".|False|None||
+||Specify a comma-separated list of IOCs or assets that you want to find in the alerts. Note: action will perform a different search for each item provided.|True|None||
+||Specify what attributes need to be used, when the action is to search for similar alerts. If "Alert Name and Alert Type" is selected, action will try to find all of the alerts that have the same alert name and IOCs/Assets for the underlying alert type. If "Product" is selected, then action will try to find all of the alerts that originate from the same product and have the same IOCs/Assets, action will search among both "EXTERNAL" and "Rule" alerts. If "Only IOCs/Assets" is enabled, action will match the similarity only based upon the items provided in the parameter "IOCs/Assets", action will search among both "EXTERNAL" and "Rule" alerts.|False|None||
 
 
 
@@ -265,10 +265,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the rule for which you want to run retrohunt.||None||
-||Specify a time frame for the results. If “Alert Time Till Now” is selected, action will use start time of the alert as start time for the search and end time will be current time. If “30 Minutes Around Alert Time” is selected, action will search the alerts 30 minutes before the alert happened till the 30 minutes after the alert has happened.  Same idea applies to “1 Hour Around Alert Time” and “5 Minutes Around Alert Time”. If “Custom” is selected, you also need to provide “Start Time”.||None|Last Hour|
-||Specify the start time for the results. This parameter is mandatory, if “Custom” is selected for the “Time Frame” parameter. Format: ISO 8601.||None||
-||Specify the end time for the results. Format: ISO 8601. If nothing is provided and “Custom” is selected for the “Time Frame” parameter then this parameter will use current time.||None||
+||Specify the ID of the rule for which you want to run retrohunt.|True|None||
+||Specify a time frame for the results. If “Alert Time Till Now” is selected, action will use start time of the alert as start time for the search and end time will be current time. If “30 Minutes Around Alert Time” is selected, action will search the alerts 30 minutes before the alert happened till the 30 minutes after the alert has happened.  Same idea applies to “1 Hour Around Alert Time” and “5 Minutes Around Alert Time”. If “Custom” is selected, you also need to provide “Start Time”.|False|None||
+||Specify the start time for the results. This parameter is mandatory, if “Custom” is selected for the “Time Frame” parameter. Format: ISO 8601.|False|None||
+||Specify the end time for the results. Format: ISO 8601. If nothing is provided and “Custom” is selected for the “Time Frame” parameter then this parameter will use current time.|False|None||
 
 
 
@@ -285,8 +285,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the display name of the reference list that needs to be updated.||None||
-||Specify a comma-separated list of values that need to be removed from a reference list.||None||
+||Specify the display name of the reference list that needs to be updated.|True|None||
+||Specify a comma-separated list of values that need to be removed from a reference list.|True|None||
 
 
 
@@ -297,10 +297,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||If enabled, action will create an insight containing information about the entities.||None|true|
-||If enabled, action will only create an insight for entities that are marked as suspicious. Note: "Create Insight" parameter needs to be enabled.||None|false|
-||Specify the lowest severity that should be associated with IP in order to mark it suspicious.||None|Medium|
-||If enabled, action will mark the entity as suspicious, if information about severity is not available.||None|True|
+||If enabled, action will create an insight containing information about the entities.|False|None||
+||If enabled, action will only create an insight for entities that are marked as suspicious. Note: "Create Insight" parameter needs to be enabled.|False|None||
+||Specify the lowest severity that should be associated with IP in order to mark it suspicious.|True|None||
+||If enabled, action will mark the entity as suspicious, if information about severity is not available.|False|None||
 
 
 
@@ -311,10 +311,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the namespace in which the entity is located. If nothing is provided, action will still put entities associated with a namespace in higher priority to be returned.||None||
-||Specify a time frame for the results. Only the entities that have information in the provided timeframe will be returned. If “Custom” is selected, you also need to provide “Start Time”.||None|Last Month|
-||Specify the start time for the results. This parameter is mandatory, if “Custom” is selected for the “Time Frame” parameter. Format: ISO 8601.||None||
-||Specify the end time for the results. Format: ISO 8601. If nothing is provided and “Custom” is selected for the “Time Frame” parameter then this parameter will use current time.||None||
+||Specify the namespace in which the entity is located. If nothing is provided, action will still put entities associated with a namespace in higher priority to be returned.|False|None||
+||Specify a time frame for the results. Only the entities that have information in the provided timeframe will be returned. If “Custom” is selected, you also need to provide “Start Time”.|False|None||
+||Specify the start time for the results. This parameter is mandatory, if “Custom” is selected for the “Time Frame” parameter. Format: ISO 8601.|False|None||
+||Specify the end time for the results. Format: ISO 8601. If nothing is provided and “Custom” is selected for the “Time Frame” parameter then this parameter will use current time.|False|None||
 
 
 
@@ -325,8 +325,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the display name of the data table that needs to be updated.||None||
-||Specify a list of JSON objects that contain information about the rows that need to be added.||None||
+||Specify the display name of the data table that needs to be updated.|True|None||
+||Specify a list of JSON objects that contain information about the rows that need to be added.|True|None||
 
 
 
@@ -337,11 +337,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify how many hours backwards to fetch the assets. Default: 1 hour.||None|1|
-||Specify a time frame for the results. If "Custom" is selected, you also need to provide "Start Time". If the "Max Hours Backwards" parameter is provided then action will use the "Max Hours Backwards" parameter to provide a time filter. This is done for backwards compatibility.||None|Max Hours Backwards|
-||Specify the start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601||None||
-||Specify the end time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.||None||
-||Specify how many assets to return in the response.||None|50|
+||Specify how many hours backwards to fetch the assets. Default: 1 hour.|False|None||
+||Specify a time frame for the results. If "Custom" is selected, you also need to provide "Start Time". If the "Max Hours Backwards" parameter is provided then action will use the "Max Hours Backwards" parameter to provide a time filter. This is done for backwards compatibility.|False|None||
+||Specify the start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601|False|None||
+||Specify the end time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.|False|None||
+||Specify how many assets to return in the response.|False|None||
 
 
 

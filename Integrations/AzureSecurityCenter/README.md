@@ -53,7 +53,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the redirect URL that was used when the app was created.||None|https://localhost|
+||Specify the redirect URL that was used when the app was created.|True|None||
 
 
 
@@ -64,8 +64,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the redirect URL that was used when the app was created.||None|https://localhost|
-||Specify the authorization code from action "Get OAuth Authorization Code"||None||
+||Specify the redirect URL that was used when the app was created.|True|None||
+||Specify the authorization code from action "Get OAuth Authorization Code"|True|None||
 
 
 
@@ -76,10 +76,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
-||Specify a comma-separated list of standard names for which you want to retrieve details. Example: Azure-CIS-1.1.0||None||
-||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None|Failed|
-||Specify how many controls to return per standard.||None|50|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.|False|None||
+||Specify a comma-separated list of standard names for which you want to retrieve details. Example: Azure-CIS-1.1.0|True|None||
+||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped|False|None||
+||Specify how many controls to return per standard.|False|None||
 
 
 
@@ -90,10 +90,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
-||Specify an ID of the alert, where you want to update status.||None||
-||Specify the location of the alert. Example: centralus.||None||
-||Specify the status for the alert.||None|Resolve|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.|False|None||
+||Specify an ID of the alert, where you want to update status.|True|None||
+||Specify the location of the alert. Example: centralus.|True|None||
+||Specify the status for the alert.|True|None||
 
 
 
@@ -110,9 +110,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
-||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None|Failed|
-||Specify how many standards to return.||None|50|
+||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.|False|None||
+||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped|False|None||
+||Specify how many standards to return.|False|None||
 
 
 

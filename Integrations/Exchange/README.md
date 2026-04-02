@@ -94,10 +94,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Domains you would like to add to the rule, in a comma separated list.||None||
-||Specify the rule to add the Domains to. If the rule doesn't exist - action will create it where it's missing.||None|Siemplify - Domains List - Move To Junk|
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|50|
+||Specify the Domains you would like to add to the rule, in a comma separated list.|False|None||
+||Specify the rule to add the Domains to. If the rule doesn't exist - action will create it where it's missing.|True|None||
+||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -108,17 +108,17 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||File path on the server where to download the email attachments||None||
-||Filter condition, specify emails with which email ids to find. Should accept comma separated multiple message ids. If message id is provided, subject filter is ignored||None||
-||Filter condition to search emails by specific subject||None||
-||Filter condition to search emails by specific sender||None||
-||If checked, download attachments only from unread emails||None|false|
-||If checked, download attachments also from attached EML files||None|false|
-||If checked, download attachments to unique path  under file path provided in “Download Path” parameter to avoid previously downloaded attachments overwrite.||None|false|
-||If checked, search in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Search in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|25|
-||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over "Search in all mailboxes".||None||
+||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+||File path on the server where to download the email attachments|True|None||
+||Filter condition, specify emails with which email ids to find. Should accept comma separated multiple message ids. If message id is provided, subject filter is ignored|False|None||
+||Filter condition to search emails by specific subject|False|None||
+||Filter condition to search emails by specific sender|False|None||
+||If checked, download attachments only from unread emails|False|None||
+||If checked, download attachments also from attached EML files|False|None||
+||If checked, download attachments to unique path  under file path provided in “Download Path” parameter to avoid previously downloaded attachments overwrite.|False|None||
+||If checked, search in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Search in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over "Search in all mailboxes".|False|None||
 
 
 
@@ -129,9 +129,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Rule name you would like to completely delete from the relevant mailboxes||None||
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|50|
+||Specify the Rule name you would like to completely delete from the relevant mailboxes|True|None||
+||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -142,7 +142,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Use the authorization URL received in the Get Authorization URL action to request a refresh token.||None||
+||Use the authorization URL received in the Get Authorization URL action to request a refresh token.|True|None||
 
 
 
@@ -153,9 +153,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Folder to fetch from. Default is Inbox. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||e.g. <1701cf01ba314032b2f1df43262a7723@gmail.com>||None||
-||e.g. {ips: \b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\b}||None||
+||Folder to fetch from. Default is Inbox. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+||e.g. <1701cf01ba314032b2f1df43262a7723@gmail.com>|True|None||
+||e.g. {ips: \b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\b}|False|None||
 
 
 
@@ -172,10 +172,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Rule name you would like to list from the relevant mailboxes||None||
-||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses to list the rules from. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.||None||
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|50|
+||Specify the Rule name you would like to list from the relevant mailboxes|True|None||
+||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses to list the rules from. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
+||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -192,9 +192,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Folder to fetch from. Default is Inbox. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||Message ID||None||
-||Base64 Encode||None|true|
+||Folder to fetch from. Default is Inbox. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+||Message ID|True|None||
+||Base64 Encode|False|None||
 
 
 
@@ -205,20 +205,20 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||Specify a comma-separated list of message ids that need to be searched. Note: this filter has priority over the other ones.||None||
-||Filter condition, specify what subject to search for emails||None||
-||Filter condition, specify who should be the sender of needed emails||None||
-||Filter condition, specify who should be the recipient of needed emails||None||
-||Filter condition, specify in what time frame in minutes should action look for emails||None||
-||Filter condition, specify if search should look only for unread emails||None|false|
-||Return max X emails as an action result||None|100|
-||If checked, search in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Search in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|25|
-||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over "Search in all mailboxes".||None||
-||Specify the start time for the email search. Format: ISO 8601. This parameter has a priority over "Time Frame (minutes)".||None||
-||Specify the end time for the email search. Format: ISO 8601. If nothing is provided and "Start Time" is valid then this parameter will use current time.||None||
-||Specify a regex pattern that needs to be searched in body part of the email.||None||
+||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+||Specify a comma-separated list of message ids that need to be searched. Note: this filter has priority over the other ones.|False|None||
+||Filter condition, specify what subject to search for emails|False|None||
+||Filter condition, specify who should be the sender of needed emails|False|None||
+||Filter condition, specify who should be the recipient of needed emails|False|None||
+||Filter condition, specify in what time frame in minutes should action look for emails|False|None||
+||Filter condition, specify if search should look only for unread emails|False|None||
+||Return max X emails as an action result|False|None||
+||If checked, search in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Search in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over "Search in all mailboxes".|False|None||
+||Specify the start time for the email search. Format: ISO 8601. This parameter has a priority over "Time Frame (minutes)".|False|None||
+||Specify the end time for the email search. Format: ISO 8601. If nothing is provided and "Start Time" is valid then this parameter will use current time.|False|None||
+||Specify a regex pattern that needs to be searched in body part of the email.|False|None||
 
 
 
@@ -229,18 +229,18 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Source folder to move emails from. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None||
-||Destination folder to move emails to. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None||
-||Specify the source mailbox to move the email from. Parameter accepts multiple values as a comma-separated string. If multiple values are provided, matching emails are copied from every accessible specified mailbox||None||
-||Specify the destination mailbox to move the matching emails to||None||
-||Filter condition, specify emails with which email ids to find. Should accept comma separated multiple message ids. If message id is provided, subject filter is ignored||None||
-||Filter condition, specify what subject to search for emails||None||
-||Filter condition, specify if search should look only for unread emails||None|false|
-||If checked, search and move emails in all mailboxes accessible with current impersonalization settings. If the source or destination mailbox is specified, this parameter is ignored. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Move in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|25|
-||Filter condition, specify in what time frame in minutes should action look for emails||None||
-||If enabled, the amount of information returned by the action will be limited only to the key email fields.||None|true|
-||If enabled, action will not return JSON result.||None|false|
+||Source folder to move emails from. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+||Destination folder to move emails to. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+||Specify the source mailbox to move the email from. Parameter accepts multiple values as a comma-separated string. If multiple values are provided, matching emails are copied from every accessible specified mailbox|False|None||
+||Specify the destination mailbox to move the matching emails to|False|None||
+||Filter condition, specify emails with which email ids to find. Should accept comma separated multiple message ids. If message id is provided, subject filter is ignored|False|None||
+||Filter condition, specify what subject to search for emails|False|None||
+||Filter condition, specify if search should look only for unread emails|False|None||
+||If checked, search and move emails in all mailboxes accessible with current impersonalization settings. If the source or destination mailbox is specified, this parameter is ignored. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Move in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+||Filter condition, specify in what time frame in minutes should action look for emails|False|None||
+||If enabled, the amount of information returned by the action will be limited only to the key email fields.|False|None||
+||If enabled, action will not return JSON result.|False|None||
 
 
 
@@ -251,11 +251,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Domains you would like to remove from the rule, in a comma separated list.||None||
-||Specify the rule to remove the Domains from. If the rule doesn’t exist - action will do nothing.||None|Siemplify - Domains List - Move To Junk|
-||Specify whether action should look for the provided domains in all of Siemplify inbox rules.||None|false|
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|50|
+||Specify the Domains you would like to remove from the rule, in a comma separated list.|False|None||
+||Specify the rule to remove the Domains from. If the rule doesn’t exist - action will do nothing.|True|None||
+||Specify whether action should look for the provided domains in all of Siemplify inbox rules.|False|None||
+||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -272,9 +272,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||Message id to find an email to download attachments from.||None||
-||If parameter is not specified - save all email attachments to the case wall. If parameter specified - save only matching attachment to the case wall.||None||
+||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+||Message id to find an email to download attachments from.|True|None||
+||If parameter is not specified - save all email attachments to the case wall. If parameter specified - save only matching attachment to the case wall.|False|None||
 
 
 
@@ -285,17 +285,17 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Filter condition, specify who should be the recipient of needed emails||None||
-||Should the action move the specified messages to the junk folder||None|true|
-||Filter condition, specify emails with which message ids to find. Should accept comma separated list of message ids to mark as junk. If message id is provided, subject, sender and recipient filters are ignored.||None||
-||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses, to mark the messages as junk in. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.||None||
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||Filter condition, specify subject to search for emails||None||
-||Filter condition, specify who should be the sender of needed emails||None||
-||Filter condition, specify if action should Mark all matched by criteria emails from the mailbox or Mark only first match.||None|false|
-||If checked, move to junk and block sender emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|25|
-||Filter condition, specify in what time frame in minutes should action look for emails.||None||
+||Filter condition, specify who should be the recipient of needed emails|False|None||
+||Should the action move the specified messages to the junk folder|False|None||
+||Filter condition, specify emails with which message ids to find. Should accept comma separated list of message ids to mark as junk. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
+||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses, to mark the messages as junk in. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
+||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+||Filter condition, specify subject to search for emails|False|None||
+||Filter condition, specify who should be the sender of needed emails|False|None||
+||Filter condition, specify if action should Mark all matched by criteria emails from the mailbox or Mark only first match.|False|None||
+||If checked, move to junk and block sender emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+||Filter condition, specify in what time frame in minutes should action look for emails.|False|None||
 
 
 
@@ -306,12 +306,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Senders you would like to remove from the rule, in a comma separated list. If no parameter will be provided, action will work with entities.||None||
-||Specify the rule to remove the Senders from. If the rule doesn't exist - action will do nothing.||None|Siemplify - Senders List - Move To Junk|
-||Specify whether action should look for the provided Senders in all of Siemplify inbox rules.||None|false|
-||Specify whether the action should automatically take the domains of the provided email addresses and remove them as well from the corresponding domain rules (same rule action for domains)||None|false|
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|50|
+||Specify the Senders you would like to remove from the rule, in a comma separated list. If no parameter will be provided, action will work with entities.|False|None||
+||Specify the rule to remove the Senders from. If the rule doesn't exist - action will do nothing.|True|None||
+||Specify whether action should look for the provided Senders in all of Siemplify inbox rules.|False|None||
+||Specify whether the action should automatically take the domains of the provided email addresses and remove them as well from the corresponding domain rules (same rule action for domains)|False|None||
+||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -322,13 +322,13 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Recipient email address. Multiple addresses can be separated by commas||None|user@domain.com|
-||The subject of the email||None||
-||CC email address. Multiple addresses can be separated by commas||None|user@domain.com|
-||bcc email address. Multiple addresses can be separated by commas||None||
-||Email body||None||
-||Allows attachment of files from response mail.||None||
-||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
+||Recipient email address. Multiple addresses can be separated by commas|True|None||
+||The subject of the email|True|None||
+||CC email address. Multiple addresses can be separated by commas|False|None||
+||bcc email address. Multiple addresses can be separated by commas|False|None||
+||Email body|True|None||
+||Allows attachment of files from response mail.|False|None||
+||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
 
 
 
@@ -339,15 +339,15 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The mail subject part||None||
-||Arbitrary comma separated list of email addresses for the email recipients. For example: user1@company.co, user2@company.co||None||
-||Arbitrary comma separated list of email addresses to be put in the CC field of email. Format is the same as for the "Send to" field||None||
-||Arbitrary comma separated list of email addresses to be put in the BCC field of email. Format is the same as for the "Send to" field||None||
-||Comma separated list of attachments file paths stored on the server for addition to the email. For example: C:\<Siemplify work dir>\file1.pdf, C:\<Siemplify work dir>\image2.jpg||None||
-||The email body part||None||
-||Specify a comma-separated list of recipients that will be used in the "Reply-To" header. Note: The Reply-To header is added when the originator of the message wants any replies to the message to go to that particular email address rather than the one in the "From:" address.||None||
-||Specify a base64 encoded certificate that will be used to either encrypt or sign the email. Note: for signing you need to also provide "Base64 Encoded Signature". For encryption, only this parameter needs to have a value.||None||
-||Specify a base64 encoded signature that will be used to sign the email. Note: "Base64 Encoded Certificate" needs to be provided as well for signature to work and contain the signing certificate.||None||
+||The mail subject part|True|None||
+||Arbitrary comma separated list of email addresses for the email recipients. For example: user1@company.co, user2@company.co|True|None||
+||Arbitrary comma separated list of email addresses to be put in the CC field of email. Format is the same as for the "Send to" field|False|None||
+||Arbitrary comma separated list of email addresses to be put in the BCC field of email. Format is the same as for the "Send to" field|False|None||
+||Comma separated list of attachments file paths stored on the server for addition to the email. For example: C:\<Siemplify work dir>\file1.pdf, C:\<Siemplify work dir>\image2.jpg|False|None||
+||The email body part|True|None||
+||Specify a comma-separated list of recipients that will be used in the "Reply-To" header. Note: The Reply-To header is added when the originator of the message wants any replies to the message to go to that particular email address rather than the one in the "From:" address.|False|None||
+||Specify a base64 encoded certificate that will be used to either encrypt or sign the email. Note: for signing you need to also provide "Base64 Encoded Signature". For encryption, only this parameter needs to have a value.|False|None||
+||Specify a base64 encoded signature that will be used to sign the email. Note: "Base64 Encoded Certificate" needs to be provided as well for signature to work and contain the signing certificate.|False|None||
 
 
 
@@ -358,12 +358,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the message to which you want to send a reply.||None||
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||Specify the content of the reply.||None||
-||Specify a comma separated list of attachments file paths stored on the server for addition to the email.||None||
-||If enabled, action will send a reply to all recipients related to the original email. Note: this parameter has priority over “Reply To“ parameter.||None|true|
-||Specify a comma-separated list of emails to which you want to send this reply. If nothing is provided and “Reply All“ is disabled, action will only send a reply to the sender of the email. If “Reply All“ is enabled, action will ignore this parameter.||None||
+||Specify the ID of the message to which you want to send a reply.|True|None||
+||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+||Specify the content of the reply.|True|None||
+||Specify a comma separated list of attachments file paths stored on the server for addition to the email.|False|None||
+||If enabled, action will send a reply to all recipients related to the original email. Note: this parameter has priority over “Reply To“ parameter.|False|None||
+||Specify a comma-separated list of emails to which you want to send this reply. If nothing is provided and “Reply All“ is disabled, action will only send a reply to the sender of the email. If “Reply All“ is enabled, action will ignore this parameter.|False|None||
 
 
 
@@ -374,13 +374,13 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The mail subject part||None||
-||Arbitrary comma separated list of email addresses for the email recipients. For example: user1@company.co, user2@company.co||None||
-||Arbitrary comma separated list of email addresses to be put in the CC field of email. Format is the same as for the "Send to" field||None||
-||Arbitrary comma separated list of email addresses to be put in the BCC field of email. Format is the same as for the "Send to" field||None||
-||Comma separated list of attachments file paths stored on the server for addition to the email. For example: C:\<Siemplify work dir>\file1.pdf, C:\<Siemplify work dir>\image2.jpg||None||
-||The question you would like to ask, or describe the decision you would like the recipient to be able to respond to||None||
-||Choose the structure of the vote to be sent to the recipients||None|Yes/No|
+||The mail subject part|True|None||
+||Arbitrary comma separated list of email addresses for the email recipients. For example: user1@company.co, user2@company.co|True|None||
+||Arbitrary comma separated list of email addresses to be put in the CC field of email. Format is the same as for the "Send to" field|False|None||
+||Arbitrary comma separated list of email addresses to be put in the BCC field of email. Format is the same as for the "Send to" field|False|None||
+||Comma separated list of attachments file paths stored on the server for addition to the email. For example: C:\<Siemplify work dir>\file1.pdf, C:\<Siemplify work dir>\image2.jpg|False|None||
+||The question you would like to ask, or describe the decision you would like the recipient to be able to respond to|True|None||
+||Choose the structure of the vote to be sent to the recipients|True|None||
 
 
 
@@ -391,11 +391,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Senders you would like to add to the rule, in a comma separated list. If no parameter will be provided, action will work with User entities.||None||
-||Specify the rule to add the sender to. If the rule doesn't exist - action will create it where it's missing.||None|Siemplify - Senders List - Move To Junk|
-||Specify whether the action should automatically take the domains of the provided email addresses and add them as well to the corresponding domain rules (same rule action for domains)||None|false|
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|50|
+||Specify the Senders you would like to add to the rule, in a comma separated list. If no parameter will be provided, action will work with User entities.|False|None||
+||Specify the rule to add the sender to. If the rule doesn't exist - action will create it where it's missing.|True|None||
+||Specify whether the action should automatically take the domains of the provided email addresses and add them as well to the corresponding domain rules (same rule action for domains)|False|None||
+||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -406,12 +406,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The subject of the email||None||
-||Recipient email address. Multiple addresses can be separated by commas||None||
-||CC email address. Multiple addresses can be separated by commas||None||
-||BCC email address. Multiple addresses can be separated by commas||None||
-||Full path to attachments to be uploaded. Comma sepreated. e.g. C:\Desktop\x.txt,C:\Desktop\sample.txt||None||
-||Mail body||None||
+||The subject of the email|True|None||
+||Recipient email address. Multiple addresses can be separated by commas|True|None||
+||CC email address. Multiple addresses can be separated by commas|False|None||
+||BCC email address. Multiple addresses can be separated by commas|False|None||
+||Full path to attachments to be uploaded. Comma sepreated. e.g. C:\Desktop\x.txt,C:\Desktop\sample.txt|False|None||
+||Mail body|True|None||
 
 
 
@@ -422,17 +422,17 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Should the action move the specified messages back to the inbox folder||None|true|
-||Filter condition, specify emails with which email ids to find. Should accept comma separated list of message ids to unmark as junk. If message id is provided, subject, sender and recipient filters are ignored.||None||
-||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses to unmark the messages as junk in. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.||None||
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Junk Email|
-||Filter condition, specify subject to search for emails||None||
-||Filter condition, specify who should be the sender of needed emails||None||
-||Filter condition, specify who should be the recipient of needed emails||None||
-||Filter condition, specify if action should Unmark all matched by criteria emails from the mailbox or Unmark only first match.||None|false|
-||If checked, move to junk and block sender emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Perform action  in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|25|
-||Filter condition, specify in what time frame in minutes should action look for emails.||None||
+||Should the action move the specified messages back to the inbox folder|False|None||
+||Filter condition, specify emails with which email ids to find. Should accept comma separated list of message ids to unmark as junk. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
+||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses to unmark the messages as junk in. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
+||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+||Filter condition, specify subject to search for emails|False|None||
+||Filter condition, specify who should be the sender of needed emails|False|None||
+||Filter condition, specify who should be the recipient of needed emails|False|None||
+||Filter condition, specify if action should Unmark all matched by criteria emails from the mailbox or Unmark only first match.|False|None||
+||If checked, move to junk and block sender emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Perform action  in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+||Filter condition, specify in what time frame in minutes should action look for emails.|False|None||
 
 
 
@@ -443,12 +443,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Message_id of the vote email, which current action would be waiting for. If message has been sent using Send Vote Mail action, please select SendVoteMail.JSONResult|message_id field as a placeholder.||None||
-||Comma-separated list of recipient emails, response from which current action would be waiting for. Please select SendVoteMail.JSONResult|to_recipients field as a placeholder.||None||
-||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the sent mail in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive.||None|Sent Items|
-||How long in minutes to wait for the user's reply before marking it timed out.||None|1440|
-||Parameter can be used to define if there are multiple recipients - should the Action wait for responses from all of recipients until timeout, or Action should wait for first reply to proceed.||None|true|
+||Message_id of the vote email, which current action would be waiting for. If message has been sent using Send Vote Mail action, please select SendVoteMail.JSONResult|message_id field as a placeholder.|True|None||
+||Comma-separated list of recipient emails, response from which current action would be waiting for. Please select SendVoteMail.JSONResult|to_recipients field as a placeholder.|True|None||
+||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the sent mail in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive.|True|None||
+||How long in minutes to wait for the user's reply before marking it timed out.|True|None||
+||Parameter can be used to define if there are multiple recipients - should the Action wait for responses from all of recipients until timeout, or Action should wait for first reply to proceed.|False|None||
 
 
 
@@ -459,14 +459,14 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Message_id of the email, which current action would be waiting for. If message has been sent using Send Email action, please select SendEmail.JSONResult|message_id field as a placeholder.||None||
-||Send timestamp of the email, which current action would be waiting for. If message has been sent using Send Email action, please select SendEmail.JSONResult|email_date field as a placeholder.||None||
-||Comma-separated list of recipient emails, response from which current action would be waiting for. If message has been sent using Send Email action, please select Select SendEmail.JSONResult|to_recipients field as a placeholder.||None||
-||How long in minutes to wait for the user's reply before marking it timed out.||None|1440|
-||Parameter can be used to define if there are multiple recipients - should the Action wait for responses from all of recipients until timeout, or Action should wait for first reply to proceed.||None|true|
-||Regular expression to exclude specific replies from the wait stage. Works with body part of email. Example is, to exclude automatic Out-Of-Office emails to be considered as recipient reply, and instead wait for actual user reply.||None||
-||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||If selected, if recipient replies with attachment - fetch recipient response and add it as attachment for the action result||None|false|
+||Message_id of the email, which current action would be waiting for. If message has been sent using Send Email action, please select SendEmail.JSONResult|message_id field as a placeholder.|True|None||
+||Send timestamp of the email, which current action would be waiting for. If message has been sent using Send Email action, please select SendEmail.JSONResult|email_date field as a placeholder.|True|None||
+||Comma-separated list of recipient emails, response from which current action would be waiting for. If message has been sent using Send Email action, please select Select SendEmail.JSONResult|to_recipients field as a placeholder.|True|None||
+||How long in minutes to wait for the user's reply before marking it timed out.|True|None||
+||Parameter can be used to define if there are multiple recipients - should the Action wait for responses from all of recipients until timeout, or Action should wait for first reply to proceed.|False|None||
+||Regular expression to exclude specific replies from the wait stage. Works with body part of email. Example is, to exclude automatic Out-Of-Office emails to be considered as recipient reply, and instead wait for actual user reply.|False|None||
+||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+||If selected, if recipient replies with attachment - fetch recipient response and add it as attachment for the action result|False|None||
 
 
 
@@ -477,16 +477,16 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||Filter condition, specify emails with which email ids to find. Should accept comma separated list of message ids to search for. If message id is provided, subject, sender and recipient filters are ignored.||None||
-||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over “Delete in all mailboxes“.||None||
-||Filter condition, specify subject to search for emails||None||
-||Filter condition, specify who should be the sender of needed emails||None||
-||Filter condition, specify who should be the recipient of needed emails||None||
-||Filter condition, specify if action should delete all matched by criteria emails from the mailbox or delete only first match.||None|false|
-||If checked, delete emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.||None|false|
-||In case "Delete from all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).||None|25|
-||Filter condition, specify in what time frame in minutes should action look for emails||None||
+||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+||Filter condition, specify emails with which email ids to find. Should accept comma separated list of message ids to search for. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
+||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over “Delete in all mailboxes“.|False|None||
+||Filter condition, specify subject to search for emails|False|None||
+||Filter condition, specify who should be the sender of needed emails|False|None||
+||Filter condition, specify who should be the recipient of needed emails|False|None||
+||Filter condition, specify if action should delete all matched by criteria emails from the mailbox or delete only first match.|False|None||
+||If checked, delete emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+||In case "Delete from all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+||Filter condition, specify in what time frame in minutes should action look for emails|False|None||
 
 
 
