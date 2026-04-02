@@ -310,6 +310,5 @@
     "GoogleSecOpsProduct": false,
     "Id": 0,
     "CreationTimeUnixTimeInMs": 1774864940725,
-    "ModificationTimeUnixTimeInMs": 1774864940725,
-    "Custom": false
+    "ModificationTimeUnixTimeInMs": 1774864940725
 }
