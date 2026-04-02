@@ -71,7 +71,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Time frame in hours for which to fetch Incidents||None||
+||Time frame in hours for which to fetch Incidents||None|3|
 
 
 
@@ -82,10 +82,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Time frame in hours for which to fetch Incidents||None||
-||Statuses of the incidents to look for. Comma-separated string||None||
-||Severities of the incidents to look for. Comma-separated string.||None||
-||How many incidents to fetch||None||
+||Time frame in hours for which to fetch Incidents||None|3|
+||Statuses of the incidents to look for. Comma-separated string||None|New, Active, Closed|
+||Severities of the incidents to look for. Comma-separated string.||None|Informational, Low, Medium, High|
+||How many incidents to fetch||None|200|
 
 
 
@@ -98,14 +98,14 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify Azure Sentinel incident number to update.||None||
 ||Specify new title for the Azure Sentinel incident.||None||
-||Specify new status for the Azure Sentinel incident.||None||
-||Specify new severity for the Azure Sentinel incident.||None||
+||Specify new status for the Azure Sentinel incident.||None|Not Updated|
+||Specify new severity for the Azure Sentinel incident.||None|Not Updated|
 ||Specify new description for the Azure Sentinel incident.||None||
 ||Specify the user to assign the incident to.||None||
-||If status of the incident is set to Closed, provide a Closed Reason for the incident.||None||
+||If status of the incident is set to Closed, provide a Closed Reason for the incident.||None|Not Updated|
 ||Optional closing comment to provide for the closed Azure Sentinel Incident.||None||
-||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None||
-||Specify what time period action should wait between incident update retries.||None||
+||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None|1|
+||Specify what time period action should wait between incident update retries.||None|20|
 
 
 
@@ -117,15 +117,15 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Alert Rule ID||None||
-||Enable or disable new alert rule||None||
+||Enable or disable new alert rule||None|True|
 ||Display name of the new alert rule||None||
-||Severity of the new alert rule||None||
+||Severity of the new alert rule||None|Informational|
 ||Query of the new alert rule||None||
 ||How frequently to run the query, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
 ||Time of the last lookup data, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
-||Trigger operator for this alert rule.Possible values are: GreaterThan, LessThan, Equal, NotEqual||None||
+||Trigger operator for this alert rule.Possible values are: GreaterThan, LessThan, Equal, NotEqual||None|GreaterThan|
 ||Trigger threshold for this alert rule||None||
-||Whether you want to stop running query after alert is generated||None||
+||Whether you want to stop running query after alert is generated||None|True|
 ||How long you want to stop running query after alert is generated, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
 ||Description of the new alert rule||None||
 ||Tactics of the new alert rule. Comma-separated values.||None||
@@ -141,13 +141,13 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify Azure Sentinel incident number to update.||None||
 ||Specify new title for the Azure Sentinel incident.||None||
-||Specify new status for the Azure Sentinel incident.||None||
-||Specify new severity for the Azure Sentinel incident.||None||
+||Specify new status for the Azure Sentinel incident.||None|Not Updated|
+||Specify new severity for the Azure Sentinel incident.||None|Not Updated|
 ||Specify new description for the Azure Sentinel incident.||None||
 ||Specify the user to assign the incident to.||None||
-||If status of the incident is set to Closed, provide a Closed Reason for the incident.||None||
+||If status of the incident is set to Closed, provide a Closed Reason for the incident.||None|Not Updated|
 ||Optional closing comment to provide for the closed Azure Sentinel Incident.||None||
-||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None||
+||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None|1|
 
 
 
@@ -158,15 +158,15 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Enable or disable new alert rule||None||
+||Enable or disable new alert rule||None|True|
 ||Display name of the new alert rule||None||
-||Severity of the new alert rule||None||
+||Severity of the new alert rule||None|Informational|
 ||Query of the new alert rule||None||
 ||How frequently to run the query, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
 ||Time of the last lookup data, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
-||Trigger operator for this alert rule.Possible values are: GreaterThan, LessThan, Equal, NotEqual||None||
+||Trigger operator for this alert rule.Possible values are: GreaterThan, LessThan, Equal, NotEqual||None|GreaterThan|
 ||Trigger threshold for this alert rule||None||
-||Whether you want to stop running query after alert is generated||None||
+||Whether you want to stop running query after alert is generated||None|True|
 ||How long you want to stop running query after alert is generated, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute. Minimum is 5 minutes, maximum is 14 days.||None||
 ||Description of the new alert rule||None||
 ||Tactics of the new alert rule. Comma-separated values.||None||
@@ -242,7 +242,7 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify Azure Sentinel incident number to update with new labels.||None||
 ||Specify new labels that should be appended to the Incident. Parameter accepts multiple values as a comma-separated string.||None||
-||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None||
+||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None|1|
 
 
 
@@ -254,7 +254,7 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Hunting Rule ID||None||
-||Timeout value for the Azure Sentinel hunting rule API call||None||
+||Timeout value for the Azure Sentinel hunting rule API call||None|180|
 
 
 
@@ -265,10 +265,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Severities of the alert rules to look for. Comma-separated string||None||
+||Severities of the alert rules to look for. Comma-separated string||None|Informational, Low, Medium, High|
 ||What alert rule types action should return. Comma-separated string||None||
 ||What alert rule tactics action should return. Comma-separated string||None||
-||If action should return only enabled alert rules||None||
+||If action should return only enabled alert rules||None|False|
 ||How many scheduled alert rules the action should return, for example, 50.||None||
 
 
@@ -299,8 +299,8 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||A KQL Query to execute in Azure Sentinel. For example, to get security alerts available in Sentinel, query will be "SecurityAlert". Use other action input parameters (time span, limit) to filter the query results. For the examples of KQL queries consider Sentinel "Logs" Web page||None||
 ||Time span to look for, use the following format: PT + number + (M, H), where M - minutes, H - hours. Use P + number + D to specify a number of days. Can be combined as P1DT1H1M - 1 day, 1 hour and 1 minute.||None||
-||Timeout value for the Azure Sentinel hunting rule API call. Note that Siemplify action python process timeout should be adjusted accordingly for this parameter, to not timeout action sooner than specified value because of the python process timeout.||None||
-||How many records should be fetched. Optional parameter, if set, adds a "| limit x" to the kql query where x is the value set for the record limit. Can be removed if "limit" is already set in kql query or not needed.||None||
+||Timeout value for the Azure Sentinel hunting rule API call. Note that Siemplify action python process timeout should be adjusted accordingly for this parameter, to not timeout action sooner than specified value because of the python process timeout.||None|180|
+||How many records should be fetched. Optional parameter, if set, adds a "| limit x" to the kql query where x is the value set for the record limit. Can be removed if "limit" is already set in kql query or not needed.||None|100|
 
 
 
@@ -313,8 +313,8 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify Azure Sentinel incident number to update with new labels.||None||
 ||Specify new labels that should be appended to the Incident. Parameter accepts multiple values as a comma-separated string.||None||
-||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None||
-||Specify what time period in seconds action should wait between incident update retries.||None||
+||Specify the number of retry attempts the action should make if the incident update was unsuccessful.||None|1|
+||Specify what time period in seconds action should wait between incident update retries.||None|20|
 
 
 

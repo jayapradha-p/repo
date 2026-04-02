@@ -61,7 +61,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A comma-separated list of permissions requested for the access and refresh tokens. These scopes define the level of access the integration has to the user's data and resources.||None||
+||A comma-separated list of permissions requested for the access and refresh tokens. These scopes define the level of access the integration has to the user's data and resources.||None|user.read, offline_access|
 
 
 
@@ -72,20 +72,20 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The HTTP method (verb) used for the request.||None||
-||The API endpoint where the request executes. This path can optionally include query parameters.||None||
-||The query parameters (GET parameters) for the URL, provided as a JSON object where each key-value pair is a parameter. This is the recommended input method. These values are used in addition to any query parameters included in the URL Path.||None||
-||The headers for the HTTP request, specified as a JSON object. Headers control aspects such as authentication and define the format of the Body Payload (using Content-Type).||None||
-||The cookies constructed into the HTTP Cookie header, specified as a JSON object. This parameter overrides any cookie values provided in Headers.||None||
-||The content payload for the HTTP request, specified as a JSON object. The request's format (JSON or form-urlencoded) is determined by the Content-Type set in Headers.||None||
+||The HTTP method (verb) used for the request.||None|GET|
+||The API endpoint where the request executes. This path can optionally include query parameters.||None|https://|
+||The query parameters (GET parameters) for the URL, provided as a JSON object where each key-value pair is a parameter. This is the recommended input method. These values are used in addition to any query parameters included in the URL Path.||None|{"URL Field Name": "URL Field Value"}|
+||The headers for the HTTP request, specified as a JSON object. Headers control aspects such as authentication and define the format of the Body Payload (using Content-Type).||None|{"Content-Type": "application/json; charset=utf-8", "Accept": "application/json", "User-Agent" : "AzureApi"}|
+||The cookies constructed into the HTTP Cookie header, specified as a JSON object. This parameter overrides any cookie values provided in Headers.||None|{"Cookie_1": "value_1"}|
+||The content payload for the HTTP request, specified as a JSON object. The request's format (JSON or form-urlencoded) is determined by the Content-Type set in Headers.||None|{"Body Field Name": "Body Field Value"}|
 ||The JSON object containing the field-value pairs that define the required successful state of the response. If provided, the action runs in asynchronous  mode and repeatedly executes the request until the expected values appear in the response or until the action times out. Example input: {"key": "expected value"}||None||
-||If selected, the action automatically follows any HTTP redirect responses (such as 301 or 302 status codes) to the final destination URL.||None||
-||If selected, the action explicitly fails the step when the HTTP response returns a Client Error (4xx) or Server Error (5xx) status code.||None||
-||If selected, the action converts the entire HTTP response body to a Base64 encoded string. This is useful when you download files that need to be processed or stored. Note: The resulting Base64 string cannot exceed 15 MB.||None||
-||A comma-separated list of fields that the action returns in the output. Possible values: response_data, redirects, response_code, response_cookies, response_headers, apparent_encoding.||None||
-||The maximum time, in seconds, the action waits for the server to send data before the request is aborted.||None||
-||If selected, the action saves the file and attaches it to the case wall. Note: The file is archived with “.zip” extension. This zip isn't password protected.||None||
-||If selected, the action encrypts the downloaded ZIP archive (created using Save To Case Wall) with a password (such as infected). Use this option when dealing with suspicious or potentially malicious files to prevent accidental execution.||None||
+||If selected, the action automatically follows any HTTP redirect responses (such as 301 or 302 status codes) to the final destination URL.||None|true|
+||If selected, the action explicitly fails the step when the HTTP response returns a Client Error (4xx) or Server Error (5xx) status code.||None|true|
+||If selected, the action converts the entire HTTP response body to a Base64 encoded string. This is useful when you download files that need to be processed or stored. Note: The resulting Base64 string cannot exceed 15 MB.||None|false|
+||A comma-separated list of fields that the action returns in the output. Possible values: response_data, redirects, response_code, response_cookies, response_headers, apparent_encoding.||None|response_data, redirects, response_code,response_cookies,response_headers,apparent_encoding|
+||The maximum time, in seconds, the action waits for the server to send data before the request is aborted.||None|120|
+||If selected, the action saves the file and attaches it to the case wall. Note: The file is archived with “.zip” extension. This zip isn't password protected.||None|false|
+||If selected, the action encrypts the downloaded ZIP archive (created using Save To Case Wall) with a password (such as infected). Use this option when dealing with suspicious or potentially malicious files to prevent accidental execution.||None|true|
 
 
 

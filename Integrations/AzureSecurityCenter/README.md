@@ -53,7 +53,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the redirect URL that was used when the app was created.||None||
+||Specify the redirect URL that was used when the app was created.||None|https://localhost|
 
 
 
@@ -64,7 +64,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the redirect URL that was used when the app was created.||None||
+||Specify the redirect URL that was used when the app was created.||None|https://localhost|
 ||Specify the authorization code from action "Get OAuth Authorization Code"||None||
 
 
@@ -78,8 +78,8 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
 ||Specify a comma-separated list of standard names for which you want to retrieve details. Example: Azure-CIS-1.1.0||None||
-||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None||
-||Specify how many controls to return per standard.||None||
+||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None|Failed|
+||Specify how many controls to return per standard.||None|50|
 
 
 
@@ -93,7 +93,7 @@ Timeout - 600 Seconds
 ||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
 ||Specify an ID of the alert, where you want to update status.||None||
 ||Specify the location of the alert. Example: centralus.||None||
-||Specify the status for the alert.||None||
+||Specify the status for the alert.||None|Resolve|
 
 
 
@@ -111,8 +111,8 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.||None||
-||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None||
-||Specify how many standards to return.||None||
+||Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped||None|Failed|
+||Specify how many standards to return.||None|50|
 
 
 

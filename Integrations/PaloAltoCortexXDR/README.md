@@ -89,10 +89,10 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Query that needs to be executed in Palo Alto XDR. Note: don't provide "limit" as part of the query. Action will provide it automatically based on the value provided in the “Max Results To Return” parameter.||None||
-||Time frame for the results. If “Custom” is selected, you also need to provide "Start Time".||None||
+||Time frame for the results. If “Custom” is selected, you also need to provide "Start Time".||None|Last Hour|
 ||Start time for the results. This parameter is mandatory, if “Custom” is selected for the "Time Frame" parameter. Format: ISO 8601.||None||
 ||End time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.||None||
-||How many results to return for the query. Action will append "limit" to the provided query. Default: 50. Maximum: 1000.||None||
+||How many results to return for the query. Action will append "limit" to the provided query. Default: 50. Maximum: 1000.||None|50|
 
 
 
@@ -110,8 +110,8 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||ID of the incident that needs to be returned.||None||
-||Lowest severity for the alert to be returned.||None||
-||How many alerts to return for the query. Default: 50. Maximum: 1000.||None||
+||Lowest severity for the alert to be returned.||None|High|
+||How many alerts to return for the query. Default: 50. Maximum: 1000.||None|50|
 
 
 
@@ -174,8 +174,8 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||The updated full name of the incident assignee.||None||
-||Administrator-defined severity||None||
-||Updated incident status||None||
+||Administrator-defined severity||None|Select One|
+||Updated incident status||None|Select One|
 ||The ID of the incident to be updated.||None||
 
 
@@ -188,7 +188,7 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||The ID of the incident to be updated.||None||
-||Updated incident status||None||
+||Updated incident status||None|UNDER_INVESTIGATION|
 ||Descriptive comment explaining the incident change.||None||
 
 

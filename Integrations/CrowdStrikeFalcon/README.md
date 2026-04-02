@@ -58,7 +58,7 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
 ||Specify the path to the folder, where you want to store the threat file.||None||
-||If enabled, action will overwrite the file with the same name.||None||
+||If enabled, action will overwrite the file with the same name.||None|false|
 
 
 
@@ -106,7 +106,7 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the id of the detection that needs to be closed.||None||
-||If enabled, action will hide the detection in the UI.||None||
+||If enabled, action will hide the detection in the UI.||None|true|
 
 
 
@@ -136,7 +136,7 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
-||If enabled, action will be failed, if not all of the endpoints were contained.||None||
+||If enabled, action will be failed, if not all of the endpoints were contained.||None|true|
 
 
 
@@ -154,18 +154,18 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
-||Comma-separated list of paths to scan.||None||
+||Comma-separated list of paths to scan.||None|C:\Windows|
 ||Comma-separated list of paths to exclude from scanning.||None||
 ||Comma-separated list of host group names to initiate scanning for. Note: Separate scanning process is created for each host group.||None||
 ||Description for the scan. If no value is provided, the action sets the description to the following: "Scan initialized by Chronicle SecOps."||None||
-||The amount of CPU to  use for the underlying host during scanning.||None||
-||Specify the sensor anti-malware detection level. Note: Detection level must be equal to or higher than the Prevention level.||None||
-||Specify the sensor anti-malware prevention level. Note: Detection level must be equal to or higher than the Prevention level.||None||
-||Specify the cloud anti-malware detection level. Note: Detection level must be equal to or higher than the Prevention level.||None||
-||Specify the cloud anti-malware prevention level. Note: Detection level must be equal to or higher than the Prevention level.||None||
-||If enabled, underlying hosts are quarantined as part of scanning.||None||
-||If enabled, the scanning process creates an endpoint notification.||None||
-||Number of hours for a scan to run. If no value is provided, the scan runs continuously.||None||
+||The amount of CPU to  use for the underlying host during scanning.||None|Up to 25% CPU utilization|
+||Specify the sensor anti-malware detection level. Note: Detection level must be equal to or higher than the Prevention level.||None|Moderate|
+||Specify the sensor anti-malware prevention level. Note: Detection level must be equal to or higher than the Prevention level.||None|Moderate|
+||Specify the cloud anti-malware detection level. Note: Detection level must be equal to or higher than the Prevention level.||None|Moderate|
+||Specify the cloud anti-malware prevention level. Note: Detection level must be equal to or higher than the Prevention level.||None|Moderate|
+||If enabled, underlying hosts are quarantined as part of scanning.||None|false|
+||If enabled, the scanning process creates an endpoint notification.||None|true|
+||Number of hours for a scan to run. If no value is provided, the scan runs continuously.||None|1|
 ||Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.||None||
 
 
@@ -178,8 +178,8 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the alert that needs to be updated.||None||
-||Specify the status for the alert.||None||
-||Specify the verdict for the alert.||None||
+||Specify the status for the alert.||None|Select One|
+||Specify the verdict for the alert.||None|Select One|
 ||Specify the name of the analyst to whom the alert needs to be assigned. If "Unassign" is provided, action will remove assignment from the alert. Note: API will accept any value that is provided, even if the underlying user doesn’t exist.||None||
 
 
@@ -192,7 +192,7 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
-||If enabled, action will create insights containing information regarding entities.||None||
+||If enabled, action will create insights containing information regarding entities.||None|true|
 
 
 
@@ -204,7 +204,7 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
-||If enabled, action will be failed, if containment was not lifted on all endpoints.||None||
+||If enabled, action will be failed, if containment was not lifted on all endpoints.||None|true|
 
 
 
@@ -237,7 +237,7 @@ Timeout - 600 Seconds
 ||The name of the script file that needs to be executed. Note: either “Script Name” or “Raw Script” should be provided. If both “Script Name” and “Raw Script” are provided, then “Raw Script” will have the priority.||None||
 ||Raw powershell script payload that needs to be executed on the endpoints. Note: either “Script Name” or “Raw Script” should be provided. If both “Script Name” and “Raw Script” are provided, then “Raw Script” will have the priority.||None||
 ||Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.||None||
-||If enabled, commands targeting offline hosts are queued and executed once the host reconnects to the network.||None||
+||If enabled, commands targeting offline hosts are queued and executed once the host reconnects to the network.||None|false|
 
 
 
@@ -248,7 +248,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify how many events the action needs to process starting from the offset from 30 days ago.||None||
+||Specify how many events the action needs to process starting from the offset from 30 days ago.||None|10000|
 
 
 
@@ -270,12 +270,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Repository that should be searched.||None||
+||Repository that should be searched.||None|All|
 ||Query that needs to be executed in Crowdstrike. Note: don't provide "head" as part of the query. Action will provide it automatically based on the value provided in the "Max Results To Return" parameter.||None||
-||Time frame for the results. If "Custom" is selected, you also need to provide "Start Time".||None||
+||Time frame for the results. If "Custom" is selected, you also need to provide "Start Time".||None|Last Hour|
 ||Start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601.||None||
 ||End time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.||None||
-||How many results to return for the query. Action will append "head" to the provided query. Default: 50. Maximum: 1000.||None||
+||How many results to return for the query. Action will append "head" to the provided query. Default: 50. Maximum: 1000.||None|50|
 
 
 
@@ -288,8 +288,8 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
 ||Specify the comma-separated list of severities for vulnerabilities.If nothing is provided, action will ingest all related vulnerabilities. Possible values: Critical, High, Medium, Low, Unknown.||None||
-||If enabled, action will create an insight per entity containing statistical information about related vulnerabilities.||None||
-||Specify how many vulnerabilities to return per host. If nothing is provided action will process all of the related vulnerabilities.||None||
+||If enabled, action will create an insight per entity containing statistical information about related vulnerabilities.||None|true|
+||Specify how many vulnerabilities to return per host. If nothing is provided action will process all of the related vulnerabilities.||None|100|
 
 
 
@@ -301,9 +301,9 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the URLs that need to be submitted.||None||
-||Specify the sandbox environment for the analysis.||None||
-||Specify the network environment for the analysis.||None||
-||If enabled, the action checks if the file was already submitted previously and returns an available report. Note: during the validation “Network Environment” and “Sandbox Environment” are not taken into consideration.||None||
+||Specify the sandbox environment for the analysis.||None|Windows 10, 64-bit|
+||Specify the network environment for the analysis.||None|Default|
+||If enabled, the action checks if the file was already submitted previously and returns an available report. Note: during the validation “Network Environment” and “Sandbox Environment” are not taken into consideration.||None|true|
 
 
 
@@ -315,13 +315,13 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the file paths to the files that need to be submitted. Refer to the documentation portal for a list of the supported file formats.||None||
-||Specify the sandbox environment for the analysis.||None||
-||Specify the network environment for the analysis.||None||
+||Specify the sandbox environment for the analysis.||None|Windows 10, 64-bit|
+||Specify the network environment for the analysis.||None|Default|
 ||Specify the password that would need to be used, when working with archive files.||None||
 ||Specify the password that would need to be used, when working with Adobe or Office files. Maximum: 32 characters.||None||
-||If enabled, the action checks if the file was already submitted previously and returns the available report. Note: during the validation “Network Environment” and “Sandbox Environment” are not taken into consideration.||None||
+||If enabled, the action checks if the file was already submitted previously and returns the available report. Note: during the validation “Network Environment” and “Sandbox Environment” are not taken into consideration.||None|true|
 ||Specify the comment for the submission.||None||
-||If enabled, the file is only shown to users within your customer account.||None||
+||If enabled, the file is only shown to users within your customer account.||None|false|
 
 
 
@@ -333,7 +333,7 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the detection that needs to be updated.||None||
-||Specify the new status for the detection.||None||
+||Specify the new status for the detection.||None|Select One|
 ||Specify the email address of the Crowdstrike Falcon user, who needs to be assigned to this detection||None||
 
 
@@ -348,7 +348,7 @@ Timeout - 600 Seconds
 ||Specify a new description for custom IOCs.||None||
 ||Specify the source for custom IOCs.||None||
 ||Specify the amount of days till expiration.||None||
-||If enabled, IOCs that have been identifed, will send a notification. In other case, no action will be taken||None||
+||If enabled, IOCs that have been identifed, will send a notification. In other case, no action will be taken||None|true|
 
 
 
@@ -371,7 +371,7 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the detection that needs to be updated.||None||
-||Specify the status for the detection.||None||
+||Specify the status for the detection.||None|Select One|
 ||Specify the name of the analyst to whom the detection needs to be assigned. If "Unassign" is provided, action will remove assignment from the detection. Note: API will accept any value that is provided, even if the underlying user doesn't exist.||None||
 
 
@@ -385,10 +385,10 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify a comment with more context related to IOC.||None||
 ||Specify the name of the host group.||None||
-||Specify the action for the uploaded IOCs. Note: "Block" action can only be applied to hashes. Action will always apply "Detect" policy to all other IOC types.||None||
+||Specify the action for the uploaded IOCs. Note: "Block" action can only be applied to hashes. Action will always apply "Detect" policy to all other IOC types.||None|Detect|
 ||The number of days before the IOC expires.||None||
-||Specify a comma-separated list of the platforms related to the IOC. Possible values: Windows, Linux, Mac.||None||
-||Specify the severity for the IOC.||None||
+||Specify a comma-separated list of the platforms related to the IOC. Possible values: Windows, Linux, Mac.||None|Windows,Linux,Mac|
+||Specify the severity for the IOC.||None|Medium|
 
 
 
@@ -401,7 +401,7 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
 ||Specify the ID of the incident that needs to be updated.||None||
-||Specify the status for the incident.||None||
+||Specify the status for the incident.||None|Select One|
 ||Specify the name or email of the analyst to whom the incident needs to be assigned. If "Unassign" is provided, action will remove assignment from the incident. Note: for name you need to provide first and last name of the analyst in the following format "{first name} {last name}"||None||
 
 
@@ -413,10 +413,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify a comma-separated list of IOC types that should be returned. If nothing is provided, action will return IOCs from all types. Possible values: ipv4,ipv6,md5,sha256,domain.||None||
-||Specify the value filter logic. If "Equal" is selected, action will try to find the exact match among IOCs and if "Contains" is selected, action will try to find IOCs that contain that substring.||None||
+||Specify a comma-separated list of IOC types that should be returned. If nothing is provided, action will return IOCs from all types. Possible values: ipv4,ipv6,md5,sha256,domain.||None|ipv4,ipv6,md5,sha256,domain|
+||Specify the value filter logic. If "Equal" is selected, action will try to find the exact match among IOCs and if "Contains" is selected, action will try to find IOCs that contain that substring.||None|Equal|
 ||Specify the string that should be searched among IOCs.||None||
-||Specify how many IOCs to return. Default: 50. Maximum: 500.||None||
+||Specify how many IOCs to return. Default: 50. Maximum: 500.||None|50|
 
 
 
@@ -428,9 +428,9 @@ Timeout - 600 Seconds
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
-||Specify what logic should be used, when searching for hosts.||None||
+||Specify what logic should be used, when searching for hosts.||None|Equal|
 ||Specify the value that should be used to filter hosts.||None||
-||Specify how many hosts to return. Default: 50. Maximum: 1000.||None||
+||Specify how many hosts to return. Default: 50. Maximum: 1000.||None|50|
 
 
 
@@ -443,9 +443,9 @@ Timeout - 600 Seconds
 |----|-----------|-----------|----|------------|
 ||Specify the ID of the customer for which you want to execute the action.||None||
 ||Specify what command to execute on the hosts.||None||
-||If enabled, action will execute commands with the admin level permissions. This is necessary for certain commands like "put".||None||
+||If enabled, action will execute commands with the admin level permissions. This is necessary for certain commands like "put".||None|false|
 ||Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.||None||
-||If enabled, commands targeting offline hosts are queued and executed once the host reconnects to the network.||None||
+||If enabled, commands targeting offline hosts are queued and executed once the host reconnects to the network.||None|false|
 
 
 
