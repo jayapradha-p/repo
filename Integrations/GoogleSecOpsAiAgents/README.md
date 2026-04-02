@@ -42,21 +42,6 @@ Python Version - V3_11
 |googleapis_common_protos-1.72.0-py3-none-any.whl|
 
 
-## Actions
-#### Ping
-Use the Ping action to test the connectivity to Google Chronicle.
-Timeout - 600 Seconds
-
-
-
-#### Triage and Investigation Agent
-Performs triage and investigation of Google SIEM alerts.
-Timeout - 1200 Seconds
-
-
-
-
-
 
 
 
