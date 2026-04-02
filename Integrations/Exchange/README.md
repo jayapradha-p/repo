@@ -94,10 +94,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Domains you would like to add to the rule, in a comma separated list.|False|None||
-||Specify the rule to add the Domains to. If the rule doesn't exist - action will create it where it's missing.|True|None||
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Domains|Specify the Domains you would like to add to the rule, in a comma separated list.|False|None||
+|Rule to add Domains to|Specify the rule to add the Domains to. If the rule doesn't exist - action will create it where it's missing.|True|None||
+|Perform action in all mailboxes|If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -108,17 +108,17 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
-||File path on the server where to download the email attachments|True|None||
-||Filter condition, specify emails with which email ids to find. Should accept comma separated multiple message ids. If message id is provided, subject filter is ignored|False|None||
-||Filter condition to search emails by specific subject|False|None||
-||Filter condition to search emails by specific sender|False|None||
-||If checked, download attachments only from unread emails|False|None||
-||If checked, download attachments also from attached EML files|False|None||
-||If checked, download attachments to unique path  under file path provided in “Download Path” parameter to avoid previously downloaded attachments overwrite.|False|None||
-||If checked, search in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Search in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
-||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over "Search in all mailboxes".|False|None||
+|Folder Name|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+|Download Path|File path on the server where to download the email attachments|True|None||
+|Message IDs|Filter condition, specify emails with which email ids to find. Should accept comma separated multiple message ids. If message id is provided, subject filter is ignored|False|None||
+|Subject Filter|Filter condition to search emails by specific subject|False|None||
+|Sender Filter|Filter condition to search emails by specific sender|False|None||
+|Only Unread|If checked, download attachments only from unread emails|False|None||
+|Download Attachments from EML|If checked, download attachments also from attached EML files|False|None||
+|Download Attachments to unique path?|If checked, download attachments to unique path  under file path provided in “Download Path” parameter to avoid previously downloaded attachments overwrite.|False|None||
+|Search in all mailboxes|If checked, search in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Search in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Mailboxes|Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over "Search in all mailboxes".|False|None||
 
 
 
@@ -129,9 +129,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Rule name you would like to completely delete from the relevant mailboxes|True|None||
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Rule Name To Delete|Specify the Rule name you would like to completely delete from the relevant mailboxes|True|None||
+|Perform action in all mailboxes|If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -142,7 +142,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Use the authorization URL received in the Get Authorization URL action to request a refresh token.|True|None||
+|Authorization URL|Use the authorization URL received in the Get Authorization URL action to request a refresh token.|True|None||
 
 
 
@@ -153,9 +153,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Folder to fetch from. Default is Inbox. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
-||e.g. <1701cf01ba314032b2f1df43262a7723@gmail.com>|True|None||
-||e.g. {ips: \b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\b}|False|None||
+|Folder Name|Folder to fetch from. Default is Inbox. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+|Message ID|e.g. <1701cf01ba314032b2f1df43262a7723@gmail.com>|True|None||
+|Regex Map JSON|e.g. {ips: \b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\b}|False|None||
 
 
 
@@ -172,10 +172,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Rule name you would like to list from the relevant mailboxes|True|None||
-||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses to list the rules from. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Rule Name To List|Specify the Rule name you would like to list from the relevant mailboxes|True|None||
+|Mailboxes list to perform on|Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses to list the rules from. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
+|Perform action in all mailboxes|If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -192,9 +192,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Folder to fetch from. Default is Inbox. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
-||Message ID|True|None||
-||Base64 Encode|False|None||
+|Folder Name|Folder to fetch from. Default is Inbox. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+|Message ID|Message ID|True|None||
+|Base64 Encode|Base64 Encode|False|None||
 
 
 
@@ -205,20 +205,20 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
-||Specify a comma-separated list of message ids that need to be searched. Note: this filter has priority over the other ones.|False|None||
-||Filter condition, specify what subject to search for emails|False|None||
-||Filter condition, specify who should be the sender of needed emails|False|None||
-||Filter condition, specify who should be the recipient of needed emails|False|None||
-||Filter condition, specify in what time frame in minutes should action look for emails|False|None||
-||Filter condition, specify if search should look only for unread emails|False|None||
-||Return max X emails as an action result|False|None||
-||If checked, search in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Search in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
-||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over "Search in all mailboxes".|False|None||
-||Specify the start time for the email search. Format: ISO 8601. This parameter has a priority over "Time Frame (minutes)".|False|None||
-||Specify the end time for the email search. Format: ISO 8601. If nothing is provided and "Start Time" is valid then this parameter will use current time.|False|None||
-||Specify a regex pattern that needs to be searched in body part of the email.|False|None||
+|Folder Name|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+|Message IDs|Specify a comma-separated list of message ids that need to be searched. Note: this filter has priority over the other ones.|False|None||
+|Subject Filter|Filter condition, specify what subject to search for emails|False|None||
+|Sender Filter|Filter condition, specify who should be the sender of needed emails|False|None||
+|Recipient Filter|Filter condition, specify who should be the recipient of needed emails|False|None||
+|Time Frame (minutes)|Filter condition, specify in what time frame in minutes should action look for emails|False|None||
+|Only Unread|Filter condition, specify if search should look only for unread emails|False|None||
+|Max Emails To Return|Return max X emails as an action result|False|None||
+|Search in all mailboxes|If checked, search in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Search in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Mailboxes|Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over "Search in all mailboxes".|False|None||
+|Start Time|Specify the start time for the email search. Format: ISO 8601. This parameter has a priority over "Time Frame (minutes)".|False|None||
+|End Time|Specify the end time for the email search. Format: ISO 8601. If nothing is provided and "Start Time" is valid then this parameter will use current time.|False|None||
+|Body Regex Filter|Specify a regex pattern that needs to be searched in body part of the email.|False|None||
 
 
 
@@ -229,18 +229,18 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Source folder to move emails from. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
-||Destination folder to move emails to. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
-||Specify the source mailbox to move the email from. Parameter accepts multiple values as a comma-separated string. If multiple values are provided, matching emails are copied from every accessible specified mailbox|False|None||
-||Specify the destination mailbox to move the matching emails to|False|None||
-||Filter condition, specify emails with which email ids to find. Should accept comma separated multiple message ids. If message id is provided, subject filter is ignored|False|None||
-||Filter condition, specify what subject to search for emails|False|None||
-||Filter condition, specify if search should look only for unread emails|False|None||
-||If checked, search and move emails in all mailboxes accessible with current impersonalization settings. If the source or destination mailbox is specified, this parameter is ignored. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Move in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
-||Filter condition, specify in what time frame in minutes should action look for emails|False|None||
-||If enabled, the amount of information returned by the action will be limited only to the key email fields.|False|None||
-||If enabled, action will not return JSON result.|False|None||
+|Source Folder Name|Source folder to move emails from. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+|Destination Folder Name|Destination folder to move emails to. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+|Source Mailbox|Specify the source mailbox to move the email from. Parameter accepts multiple values as a comma-separated string. If multiple values are provided, matching emails are copied from every accessible specified mailbox|False|None||
+|Destination Mailbox|Specify the destination mailbox to move the matching emails to|False|None||
+|Message IDs|Filter condition, specify emails with which email ids to find. Should accept comma separated multiple message ids. If message id is provided, subject filter is ignored|False|None||
+|Subject Filter|Filter condition, specify what subject to search for emails|False|None||
+|Only Unread|Filter condition, specify if search should look only for unread emails|False|None||
+|Move in all mailboxes|If checked, search and move emails in all mailboxes accessible with current impersonalization settings. If the source or destination mailbox is specified, this parameter is ignored. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Move in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Time Frame (minutes)|Filter condition, specify in what time frame in minutes should action look for emails|False|None||
+|Limit the Amount of Information Returned in the JSON Result|If enabled, the amount of information returned by the action will be limited only to the key email fields.|False|None||
+|Disable the Action JSON Result|If enabled, action will not return JSON result.|False|None||
 
 
 
@@ -251,11 +251,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Domains you would like to remove from the rule, in a comma separated list.|False|None||
-||Specify the rule to remove the Domains from. If the rule doesn’t exist - action will do nothing.|True|None||
-||Specify whether action should look for the provided domains in all of Siemplify inbox rules.|False|None||
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Domains|Specify the Domains you would like to remove from the rule, in a comma separated list.|False|None||
+|Rule to remove Domains from|Specify the rule to remove the Domains from. If the rule doesn’t exist - action will do nothing.|True|None||
+|Remove Domains from all available Rules|Specify whether action should look for the provided domains in all of Siemplify inbox rules.|False|None||
+|Perform action in all mailboxes|If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -272,9 +272,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
-||Message id to find an email to download attachments from.|True|None||
-||If parameter is not specified - save all email attachments to the case wall. If parameter specified - save only matching attachment to the case wall.|False|None||
+|Folder Name|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+|Message ID|Message id to find an email to download attachments from.|True|None||
+|Attachment To Save|If parameter is not specified - save all email attachments to the case wall. If parameter specified - save only matching attachment to the case wall.|False|None||
 
 
 
@@ -285,17 +285,17 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Filter condition, specify who should be the recipient of needed emails|False|None||
-||Should the action move the specified messages to the junk folder|False|None||
-||Filter condition, specify emails with which message ids to find. Should accept comma separated list of message ids to mark as junk. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
-||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses, to mark the messages as junk in. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
-||Filter condition, specify subject to search for emails|False|None||
-||Filter condition, specify who should be the sender of needed emails|False|None||
-||Filter condition, specify if action should Mark all matched by criteria emails from the mailbox or Mark only first match.|False|None||
-||If checked, move to junk and block sender emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
-||Filter condition, specify in what time frame in minutes should action look for emails.|False|None||
+|Recipient Filter|Filter condition, specify who should be the recipient of needed emails|False|None||
+|Move item to Junk folder?|Should the action move the specified messages to the junk folder|False|None||
+|Message IDs|Filter condition, specify emails with which message ids to find. Should accept comma separated list of message ids to mark as junk. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
+|Mailboxes list to perform on|Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses, to mark the messages as junk in. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
+|Folder Name|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+|Subject Filter|Filter condition, specify subject to search for emails|False|None||
+|Sender Filter|Filter condition, specify who should be the sender of needed emails|False|None||
+|Mark All Matching Emails|Filter condition, specify if action should Mark all matched by criteria emails from the mailbox or Mark only first match.|False|None||
+|Perform action in all mailboxes|If checked, move to junk and block sender emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Time Frame (minutes)|Filter condition, specify in what time frame in minutes should action look for emails.|False|None||
 
 
 
@@ -306,12 +306,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Senders you would like to remove from the rule, in a comma separated list. If no parameter will be provided, action will work with entities.|False|None||
-||Specify the rule to remove the Senders from. If the rule doesn't exist - action will do nothing.|True|None||
-||Specify whether action should look for the provided Senders in all of Siemplify inbox rules.|False|None||
-||Specify whether the action should automatically take the domains of the provided email addresses and remove them as well from the corresponding domain rules (same rule action for domains)|False|None||
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Senders|Specify the Senders you would like to remove from the rule, in a comma separated list. If no parameter will be provided, action will work with entities.|False|None||
+|Rule to remove Senders from|Specify the rule to remove the Senders from. If the rule doesn't exist - action will do nothing.|True|None||
+|Remove Senders from all available Rules|Specify whether action should look for the provided Senders in all of Siemplify inbox rules.|False|None||
+|Should remove senders' domains from the corresponding Domains List rule as well?|Specify whether the action should automatically take the domains of the provided email addresses and remove them as well from the corresponding domain rules (same rule action for domains)|False|None||
+|Perform action in all mailboxes|If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -322,13 +322,13 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Recipient email address. Multiple addresses can be separated by commas|True|None||
-||The subject of the email|True|None||
-||CC email address. Multiple addresses can be separated by commas|False|None||
-||bcc email address. Multiple addresses can be separated by commas|False|None||
-||Email body|True|None||
-||Allows attachment of files from response mail.|False|None||
-||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+|Send to|Recipient email address. Multiple addresses can be separated by commas|True|None||
+|Subject|The subject of the email|True|None||
+|CC|CC email address. Multiple addresses can be separated by commas|False|None||
+|BCC|bcc email address. Multiple addresses can be separated by commas|False|None||
+|Mail content|Email body|True|None||
+|Fetch Response Attachments|Allows attachment of files from response mail.|False|None||
+|Folder to Check for Reply|Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
 
 
 
@@ -339,15 +339,15 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The mail subject part|True|None||
-||Arbitrary comma separated list of email addresses for the email recipients. For example: user1@company.co, user2@company.co|True|None||
-||Arbitrary comma separated list of email addresses to be put in the CC field of email. Format is the same as for the "Send to" field|False|None||
-||Arbitrary comma separated list of email addresses to be put in the BCC field of email. Format is the same as for the "Send to" field|False|None||
-||Comma separated list of attachments file paths stored on the server for addition to the email. For example: C:\<Siemplify work dir>\file1.pdf, C:\<Siemplify work dir>\image2.jpg|False|None||
-||The email body part|True|None||
-||Specify a comma-separated list of recipients that will be used in the "Reply-To" header. Note: The Reply-To header is added when the originator of the message wants any replies to the message to go to that particular email address rather than the one in the "From:" address.|False|None||
-||Specify a base64 encoded certificate that will be used to either encrypt or sign the email. Note: for signing you need to also provide "Base64 Encoded Signature". For encryption, only this parameter needs to have a value.|False|None||
-||Specify a base64 encoded signature that will be used to sign the email. Note: "Base64 Encoded Certificate" needs to be provided as well for signature to work and contain the signing certificate.|False|None||
+|Subject|The mail subject part|True|None||
+|Send to|Arbitrary comma separated list of email addresses for the email recipients. For example: user1@company.co, user2@company.co|True|None||
+|CC|Arbitrary comma separated list of email addresses to be put in the CC field of email. Format is the same as for the "Send to" field|False|None||
+|BCC|Arbitrary comma separated list of email addresses to be put in the BCC field of email. Format is the same as for the "Send to" field|False|None||
+|Attachments Paths|Comma separated list of attachments file paths stored on the server for addition to the email. For example: C:\<Siemplify work dir>\file1.pdf, C:\<Siemplify work dir>\image2.jpg|False|None||
+|Mail content|The email body part|True|None||
+|Reply-To Recipients|Specify a comma-separated list of recipients that will be used in the "Reply-To" header. Note: The Reply-To header is added when the originator of the message wants any replies to the message to go to that particular email address rather than the one in the "From:" address.|False|None||
+|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to either encrypt or sign the email. Note: for signing you need to also provide "Base64 Encoded Signature". For encryption, only this parameter needs to have a value.|False|None||
+|Base64 Encoded Signature|Specify a base64 encoded signature that will be used to sign the email. Note: "Base64 Encoded Certificate" needs to be provided as well for signature to work and contain the signing certificate.|False|None||
 
 
 
@@ -358,12 +358,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the message to which you want to send a reply.|True|None||
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
-||Specify the content of the reply.|True|None||
-||Specify a comma separated list of attachments file paths stored on the server for addition to the email.|False|None||
-||If enabled, action will send a reply to all recipients related to the original email. Note: this parameter has priority over “Reply To“ parameter.|False|None||
-||Specify a comma-separated list of emails to which you want to send this reply. If nothing is provided and “Reply All“ is disabled, action will only send a reply to the sender of the email. If “Reply All“ is enabled, action will ignore this parameter.|False|None||
+|Message ID|Specify the ID of the message to which you want to send a reply.|True|None||
+|Folder Name|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+|Content|Specify the content of the reply.|True|None||
+|Attachments Paths|Specify a comma separated list of attachments file paths stored on the server for addition to the email.|False|None||
+|Reply All|If enabled, action will send a reply to all recipients related to the original email. Note: this parameter has priority over “Reply To“ parameter.|False|None||
+|Reply To|Specify a comma-separated list of emails to which you want to send this reply. If nothing is provided and “Reply All“ is disabled, action will only send a reply to the sender of the email. If “Reply All“ is enabled, action will ignore this parameter.|False|None||
 
 
 
@@ -374,13 +374,13 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The mail subject part|True|None||
-||Arbitrary comma separated list of email addresses for the email recipients. For example: user1@company.co, user2@company.co|True|None||
-||Arbitrary comma separated list of email addresses to be put in the CC field of email. Format is the same as for the "Send to" field|False|None||
-||Arbitrary comma separated list of email addresses to be put in the BCC field of email. Format is the same as for the "Send to" field|False|None||
-||Comma separated list of attachments file paths stored on the server for addition to the email. For example: C:\<Siemplify work dir>\file1.pdf, C:\<Siemplify work dir>\image2.jpg|False|None||
-||The question you would like to ask, or describe the decision you would like the recipient to be able to respond to|True|None||
-||Choose the structure of the vote to be sent to the recipients|True|None||
+|Subject|The mail subject part|True|None||
+|Send To|Arbitrary comma separated list of email addresses for the email recipients. For example: user1@company.co, user2@company.co|True|None||
+|CC|Arbitrary comma separated list of email addresses to be put in the CC field of email. Format is the same as for the "Send to" field|False|None||
+|BCC|Arbitrary comma separated list of email addresses to be put in the BCC field of email. Format is the same as for the "Send to" field|False|None||
+|Attachments Paths|Comma separated list of attachments file paths stored on the server for addition to the email. For example: C:\<Siemplify work dir>\file1.pdf, C:\<Siemplify work dir>\image2.jpg|False|None||
+|Question or Decision Description|The question you would like to ask, or describe the decision you would like the recipient to be able to respond to|True|None||
+|Structure of voting options|Choose the structure of the vote to be sent to the recipients|True|None||
 
 
 
@@ -391,11 +391,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the Senders you would like to add to the rule, in a comma separated list. If no parameter will be provided, action will work with User entities.|False|None||
-||Specify the rule to add the sender to. If the rule doesn't exist - action will create it where it's missing.|True|None||
-||Specify whether the action should automatically take the domains of the provided email addresses and add them as well to the corresponding domain rules (same rule action for domains)|False|None||
-||If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Senders|Specify the Senders you would like to add to the rule, in a comma separated list. If no parameter will be provided, action will work with User entities.|False|None||
+|Rule to add senders to|Specify the rule to add the sender to. If the rule doesn't exist - action will create it where it's missing.|True|None||
+|Should add senders' domain to the corresponding Domains List rule as well?|Specify whether the action should automatically take the domains of the provided email addresses and add them as well to the corresponding domain rules (same rule action for domains)|False|None||
+|Perform action in all mailboxes|If checked, action will be performed in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Perform action in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
 
 
 
@@ -406,12 +406,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The subject of the email|True|None||
-||Recipient email address. Multiple addresses can be separated by commas|True|None||
-||CC email address. Multiple addresses can be separated by commas|False|None||
-||BCC email address. Multiple addresses can be separated by commas|False|None||
-||Full path to attachments to be uploaded. Comma sepreated. e.g. C:\Desktop\x.txt,C:\Desktop\sample.txt|False|None||
-||Mail body|True|None||
+|Subject|The subject of the email|True|None||
+|Send to|Recipient email address. Multiple addresses can be separated by commas|True|None||
+|CC|CC email address. Multiple addresses can be separated by commas|False|None||
+|BCC|BCC email address. Multiple addresses can be separated by commas|False|None||
+|Attachments Paths|Full path to attachments to be uploaded. Comma sepreated. e.g. C:\Desktop\x.txt,C:\Desktop\sample.txt|False|None||
+|Mail content|Mail body|True|None||
 
 
 
@@ -422,17 +422,17 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Should the action move the specified messages back to the inbox folder|False|None||
-||Filter condition, specify emails with which email ids to find. Should accept comma separated list of message ids to unmark as junk. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
-||Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses to unmark the messages as junk in. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
-||Filter condition, specify subject to search for emails|False|None||
-||Filter condition, specify who should be the sender of needed emails|False|None||
-||Filter condition, specify who should be the recipient of needed emails|False|None||
-||Filter condition, specify if action should Unmark all matched by criteria emails from the mailbox or Unmark only first match.|False|None||
-||If checked, move to junk and block sender emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Perform action  in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
-||Filter condition, specify in what time frame in minutes should action look for emails.|False|None||
+|Move items back to Inbox?|Should the action move the specified messages back to the inbox folder|False|None||
+|Message IDs|Filter condition, specify emails with which email ids to find. Should accept comma separated list of message ids to unmark as junk. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
+|Mailboxes list to perform on|Filter condition, If you have a specific list of mailboxes you would like to conduct the operation on, for better timing, please provide them here. Should accept a comma separated list of mail addresses to unmark the messages as junk in. If a mailboxes list is provided, "Perform Action in all Mailboxes" parameter will be ignored.|False|None||
+|Folder Name|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+|Subject Filter|Filter condition, specify subject to search for emails|False|None||
+|Sender Filter|Filter condition, specify who should be the sender of needed emails|False|None||
+|Recipient Filter|Filter condition, specify who should be the recipient of needed emails|False|None||
+|Unmark All Matching Emails|Filter condition, specify if action should Unmark all matched by criteria emails from the mailbox or Unmark only first match.|False|None||
+|Perform action in all mailboxes|If checked, move to junk and block sender emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Perform action  in all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Time Frame (minutes)|Filter condition, specify in what time frame in minutes should action look for emails.|False|None||
 
 
 
@@ -443,12 +443,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Message_id of the vote email, which current action would be waiting for. If message has been sent using Send Vote Mail action, please select SendVoteMail.JSONResult|message_id field as a placeholder.|True|None||
-||Comma-separated list of recipient emails, response from which current action would be waiting for. Please select SendVoteMail.JSONResult|to_recipients field as a placeholder.|True|None||
-||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
-||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the sent mail in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive.|True|None||
-||How long in minutes to wait for the user's reply before marking it timed out.|True|None||
-||Parameter can be used to define if there are multiple recipients - should the Action wait for responses from all of recipients until timeout, or Action should wait for first reply to proceed.|False|None||
+|Vote Mail message_id|Message_id of the vote email, which current action would be waiting for. If message has been sent using Send Vote Mail action, please select SendVoteMail.JSONResult|message_id field as a placeholder.|True|None||
+|Mail Recipients|Comma-separated list of recipient emails, response from which current action would be waiting for. Please select SendVoteMail.JSONResult|to_recipients field as a placeholder.|True|None||
+|Folder to Check for Reply|Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None||
+|Folder to check for Sent Mail|Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the sent mail in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive.|True|None||
+|How long to wait for recipient reply (minutes)|How long in minutes to wait for the user's reply before marking it timed out.|True|None||
+|Wait for All Recipients to Reply?|Parameter can be used to define if there are multiple recipients - should the Action wait for responses from all of recipients until timeout, or Action should wait for first reply to proceed.|False|None||
 
 
 
@@ -459,14 +459,14 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Message_id of the email, which current action would be waiting for. If message has been sent using Send Email action, please select SendEmail.JSONResult|message_id field as a placeholder.|True|None||
-||Send timestamp of the email, which current action would be waiting for. If message has been sent using Send Email action, please select SendEmail.JSONResult|email_date field as a placeholder.|True|None||
-||Comma-separated list of recipient emails, response from which current action would be waiting for. If message has been sent using Send Email action, please select Select SendEmail.JSONResult|to_recipients field as a placeholder.|True|None||
-||How long in minutes to wait for the user's reply before marking it timed out.|True|None||
-||Parameter can be used to define if there are multiple recipients - should the Action wait for responses from all of recipients until timeout, or Action should wait for first reply to proceed.|False|None||
-||Regular expression to exclude specific replies from the wait stage. Works with body part of email. Example is, to exclude automatic Out-Of-Office emails to be considered as recipient reply, and instead wait for actual user reply.|False|None||
-||Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
-||If selected, if recipient replies with attachment - fetch recipient response and add it as attachment for the action result|False|None||
+|Mail message_id|Message_id of the email, which current action would be waiting for. If message has been sent using Send Email action, please select SendEmail.JSONResult|message_id field as a placeholder.|True|None||
+|Mail Date|Send timestamp of the email, which current action would be waiting for. If message has been sent using Send Email action, please select SendEmail.JSONResult|email_date field as a placeholder.|True|None||
+|Mail Recipients|Comma-separated list of recipient emails, response from which current action would be waiting for. If message has been sent using Send Email action, please select Select SendEmail.JSONResult|to_recipients field as a placeholder.|True|None||
+|How long to wait for recipient reply (minutes)|How long in minutes to wait for the user's reply before marking it timed out.|True|None||
+|Wait for All Recipients to Reply?|Parameter can be used to define if there are multiple recipients - should the Action wait for responses from all of recipients until timeout, or Action should wait for first reply to proceed.|False|None||
+|Wait Stage Exclude pattern|Regular expression to exclude specific replies from the wait stage. Works with body part of email. Example is, to exclude automatic Out-Of-Office emails to be considered as recipient reply, and instead wait for actual user reply.|False|None||
+|Folder to Check for Reply|Parameter can be used to specify mailbox email folder (mailbox that was used to send the email with question) to search for the user reply in this folder. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+|Fetch Response Attachments|If selected, if recipient replies with attachment - fetch recipient response and add it as attachment for the action result|False|None||
 
 
 
@@ -477,16 +477,16 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
-||Filter condition, specify emails with which email ids to find. Should accept comma separated list of message ids to search for. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
-||Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over “Delete in all mailboxes“.|False|None||
-||Filter condition, specify subject to search for emails|False|None||
-||Filter condition, specify who should be the sender of needed emails|False|None||
-||Filter condition, specify who should be the recipient of needed emails|False|None||
-||Filter condition, specify if action should delete all matched by criteria emails from the mailbox or delete only first match.|False|None||
-||If checked, delete emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
-||In case "Delete from all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
-||Filter condition, specify in what time frame in minutes should action look for emails|False|None||
+|Folder Name|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|False|None||
+|Message IDs|Filter condition, specify emails with which email ids to find. Should accept comma separated list of message ids to search for. If message id is provided, subject, sender and recipient filters are ignored.|False|None||
+|Mailboxes|Specify a comma-separated list of mailboxes that need to be searched. This parameter has priority over “Delete in all mailboxes“.|False|None||
+|Subject Filter|Filter condition, specify subject to search for emails|False|None||
+|Sender Filter|Filter condition, specify who should be the sender of needed emails|False|None||
+|Recipient Filter|Filter condition, specify who should be the recipient of needed emails|False|None||
+|Delete All Matching Emails|Filter condition, specify if action should delete all matched by criteria emails from the mailbox or delete only first match.|False|None||
+|Delete from all mailboxes|If checked, delete emails in all mailboxes accessible with current impersonalization settings. If delegated access is used, implicitly specify the mailboxes to search in the "Mailboxes" parameter.|False|None||
+|How many mailboxes to process in a single batch|In case "Delete from all mailboxes" is checked, action works in batches, this parameter controls how many mailboxes action should process in single batch (single connection to mail server).|False|None||
+|Time Frame (minutes)|Filter condition, specify in what time frame in minutes should action look for emails|False|None||
 
 
 
@@ -500,21 +500,21 @@ Note that the job is deprecated and will be removed in the next 6 months. Oauth 
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|||None|outlook.office365.com|
-|||None||
-|||None||
-|||None||
-|||None||
-|||None||
-|||None||
+|Mail Server Address|True|None|outlook.office365.com|
+|Mail Address for sending notifications|True|None||
+|Notifications Recipients List|True|None||
+|Client ID|True|None||
+|Client Secret|False|None||
+|Tenant (Directory) ID|True|None||
+|Refresh Token|True|None||
 
 #### Token Renewal Job
 Token renewal job should be used to periodically update the refresh token configured for the integration. By default, the refresh token expires every 90 days, making integration unusable upon expiration. It is recommended to run this job every 7 or 14 days to make sure that refresh token will be up to date.
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|||None||
-|||None||
+|Integration Environments|False|None||
+|Connector Names|False|None||
 
 
 
@@ -524,42 +524,42 @@ Exchange Mail Connector v2
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.||None||
-||A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return value unchanged. Used to allow the user to manipulate the environment field via regex logic. If regex pattern is null or empty, or the environment value is null, the final environment result is ""||None||
-||Specify what headers from emails should be added to the events. Parameter accepts multiple values as a comma separated string. Provided values can be exact match or set as a regex.||None||
-||Regular expression to exclude specific emails from being ingested by the connector. Works with both subject and body part of email. Example is, to exclude mass mailing emails like news from being ingested.||None||
-||Mail server IP address to connect to. If connecting to O365, server address should be set to outlook.office365.com||None||
-||If enabled, verify the SSL certificate for the connection to the Exchange server is valid.||None|false|
-||Mail address to use in integration, to use for sending out emails and work with received emails for this email (mailbox)||None||
-||If enabled, value provided for domain parameter will be concatenated to authenticate on the mail server as username@domain. If “Username” is specified in the username@domain or domain\username formats, this parameter is ignored and values from “Domain” and “Username” parameters are not concatenated.||None|false|
-||If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.||None|false|
-||Specify the domain value to use for authentication.||None||
-||Specify Username to authenticate with on mail server. Username can be provided without the domain part or in either UPN (user@fully_qualified_DNS_domain_name) or Down-Level Logon Name (domain\username) format.||None||
-||A password to authenticate with on mail server||None||
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||If checked, cases will be pulled only from unread emails||None|false|
-||If checked, after the emails have been pulled they will be marked as read||None|false|
-||If checked, the original email will be attached to the case info as an eml file||None|false|
-||Number of days before the first connector iteration to retrieve emails from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|5|
-||Time interval connector should use to fetch events from max hours backwards or connector last run timestamp. This parameter in minutes can be used to split max hours backwards on smaller segments and process them individually. Its recommended to adjust this value accordingly to the environment, for example 60 minutes or less.||None|0|
-||Fetch x emails per connector cycle||None|10|
-||The address of the proxy server to use.||None||
-||The proxy username to authenticate with.||None||
-||The proxy password to authenticate with.||None||
-||Specify whether connector should additionally try to extract urls from html part of email. This will allow connector to extract complex urls, but urls from plain text part of email will not be extracted with this method. Extracted urls will be available in urls_from_html_part event field.||None|false|
-||If enabled, the connector will ignore the overflow mechanism.||None|false|
-||Prefix to add to the extracted event keys (to, from,subject,…) from the original email received in the monitored mailbox.||None|orig|
-||Prefix to add to the extracted event keys (to, from,subject,…) from the attached mail file received with the email in the monitored mailbox.||None|attach|
-||If enabled, connector will create multiple alerts, 1 alert per attached mail file. This behavior can be useful when processing email with multiple mail files attached and Siemplify event mapping set to create entities from attached mail file.||None|false|
-||When provided, connector will add a new key called "custom_case_name" to the Siemplify Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled.||None||
-||If provided, connector will use this value for Siemplify Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.||None||
-||Specify an optional time period in minutes connector should fetch emails for prior to the latest timestamp.||None|0|
-||The regex connector uses to parse URLs from the processed emails.||None|(?i)\[?(?:(?:(?:http|https)(?:://))|www\.(?!://))(?:[a-zA-Z0-9\-\._~:;/\?#\[\]@!\$&'\(\)\*\+,=%])+|
-||Specify a base64 encoded private key that will be used to decrypt the email.||None||
-||Specify a base64 encoded certificate that will be used to decrypt the email.||None||
-||Specify a base64 encoded trusted CA certificate for signature verification.||None||
-||Comma-separated list of fields to exclude from events. Example: field1,field2||None||
-||If enabled, connector will not ingest email attachments and add them to cases.||None|false|
+|Environment Field Name|Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.|False|None||
+|Environment Regex Pattern|A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return value unchanged. Used to allow the user to manipulate the environment field via regex logic. If regex pattern is null or empty, or the environment value is null, the final environment result is ""|False|None||
+|Headers to add to events|Specify what headers from emails should be added to the events. Parameter accepts multiple values as a comma separated string. Provided values can be exact match or set as a regex.|False|None||
+|Email exclude pattern|Regular expression to exclude specific emails from being ingested by the connector. Works with both subject and body part of email. Example is, to exclude mass mailing emails like news from being ingested.|False|None||
+|Mail Server Address|Mail server IP address to connect to. If connecting to O365, server address should be set to outlook.office365.com|True|None||
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Exchange server is valid.|False|None|false|
+|Mail Address|Mail address to use in integration, to use for sending out emails and work with received emails for this email (mailbox)|True|None||
+|Use Domain For Authentication|If enabled, value provided for domain parameter will be concatenated to authenticate on the mail server as username@domain. If “Username” is specified in the username@domain or domain\username formats, this parameter is ignored and values from “Domain” and “Username” parameters are not concatenated.|False|None|false|
+|Use Delegated Access|If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.|False|None|false|
+|Domain|Specify the domain value to use for authentication.|True|None||
+|Username|Specify Username to authenticate with on mail server. Username can be provided without the domain part or in either UPN (user@fully_qualified_DNS_domain_name) or Down-Level Logon Name (domain\username) format.|True|None||
+|Password|A password to authenticate with on mail server|True|None||
+|Folder to check for emails|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None|Inbox|
+|Unread Emails Only|If checked, cases will be pulled only from unread emails|False|None|false|
+|Mark Emails as Read|If checked, after the emails have been pulled they will be marked as read|False|None|false|
+|Attach Original EML|If checked, the original email will be attached to the case info as an eml file|False|None|false|
+|Offset Time In Days|Number of days before the first connector iteration to retrieve emails from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.|True|None|5|
+|Fetch Backwards Time Interval (minutes)|Time interval connector should use to fetch events from max hours backwards or connector last run timestamp. This parameter in minutes can be used to split max hours backwards on smaller segments and process them individually. Its recommended to adjust this value accordingly to the environment, for example 60 minutes or less.|False|None|0|
+|Max Emails Per Cycle|Fetch x emails per connector cycle|True|None|10|
+|Proxy Server Address|The address of the proxy server to use.|False|None||
+|Proxy Username|The proxy username to authenticate with.|False|None||
+|Proxy Password|The proxy password to authenticate with.|False|None||
+|Extract urls from HTML email part?|Specify whether connector should additionally try to extract urls from html part of email. This will allow connector to extract complex urls, but urls from plain text part of email will not be extracted with this method. Extracted urls will be available in urls_from_html_part event field.|False|None|false|
+|Disable Overflow|If enabled, the connector will ignore the overflow mechanism.|False|None|false|
+|Original Received Mail Prefix|Prefix to add to the extracted event keys (to, from,subject,…) from the original email received in the monitored mailbox.|False|None|orig|
+|Attached Mail File Prefix|Prefix to add to the extracted event keys (to, from,subject,…) from the attached mail file received with the email in the monitored mailbox.|False|None|attach|
+|Create a Separate Siemplify Alert per Attached Mail File?|If enabled, connector will create multiple alerts, 1 alert per attached mail file. This behavior can be useful when processing email with multiple mail files attached and Siemplify event mapping set to create entities from attached mail file.|False|None|false|
+|Case Name Template|When provided, connector will add a new key called "custom_case_name" to the Siemplify Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled.|False|None||
+|Alert Name Template|If provided, connector will use this value for Siemplify Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.|False|None||
+|Email Padding Period (minutes)|Specify an optional time period in minutes connector should fetch emails for prior to the latest timestamp.|False|None|0|
+|URL Regex|The regex connector uses to parse URLs from the processed emails.|True|None|(?i)\[?(?:(?:(?:http|https)(?:://))|www\.(?!://))(?:[a-zA-Z0-9\-\._~:;/\?#\[\]@!\$&'\(\)\*\+,=%])+|
+|Base64 Encoded Private Key|Specify a base64 encoded private key that will be used to decrypt the email.|False|None||
+|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to decrypt the email.|False|None||
+|Base64 Encoded CA certificate|Specify a base64 encoded trusted CA certificate for signature verification.|False|None||
+|Event Fields to Exclude|Comma-separated list of fields to exclude from events. Example: field1,field2|False|None||
+|Exclude Attachments|If enabled, connector will not ingest email attachments and add them to cases.|False|None|false|
 
 
 ##### Allowlist
@@ -574,29 +574,29 @@ Exchange Mail Connector v2
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Server IP||None|x.x.x.x|
-||Specify the domain value to use for authentication.||None||
-||Specify Username to authenticate with on mail server. Username can be provided without the domain part or in either UPN (user@fully_qualified_DNS_domain_name) or Down-Level Logon Name (domain\username) format.||None||
-||Password||None||
-||Mail Address||None||
-||If enabled, verify the SSL certificate for the connection to the Exchange server is valid.||None|false|
-||If enabled, value provided for domain parameter will be concatenated to authenticate on the mail server as username@domain. If “Username” is specified in the username@domain or domain\username formats, this parameter is ignored and values from “Domain” and “Username” parameters are not concatenated.||None|True|
-||If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.||None|false|
-||The field name used to determine the folder name. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||Environment Field Name||None||
-||Environment Regex Pattern||None||
-||Unread Emails Only||None|false|
-||Mark Emails as Read||None|false|
-||Number of days before the first connector iteration to retrieve EML attachments from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|1|
-||Indicates whether to encode the email data with UTF-8 or not. Setting to True is recommended.||None|true|
-||If checked, the forwarded EML or MSG file will be attached to the Case Wall.||None||
-||Exclude those emails, whose body matches this regex. For example '([N|n]ewsletter)|([O|o]ut of office)' finds all emails containing 'Newsletter' or 'Out of office' keywords.||None||
-||The address of the proxy server to use.||None||
-||The proxy username to authenticate with.||None||
-||The proxy password to authenticate with.||None||
-||Specify whether connector should additionally try to extract urls from html part of email. This will allow connector to extract complex urls, but urls from plain text part of email will not be extracted with this method. Extracted urls will be available in urls_from_html_part event field.||None|false|
-||Comma-separated list of fields to exclude from events. Example: field1,field2||None||
-||If enabled, connector will not ingest email attachments and add them to cases.||None|false|
+|Server IP|Server IP|True|None|x.x.x.x|
+|Domain|Specify the domain value to use for authentication.|True|None||
+|Username|Specify Username to authenticate with on mail server. Username can be provided without the domain part or in either UPN (user@fully_qualified_DNS_domain_name) or Down-Level Logon Name (domain\username) format.|True|None||
+|Password|Password|True|None||
+|Mail Address|Mail Address|True|None||
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Exchange server is valid.|False|None|false|
+|Use Domain For Authentication|If enabled, value provided for domain parameter will be concatenated to authenticate on the mail server as username@domain. If “Username” is specified in the username@domain or domain\username formats, this parameter is ignored and values from “Domain” and “Username” parameters are not concatenated.|False|None|True|
+|Use Delegated Access|If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.|False|None|false|
+|Folder Name|The field name used to determine the folder name. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None|Inbox|
+|Environment Field Name|Environment Field Name|False|None||
+|Environment Regex Pattern|Environment Regex Pattern|False|None||
+|Unread Emails Only|Unread Emails Only|False|None|false|
+|Mark Emails as Read|Mark Emails as Read|False|None|false|
+|Max Days Backwards|Number of days before the first connector iteration to retrieve EML attachments from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.|False|None|1|
+|Encode Data as UTF-8|Indicates whether to encode the email data with UTF-8 or not. Setting to True is recommended.|False|None|true|
+|Attach EML or MSG File to the Case Wall|If checked, the forwarded EML or MSG file will be attached to the Case Wall.|False|None||
+|Exclusion Body Regex|Exclude those emails, whose body matches this regex. For example '([N|n]ewsletter)|([O|o]ut of office)' finds all emails containing 'Newsletter' or 'Out of office' keywords.|False|None||
+|Proxy Server Address|The address of the proxy server to use.|False|None||
+|Proxy Username|The proxy username to authenticate with.|False|None||
+|Proxy Password|The proxy password to authenticate with.|False|None||
+|Extract urls from HTML email part?|Specify whether connector should additionally try to extract urls from html part of email. This will allow connector to extract complex urls, but urls from plain text part of email will not be extracted with this method. Extracted urls will be available in urls_from_html_part event field.|False|None|false|
+|Event Fields to Exclude|Comma-separated list of fields to exclude from events. Example: field1,field2|False|None||
+|Exclude Attachments|If enabled, connector will not ingest email attachments and add them to cases.|False|None|false|
 
 
 #### Exchange Mail Connector v2 with Oauth Authentication
@@ -604,42 +604,42 @@ Connector can be used to monitor specific mailboxes on Office 365 mail servers t
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.||None||
-||A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return value unchanged. Used to allow the user to manipulate the environment field via regex logic. If regex pattern is null or empty, or the environment value is null, the final environment result is ""||None||
-||Specify what headers from emails should be added to the events. Parameter accepts multiple values as a comma separated string. Provided values can be exact match or set as a regex.||None||
-||Regular expression to exclude specific emails from being ingested by the connector. Works with both subject and body part of email. Example is, to exclude mass mailing emails like news from being ingested.||None||
-||Mail server IP address to connect to. If connecting to O365, server address should be set to outlook.office365.com||None|outlook.office365.com|
-||Mail address to use for connector.||None||
-||For Office 365 Oauth authentication, Client (Application) ID of Azure Active Directory App that will be used for the integration.||None||
-||For Office 365 Oauth authentication, secret can be provided for the auth flow.||None||
-||For Office 365 Oauth authentication, Azure Tenant (Directory) ID.||None||
-||For Office 365 Oauth authentication, refresh token that was obtained from running “Get Authorization” and “Generate Token” actions.||None||
-||If enabled, verify the SSL certificate for the connection to the Exchange server is valid.||None|false|
-||Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||If checked, cases will be pulled only from unread emails||None|false|
-||If checked, after the emails have been pulled they will be marked as read||None|false|
-||If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.||None|false|
-||If checked, the original email will be attached to the case info as an eml file||None|false|
-||Number of days before the first connector iteration to retrieve mails from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|5|
-||Time interval connector should use to fetch events from max hours backwards or connector last run timestamp. This parameter in minutes can be used to split max hours backwards on smaller segments and process them individually. Its recommended to adjust this value accordingly to the environment, for example 60 minutes or less.||None|0|
-||Fetch x emails per connector cycle||None|10|
-||The address of the proxy server to use.||None||
-||The proxy username to authenticate with.||None||
-||The proxy password to authenticate with.||None||
-||Specify whether connector should additionally try to extract urls from html part of email. This will allow connector to extract complex urls, but urls from plain text part of email will not be extracted with this method. Extracted urls will be available in urls_from_html_part event field.||None|false|
-||If enabled, the connector will ignore the overflow mechanism.||None|false|
-||Prefix to add to the extracted event keys (to, from,subject,…) from the original email received in the monitored mailbox.||None|orig|
-||Prefix to add to the extracted event keys (to, from,subject,…) from the attached mail file received with the email in the monitored mailbox.||None|attach|
-||If enabled, connector will create multiple alerts, 1 alert per attached mail file. This behavior can be useful when processing email with multiple mail files attached and Siemplify event mapping set to create entities from attached mail file.||None|false|
-||When provided, connector will add a new key called "custom_case_name" to the Siemplify Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled.||None||
-||If provided, connector will use this value for Siemplify Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.||None||
-||Specify an optional time period in minutes connector should fetch emails for prior to the latest timestamp.||None|0|
-||The regex connector uses to parse URLs from the processed emails.||None|(?i)\[?(?:(?:(?:http|https)(?:://))|www\.(?!://))(?:[a-zA-Z0-9\-\._~:;/\?#\[\]@!\$&'\(\)\*\+,=%])+|
-||Specify a base64 encoded private key that will be used to decrypt the email.||None||
-||Specify a base64 encoded certificate that will be used to decrypt the email.||None||
-||Specify a base64 encoded trusted CA certificate for signature verification.||None||
-||Comma-separated list of fields to exclude from events. Example: field1,field2||None||
-||If enabled, connector will not ingest email attachments and add them to cases.||None|false|
+|Environment Field Name|Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.|False|None||
+|Environment Regex Pattern|A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return value unchanged. Used to allow the user to manipulate the environment field via regex logic. If regex pattern is null or empty, or the environment value is null, the final environment result is ""|False|None||
+|Headers to add to events|Specify what headers from emails should be added to the events. Parameter accepts multiple values as a comma separated string. Provided values can be exact match or set as a regex.|False|None||
+|Email exclude pattern|Regular expression to exclude specific emails from being ingested by the connector. Works with both subject and body part of email. Example is, to exclude mass mailing emails like news from being ingested.|False|None||
+|Mail Server Address|Mail server IP address to connect to. If connecting to O365, server address should be set to outlook.office365.com|True|None|outlook.office365.com|
+|Mail Address|Mail address to use for connector.|True|None||
+|Client ID|For Office 365 Oauth authentication, Client (Application) ID of Azure Active Directory App that will be used for the integration.|True|None||
+|Client Secret|For Office 365 Oauth authentication, secret can be provided for the auth flow.|False|None||
+|Tenant (Directory) ID|For Office 365 Oauth authentication, Azure Tenant (Directory) ID.|True|None||
+|Refresh Token|For Office 365 Oauth authentication, refresh token that was obtained from running “Get Authorization” and “Generate Token” actions.|True|None||
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Exchange server is valid.|False|None|false|
+|Folder to check for emails|Parameter can be used to specify email folder on the mailbox to search for the emails. Parameter should also accept comma separated list of folders to check the user response in multiple folders. Parameter is case sensitive. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None|Inbox|
+|Unread Emails Only|If checked, cases will be pulled only from unread emails|False|None|false|
+|Mark Emails as Read|If checked, after the emails have been pulled they will be marked as read|False|None|false|
+|Use Delegated Access|If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.|False|None|false|
+|Attach Original EML|If checked, the original email will be attached to the case info as an eml file|False|None|false|
+|Offset Time In Days|Number of days before the first connector iteration to retrieve mails from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.|True|None|5|
+|Fetch Backwards Time Interval (minutes)|Time interval connector should use to fetch events from max hours backwards or connector last run timestamp. This parameter in minutes can be used to split max hours backwards on smaller segments and process them individually. Its recommended to adjust this value accordingly to the environment, for example 60 minutes or less.|False|None|0|
+|Max Emails Per Cycle|Fetch x emails per connector cycle|True|None|10|
+|Proxy Server Address|The address of the proxy server to use.|False|None||
+|Proxy Username|The proxy username to authenticate with.|False|None||
+|Proxy Password|The proxy password to authenticate with.|False|None||
+|Extract urls from HTML email part?|Specify whether connector should additionally try to extract urls from html part of email. This will allow connector to extract complex urls, but urls from plain text part of email will not be extracted with this method. Extracted urls will be available in urls_from_html_part event field.|False|None|false|
+|Disable Overflow|If enabled, the connector will ignore the overflow mechanism.|False|None|false|
+|Original Received Mail Prefix|Prefix to add to the extracted event keys (to, from,subject,…) from the original email received in the monitored mailbox.|False|None|orig|
+|Attached Mail File Prefix|Prefix to add to the extracted event keys (to, from,subject,…) from the attached mail file received with the email in the monitored mailbox.|False|None|attach|
+|Create a Separate Siemplify Alert per Attached Mail File?|If enabled, connector will create multiple alerts, 1 alert per attached mail file. This behavior can be useful when processing email with multiple mail files attached and Siemplify event mapping set to create entities from attached mail file.|False|None|false|
+|Case Name Template|When provided, connector will add a new key called "custom_case_name" to the Siemplify Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled.|False|None||
+|Alert Name Template|If provided, connector will use this value for Siemplify Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.|False|None||
+|Email Padding Period (minutes)|Specify an optional time period in minutes connector should fetch emails for prior to the latest timestamp.|False|None|0|
+|URL Regex|The regex connector uses to parse URLs from the processed emails.|True|None|(?i)\[?(?:(?:(?:http|https)(?:://))|www\.(?!://))(?:[a-zA-Z0-9\-\._~:;/\?#\[\]@!\$&'\(\)\*\+,=%])+|
+|Base64 Encoded Private Key|Specify a base64 encoded private key that will be used to decrypt the email.|False|None||
+|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to decrypt the email.|False|None||
+|Base64 Encoded CA certificate|Specify a base64 encoded trusted CA certificate for signature verification.|False|None||
+|Event Fields to Exclude|Comma-separated list of fields to exclude from events. Example: field1,field2|False|None||
+|Exclude Attachments|If enabled, connector will not ingest email attachments and add them to cases.|False|None|false|
 
 
 ##### Allowlist
@@ -654,28 +654,28 @@ Exchange Mail Connector
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||x.x.x.x||None||
-||Specify the domain value to use for authentication.||None||
-||Specify Username to authenticate with on mail server. Username can be provided without the domain part or in either UPN (user@fully_qualified_DNS_domain_name) or Down-Level Logon Name (domain\username) format.||None||
-||Password||None||
-||Mail address to pull emails from. e.g. user@domain.com||None||
-||If enabled, verify the SSL certificate for the connection to the Exchange server is valid.||None|false|
-||If enabled, value provided for domain parameter will be concatenated to authenticate on the mail server as username@domain. If “Username” is specified in the username@domain or domain\username formats, this parameter is ignored and values from “Domain” and “Username” parameters are not concatenated.||None|True|
-||If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.||None|false|
-||If checked, pull only unread mails||None|True|
-||If checked, mark mails as read after pulling them||None|False|
-||If checked, attach the original message as eml file.||None|false|
-||The field name used to determine the folder name. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder||None|Inbox|
-||If defined - connector will extract the environment from the specified event field. You can manipulate the field data using the Regex pattern field to extract specific string. In case the the extracted environment field and Siemplify environment name are not equal - you can map them in the map.json that is auto-generated on the first run, inside the <run-folder>.<run-folder> = C:\Siemplify_Server\Scripting\SiemplifyConnectorExecution<Connector_Folder>||None||
-||If defined - the connector will implement the specific RegEx pattern on the data from "envirnment field" to extract specific string. For example - extract domain from sender's address: "(?<=@)(\S+$)"||None||
-||Number of days before the first connector iteration to retrieve mails from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires. e.g. 3||None|5|
-||Exclude those emails, whose subject matches this regex. For example '([N|n]ewsletter)|([O|o]ut of office)' finds all emails containing 'Newsletter' or 'Out of office' keywords.||None||
-||Exclude those emails, whose body matches this regex. For example '([N|n]ewsletter)|([O|o]ut of office)' finds all emails containing 'Newsletter' or 'Out of office' keywords.||None||
-||The address of the proxy server to use.||None||
-||The proxy username to authenticate with.||None||
-||The proxy password to authenticate with.||None||
-||Comma-separated list of fields to exclude from events. Example: field1,field2||None||
-||If enabled, connector will not ingest email attachments and add them to cases.||None|false|
+|Server Ip|x.x.x.x|True|None||
+|Domain|Specify the domain value to use for authentication.|True|None||
+|Username|Specify Username to authenticate with on mail server. Username can be provided without the domain part or in either UPN (user@fully_qualified_DNS_domain_name) or Down-Level Logon Name (domain\username) format.|False|None||
+|Password|Password|True|None||
+|Mail Address|Mail address to pull emails from. e.g. user@domain.com|True|None||
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Exchange server is valid.|False|None|false|
+|Use Domain For Authentication|If enabled, value provided for domain parameter will be concatenated to authenticate on the mail server as username@domain. If “Username” is specified in the username@domain or domain\username formats, this parameter is ignored and values from “Domain” and “Username” parameters are not concatenated.|False|None|True|
+|Use Delegated Access|If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.|False|None|false|
+|Unread Emails Only|If checked, pull only unread mails|False|None|True|
+|Mark Emails as Read|If checked, mark mails as read after pulling them|False|None|False|
+|Attach Original EML|If checked, attach the original message as eml file.|False|None|false|
+|Folder Name|The field name used to determine the folder name. '/' separator can be used to specify a subfolder to search in, example: Inbox/Subfolder|True|None|Inbox|
+|Environment Field Name|If defined - connector will extract the environment from the specified event field. You can manipulate the field data using the Regex pattern field to extract specific string. In case the the extracted environment field and Siemplify environment name are not equal - you can map them in the map.json that is auto-generated on the first run, inside the <run-folder>.<run-folder> = C:\Siemplify_Server\Scripting\SiemplifyConnectorExecution<Connector_Folder>|False|None||
+|Environment Regex Pattern|If defined - the connector will implement the specific RegEx pattern on the data from "envirnment field" to extract specific string. For example - extract domain from sender's address: "(?<=@)(\S+$)"|False|None||
+|Max Days Backwards|Number of days before the first connector iteration to retrieve mails from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires. e.g. 3|True|None|5|
+|Exclusion Subject Regex|Exclude those emails, whose subject matches this regex. For example '([N|n]ewsletter)|([O|o]ut of office)' finds all emails containing 'Newsletter' or 'Out of office' keywords.|False|None||
+|Exclusion Body Regex|Exclude those emails, whose body matches this regex. For example '([N|n]ewsletter)|([O|o]ut of office)' finds all emails containing 'Newsletter' or 'Out of office' keywords.|False|None||
+|Proxy Server Address|The address of the proxy server to use.|False|None||
+|Proxy Username|The proxy username to authenticate with.|False|None||
+|Proxy Password|The proxy password to authenticate with.|False|None||
+|Event Fields to Exclude|Comma-separated list of fields to exclude from events. Example: field1,field2|False|None||
+|Exclude Attachments|If enabled, connector will not ingest email attachments and add them to cases.|False|None|false|
 
 
 

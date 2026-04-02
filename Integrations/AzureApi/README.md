@@ -61,7 +61,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A comma-separated list of permissions requested for the access and refresh tokens. These scopes define the level of access the integration has to the user's data and resources.|True|None||
+|Oauth Scopes|A comma-separated list of permissions requested for the access and refresh tokens. These scopes define the level of access the integration has to the user's data and resources.|True|None||
 
 
 
@@ -72,20 +72,20 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The HTTP method (verb) used for the request.|True|None||
-||The API endpoint where the request executes. This path can optionally include query parameters.|True|None||
-||The query parameters (GET parameters) for the URL, provided as a JSON object where each key-value pair is a parameter. This is the recommended input method. These values are used in addition to any query parameters included in the URL Path.|False|None||
-||The headers for the HTTP request, specified as a JSON object. Headers control aspects such as authentication and define the format of the Body Payload (using Content-Type).|False|None||
-||The cookies constructed into the HTTP Cookie header, specified as a JSON object. This parameter overrides any cookie values provided in Headers.|False|None||
-||The content payload for the HTTP request, specified as a JSON object. The request's format (JSON or form-urlencoded) is determined by the Content-Type set in Headers.|False|None||
-||The JSON object containing the field-value pairs that define the required successful state of the response. If provided, the action runs in asynchronous  mode and repeatedly executes the request until the expected values appear in the response or until the action times out. Example input: {"key": "expected value"}|False|None||
-||If selected, the action automatically follows any HTTP redirect responses (such as 301 or 302 status codes) to the final destination URL.|False|None||
-||If selected, the action explicitly fails the step when the HTTP response returns a Client Error (4xx) or Server Error (5xx) status code.|False|None||
-||If selected, the action converts the entire HTTP response body to a Base64 encoded string. This is useful when you download files that need to be processed or stored. Note: The resulting Base64 string cannot exceed 15 MB.|False|None||
-||A comma-separated list of fields that the action returns in the output. Possible values: response_data, redirects, response_code, response_cookies, response_headers, apparent_encoding.|True|None||
-||The maximum time, in seconds, the action waits for the server to send data before the request is aborted.|True|None||
-||If selected, the action saves the file and attaches it to the case wall. Note: The file is archived with “.zip” extension. This zip isn't password protected.|False|None||
-||If selected, the action encrypts the downloaded ZIP archive (created using Save To Case Wall) with a password (such as infected). Use this option when dealing with suspicious or potentially malicious files to prevent accidental execution.|False|None||
+|Method|The HTTP method (verb) used for the request.|True|None||
+|URL Path|The API endpoint where the request executes. This path can optionally include query parameters.|True|None||
+|URL Params|The query parameters (GET parameters) for the URL, provided as a JSON object where each key-value pair is a parameter. This is the recommended input method. These values are used in addition to any query parameters included in the URL Path.|False|None||
+|Headers|The headers for the HTTP request, specified as a JSON object. Headers control aspects such as authentication and define the format of the Body Payload (using Content-Type).|False|None||
+|Cookie|The cookies constructed into the HTTP Cookie header, specified as a JSON object. This parameter overrides any cookie values provided in Headers.|False|None||
+|Body Payload|The content payload for the HTTP request, specified as a JSON object. The request's format (JSON or form-urlencoded) is determined by the Content-Type set in Headers.|False|None||
+|Expected Response Values|The JSON object containing the field-value pairs that define the required successful state of the response. If provided, the action runs in asynchronous  mode and repeatedly executes the request until the expected values appear in the response or until the action times out. Example input: {"key": "expected value"}|False|None||
+|Follow Redirects|If selected, the action automatically follows any HTTP redirect responses (such as 301 or 302 status codes) to the final destination URL.|False|None||
+|Fail on 4xx/5xx|If selected, the action explicitly fails the step when the HTTP response returns a Client Error (4xx) or Server Error (5xx) status code.|False|None||
+|Base64 Output|If selected, the action converts the entire HTTP response body to a Base64 encoded string. This is useful when you download files that need to be processed or stored. Note: The resulting Base64 string cannot exceed 15 MB.|False|None||
+|Fields To Return|A comma-separated list of fields that the action returns in the output. Possible values: response_data, redirects, response_code, response_cookies, response_headers, apparent_encoding.|True|None||
+|Request Timeout|The maximum time, in seconds, the action waits for the server to send data before the request is aborted.|True|None||
+|Save To Case Wall|If selected, the action saves the file and attaches it to the case wall. Note: The file is archived with “.zip” extension. This zip isn't password protected.|False|None||
+|Password Protect Zip|If selected, the action encrypts the downloaded ZIP archive (created using Save To Case Wall) with a password (such as infected). Use this option when dealing with suspicious or potentially malicious files to prevent accidental execution.|False|None||
 
 
 
@@ -102,7 +102,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||The full authorization URL, containing the access code, received from the Get Authorization action. This URL is required to request and generate the refresh token.|True|None||
+|Authorization URL|The full authorization URL, containing the access code, received from the Get Authorization action. This URL is required to request and generate the refresh token.|True|None||
 
 
 
@@ -116,7 +116,7 @@ Token renewal job should be used to periodically update the refresh token config
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|||None||
+|Integration Environments|False|None||
 
 
 

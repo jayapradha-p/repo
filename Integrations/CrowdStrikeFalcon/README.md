@@ -56,9 +56,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||Specify the path to the folder, where you want to store the threat file.|True|None||
-||If enabled, action will overwrite the file with the same name.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Download Folder Path|Specify the path to the folder, where you want to store the threat file.|True|None||
+|Overwrite|If enabled, action will overwrite the file with the same name.|False|None||
 
 
 
@@ -69,8 +69,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the alert that needs to be updated.|True|None||
-||Specify the comment for the alert.|True|None||
+|Alert ID|Specify the ID of the alert that needs to be updated.|True|None||
+|Comment|Specify the comment for the alert.|True|None||
 
 
 
@@ -81,8 +81,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the detection that needs to be updated.|True|None||
-||Specify the comment for the detection.|True|None||
+|Detection ID|Specify the ID of the detection that needs to be updated.|True|None||
+|Comment|Specify the comment for the detection.|True|None||
 
 
 
@@ -93,8 +93,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the incident that needs to be updated.|True|None||
-||Specify the comment for the incident.|True|None||
+|Incident ID|Specify the ID of the incident that needs to be updated.|True|None||
+|Comment|Specify the comment for the incident.|True|None||
 
 
 
@@ -105,8 +105,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the id of the detection that needs to be closed.|True|None||
-||If enabled, action will hide the detection in the UI.|False|None||
+|Detection ID|Specify the id of the detection that needs to be closed.|True|None||
+|Hide Detection|If enabled, action will hide the detection in the UI.|False|None||
 
 
 
@@ -117,8 +117,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the id of the detection to which you want to add a comment.|True|None||
-||Specify the comment that needs to be added to the detection.|True|None||
+|Detection ID|Specify the id of the detection to which you want to add a comment.|True|None||
+|Comment|Specify the comment that needs to be added to the detection.|True|None||
 
 
 
@@ -135,8 +135,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||If enabled, action will be failed, if not all of the endpoints were contained.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Fail If Timeout|If enabled, action will be failed, if not all of the endpoints were contained.|False|None||
 
 
 
@@ -153,20 +153,20 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||Comma-separated list of paths to scan.|True|None||
-||Comma-separated list of paths to exclude from scanning.|False|None||
-||Comma-separated list of host group names to initiate scanning for. Note: Separate scanning process is created for each host group.|False|None||
-||Description for the scan. If no value is provided, the action sets the description to the following: "Scan initialized by Chronicle SecOps."|False|None||
-||The amount of CPU to  use for the underlying host during scanning.|False|None||
-||Specify the sensor anti-malware detection level. Note: Detection level must be equal to or higher than the Prevention level.|False|None||
-||Specify the sensor anti-malware prevention level. Note: Detection level must be equal to or higher than the Prevention level.|False|None||
-||Specify the cloud anti-malware detection level. Note: Detection level must be equal to or higher than the Prevention level.|False|None||
-||Specify the cloud anti-malware prevention level. Note: Detection level must be equal to or higher than the Prevention level.|False|None||
-||If enabled, underlying hosts are quarantined as part of scanning.|False|None||
-||If enabled, the scanning process creates an endpoint notification.|False|None||
-||Number of hours for a scan to run. If no value is provided, the scan runs continuously.|False|None||
-||Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|File Paths To Scan|Comma-separated list of paths to scan.|True|None||
+|File Paths To Exclude From Scan|Comma-separated list of paths to exclude from scanning.|False|None||
+|Host Group Name|Comma-separated list of host group names to initiate scanning for. Note: Separate scanning process is created for each host group.|False|None||
+|Scan Description|Description for the scan. If no value is provided, the action sets the description to the following: "Scan initialized by Chronicle SecOps."|False|None||
+|CPU Priority|The amount of CPU to  use for the underlying host during scanning.|False|None||
+|Sensor Anti-malware Detection Level|Specify the sensor anti-malware detection level. Note: Detection level must be equal to or higher than the Prevention level.|False|None||
+|Sensor Anti-malware Prevention Level|Specify the sensor anti-malware prevention level. Note: Detection level must be equal to or higher than the Prevention level.|False|None||
+|Cloud Anti-malware Detection Level|Specify the cloud anti-malware detection level. Note: Detection level must be equal to or higher than the Prevention level.|False|None||
+|Cloud Anti-malware Prevention Level|Specify the cloud anti-malware prevention level. Note: Detection level must be equal to or higher than the Prevention level.|False|None||
+|Quarantine Hosts|If enabled, underlying hosts are quarantined as part of scanning.|False|None||
+|Create Endpoint Notification|If enabled, the scanning process creates an endpoint notification.|False|None||
+|Max Scan Duration|Number of hours for a scan to run. If no value is provided, the scan runs continuously.|False|None||
+|Hostname|Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.|False|None||
 
 
 
@@ -177,10 +177,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the alert that needs to be updated.|True|None||
-||Specify the status for the alert.|False|None||
-||Specify the verdict for the alert.|False|None||
-||Specify the name of the analyst to whom the alert needs to be assigned. If "Unassign" is provided, action will remove assignment from the alert. Note: API will accept any value that is provided, even if the underlying user doesn’t exist.|False|None||
+|Alert ID|Specify the ID of the alert that needs to be updated.|True|None||
+|Status|Specify the status for the alert.|False|None||
+|Verdict|Specify the verdict for the alert.|False|None||
+|Assign To|Specify the name of the analyst to whom the alert needs to be assigned. If "Unassign" is provided, action will remove assignment from the alert. Note: API will accept any value that is provided, even if the underlying user doesn’t exist.|False|None||
 
 
 
@@ -191,8 +191,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||If enabled, action will create insights containing information regarding entities.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Create Insight|If enabled, action will create insights containing information regarding entities.|False|None||
 
 
 
@@ -203,8 +203,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||If enabled, action will be failed, if containment was not lifted on all endpoints.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Fail If Timeout|If enabled, action will be failed, if containment was not lifted on all endpoints.|False|None||
 
 
 
@@ -215,8 +215,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||A comma-separated list of hostnames to hide in CrowdStrike Falcon. The action processes both the input values provided in this parameter and the Hostname and IP Address entities attached to the case.|False|None||
-||The unique CrowdStrike Customer ID (CID) used to target a specific tenant. This parameter is required in Falcon Flight Control or multi-tenant environments to perform the action on a specific child CID.|False|None||
+|Hostname|A comma-separated list of hostnames to hide in CrowdStrike Falcon. The action processes both the input values provided in this parameter and the Hostname and IP Address entities attached to the case.|False|None||
+|Customer ID|The unique CrowdStrike Customer ID (CID) used to target a specific tenant. This parameter is required in Falcon Flight Control or multi-tenant environments to perform the action on a specific child CID.|False|None||
 
 
 
@@ -233,11 +233,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||The name of the script file that needs to be executed. Note: either “Script Name” or “Raw Script” should be provided. If both “Script Name” and “Raw Script” are provided, then “Raw Script” will have the priority.|False|None||
-||Raw powershell script payload that needs to be executed on the endpoints. Note: either “Script Name” or “Raw Script” should be provided. If both “Script Name” and “Raw Script” are provided, then “Raw Script” will have the priority.|False|None||
-||Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.|False|None||
-||If enabled, commands targeting offline hosts are queued and executed once the host reconnects to the network.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Script Name|The name of the script file that needs to be executed. Note: either “Script Name” or “Raw Script” should be provided. If both “Script Name” and “Raw Script” are provided, then “Raw Script” will have the priority.|False|None||
+|Raw Script|Raw powershell script payload that needs to be executed on the endpoints. Note: either “Script Name” or “Raw Script” should be provided. If both “Script Name” and “Raw Script” are provided, then “Raw Script” will have the priority.|False|None||
+|Hostname|Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.|False|None||
+|Queue Offline|If enabled, commands targeting offline hosts are queued and executed once the host reconnects to the network.|False|None||
 
 
 
@@ -248,7 +248,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify how many events the action needs to process starting from the offset from 30 days ago.|True|None||
+|Max Events To Process|Specify how many events the action needs to process starting from the offset from 30 days ago.|True|None||
 
 
 
@@ -259,7 +259,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify a comma-separated list of devices for which you want to retrieve processes related to entities.|True|None||
+|Devices Names|Specify a comma-separated list of devices for which you want to retrieve processes related to entities.|True|None||
 
 
 
@@ -270,12 +270,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Repository that should be searched.|True|None||
-||Query that needs to be executed in Crowdstrike. Note: don't provide "head" as part of the query. Action will provide it automatically based on the value provided in the "Max Results To Return" parameter.|True|None||
-||Time frame for the results. If "Custom" is selected, you also need to provide "Start Time".|False|None||
-||Start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601.|False|None||
-||End time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.|False|None||
-||How many results to return for the query. Action will append "head" to the provided query. Default: 50. Maximum: 1000.|False|None||
+|Repository|Repository that should be searched.|True|None||
+|Query|Query that needs to be executed in Crowdstrike. Note: don't provide "head" as part of the query. Action will provide it automatically based on the value provided in the "Max Results To Return" parameter.|True|None||
+|Time Frame|Time frame for the results. If "Custom" is selected, you also need to provide "Start Time".|False|None||
+|Start Time|Start time for the results. This parameter is mandatory, if "Custom" is selected for the "Time Frame" parameter. Format: ISO 8601.|False|None||
+|End Time|End time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.|False|None||
+|Max Results To Return|How many results to return for the query. Action will append "head" to the provided query. Default: 50. Maximum: 1000.|False|None||
 
 
 
@@ -286,10 +286,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||Specify the comma-separated list of severities for vulnerabilities.If nothing is provided, action will ingest all related vulnerabilities. Possible values: Critical, High, Medium, Low, Unknown.|False|None||
-||If enabled, action will create an insight per entity containing statistical information about related vulnerabilities.|False|None||
-||Specify how many vulnerabilities to return per host. If nothing is provided action will process all of the related vulnerabilities.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Severity Filter|Specify the comma-separated list of severities for vulnerabilities.If nothing is provided, action will ingest all related vulnerabilities. Possible values: Critical, High, Medium, Low, Unknown.|False|None||
+|Create Insight|If enabled, action will create an insight per entity containing statistical information about related vulnerabilities.|False|None||
+|Max Vulnerabilities To Return|Specify how many vulnerabilities to return per host. If nothing is provided action will process all of the related vulnerabilities.|False|None||
 
 
 
@@ -300,10 +300,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the URLs that need to be submitted.|True|None||
-||Specify the sandbox environment for the analysis.|False|None||
-||Specify the network environment for the analysis.|False|None||
-||If enabled, the action checks if the file was already submitted previously and returns an available report. Note: during the validation “Network Environment” and “Sandbox Environment” are not taken into consideration.|False|None||
+|URLs|Specify the URLs that need to be submitted.|True|None||
+|Sandbox Environment|Specify the sandbox environment for the analysis.|False|None||
+|Network Environment|Specify the network environment for the analysis.|False|None||
+|Check Duplicate|If enabled, the action checks if the file was already submitted previously and returns an available report. Note: during the validation “Network Environment” and “Sandbox Environment” are not taken into consideration.|False|None||
 
 
 
@@ -314,14 +314,14 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the file paths to the files that need to be submitted. Refer to the documentation portal for a list of the supported file formats.|True|None||
-||Specify the sandbox environment for the analysis.|False|None||
-||Specify the network environment for the analysis.|False|None||
-||Specify the password that would need to be used, when working with archive files.|False|None||
-||Specify the password that would need to be used, when working with Adobe or Office files. Maximum: 32 characters.|False|None||
-||If enabled, the action checks if the file was already submitted previously and returns the available report. Note: during the validation “Network Environment” and “Sandbox Environment” are not taken into consideration.|False|None||
-||Specify the comment for the submission.|False|None||
-||If enabled, the file is only shown to users within your customer account.|False|None||
+|File Paths|Specify the file paths to the files that need to be submitted. Refer to the documentation portal for a list of the supported file formats.|True|None||
+|Sandbox Environment|Specify the sandbox environment for the analysis.|False|None||
+|Network Environment|Specify the network environment for the analysis.|False|None||
+|Archive Password|Specify the password that would need to be used, when working with archive files.|False|None||
+|Document Password|Specify the password that would need to be used, when working with Adobe or Office files. Maximum: 32 characters.|False|None||
+|Check Duplicate|If enabled, the action checks if the file was already submitted previously and returns the available report. Note: during the validation “Network Environment” and “Sandbox Environment” are not taken into consideration.|False|None||
+|Comment|Specify the comment for the submission.|False|None||
+|Confidential Submission|If enabled, the file is only shown to users within your customer account.|False|None||
 
 
 
@@ -332,9 +332,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the detection that needs to be updated.|True|None||
-||Specify the new status for the detection.|True|None||
-||Specify the email address of the Crowdstrike Falcon user, who needs to be assigned to this detection|False|None||
+|Detection ID|Specify the ID of the detection that needs to be updated.|True|None||
+|Status|Specify the new status for the detection.|True|None||
+|Assign Detection to|Specify the email address of the Crowdstrike Falcon user, who needs to be assigned to this detection|False|None||
 
 
 
@@ -345,10 +345,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify a new description for custom IOCs.|False|None||
-||Specify the source for custom IOCs.|False|None||
-||Specify the amount of days till expiration.|False|None||
-||If enabled, IOCs that have been identifed, will send a notification. In other case, no action will be taken|False|None||
+|Description|Specify a new description for custom IOCs.|False|None||
+|Source|Specify the source for custom IOCs.|False|None||
+|Expiration days|Specify the amount of days till expiration.|False|None||
+|Detect policy|If enabled, IOCs that have been identifed, will send a notification. In other case, no action will be taken|False|None||
 
 
 
@@ -359,7 +359,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the alert.|True|None||
+|Alert ID|Specify the ID of the alert.|True|None||
 
 
 
@@ -370,9 +370,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the detection that needs to be updated.|True|None||
-||Specify the status for the detection.|False|None||
-||Specify the name of the analyst to whom the detection needs to be assigned. If "Unassign" is provided, action will remove assignment from the detection. Note: API will accept any value that is provided, even if the underlying user doesn't exist.|False|None||
+|Detection ID|Specify the ID of the detection that needs to be updated.|True|None||
+|Status|Specify the status for the detection.|False|None||
+|Assign To|Specify the name of the analyst to whom the detection needs to be assigned. If "Unassign" is provided, action will remove assignment from the detection. Note: API will accept any value that is provided, even if the underlying user doesn't exist.|False|None||
 
 
 
@@ -383,12 +383,12 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify a comment with more context related to IOC.|False|None||
-||Specify the name of the host group.|False|None||
-||Specify the action for the uploaded IOCs. Note: "Block" action can only be applied to hashes. Action will always apply "Detect" policy to all other IOC types.|False|None||
-||The number of days before the IOC expires.|False|None||
-||Specify a comma-separated list of the platforms related to the IOC. Possible values: Windows, Linux, Mac.|True|None||
-||Specify the severity for the IOC.|True|None||
+|Comment|Specify a comment with more context related to IOC.|False|None||
+|Host Group Name|Specify the name of the host group.|False|None||
+|Action|Specify the action for the uploaded IOCs. Note: "Block" action can only be applied to hashes. Action will always apply "Detect" policy to all other IOC types.|False|None||
+|Days To Expire|The number of days before the IOC expires.|False|None||
+|Platform|Specify a comma-separated list of the platforms related to the IOC. Possible values: Windows, Linux, Mac.|True|None||
+|Severity|Specify the severity for the IOC.|True|None||
 
 
 
@@ -399,10 +399,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||Specify the ID of the incident that needs to be updated.|True|None||
-||Specify the status for the incident.|False|None||
-||Specify the name or email of the analyst to whom the incident needs to be assigned. If "Unassign" is provided, action will remove assignment from the incident. Note: for name you need to provide first and last name of the analyst in the following format "{first name} {last name}"|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Incident ID|Specify the ID of the incident that needs to be updated.|True|None||
+|Status|Specify the status for the incident.|False|None||
+|Assign to|Specify the name or email of the analyst to whom the incident needs to be assigned. If "Unassign" is provided, action will remove assignment from the incident. Note: for name you need to provide first and last name of the analyst in the following format "{first name} {last name}"|False|None||
 
 
 
@@ -413,10 +413,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify a comma-separated list of IOC types that should be returned. If nothing is provided, action will return IOCs from all types. Possible values: ipv4,ipv6,md5,sha256,domain.|False|None||
-||Specify the value filter logic. If "Equal" is selected, action will try to find the exact match among IOCs and if "Contains" is selected, action will try to find IOCs that contain that substring.|False|None||
-||Specify the string that should be searched among IOCs.|False|None||
-||Specify how many IOCs to return. Default: 50. Maximum: 500.|False|None||
+|IOC Type Filter|Specify a comma-separated list of IOC types that should be returned. If nothing is provided, action will return IOCs from all types. Possible values: ipv4,ipv6,md5,sha256,domain.|False|None||
+|Value Filter Logic|Specify the value filter logic. If "Equal" is selected, action will try to find the exact match among IOCs and if "Contains" is selected, action will try to find IOCs that contain that substring.|False|None||
+|Value Filter String|Specify the string that should be searched among IOCs.|False|None||
+|Max IOCs To Return|Specify how many IOCs to return. Default: 50. Maximum: 500.|False|None||
 
 
 
@@ -427,10 +427,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||Specify what logic should be used, when searching for hosts.|False|None||
-||Specify the value that should be used to filter hosts.|False|None||
-||Specify how many hosts to return. Default: 50. Maximum: 1000.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Filter Logic|Specify what logic should be used, when searching for hosts.|False|None||
+|Filter Value|Specify the value that should be used to filter hosts.|False|None||
+|Max Hosts To Return|Specify how many hosts to return. Default: 50. Maximum: 1000.|False|None||
 
 
 
@@ -441,11 +441,11 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Specify the ID of the customer for which you want to execute the action.|False|None||
-||Specify what command to execute on the hosts.|True|None||
-||If enabled, action will execute commands with the admin level permissions. This is necessary for certain commands like "put".|False|None||
-||Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.|False|None||
-||If enabled, commands targeting offline hosts are queued and executed once the host reconnects to the network.|False|None||
+|Customer ID|Specify the ID of the customer for which you want to execute the action.|False|None||
+|Command|Specify what command to execute on the hosts.|True|None||
+|Admin Command|If enabled, action will execute commands with the admin level permissions. This is necessary for certain commands like "put".|False|None||
+|Hostname|Comma-separated list of hostnames on which you want to execute the action. Note: action will run the action on both entities + this parameter values.|False|None||
+|Queue Offline|If enabled, commands targeting offline hosts are queued and executed once the host reconnects to the network.|False|None||
 
 
 
@@ -461,25 +461,25 @@ Pull alerts from Crowdstrike. Dynamic List works with the "display_name" paramet
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.||None||
-||A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field through regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.||None|.*|
-||API root of the Crowdstrike instance.||None|https://api.crowdstrike.com|
-||Client ID  of the Crowdstrike account.||None||
-||Client Secret of the Crowdstrike account.||None||
-||Lowest severity score of the identity protection detections to fetch. If nothing is provided, the connector will ingest detections with all severities. Maximum is 100. Note: action also supports the following values: Informational, Low, Medium, High, Critical.||None||
-||Number of hours before the first connector iteration to retrieve alerts from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|1|
-||How many alerts to process per one connector iteration. Default: 10.||None|10|
-||If enabled, connector will also fetch alerts that are labeled as "hidden" by Crowdstrike.||None|true|
-||Fallback severity for the SecOps alert that should be applied to the Crowdstrike alerts, which are missing severity information. Possible values: Informational, Low, Medium, High, Critical. If nothing is provided, connector will use "Informational" severity.||None|Informational|
-||If enabled, the dynamic list will be used as a blocklist.||None|false|
-||If enabled, verify the SSL certificate for the connection to the Crowdstrike server is valid.||None|false|
-||If enabled, connector will ignore the overflow mechanism.||None|false|
-||The address of the proxy server to use.||None||
-||The proxy username to authenticate with.||None||
-||The proxy password to authenticate with.||None||
-||When provided, connector will add a new key called "custom_case_name" to the Google Secops Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled.||None||
-||If provided, connector will use this value for Google Secops Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.||None||
-||The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.||None||
+|Environment Field Name|Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.|False|None||
+|Environment Regex Pattern|A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field through regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.|False|None|.*|
+|API Root|API root of the Crowdstrike instance.|True|None|https://api.crowdstrike.com|
+|Client ID|Client ID  of the Crowdstrike account.|True|None||
+|Client Secret|Client Secret of the Crowdstrike account.|True|None||
+|Lowest Severity Score To Fetch|Lowest severity score of the identity protection detections to fetch. If nothing is provided, the connector will ingest detections with all severities. Maximum is 100. Note: action also supports the following values: Informational, Low, Medium, High, Critical.|False|None||
+|Max Hours Backwards|Number of hours before the first connector iteration to retrieve alerts from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.|True|None|1|
+|Max Alerts To Fetch|How many alerts to process per one connector iteration. Default: 10.|True|None|10|
+|Include Hidden Alerts|If enabled, connector will also fetch alerts that are labeled as "hidden" by Crowdstrike.|False|None|true|
+|Fallback Severity|Fallback severity for the SecOps alert that should be applied to the Crowdstrike alerts, which are missing severity information. Possible values: Informational, Low, Medium, High, Critical. If nothing is provided, connector will use "Informational" severity.|False|None|Informational|
+|Use dynamic list as a blocklist|If enabled, the dynamic list will be used as a blocklist.|False|None|false|
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Crowdstrike server is valid.|False|None|false|
+|Disable Overflow|If enabled, connector will ignore the overflow mechanism.|False|None|false|
+|Proxy Server Address|The address of the proxy server to use.|False|None||
+|Proxy Username|The proxy username to authenticate with.|False|None||
+|Proxy Password|The proxy password to authenticate with.|False|None||
+|Case Name Template|When provided, connector will add a new key called "custom_case_name" to the Google Secops Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled.|False|None||
+|Alert Name Template|If provided, connector will use this value for Google Secops Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.|False|None||
+|Customer ID|The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.|False|None||
 
 
 #### Crowdstrike - Detections Connector
@@ -487,24 +487,24 @@ Deprecated. Pull detections from Crowdstrike. Whitelist works with filters that 
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.||None||
-||A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field via regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.||None|.*|
-||API root of the Crowdstrike instance.||None|https://api.crowdstrike.com|
-||Client ID  of the Crowdstrike account.||None||
-||Client Secret of the Crowdstrike account.||None||
-||Lowest severity score of the detections to fetch. If nothing is provided, the connector won't apply this filter. Maximum is 100. Note: action also supports the following values: Low, Medium, High, Critical.||None|50|
-||Lowest confidence score of the detections to fetch. If nothing is provided, the connector won't apply this filter. Maximum is 100.||None|0|
-||Number of hours before the first connector iteration to retrieve detections from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|1|
-||How many detections to process per one connector iteration. Default: 10.||None|10|
-||The number of hours that connector will use for padding. Maximum: 6.||None|1|
-||If enabled, connector will ignore the overflow mechanism.||None|false|
-||If enabled, verify the SSL certificate for the connection to the Crowdstrike server is valid.||None|false|
-||The address of the proxy server to use.||None||
-||The proxy username to authenticate with.||None||
-||The proxy password to authenticate with.||None||
-||When provided, connector will add a new key called "custom_case_name" to the Google Secops Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled.||None||
-||If provided, connector will use this value for Google Secops Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.||None||
-||The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.||None||
+|Environment Field Name|Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.|False|None||
+|Environment Regex Pattern|A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field via regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.|False|None|.*|
+|API Root|API root of the Crowdstrike instance.|True|None|https://api.crowdstrike.com|
+|Client ID|Client ID  of the Crowdstrike account.|True|None||
+|Client Secret|Client Secret of the Crowdstrike account.|True|None||
+|Lowest Severity Score To Fetch|Lowest severity score of the detections to fetch. If nothing is provided, the connector won't apply this filter. Maximum is 100. Note: action also supports the following values: Low, Medium, High, Critical.|False|None|50|
+|Lowest Confidence Score To Fetch|Lowest confidence score of the detections to fetch. If nothing is provided, the connector won't apply this filter. Maximum is 100.|False|None|0|
+|Max Hours Backwards|Number of hours before the first connector iteration to retrieve detections from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.|False|None|1|
+|Max Detections To Fetch|How many detections to process per one connector iteration. Default: 10.|False|None|10|
+|Padding Period|The number of hours that connector will use for padding. Maximum: 6.|False|None|1|
+|Disable Overflow|If enabled, connector will ignore the overflow mechanism.|False|None|false|
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Crowdstrike server is valid.|False|None|false|
+|Proxy Server Address|The address of the proxy server to use.|False|None||
+|Proxy Username|The proxy username to authenticate with.|False|None||
+|Proxy Password|The proxy password to authenticate with.|False|None||
+|Case Name Template|When provided, connector will add a new key called "custom_case_name" to the Google Secops Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled.|False|None||
+|Alert Name Template|If provided, connector will use this value for Google Secops Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.|False|None||
+|Customer ID|The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.|False|None||
 
 
 #### Crowdstrike - Identity Protection Detections Connector
@@ -512,23 +512,23 @@ Pull Identity Protection detections from Crowdstrike. Note: this connector requi
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.||None||
-||A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field through regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.||None|.*|
-||API root of the Crowdstrike instance.||None|https://api.crowdstrike.com|
-||Client ID  of the Crowdstrike account.||None||
-||Client Secret of the Crowdstrike account.||None||
-||Lowest severity score of the identity protection detections to fetch. If nothing is provided, the connector will ingest detections with all severities. Maximum is 100. Note: action also supports the following values: Informational, Low, Medium, High, Critical.||None||
-||Number of hours before the first connector iteration to retrieve detections from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|1|
-||How many identity protection detections to process per one connector iteration. Default: 10.||None|10|
-||If enabled, the dynamic list will be used as a blocklist.||None|true|
-||If enabled, connector will ignore the overflow mechanism.||None|false|
-||If enabled, verify the SSL certificate for the connection to the Crowdstrike server is valid.||None|false|
-||The address of the proxy server to use.||None||
-||The proxy username to authenticate with.||None||
-||The proxy password to authenticate with.||None||
-||When provided, connector will add a new key called "custom_case_name" to the Google Secops Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled.||None||
-||If provided, connector will use this value for Google Secops Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.||None||
-||The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.||None||
+|Environment Field Name|Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.|False|None||
+|Environment Regex Pattern|A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field through regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.|False|None|.*|
+|API Root|API root of the Crowdstrike instance.|True|None|https://api.crowdstrike.com|
+|Client ID|Client ID  of the Crowdstrike account.|True|None||
+|Client Secret|Client Secret of the Crowdstrike account.|True|None||
+|Lowest Severity Score To Fetch|Lowest severity score of the identity protection detections to fetch. If nothing is provided, the connector will ingest detections with all severities. Maximum is 100. Note: action also supports the following values: Informational, Low, Medium, High, Critical.|False|None||
+|Max Hours Backwards|Number of hours before the first connector iteration to retrieve detections from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.|False|None|1|
+|Max Detections To Fetch|How many identity protection detections to process per one connector iteration. Default: 10.|False|None|10|
+|Use dynamic list as a blocklist|If enabled, the dynamic list will be used as a blocklist.|False|None|true|
+|Disable Overflow|If enabled, connector will ignore the overflow mechanism.|False|None|false|
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Crowdstrike server is valid.|False|None|false|
+|Proxy Server Address|The address of the proxy server to use.|False|None||
+|Proxy Username|The proxy username to authenticate with.|False|None||
+|Proxy Password|The proxy password to authenticate with.|False|None||
+|Case Name Template|When provided, connector will add a new key called "custom_case_name" to the Google Secops Event. It can used to have a customer case name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled.|False|None||
+|Alert Name Template|If provided, connector will use this value for Google Secops Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Google Secops Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.|False|None||
+|Customer ID|The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.|False|None||
 
 
 #### Crowdstrike - Incidents Connector
@@ -536,21 +536,21 @@ Deprecated. Pull incident and related behaviors from Crowdstrike. Dynamic List w
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||API root of the Crowdstrike instance.||None|https://api.crowdstrike.com|
-||Client ID  of the Crowdstrike account.||None||
-||Client Secret of the Crowdstrike account.||None||
-||Number of hours before the first connector iteration to retrieve incidents from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires. Default: 1||None|1|
-||Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.||None||
-||A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field via regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.||None|.*|
-||Lowest severity score of the incidents to fetch. If nothing is provided, the connector will ingest incidents with all severities. Maximum is 100. Note: action also supports the following values: Low, Medium, High, Critical. In the Crowdstrike UI the same value is presented as divided by 10.||None||
-||How many incidents to process per one connector iteration. Default: 10. Max: 100.||None|10|
-||If enabled, the dynamic list will be used as a blocklist.||None|false|
-||If enabled, connector will ignore the overflow mechanism.||None|false|
-||If enabled, verify the SSL certificate for the connection to the Crowdstrike server is valid.||None|false|
-||The address of the proxy server to use.||None||
-||The proxy username to authenticate with.||None||
-||The proxy password to authenticate with.||None||
-||The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.||None||
+|API Root|API root of the Crowdstrike instance.|True|None|https://api.crowdstrike.com|
+|Client ID|Client ID  of the Crowdstrike account.|True|None||
+|Client Secret|Client Secret of the Crowdstrike account.|True|None||
+|Max Hours Backwards|Number of hours before the first connector iteration to retrieve incidents from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires. Default: 1|False|None|1|
+|Environment Field Name|Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.|False|None||
+|Environment Regex Pattern|A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field via regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.|False|None|.*|
+|Lowest Severity Score To Fetch|Lowest severity score of the incidents to fetch. If nothing is provided, the connector will ingest incidents with all severities. Maximum is 100. Note: action also supports the following values: Low, Medium, High, Critical. In the Crowdstrike UI the same value is presented as divided by 10.|False|None||
+|Max Incidents To Fetch|How many incidents to process per one connector iteration. Default: 10. Max: 100.|False|None|10|
+|Use dynamic list as a blocklist|If enabled, the dynamic list will be used as a blocklist.|False|None|false|
+|Disable Overflow|If enabled, connector will ignore the overflow mechanism.|False|None|false|
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Crowdstrike server is valid.|False|None|false|
+|Proxy Server Address|The address of the proxy server to use.|False|None||
+|Proxy Username|The proxy username to authenticate with.|False|None||
+|Proxy Password|The proxy password to authenticate with.|False|None||
+|Customer ID|The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.|False|None||
 
 
 #### Crowdstrike Falcon Streaming Events Connector
@@ -558,23 +558,23 @@ Crowdstrike Falcon Streaming Events Connector
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-||Describes the name of the field where the environment name is stored. If environment field isn't found, environment is ""||None||
-||A regex pattern to run on the value found in the "Environment Field Name" field.||None||
-||API root of the Crowdstrike instance||None|https://api.crowdstrike.com|
-||Client ID for Crowdstrike API||None||
-||Client Secret for Crowdstrike API||None||
-||Specify a comma-separated list of event types. Examples of the event types: DetectionSummaryEvent, IncidentSummaryEvent, UserActivityAuditEvent, RemoteResponseSessionStartEvent, RemoteResponseSessionEndEvent, EppDetectionSummaryEvent. For more information visit documentation portal.||None|DetectionSummaryEvent, IncidentSummaryEvent, UserActivityAuditEvent, RemoteResponseSessionStartEvent, RemoteResponseSessionEndEvent, EppDetectionSummaryEvent|
-||Max events to process per connector run.||None|100|
-||Number of days before the first connector iteration to retrieve events from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.||None|3|
-||Specify the events that should be ingested based on the events severity (detections events). The value ranges from 0-5. If other event types besides detections are ingested by the connector, connector sets a severity for them as -1 and this filter is not applied to those types of events||None|0|
-||If provided, connector will use this value for Siemplify Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.||None||
-||	If provided, the connector will use this value for Siemplify Rule Generator. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use the first Siemplify event for placeholders. Only keys that have string value will be handled. If nothing is provided or the user provides an invalid template, the connector will use the default rule generator.||None||
-||Proxy server address.||None||
-||Proxy username.||None||
-||Proxy password.||None||
-||If enabled, connector will ignore the overflow mechanism.||None|false|
-||Indicate whether to use SSL in the session or not||None|false|
-||The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.||None||
+|Environment Field Name|Describes the name of the field where the environment name is stored. If environment field isn't found, environment is ""|False|None||
+|Environment Regex Pattern|A regex pattern to run on the value found in the "Environment Field Name" field.|False|None||
+|API Root|API root of the Crowdstrike instance|False|None|https://api.crowdstrike.com|
+|Client ID|Client ID for Crowdstrike API|True|None||
+|Client Secret|Client Secret for Crowdstrike API|True|None||
+|Event types|Specify a comma-separated list of event types. Examples of the event types: DetectionSummaryEvent, IncidentSummaryEvent, UserActivityAuditEvent, RemoteResponseSessionStartEvent, RemoteResponseSessionEndEvent, EppDetectionSummaryEvent. For more information visit documentation portal.|False|None|DetectionSummaryEvent, IncidentSummaryEvent, UserActivityAuditEvent, RemoteResponseSessionStartEvent, RemoteResponseSessionEndEvent, EppDetectionSummaryEvent|
+|Max Events per Cycle|Max events to process per connector run.|True|None|100|
+|Max Day Backwards|Number of days before the first connector iteration to retrieve events from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.|False|None|3|
+|Min Severity|Specify the events that should be ingested based on the events severity (detections events). The value ranges from 0-5. If other event types besides detections are ingested by the connector, connector sets a severity for them as -1 and this filter is not applied to those types of events|False|None|0|
+|Alert Name Template|If provided, connector will use this value for Siemplify Alert Name. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use first Siemplify Event for placeholders. Only keys that have string value will be handled. If nothing is provided or user provides an invalid template, connector will use the default alert name.|False|None||
+|Rule Generator Template|	If provided, the connector will use this value for Siemplify Rule Generator. Please refer to the documentation portal for more details. You can provide placeholders in the following format: [name of the field]. Example: Phishing - [event_mailbox]. Note: connector will use the first Siemplify event for placeholders. Only keys that have string value will be handled. If nothing is provided or the user provides an invalid template, the connector will use the default rule generator.|False|None||
+|Proxy Server Address|Proxy server address.|False|None||
+|Proxy Username|Proxy username.|False|None||
+|Proxy Password|Proxy password.|False|None||
+|Disable Overflow|If enabled, connector will ignore the overflow mechanism.|False|None|false|
+|Verify SSL|Indicate whether to use SSL in the session or not|False|None|false|
+|Customer ID|The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.|False|None||
 
 
 
