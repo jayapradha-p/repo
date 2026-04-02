@@ -113,5 +113,7 @@
         "Cloud"
     ],
     "Staging": false,
-    "IsCustom": null
+    "IsCustom": null,
+    "IntegrationSupportedActions": [],
+    "IntegrationSupportedConnectors": []
 }
