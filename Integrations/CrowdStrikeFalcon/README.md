@@ -4,6 +4,14 @@
 CrowdStrike Falcon is the leader in next-generation endpoint protection, threat intelligence and incident response through cloud-based endpoint protection.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|API Root|None|False|None||
+|Client API ID|None|True|None||
+|Client API Secret|None|True|None||
+|Verify SSL|None|False|None||
+|Customer ID|The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.|False|None||
 
 
 #### Dependencies

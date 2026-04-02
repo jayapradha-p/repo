@@ -4,6 +4,17 @@
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|Client ID|None|True|None||
+|Client Secret|None|True|None||
+|Username|None|False|None||
+|Password|None|False|None||
+|Subscription ID|None|False|None||
+|Tenant ID|None|True|None||
+|Refresh Token|None|False|None||
+|Verify SSL|None|False|None||
 
 
 #### Dependencies

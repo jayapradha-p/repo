@@ -4,6 +4,22 @@
 This integration version uses Delegated Authentication in Microsoft 365 and requires interactive login of the user on behalf of which integration should communicate with Microsoft 365. To configure this integration, provide all parameters except for Refresh Token, and save the integration configuration, then run “Get Authorization” and “Generate Token” actions to get the token and then provide it in integration configuration to finish the process. Microsoft 365 and Office 365 deliver the power of cloud productivity to businesses of all sizes, helping save time, money, and free up valued resources. The Microsoft 365 and Office 365 plans combine the familiar Microsoft Office desktop suite with cloud-based versions of Microsoft's next-generation communications and collaboration services (including Office for the web, Microsoft Exchange Online, Microsoft Teams, and Microsoft SharePoint Online) to help users be productive from virtually anywhere through the Internet. This integration uses Microsoft Graph Mail API to communicate with Microsoft 365 and Office 365 services.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|Microsoft Entra ID Endpoint|The Microsoft Entra ID endpoint to connect to (formerly known as Azure AD). The value can be different for different tenant types.|True|None||
+|Microsoft Graph Endpoint|The Microsoft Graph Endpoint to connect to. The value can be different for different tenant types.|True|None||
+|Client ID|The client (application) ID of the Microsoft Entra application to use in the integration.|True|None||
+|Client Secret Value|The client secret value of the Microsoft Entra app to use in the integration.|True|None||
+|Microsoft Entra ID Directory ID|The Microsoft Entra ID (tenant ID) value.|True|None||
+|User Mailbox|The mailbox to use in the integration.|True|None||
+|Refresh Token|The refresh token that is used to authenticate.|True|None||
+|Verify SSL|If selected, the integration verifies that the SSL certificate for the connection to the Microsoft Graph server is valid. Selected by default.|False|None||
+|Mail Field Source|If selected, the integration retrieves the mailbox address from the user details "mail" attribute. If not selected, the integration retrieves the mailbox address from the "userPrincipalName" field. Selected by default|False|None||
+|Base64 Encoded Private Key|Specify a base64 encoded private key that will be used to decrypt the email.|False|None||
+|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to decrypt the email.|False|None||
+|Base64 Encoded CA certificate|Specify a base64 encoded trusted CA certificate for signature verification.|False|None||
+|Redirect URL|The Redirect URL that you configured when you created your Microsoft Entra ID application.|False|None||
 
 
 #### Dependencies

@@ -4,6 +4,18 @@
 Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|Azure Subscription ID|None|True|None||
+|Azure Active Directory ID|None|True|None||
+|Api Root|None|True|None||
+|OAUTH2 Login Endpoint Url|None|True|None||
+|Azure Resource Group|None|True|None||
+|Azure Sentinel Workspace Name|None|True|None||
+|Client ID|None|True|None||
+|Client Secret|None|True|None||
+|Verify SSL|None|False|None||
 
 
 #### Dependencies

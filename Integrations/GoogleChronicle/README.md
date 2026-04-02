@@ -4,6 +4,14 @@
 Google SecOps enables you to examine the aggregated security information for your enterprise going back for months or longer. Use Google SecOps to search across all of the domains accessed from within your enterprise. To enable the Google API client to communicate with the Backstory API you will need Google Developer Service Account Credential, https://developers.google.com/identity/protocols/OAuth2#serviceaccount.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|UI Root|UI root of the Chronicle instance. It will be used to create a link that points back to Chronicle across multiple actions.|True|None||
+|API Root|API root of the Chronicle instance.|True|None||
+|User's Service Account|Service Account that is used for authentication. You can configure either this parameter or the Workload Identity Email parameter. If both this and Workload Identity Email not provided, the default Service Account of the SecOps Instance will be used to authenticate.|False|None||
+|Workload Identity Email|The client email address of your workload identity. You can configure either this parameter or the User's Service Account parameter. To impersonate service accounts with the workload identity email address, grant the Service Account Token Creator role to your service account. If both this and User's Service Account not provided, the default Service Account of the SecOps Instance will be used to authenticate.|False|None||
+|Verify SSL|If enabled, verify the SSL certificate for the connection to the Google Chronicle server is valid.|False|None||
 
 
 #### Dependencies

@@ -4,6 +4,19 @@
 Azure API integration was designed for you to execute Azure API without the need of writing any code. This integration version uses Impersonated/Delegated Authentication in Microsoft 365 and requires interactive login of the user on behalf of which integration should communicate with Microsoft 365. To configure this integration, provide all parameters except for Refresh Token, and save the integration configuration, then run “Get Authorization” and “Generate Token” actions to get the token and then provide it in integration configuration to finish the process. Microsoft 365 and Office 365 deliver the power of cloud productivity to businesses of all sizes, helping save time, money, and free up valued resources. The Microsoft 365 and Office 365 plans combine the familiar Microsoft Office desktop suite with cloud-based versions of Microsoft's next-generation communications and collaboration services (including Office for the web, Microsoft Exchange Online, Microsoft Teams, and Microsoft SharePoint Online) to help users be productive from virtually anywhere through the Internet. This integration uses Microsoft Graph Mail API to communicate with Microsoft 365 and Office 365 services.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|Test URL|Test URL that will be used to validate the authentication to Azure API. Uses a GET request.|True|None||
+|Microsoft Login API Root|The API root of the Microsoft identity platform login service used for Azure API authentication.|True|None||
+|Microsoft Graph API Root|The API root of the Microsoft Graph service used for Azure API operations.|True|None||
+|Client ID|The Client ID for the Azure API account.|True|None||
+|Client Secret|The Client Secret for the Azure API account.|True|None||
+|Tenant ID|The Tenant ID for the Azure API account.|True|None||
+|Refresh Token|The Refresh Token for the Azure API account.|False|None||
+|Scopes|The scopes for the Azure API authentication.|True|None||
+|Verify SSL|If selected, the integration validates the SSL certificate when connecting to the Azure API server. Disabled by default.|False|None||
+|Redirect URL|The Redirect URL associated with the Microsoft Entra ID application.|False|None||
 
 
 #### Dependencies

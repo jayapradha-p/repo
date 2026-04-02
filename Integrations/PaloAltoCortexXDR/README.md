@@ -4,6 +4,13 @@
 Cortex XDR - XDR is the world’s first detection and response app that natively integrates network, endpoint and cloud data to stop sophisticated attacks.  Cortex XDR accurately detects threats with behavioral analytics and reveals the root cause to speed up investigations.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|Api Root|None|True|None||
+|Api Key|None|True|None||
+|Api Key ID|None|True|None||
+|Verify SSL|None|False|None||
 
 
 #### Dependencies

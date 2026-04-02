@@ -4,6 +4,10 @@
 This integration provides first-party AI agents for Google Chronicle. It allows users to leverage Google's advanced AI capabilities for security operations and threat intelligence within the Chronicle platform.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|Verify SSL|If enabled, verify the SSL certificate for the connection.|False|None||
 
 
 #### Dependencies

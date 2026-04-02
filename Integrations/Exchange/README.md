@@ -4,6 +4,26 @@
 Integration provides support for Microsoft Exchange 2010 - 2019 and Microsoft Office365 mail servers. Integration uses Exchange Web Services (EWS) for communication. Integration includes a series of actions to send out emails and work with received emails, along with a connector to monitor specific mailboxes and ingest emails from that mailboxes as alerts to Google SecOps for further analysis.
 
 Python Version - V3_11
+#### Parameters
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+|ServerAddress|None|True|None||
+|Mail Address|None|True|None||
+|Domain|None|False|None||
+|Use Domain For Authentication|None|False|None||
+|Use Autodiscover Service|None|False|None||
+|Use Delegated Access|If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.|False|None||
+|Username|None|False|None||
+|Password|None|False|None||
+|Client ID|None|False|None||
+|Client Secret|None|False|None||
+|Tenant (Directory) ID|None|False|None||
+|Redirect URL|None|False|None||
+|Refresh Token|None|False|None||
+|Base64 Encoded Private Key|Specify a base64 encoded private key that will be used to decrypt the email.|False|None||
+|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to decrypt the email.|False|None||
+|Base64 Encoded CA certificate|Specify a base64 encoded trusted CA certificate for signature verification.|False|None||
+|Verify SSL|None|False|None||
 
 
 #### Dependencies
