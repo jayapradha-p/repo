@@ -95,7 +95,5 @@
         "Security"
     ],
     "Staging": false,
-    "IsCustom": null,
-    "IntegrationSupportedActions": [],
-    "IntegrationSupportedConnectors": []
+    "IsCustom": null
 }
