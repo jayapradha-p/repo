@@ -1,3 +1,5 @@
+<p align="center"><img src="./Resources/MicrosoftAzureSentinel.svg" 
+     alt="MicrosoftAzureSentinel" width="200"/></p>
 
 # MicrosoftAzureSentinel
 

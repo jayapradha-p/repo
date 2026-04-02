@@ -1,3 +1,5 @@
+<p align="center"><img src="./Resources/CrowdStrikeFalcon.svg" 
+     alt="CrowdStrikeFalcon" width="200"/></p>
 
 # CrowdStrikeFalcon
 

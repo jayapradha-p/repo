@@ -1,3 +1,5 @@
+<p align="center"><img src="./Resources/AzureSecurityCenter.svg" 
+     alt="AzureSecurityCenter" width="200"/></p>
 
 # AzureSecurityCenter
 

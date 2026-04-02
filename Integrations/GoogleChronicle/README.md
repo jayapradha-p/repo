@@ -1,3 +1,5 @@
+<p align="center"><img src="./Resources/GoogleChronicle.svg" 
+     alt="GoogleChronicle" width="200"/></p>
 
 # GoogleChronicle
 

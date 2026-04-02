@@ -1,3 +1,5 @@
+<p align="center"><img src="./Resources/AzureApi.svg" 
+     alt="AzureApi" width="200"/></p>
 
 # AzureApi
 

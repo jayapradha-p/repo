@@ -1,3 +1,5 @@
+<p align="center"><img src="./Resources/PaloAltoCortexXDR.svg" 
+     alt="PaloAltoCortexXDR" width="200"/></p>
 
 # PaloAltoCortexXDR
 

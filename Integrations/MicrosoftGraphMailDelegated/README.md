@@ -1,3 +1,5 @@
+<p align="center"><img src="./Resources/MicrosoftGraphMailDelegated.svg" 
+     alt="MicrosoftGraphMailDelegated" width="200"/></p>
 
 # MicrosoftGraphMailDelegated
 

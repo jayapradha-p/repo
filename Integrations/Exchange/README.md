@@ -1,3 +1,5 @@
+<p align="center"><img src="./Resources/Exchange.svg" 
+     alt="Exchange" width="200"/></p>
 
 # Exchange
 
