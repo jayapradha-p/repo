@@ -1,5 +1,3 @@
-<p align="center"><img src="./Resources/GoogleSecOpsAiAgents.svg" 
-     alt="GoogleSecOpsAiAgents" width="200"/></p>
 
 # GoogleSecOpsAiAgents
 
