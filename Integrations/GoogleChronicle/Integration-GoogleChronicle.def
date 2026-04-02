@@ -4,7 +4,7 @@
     "LatestVersion": null,
     "Id": 0,
     "Identifier": "GoogleChronicle",
-    "Custom": true,
+    "Custom": false,
     "Parameters": [
         {
             "Id": 0,
@@ -69,5 +69,5 @@
         "Google"
     ],
     "Staging": false,
-    "IsCustom": null
+    "IsCustom": false
 }

@@ -4,7 +4,7 @@
     "LatestVersion": null,
     "Id": 0,
     "Identifier": "MicrosoftGraphMailDelegated",
-    "Custom": true,
+    "Custom": false,
     "Parameters": [
         {
             "Id": 0,
@@ -138,5 +138,5 @@
         "IT & Infrastructure"
     ],
     "Staging": false,
-    "IsCustom": null
+    "IsCustom": false
 }

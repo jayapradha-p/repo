@@ -4,7 +4,7 @@
     "LatestVersion": null,
     "Id": 0,
     "Identifier": "MicrosoftAzureSentinel",
-    "Custom": true,
+    "Custom": false,
     "Parameters": [
         {
             "Id": 0,
@@ -104,5 +104,5 @@
         "Security"
     ],
     "Staging": false,
-    "IsCustom": null
+    "IsCustom": false
 }

@@ -4,7 +4,7 @@
     "LatestVersion": null,
     "Id": 0,
     "Identifier": "AzureApi",
-    "Custom": true,
+    "Custom": false,
     "Parameters": [
         {
             "Id": 0,
@@ -113,5 +113,5 @@
         "Cloud"
     ],
     "Staging": false,
-    "IsCustom": null
+    "IsCustom": false
 }

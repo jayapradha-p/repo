@@ -4,7 +4,7 @@
     "LatestVersion": null,
     "Id": 0,
     "Identifier": "Exchange",
-    "Custom": true,
+    "Custom": false,
     "Parameters": [
         {
             "Id": 0,
@@ -175,5 +175,5 @@
         "Email"
     ],
     "Staging": false,
-    "IsCustom": null
+    "IsCustom": false
 }
