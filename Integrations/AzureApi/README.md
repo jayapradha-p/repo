@@ -3,20 +3,7 @@
 
 Azure API integration was designed for you to execute Azure API without the need of writing any code. This integration version uses Impersonated/Delegated Authentication in Microsoft 365 and requires interactive login of the user on behalf of which integration should communicate with Microsoft 365. To configure this integration, provide all parameters except for Refresh Token, and save the integration configuration, then run “Get Authorization” and “Generate Token” actions to get the token and then provide it in integration configuration to finish the process. Microsoft 365 and Office 365 deliver the power of cloud productivity to businesses of all sizes, helping save time, money, and free up valued resources. The Microsoft 365 and Office 365 plans combine the familiar Microsoft Office desktop suite with cloud-based versions of Microsoft's next-generation communications and collaboration services (including Office for the web, Microsoft Exchange Online, Microsoft Teams, and Microsoft SharePoint Online) to help users be productive from virtually anywhere through the Internet. This integration uses Microsoft Graph Mail API to communicate with Microsoft 365 and Office 365 services.
 
-Python Version - V3_11
-#### Parameters
-|Name|Description|IsMandatory|Type|DefaultValue|
-|----|-----------|-----------|----|------------|
-|Test URL|Test URL that will be used to validate the authentication to Azure API. Uses a GET request.|True|None||
-|Microsoft Login API Root|The API root of the Microsoft identity platform login service used for Azure API authentication.|True|None||
-|Microsoft Graph API Root|The API root of the Microsoft Graph service used for Azure API operations.|True|None||
-|Client ID|The Client ID for the Azure API account.|True|None||
-|Client Secret|The Client Secret for the Azure API account.|True|None||
-|Tenant ID|The Tenant ID for the Azure API account.|True|None||
-|Refresh Token|The Refresh Token for the Azure API account.|False|None||
-|Scopes|The scopes for the Azure API authentication.|True|None||
-|Verify SSL|If selected, the integration validates the SSL certificate when connecting to the Azure API server. Disabled by default.|False|None||
-|Redirect URL|The Redirect URL associated with the Microsoft Entra ID application.|False|None||
+Python Version - 3
 
 
 #### Dependencies
@@ -66,6 +53,75 @@ Python Version - V3_11
 |pyzipper-0.3.6-py2.py3-none-any.whl|
 
 
+## Actions
+#### Get Authorization
+Use the Get Authorization action to initiate the OAuth flow and obtain a link that contains the required access code for delegated authentication. This action doesn't run on Google SecOps entities.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||A comma-separated list of permissions requested for the access and refresh tokens. These scopes define the level of access the integration has to the user's data and resources.||String|user.read, offline_access|
+
+
+
+#### Execute HTTP Request
+Use the Execute HTTP Request action to construct and execute a customized HTTP API request against a target URL. Note: This action operates in an asynchronous mode when polling an endpoint is necessary to wait until a specific success or failure condition is met in the response body.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||The HTTP method (verb) used for the request.||List|GET|
+||The API endpoint where the request executes. This path can optionally include query parameters.||String|https://|
+||The query parameters (GET parameters) for the URL, provided as a JSON object where each key-value pair is a parameter. This is the recommended input method. These values are used in addition to any query parameters included in the URL Path.||String|{"URL Field Name": "URL Field Value"}|
+||The headers for the HTTP request, specified as a JSON object. Headers control aspects such as authentication and define the format of the Body Payload (using Content-Type).||String|{"Content-Type": "application/json; charset=utf-8", "Accept": "application/json", "User-Agent" : "AzureApi"}|
+||The cookies constructed into the HTTP Cookie header, specified as a JSON object. This parameter overrides any cookie values provided in Headers.||String|{"Cookie_1": "value_1"}|
+||The content payload for the HTTP request, specified as a JSON object. The request's format (JSON or form-urlencoded) is determined by the Content-Type set in Headers.||String|{"Body Field Name": "Body Field Value"}|
+||The JSON object containing the field-value pairs that define the required successful state of the response. If provided, the action runs in asynchronous  mode and repeatedly executes the request until the expected values appear in the response or until the action times out. Example input: {"key": "expected value"}||String||
+||If selected, the action automatically follows any HTTP redirect responses (such as 301 or 302 status codes) to the final destination URL.||Boolean|true|
+||If selected, the action explicitly fails the step when the HTTP response returns a Client Error (4xx) or Server Error (5xx) status code.||Boolean|true|
+||If selected, the action converts the entire HTTP response body to a Base64 encoded string. This is useful when you download files that need to be processed or stored. Note: The resulting Base64 string cannot exceed 15 MB.||Boolean|false|
+||A comma-separated list of fields that the action returns in the output. Possible values: response_data, redirects, response_code, response_cookies, response_headers, apparent_encoding.||String|response_data, redirects, response_code,response_cookies,response_headers,apparent_encoding|
+||The maximum time, in seconds, the action waits for the server to send data before the request is aborted.||String|120|
+||If selected, the action saves the file and attaches it to the case wall. Note: The file is archived with “.zip” extension. This zip isn't password protected.||Boolean|false|
+||If selected, the action encrypts the downloaded ZIP archive (created using Save To Case Wall) with a password (such as infected). Use this option when dealing with suspicious or potentially malicious files to prevent accidental execution.||Boolean|true|
+
+
+
+##### JSON Results
+```json
+{"response_data": null, "redirects": ["http://testurl.com/"], "response_code": 200, "response_cookies": {}, "response_headers": {}, "apparent_encoding": "ascii"}
+```
+
+
+
+#### Ping
+Test connectivity.
+Timeout - 600 Seconds
+
+
+
+##### JSON Results
+```json
+{"endpoint": "https://testendpoint.com"}
+```
+
+
+
+#### Generate Token
+Use the Generate Token action to obtain a persistent refresh token required for delegated authentication. This token is generated using the authorization URL received from the Get Authorization action. This action doesn't run on Google SecOps entities.
+Timeout - 600 Seconds
+
+
+|Name|Description|IsMandatory|Type|DefaultValue|
+|----|-----------|-----------|----|------------|
+||The full authorization URL, containing the access code, received from the Get Authorization action. This URL is required to request and generate the refresh token.||String||
+
+
+
+
+
 
 ## Jobs
 
@@ -74,7 +130,7 @@ Token renewal job should be used to periodically update the refresh token config
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|Integration Environments|False|None||
+|||String||
 
 
 

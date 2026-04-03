@@ -1,0 +1,2592 @@
+Add Alert Comment:
+  ai_description: >-
+    Adds a comment to a specific alert in CrowdStrike Falcon. This action allows security
+    analysts to append notes or context to an existing alert within the CrowdStrike
+    platform directly from Google SecOps. It first validates the existence of the
+    alert in CrowdStrike and ensures the comment meets the platform's character length
+    requirements before performing the update.
+
+
+    ### Parameters
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Alert ID | String | Yes | The unique identifier of the alert in CrowdStrike
+    Falcon that needs to be updated. |
+
+    | Comment | String | Yes | The text content of the comment to be added to the
+    alert. Maximum length is 1024 characters. |
+
+
+    ### Additional Notes
+
+    - The action will fail if the provided Alert ID does not exist in the CrowdStrike
+    environment.
+
+    - The comment length is strictly enforced to a maximum of 1024 characters as per
+    CrowdStrike API limitations.
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction:** Retrieves the API configuration (API Root, Client
+    ID, Secret) and action parameters (Alert ID, Comment).
+
+    2. **Validation:** Checks if the comment length is within the 1024-character limit.
+
+    3. **Alert Verification:** Calls the CrowdStrike API to verify that the specified
+    Alert ID exists.
+
+    4. **Comment Submission:** Sends a PATCH request to the CrowdStrike `/alerts/entities/alerts/v3`
+    endpoint to append the comment to the alert.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Adds a comment to an existing alert in the CrowdStrike Falcon platform using
+      a PATCH request to the alerts API.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Add Comment to Detection:
+  ai_description: >-
+    ### General Description
+
+    Adds a comment to a specific detection in CrowdStrike Falcon. This action is used
+    to provide additional context or updates to an existing security detection within
+    the CrowdStrike platform. It first retrieves the current status of the detection
+    to ensure the comment is applied correctly without unintentionally changing the
+    detection's state.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Detection ID | String | Yes | The unique identifier of the detection in CrowdStrike
+    Falcon to which the comment will be added. |
+
+    | Comment | String | Yes | The text content of the comment to be appended to the
+    detection. |
+
+
+    ### Flow Description
+
+    1. **Parameter Initialization**: The action extracts the necessary configuration
+    (API Root, Credentials) and action parameters (Detection ID, Comment).
+
+    2. **Status Retrieval**: It calls the CrowdStrike API to fetch the current status
+    of the specified Detection ID. This is a prerequisite for the update call.
+
+    3. **Comment Submission**: It sends a PATCH request to the CrowdStrike `detections`
+    endpoint, providing the Detection ID, the comment text, and the previously retrieved
+    status to append the comment.
+
+    4. **Completion**: The action reports success if the comment is successfully added
+    or failure if an error occurs during the API interaction.
+
+
+    ### Additional Notes
+
+    - **Deprecation**: This action is marked as deprecated in the integration metadata.
+
+    - **External Mutation**: This action modifies data in the CrowdStrike Falcon platform
+    by adding a comment to a detection record.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Adds a comment to an existing detection record in the CrowdStrike Falcon platform
+      via a PATCH request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+"Add Identity Protection Detection Comment":
+  ai_description: >-
+    ### General Description
+
+    This action allows users to add a comment to a specific Identity Protection detection
+    within the CrowdStrike Falcon platform. It is primarily used for documenting investigation
+    steps, providing context, or updating the status of a detection from within Google
+    SecOps.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Detection ID | String | Yes | The unique identifier of the Identity Protection
+    detection in CrowdStrike that needs to be updated. |
+
+    | Comment | String | Yes | The text content of the comment to be appended to the
+    detection. |
+
+
+    ### Additional Notes
+
+    - The action first verifies the existence of the detection ID before attempting
+    to add the comment.
+
+    - This action interacts with the CrowdStrike Alerts API (v2).
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action initializes the CrowdStrike manager using the
+    provided API credentials (Client ID, Secret, and API Root).
+
+    2. **Verification**: It performs a lookup for the provided `Detection ID` to ensure
+    it exists in the CrowdStrike environment.
+
+    3. **Mutation**: If the detection is found, the action sends a PATCH request to
+    the CrowdStrike API to append the specified `Comment` to the detection's metadata.
+
+    4. **Completion**: The action returns a success message upon successful update
+    or an error message if the detection is not found or the API call fails.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Appends a comment to an existing Identity Protection detection in the CrowdStrike
+      Falcon platform via a PATCH request to the alerts endpoint.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Add Incident Comment:
+  ai_description: >-
+    Adds a comment to a specific incident in CrowdStrike Falcon. This action is primarily
+    used to document investigation notes, status updates, or automated findings directly
+    within the CrowdStrike console for a given incident ID. Note: This action is marked
+    as deprecated in the integration metadata.
+
+
+    ### Parameters
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Incident ID | String | Yes | The unique identifier of the incident in CrowdStrike
+    that needs to be updated. |
+
+    | Comment | String | Yes | The text content of the comment to be appended to the
+    incident record. |
+
+
+    ### Flow Description
+
+    1. **Authentication**: The action initializes a connection to the CrowdStrike
+    Falcon API using the provided Client ID, Client Secret, and API Root.
+
+    2. **Incident Validation**: It first verifies the existence of the specified Incident
+    ID by querying the CrowdStrike incident details endpoint.
+
+    3. **Comment Submission**: If the incident is found, the action sends a request
+    to the CrowdStrike incident actions endpoint (`/incidents/entities/incident-actions/v1`)
+    with the `add_comment` parameter.
+
+    4. **Result Reporting**: The action completes with a success message if the comment
+    is successfully posted, or fails if the incident is not found or an API error
+    occurs.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Adds a new comment to an existing incident record within the CrowdStrike Falcon
+      platform.
+    fetches_data: false
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Close Detection:
+  ai_description: >-
+    ### General Description
+
+    Closes a specific detection in CrowdStrike Falcon by updating its status to 'closed'.
+    This action allows users to programmatically resolve detections and optionally
+    hide them from the CrowdStrike Falcon management console UI. Note that this action
+    is considered deprecated, and the 'Update Detection' action is recommended as
+    the best practice for managing detection states.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Detection ID | String | Yes | The unique identifier of the CrowdStrike Falcon
+    detection that needs to be closed. |
+
+    | Hide Detection | Boolean | No | If enabled (True), the action will hide the
+    detection in the CrowdStrike Falcon UI. Defaults to True. |
+
+
+    ### Additional Notes
+
+    - This action performs a state change in the external CrowdStrike Falcon system.
+
+    - It does not process or iterate over Google SecOps entities; it operates solely
+    based on the provided 'Detection ID' parameter.
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction**: The action retrieves the API configuration (Root,
+    Client ID, Secret, etc.) and the action-specific parameters: `Detection ID` and
+    `Hide Detection`.
+
+    2. **Manager Initialization**: Initializes the `CrowdStrikeManager` to handle
+    authentication and API communication.
+
+    3. **API Interaction**: Calls the CrowdStrike `detections` endpoint using a `PATCH`
+    request. It sends the `Detection ID`, sets the status to `closed`, and sets the
+    `show_in_ui` flag based on the inverse of the `Hide Detection` parameter.
+
+    4. **Result Handling**: If the API call is successful, it returns a success message.
+    If an error occurs (e.g., invalid ID or connectivity issues), it logs the error
+    and marks the action as failed.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the status of a detection in CrowdStrike Falcon to 'closed' and can
+      optionally change its visibility in the UI by setting the 'show_in_ui' attribute.
+    fetches_data: false
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Contain Endpoint:
+  ai_description: >-
+    ### General Description
+
+    Contains (quarantines) endpoint entities in CrowdStrike Falcon. This action is
+    used to isolate potentially compromised hosts from the network to prevent the
+    spread of threats. It supports both Hostname and IP Address entities and operates
+    asynchronously to monitor the containment status until completion.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Customer ID | String | No | The specific Customer ID (CID) to use for this action.
+    If provided, it overrides the CID configured in the integration settings. This
+    is useful for multi-tenant environments. |
+
+    | Fail If Timeout | Boolean | No | If enabled (True), the action will report a
+    failure status if the containment process does not complete within the action's
+    execution timeout. Default is True. |
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction**: The action retrieves API credentials and configuration,
+    including the optional Customer ID and the 'Fail If Timeout' preference.
+
+    2. **Entity Filtering**: It identifies all Hostname and IP Address entities provided
+    in the current context that match CrowdStrike's supported types.
+
+    3. **Device Discovery**: For each entity, the action queries the CrowdStrike Falcon
+    API to find the corresponding device ID using the entity's identifier.
+
+    4. **Status Verification**: It checks the current containment status of the device.
+    If the device is already contained, it is marked as skipped to avoid redundant
+    operations.
+
+    5. **Containment Initiation**: If the device is not contained, the action sends
+    a request to CrowdStrike to initiate the 'contain' (quarantine) action.
+
+    6. **Asynchronous Monitoring**: The action enters an asynchronous state, periodically
+    polling the CrowdStrike API to check if the device status has transitioned to
+    'contained'.
+
+    7. **Completion**: Once the devices are confirmed as 'contained', or if the timeout
+    is reached, the action completes, providing a summary of the results and detailed
+    JSON data for each processed device.
+
+
+    ### Additional Notes
+
+    This is an asynchronous action. It will continue to run in the background, polling
+    the external system until the containment is confirmed or the execution deadline
+    is reached.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Initiates a containment (quarantine) action on the target endpoint in CrowdStrike
+      Falcon, which isolates the host from the network to prevent further threat propagation.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - HOSTNAME
+    - ADDRESS
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Delete IOC:
+  ai_description: >-
+    Deletes custom Indicators of Compromise (IOCs) from the CrowdStrike Falcon platform.
+    This action is used to remove previously uploaded threat intelligence markers
+    such as IP addresses, hostnames, domains (extracted from URLs), and file hashes
+    (MD5 or SHA-256) from the environment's watch list.
+
+
+    ### Parameters Description
+
+
+    | Parameter Name | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | None | N/A | N/A | This action does not have any action-specific parameters.
+    It relies on the integration's global configuration (API Root, Client ID, Client
+    Secret, etc.). |
+
+
+    ### Flow Description
+
+
+    1.  **Initialization**: The action initializes the CrowdStrike manager using the
+    provided integration configuration (API credentials and root URL).
+
+    2.  **Entity Filtering**: It identifies suitable entities from the case, specifically
+    targeting Hostnames, URLs, IP Addresses, and File Hashes.
+
+    3.  **IOC Identification**: For each valid entity, the action queries the CrowdStrike
+    API to retrieve the internal unique identifier (IOC ID) associated with that specific
+    indicator value.
+
+    4.  **Deletion**: If a matching IOC ID is found, the action sends a delete request
+    to CrowdStrike to remove the indicator from the platform.
+
+    5.  **Result Reporting**: The action tracks which entities were successfully deleted
+    and which were not found or failed, providing a summary message at the end of
+    the execution.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Deletes custom Indicators of Compromise (IOCs) from the CrowdStrike Falcon platform
+      using a DELETE request to the indicators endpoint.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - DestinationURL
+    - FILEHASH
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Download File:
+  ai_description: >-
+    ### General Description
+
+    Downloads specific files from endpoints managed by CrowdStrike Falcon. This action
+    leverages CrowdStrike's Real-Time Response (RTR) capabilities to initiate a session
+    with a host and retrieve files based on their filename. It is an asynchronous
+    action that monitors the download progress and saves the resulting files to a
+    specified local directory on the Google SecOps runner. The downloaded files are
+    packaged in password-protected .7z archives (password: "infected").
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Customer ID | String | No | The specific Customer ID (CID) to use for the request.
+    If not provided, the default CID from the integration configuration is used. |
+
+    | Download Folder Path | String | Yes | The local directory path on the SOAR runner
+    where the downloaded files will be stored. Must start with a forward slash (e.g.,
+    /tmp/downloads). |
+
+    | Overwrite | Boolean | Yes | If enabled, the action will overwrite any existing
+    files in the destination folder that have the same name. |
+
+
+    ### Additional Notes
+
+    * This action requires at least one **File Name** entity and at least one **IP
+    Address** or **Hostname** entity to be present in the alert scope to function.
+
+    * The action will fail if the specified `Download Folder Path` does not exist
+    or is not accessible.
+
+
+    ### Flow Description
+
+    1. **Validation**: The action identifies suitable host entities (IP or Hostname)
+    and filename entities from the alert scope. It also validates the local folder
+    path and checks for existing files if `Overwrite` is disabled.
+
+    2. **Session Initiation**: For each host, the action searches for the corresponding
+    CrowdStrike Device ID and starts a Real-Time Response (RTR) batch session.
+
+    3. **Command Execution**: A batch `get` command is issued for each filename entity
+    against the established host sessions.
+
+    4. **Asynchronous Monitoring**: The action enters an 'In Progress' state, periodically
+    polling CrowdStrike to check the status of the batch commands.
+
+    5. **File Retrieval**: Once the commands are completed, the action fetches the
+    file content from CrowdStrike.
+
+    6. **Local Storage**: The retrieved content is saved to the specified local directory.
+    The filename is formatted as `{EntityIdentifier}_{OriginalFileName}.7z`.
+
+    7. **Entity Enrichment**: The `FILENAME` entities are updated in Google SecOps
+    with the local file path added to their additional properties, and their 'is_enriched'
+    status is set to true.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: true
+    can_update_entities: true
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: >-
+      Updates the 'is_enriched' attribute and adds the local file path to the 'additional_properties'
+      of FILENAME entities. It also writes files to the local filesystem of the SOAR
+      runner.
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - HOSTNAME
+    - FILENAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Execute Command:
+  ai_description: >-
+    ### General Description
+
+    Executes commands on remote hosts using CrowdStrike Falcon's Real-Time Response
+    (RTR) capabilities. This action allows security analysts to perform live investigations
+    or remediation tasks directly on endpoints by sending commands through the CrowdStrike
+    agent. It supports targeting both IP Address and Hostname entities.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Customer ID | String | No | The specific Customer ID (CID) to use for the request.
+    If not provided, the default integration CID is used. |
+
+    | Command | String | Yes | The specific RTR command to be executed on the target
+    hosts (e.g., 'ls', 'ps', 'get'). |
+
+    | Admin Command | Boolean | No | If enabled, the command is executed with administrative
+    privileges. This is required for certain high-privilege commands like 'put'. |
+
+    | Hostname | String | No | A comma-separated list of additional hostnames to target.
+    The action will run on these hostnames in addition to any Hostname or IP Address
+    entities in the case. |
+
+
+    ### Additional Notes
+
+    - The action is asynchronous and will poll CrowdStrike until the command execution
+    is complete or a timeout occurs.
+
+    - Only hosts that are currently 'online' and in a 'normal' status will be targeted.
+
+    - If multiple devices are found for a single entity, the first online device will
+    be used.
+
+
+    ### Flow Description
+
+    1. **Target Identification**: The action identifies target hosts from both the
+    case entities (IPs and Hostnames) and the 'Hostname' parameter.
+
+    2. **Device Validation**: For each target, it searches the CrowdStrike environment
+    to find the corresponding device ID and checks if the device is currently online
+    and in a normal state.
+
+    3. **Session Initiation**: It creates a Real-Time Response (RTR) session for each
+    online device.
+
+    4. **Command Execution**: The specified command is sent to the active session.
+    If 'Admin Command' is true, it uses the admin-level API endpoint.
+
+    5. **Status Polling**: The action enters an asynchronous state, periodically checking
+    the status of the command execution via the cloud request ID.
+
+    6. **Result Retrieval**: Once the command completes, the action retrieves the
+    output (stdout/stderr) and returns it as JSON results.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Executes arbitrary commands on remote hosts via CrowdStrike Real-Time Response
+      (RTR), which can modify the state of the target endpoint (e.g., deleting files,
+      stopping processes, or modifying configurations).
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Get Alert Details:
+  ai_description: >-
+    ### General Description
+
+    The **Get Alert Details** action retrieves comprehensive metadata and status information
+    for a specific alert within the CrowdStrike Falcon platform. It is primarily used
+    to gather deep context about a detection, including device information, behavior
+    details, and MITRE ATT&CK mappings, which can then be used for automated decision-making
+    or reporting within a playbook.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Alert ID** | String | Yes | The unique identifier (Composite ID) of the alert
+    in CrowdStrike Falcon for which you want to retrieve details. |
+
+
+    ### Additional Notes
+
+    - This action does not require entities to be present in the Google SecOps case;
+    it operates solely based on the provided **Alert ID** parameter.
+
+    - If the specified Alert ID is not found, the action will fail with an informative
+    error message.
+
+
+    ### Flow Description
+
+    1. **Authentication**: The action establishes a secure connection to the CrowdStrike
+    Falcon API using the configured Client ID and Secret.
+
+    2. **Data Retrieval**: It sends a request to the CrowdStrike Alerts API (`/alerts/entities/alerts/v2`)
+    specifically for the provided Alert ID.
+
+    3. **Validation**: The action checks if the API returned valid data for the requested
+    ID.
+
+    4. **Output**: Upon success, the full raw JSON data of the alert is returned as
+    the action's result, and a success message is logged.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: true
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Get Event Offset:
+  ai_description: >-
+    ### General Description
+
+    This action retrieves the event offset from CrowdStrike Falcon, which is primarily
+    used to synchronize or troubleshoot the Event Streaming Connector. It identifies
+    the latest event position within the CrowdStrike stream to help determine where
+    event processing should resume or start.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Max Events To Process | Integer | Yes | Specifies the maximum number of events
+    the action will scan (starting from approximately 30 days ago) to find the most
+    recent offset. Default is 10,000. |
+
+
+    ### Flow Description
+
+    1. **Authentication**: Connects to the CrowdStrike Falcon API using the provided
+    Client ID and Secret.
+
+    2. **Stream Discovery**: Discovers an available data stream feed from the CrowdStrike
+    sensors.
+
+    3. **Event Processing**: Retrieves and iterates through events from the stream
+    up to the limit defined in the 'Max Events To Process' parameter.
+
+    4. **Offset Identification**: Sorts the retrieved detections by their offset value
+    to identify the most recent event.
+
+    5. **Output**: Returns the highest offset found and its corresponding ISO-formatted
+    timestamp as a JSON result.
+
+
+    ### Additional Notes
+
+    This action does not process specific entities or alerts; it is a utility action
+    for managing the state of the Event Streaming Connector. It starts scanning for
+    events from a 30-day lookback window.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Get Host Information:
+  ai_description: >-
+    Enriches Hostname and IP Address entities with detailed information from CrowdStrike
+    Falcon. This action retrieves comprehensive device metadata, including OS version,
+    hardware details, network information, login history, and current online status.
+    The gathered data is used to update entity attributes and can optionally generate
+    descriptive insights within the case for better analyst visibility.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Customer ID | String | No | Specify the ID of the customer (CID) for which you
+    want to execute the action. If provided, it overrides the Customer ID configured
+    in the integration settings. |
+
+    | Create Insight | Boolean | No | If enabled (default is true), the action will
+    create a detailed insight on the entity containing a summary of the host's status,
+    type, and OS. |
+
+
+    ### Additional Notes
+
+    - The action supports both Hostname and IP Address (ADDRESS) entities.
+
+    - It searches for both active and hidden hosts in the CrowdStrike environment.
+
+    - Entity attributes are updated with a 'CrowdStrike' prefix.
+
+
+    ### Flow Description
+
+    1. **Parameter Initialization:** Extracts API credentials from the integration
+    configuration and action-specific parameters like 'Customer ID' and 'Create Insight'.
+
+    2. **Entity Filtering:** Identifies suitable entities from the target list, specifically
+    looking for Hostnames and IP Addresses.
+
+    3. **Device Search:** Queries the CrowdStrike API to find device IDs matching
+    the entity identifiers (local IP, connection IP, or hostname).
+
+    4. **Data Retrieval:** For each found device, the action fetches recent login
+    history and the current online/offline state.
+
+    5. **Enrichment:** Updates the entity's additional properties with the flattened
+    device metadata.
+
+    6. **Insight Generation:** If 'Create Insight' is enabled, it constructs and attaches
+    a formatted HTML insight to the entity.
+
+    7. **Finalization:** Updates the entities in the Google SecOps platform and returns
+    a JSON result containing the raw data.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: true
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: true
+    can_update_entities: true
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: >-
+      Updates entity additional properties with enriched host metadata and creates
+      entity insights.
+  categories:
+    enrichment: true
+  entity_usage:
+    entity_types:
+    - HOSTNAME
+    - ADDRESS
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Get Hosts by IOC:
+  ai_description: >-
+    ### General Description
+
+    This action (now deprecated) identifies hosts within the CrowdStrike Falcon environment
+    that are associated with specific Indicators of Compromise (IOCs). It supports
+    IP addresses, Hostnames, URLs, and File Hashes (MD5 and SHA-256). By querying
+    CrowdStrike's threat intelligence and device visibility, it helps security analysts
+    determine the scope of an IOC's presence across their managed endpoints.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | None | N/A | N/A | This action does not take any input parameters. |
+
+
+    ### Additional Notes
+
+    - **Deprecated:** This action is marked as deprecated.
+
+    - **URL Handling:** For URL entities, the action automatically extracts the domain
+    component to perform the search.
+
+    - **Hash Support:** Only MD5 and SHA-256 hash types are supported. Other hash
+    types will be skipped.
+
+    - **Hostname Handling:** Hostname entities are treated as domain IOCs.
+
+
+    ### Flow Description
+
+    1. **Initialization:** Connects to the CrowdStrike Falcon API using provided credentials.
+
+    2. **Entity Filtering:** Identifies suitable entities from the case (IP, Hostname,
+    URL, FileHash).
+
+    3. **IOC Preparation:** For each entity, it extracts the relevant IOC value (e.g.,
+    domain from URL) and validates the type (e.g., checking hash length).
+
+    4. **CrowdStrike Query:** Calls the CrowdStrike API to find device IDs that have
+    observed the specific IOC.
+
+    5. **Device Enrichment:** For any found device IDs, it fetches full device details
+    (IP, OS, status, etc.).
+
+    6. **Reporting:** Attaches a data table to each entity listing the associated
+    devices and provides a full JSON result for the action.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: true
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: >-
+      The action enriches the case by adding data tables to entities and providing
+      a JSON result containing details of the hosts found in CrowdStrike Falcon.
+  categories:
+    enrichment: true
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - DestinationURL
+    - FILEHASH
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Get Process Name By IOC:
+  ai_description: >-
+    ### General Description
+
+    This action retrieves process information from CrowdStrike Falcon that is associated
+    with specific Indicators of Compromise (IOCs) on a provided list of devices. It
+    supports Hostname, URL, IP Address, and File Hash entities. This action is primarily
+    used for forensic investigation to see if a specific file, domain, or IP has been
+    active on specific endpoints. Note that this action is marked as **deprecated**.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Devices Names | String | Yes | A comma-separated list of device hostnames in
+    CrowdStrike Falcon where the search for related processes will be performed. |
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action extracts integration configuration and the mandatory
+    `Devices Names` parameter.
+
+    2. **Entity Filtering**: It iterates through the target entities, filtering for
+    Hostname, Address, URL, and FileHash types.
+
+    3. **IOC Preparation**:
+        * For **URL** entities, it extracts the domain part.
+        * For **FileHash** entities, it validates that the hash is either MD5 or SHA-256.
+        * For **Hostname** and **Address** entities, it uses the original identifier.
+    4. **CrowdStrike Query**: For each valid entity and for every device name provided
+    in the parameters, the action:
+        * Searches for the device in CrowdStrike to obtain its unique ID.
+        * Queries CrowdStrike for process IDs associated with the IOC on that specific
+    device.
+        * Retrieves detailed process metadata (command line, file name, start/stop
+    timestamps) for any discovered processes.
+    5. **Output**: The action populates entity-specific tables with the process details
+    and adds the raw data to the action's JSON results.
+
+
+    ### Additional Notes
+
+    * **Deprecated**: This action is officially deprecated.
+
+    * **Hash Support**: Only MD5 and SHA-256 hashes are supported; other hash types
+    will be skipped.
+
+    * **Hostname Treatment**: Hostname entities are treated as domain IOCs during
+    the search.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: true
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: >-
+      The action adds data tables to entities and populates the action's JSON results
+      with process details retrieved from CrowdStrike.
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - HOSTNAME
+    - DestinationURL
+    - FILEHASH
+    - ADDRESS
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Hide Hosts:
+  ai_description: >-
+    ### General Description
+
+    Use the **Hide Hosts** action to hide one or more hosts from the CrowdStrike Falcon
+    console. This action is useful for cleaning up the console view by removing decommissioned
+    or irrelevant hosts. It supports processing both Hostname and IP Address entities
+    attached to a case, as well as manually provided hostnames.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Hostname | String | No | A comma-separated list of hostnames to hide in CrowdStrike
+    Falcon. The action processes these values in addition to any Hostname and IP Address
+    entities attached to the case. |
+
+    | Customer ID | String | No | The unique CrowdStrike Customer ID (CID) used to
+    target a specific tenant. This is required in Falcon Flight Control or multi-tenant
+    environments to perform the action on a specific child CID. If left empty, the
+    CID from the integration configuration is used. |
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction:** The action retrieves the API credentials from the
+    integration configuration and extracts the optional `Hostname` list and `Customer
+    ID` from the action parameters.
+
+    2. **Entity Filtering:** It identifies all `ADDRESS` (IP) and `HOSTNAME` entities
+    attached to the current Google SecOps case.
+
+    3. **Device Discovery:** For each identified entity and each manually provided
+    hostname, the action queries the CrowdStrike API to find the corresponding unique
+    `device_id`. It uses the provided `Customer ID` to scope the search.
+
+    4. **Bulk Execution:** Once the `device_id` values are collected, the action sends
+    a single bulk request to the CrowdStrike `devices-actions` endpoint with the `hide_host`
+    command.
+
+    5. **Result Finalization:** The action updates the execution status based on whether
+    any hosts were successfully hidden and provides a detailed JSON result containing
+    the metadata of the processed devices.
+
+
+    ### Additional Notes
+
+    - This action performs a state change in CrowdStrike Falcon by hiding the hosts
+    from the management console.
+
+    - If no valid entities are found and no hostnames are provided in the parameters,
+    the action will return a failure message.
+
+    - The action handles both active and hidden hosts during the discovery phase to
+    ensure the correct `device_id` is targeted.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Hides hosts from the CrowdStrike Falcon console by sending a 'hide_host' action
+      request to the CrowdStrike devices API, which changes the visibility state of
+      the targeted endpoints.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Lift Contained Endpoint:
+  ai_description: >-
+    ### General Description
+
+    Lifts network containment (quarantine) for Hostname and IP Address entities in
+    CrowdStrike Falcon. This action is designed to restore network connectivity to
+    endpoints that were previously isolated. It is an asynchronous action that initiates
+    the lift request and then periodically polls the device status until the endpoint
+    returns to a 'normal' state or the action reaches its execution timeout.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Customer ID | String | No | The unique identifier of the customer (CID) for
+    which to execute the action. If provided, this value overrides the Customer ID
+    defined in the integration configuration. |
+
+    | Fail If Timeout | Boolean | No | If enabled (True), the action will report a
+    failure status if the containment lift process does not complete for all targeted
+    endpoints within the allotted timeout period. Default is True. |
+
+
+    ### Additional Notes
+
+    - This action is **asynchronous**. It may remain in an 'In Progress' state for
+    several minutes while waiting for the CrowdStrike agent on the endpoint to receive
+    and process the lift command.
+
+    - The action supports multi-tenancy via the 'Customer ID' parameter.
+
+    - If an endpoint is already in a 'Normal' state, the action will skip the lift
+    command and report the entity as skipped.
+
+
+    ### Flow Description
+
+    1. **Initialization**: Retrieves connection settings and action parameters, including
+    the optional Customer ID and timeout behavior.
+
+    2. **Entity Filtering**: Identifies target entities from the case context, specifically
+    filtering for Hostname and IP Address types.
+
+    3. **Device Discovery**: For each entity, the action queries the CrowdStrike Falcon
+    API to find the corresponding internal Device ID.
+
+    4. **Command Execution**: If the device is currently contained, the action sends
+    a `lift_containment` request to the CrowdStrike API.
+
+    5. **Status Polling (Async)**: The action enters an asynchronous loop, periodically
+    checking the status of the device in CrowdStrike. It waits for the status to transition
+    to 'normal'.
+
+    6. **Finalization**: Once the device reaches a 'normal' state, the action completes
+    for that entity. If the timeout is reached and 'Fail If Timeout' is enabled, the
+    action reports a failure.
+
+    7. **Result Output**: Detailed device information for each processed endpoint
+    is attached to the action results in JSON format.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Sends a command to CrowdStrike Falcon to lift the network isolation (containment)
+      of a specific endpoint, which changes the operational state of the device in
+      the external system.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+List Host Vulnerabilities:
+  ai_description: >-
+    Lists vulnerabilities found on Hostname and IP Address entities using CrowdStrike
+    Falcon Spotlight. This action retrieves detailed vulnerability information, including
+    CVE IDs, severity scores, and available remediations. It provides a statistical
+    summary of the host's security posture directly within Google SecOps.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Customer ID | String | No | Specify the ID of the customer for which you want
+    to execute the action. If provided, it overrides the Customer ID set in the integration
+    configuration. |
+
+    | Severity Filter | String | No | A comma-separated list of severities to filter
+    vulnerabilities (e.g., 'Critical, High'). Possible values: Critical, High, Medium,
+    Low, Unknown. If empty, all severities are returned. |
+
+    | Create Insight | Boolean | No | If enabled (default: True), the action creates
+    an entity insight containing a statistical summary of the vulnerabilities found.
+    |
+
+    | Max Vulnerabilities To Return | String | No | The maximum number of vulnerabilities
+    to retrieve per host. Default is 100. |
+
+
+    ### Additional Notes
+
+    - This action requires the **Falcon Spotlight** license and appropriate API permissions
+    in CrowdStrike.
+
+    - The action supports both internal and external IP addresses and hostnames.
+
+
+    ### Flow Description
+
+    1. **Initialization**: Extracts API credentials and action parameters, including
+    severity filters and result limits.
+
+    2. **Device Identification**: For each supported entity (IP or Hostname), the
+    action queries CrowdStrike to find the corresponding internal Device ID (AID).
+
+    3. **Vulnerability Discovery**: Retrieves a list of vulnerability IDs associated
+    with the identified device, filtered by the specified severities.
+
+    4. **Data Enrichment**: Fetches detailed information for each vulnerability ID,
+    including CVE details and remediation steps (KBs, patches).
+
+    5. **Statistics Calculation**: Aggregates the data to calculate counts of vulnerabilities
+    by severity (Critical, High, etc.) and status (Open, Reopened).
+
+    6. **Output Generation**: Adds a detailed data table to the entity and, if configured,
+    creates a summary insight on the entity's profile in Google SecOps.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: true
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: true
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: >-
+      The action enriches the case by adding data tables containing vulnerability
+      details and creating entity insights with summary statistics.
+  categories:
+    enrichment: true
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+List Hosts:
+  ai_description: >-
+    Lists available hosts in CrowdStrike Falcon based on specific search criteria.
+    This action allows users to query the CrowdStrike environment for devices using
+    hostname filters and retrieve detailed information about them, including IP addresses,
+    OS versions, and agent status.
+
+
+    ### Parameters
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Customer ID | String | No | Specify the ID of the customer (CID) for which you
+    want to execute the action. If not provided, the default CID from the integration
+    configuration is used. |
+
+    | Filter Logic | String | No | Determines the matching logic for the search. Options
+    are 'Equal' (exact match) or 'Contains' (partial match). Default is 'Equal'. |
+
+    | Filter Value | String | No | The hostname or partial hostname string used to
+    filter the hosts. |
+
+    | Max Hosts To Return | Integer | No | The maximum number of host records to retrieve.
+    Supports values between 1 and 1000. Default is 50. |
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction:** Retrieves the API credentials, Customer ID, and search
+    parameters (Filter Value, Logic, and Limit).
+
+    2. **Validation:** Validates that the 'Max Hosts To Return' is within the allowed
+    range (1-1000).
+
+    3. **Host Discovery:** Calls the CrowdStrike API to find device IDs that match
+    the provided hostname filter.
+
+    4. **Detail Retrieval:** Fetches full metadata for the identified device IDs,
+    including network details and system information.
+
+    5. **Local Filtering:** If 'Contains' logic is selected, the action performs additional
+    client-side filtering to ensure results match the partial string.
+
+    6. **Output Generation:** Populates a data table named 'Hosts' with the results
+    and attaches the raw JSON data to the action output.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+List Uploaded IOCs:
+  ai_description: >-
+    ### General Description
+
+    Lists available custom Indicators of Compromise (IOCs) from CrowdStrike Falcon.
+    This action allows security analysts to search and retrieve details of custom-uploaded
+    indicators, such as IP addresses, domains, and file hashes, based on specific
+    filtering criteria. It is primarily used for auditing existing threat intelligence
+    or verifying if a specific indicator is already being tracked within the CrowdStrike
+    environment.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | IOC Type Filter | String | No | A comma-separated list of IOC types to return.
+    Supported values: `ipv4`, `ipv6`, `md5`, `sha256`, `domain`. If left empty, the
+    action returns IOCs of all types. |
+
+    | Value Filter Logic | String | No | Specifies the matching logic for the search.
+    `Equal` performs an exact match, while `Contains` performs a substring search.
+    Default is `Equal`. |
+
+    | Value Filter String | String | No | The specific string or value to search for
+    among the IOCs. |
+
+    | Max IOCs To Return | Integer | No | The maximum number of IOC records to retrieve.
+    Default is 50, with a maximum limit of 500. |
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action extracts the integration configuration (API
+    Root, Client ID, Secret) and initializes the CrowdStrike manager.
+
+    2. **Parameter Validation**: It extracts the user-provided filters and validates
+    that the `IOC Type Filter` contains only supported values.
+
+    3. **IOC Discovery**: The action queries the CrowdStrike API to retrieve the unique
+    identifiers (IDs) of custom IOCs that match the specified type and value filters
+    using token-based pagination.
+
+    4. **Detail Retrieval**: For the identified IDs, the action fetches comprehensive
+    details for each IOC, including its action (detect/block), severity, platforms,
+    and tags.
+
+    5. **Filtering & Output**: If the `Contains` logic is selected, the action performs
+    additional client-side filtering. Finally, it populates a data table and a JSON
+    result with the found IOCs and returns the total count.
+
+
+    ### Additional Notes
+
+    This action is a utility search and does not require or process any input entities
+    from the Google SecOps case. It operates as a global search across the CrowdStrike
+    Falcon instance.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+On-Demand Scan:
+  ai_description: >-
+    ### General Description
+
+    The **On-Demand Scan** action allows security analysts to initiate and monitor
+    malware scans on specific Windows endpoints or host groups directly from Google
+    SecOps using the CrowdStrike Falcon platform. This action is particularly useful
+    during incident response to verify the presence of threats on a host or to perform
+    a targeted sweep of specific file paths. It operates asynchronously, meaning it
+    triggers the scan and then periodically polls CrowdStrike for the completion status
+    and results.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Customer ID** | String | No | The specific CrowdStrike Customer ID (CID) to
+    use for the action. If not provided, the integration's default CID is used. |
+
+    | **File Paths To Scan** | String | Yes | A comma-separated list of Windows file
+    paths to include in the scan (e.g., `C:\Windows`). Default is `C:\Windows`. |
+
+    | **File Paths To Exclude From Scan** | String | No | A comma-separated list of
+    Windows file paths to ignore during the scan. |
+
+    | **Host Group Name** | String | No | A comma-separated list of CrowdStrike Host
+    Group names to initiate scans for. |
+
+    | **Scan Description** | String | No | A custom description for the scan task.
+    Defaults to "Scan initialized by Google SecOps." |
+
+    | **CPU Priority** | Dropdown | No | Controls the CPU utilization limit on the
+    target host (1% to 100%). Default is 25%. |
+
+    | **Sensor Anti-malware Detection Level** | Dropdown | No | The detection sensitivity
+    for the on-host sensor (Cautious to Extra Aggressive). |
+
+    | **Sensor Anti-malware Prevention Level** | Dropdown | No | The prevention sensitivity
+    for the on-host sensor. Must be equal to or lower than the Detection Level. |
+
+    | **Cloud Anti-malware Detection Level** | Dropdown | No | The detection sensitivity
+    for CrowdStrike's cloud-based analysis. |
+
+    | **Cloud Anti-malware Prevention Level** | Dropdown | No | The prevention sensitivity
+    for cloud-based analysis. Must be equal to or lower than the Detection Level.
+    |
+
+    | **Quarantine Hosts** | Boolean | No | If enabled, the target hosts will be network-quarantined
+    during the scan. |
+
+    | **Create Endpoint Notification** | Boolean | No | If enabled, a notification
+    will be displayed to the end-user on the target machine. |
+
+    | **Max Scan Duration** | Integer | No | The maximum time (in hours) the scan
+    is allowed to run. Default is 1 hour. |
+
+    | **Hostname** | String | No | A comma-separated list of additional hostnames
+    to scan, supplementing the entities provided in the case. |
+
+
+    ### Additional Notes
+
+    - **Platform Support:** This action strictly supports **Windows** hosts. Non-Windows
+    entities will be skipped.
+
+    - **Validation:** The action validates that Detection levels are always equal
+    to or higher than Prevention levels to comply with CrowdStrike API requirements.
+
+    - **Deduplication:** Before starting a new scan, the action checks for existing
+    active scans with the exact same configuration to avoid redundant tasks.
+
+
+    ### Flow Description
+
+    1. **Initialization:** Extracts configuration and validates that the provided
+    file paths follow Windows naming conventions.
+
+    2. **Entity Resolution:** Identifies target hosts from the case (IPs and Hostnames)
+    and the manual `Hostname` parameter, then resolves them to CrowdStrike Device
+    IDs.
+
+    3. **Host Group Resolution:** If host group names are provided, it resolves them
+    to their respective CrowdStrike IDs.
+
+    4. **Scan Initiation:** Sends a request to CrowdStrike to start the on-demand
+    scan with the specified ML levels, CPU priority, and file paths.
+
+    5. **Asynchronous Polling:** The action enters an 'In Progress' state, periodically
+    checking the status of the scan (Pending, Running, or Completed).
+
+    6. **Result Retrieval:** Once the scan reaches a 'Completed' state, the action
+    retrieves the final file counts (scanned, malicious, skipped) and metadata.
+
+    7. **Finalization:** Outputs the scan results as JSON and completes the action.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Initiates a remote on-demand malware scan process on target Windows endpoints
+      within the CrowdStrike Falcon environment, which creates a new scan task and
+      consumes system resources on the host.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Ping:
+  ai_description: >-
+    ### General Description
+
+    The **Ping** action is a diagnostic tool designed to verify the connectivity between
+    Google SecOps and the CrowdStrike Falcon instance. It ensures that the provided
+    API credentials (Client ID and Secret) are valid and that the environment can
+    successfully communicate with the CrowdStrike API endpoint.
+
+
+    ### Parameters Description
+
+    This action does not have any action-specific parameters. It relies entirely on
+    the integration's global configuration parameters:
+
+    * **API Root**: The base URL for the CrowdStrike API.
+
+    * **Client API ID**: The unique identifier for the API client.
+
+    * **Client API Secret**: The secret key associated with the Client ID.
+
+    * **Verify SSL**: A boolean flag indicating whether to validate the SSL certificate
+    of the API endpoint.
+
+    * **Customer ID**: (Optional) The specific CID for the CrowdStrike environment.
+
+
+    ### Additional Notes
+
+    * This action is typically used during the initial setup of the integration or
+    for troubleshooting communication issues.
+
+    * As per standard SOAR conventions, Ping actions are excluded from being categorized
+    as enrichment actions.
+
+
+    ### Flow Description
+
+    1. **Configuration Extraction**: The script retrieves the global integration settings,
+    including the API Root, credentials, and SSL preferences.
+
+    2. **Manager Initialization**: It initializes the `CrowdStrikeManager` using the
+    extracted configuration.
+
+    3. **Connectivity Test**: The manager executes a `test_connectivity` method, which
+    performs a low-impact API call (searching for a single device ID) to validate
+    the connection.
+
+    4. **Result Reporting**: If the API call is successful, the action returns a success
+    status with a 'Connected successfully' message. If an exception occurs (e.g.,
+    authentication failure or network timeout), it captures the error and reports
+    a failure.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Run Script:
+  ai_description: >-
+    Executes a PowerShell script on remote endpoints managed by CrowdStrike Falcon
+    using Real-Time Response (RTR). This action allows security analysts to perform
+    remediation, forensics, or system configuration tasks directly from Google SecOps.
+    It supports both pre-defined scripts stored in CrowdStrike and raw PowerShell
+    payloads. The action operates asynchronously, polling for the script's execution
+    status and returning the standard output (stdout) and error (stderr) results.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | Customer ID | String | No | The CrowdStrike Customer ID (CID). If not provided,
+    the integration's default CID is used. |
+
+    | Script Name | String | No | The name of a script file already hosted in the
+    CrowdStrike environment. |
+
+    | Raw Script | String | No | A raw PowerShell script payload to execute. Takes
+    priority over 'Script Name'. |
+
+    | Hostname | String | No | A comma-separated list of additional hostnames to target
+    alongside the entities. |
+
+
+    ### Additional Notes
+
+    - Either **Script Name** or **Raw Script** must be provided for the action to
+    run. If both are provided, **Raw Script** takes precedence.
+
+    - The action is asynchronous; it initiates the script and then polls CrowdStrike
+    for completion. Ensure the action timeout in the IDE is sufficient for the script's
+    expected duration.
+
+
+    ### Flow Description
+
+    1. **Target Identification**: Collects hostnames and IP addresses from the provided
+    SecOps entities and the 'Hostname' parameter.
+
+    2. **Device Discovery**: Searches CrowdStrike for unique Device IDs associated
+    with the identified hostnames or IP addresses.
+
+    3. **Accessibility Check**: Verifies that the target devices are currently online
+    and in a 'normal' status to ensure they can receive RTR commands.
+
+    4. **Session Initialization**: Creates a Real-Time Response (RTR) session for
+    each accessible device.
+
+    5. **Script Execution**: Dispatches the PowerShell command (either the raw payload
+    or the named script) to the devices via the RTR session.
+
+    6. **Status Polling**: Periodically checks the status of the command execution
+    using the Cloud Request ID.
+
+    7. **Result Retrieval**: Captures the execution output (stdout/stderr) once complete
+    and populates the action's JSON results.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Executes arbitrary PowerShell code or pre-defined scripts on remote endpoints
+      via CrowdStrike's Real-Time Response (RTR) capability, which can change the
+      state of the target host.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Search Events:
+  ai_description: >-
+    Searches for events within CrowdStrike Falcon repositories using custom queries.
+    This action is designed to retrieve historical event data for investigation and
+    threat hunting purposes. It operates asynchronously, first initiating a search
+    job in a specified repository and then polling for the results until completion
+    or timeout.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Repository** | DDL | Yes | The CrowdStrike repository to search. Options include
+    'All', 'Falcon', 'Third Party', 'IT Automation', and 'Forensics'. |
+
+    | **Query** | String | Yes | The search query to execute. The action automatically
+    appends a `head` command to limit results based on the 'Max Results To Return'
+    parameter. |
+
+    | **Time Frame** | DDL | No | The time range for the search. If set to 'Custom',
+    the 'Start Time' parameter must be provided. |
+
+    | **Start Time** | String | No | The start time for the search in ISO 8601 format.
+    Mandatory if 'Time Frame' is set to 'Custom'. |
+
+    | **End Time** | String | No | The end time for the search in ISO 8601 format.
+    If omitted and 'Time Frame' is 'Custom', the current time is used. |
+
+    | **Max Results To Return** | Integer | No | The maximum number of events to retrieve
+    (Default: 50, Maximum: 1000). |
+
+
+    ### Additional Notes
+
+    - This action does not run on specific entities; it performs a global search based
+    on the provided query.
+
+    - As an asynchronous action, it may require multiple execution cycles to complete.
+    Ensure the script timeout in the Google SecOps IDE is configured appropriately
+    for long-running queries.
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action extracts and validates input parameters, ensuring
+    that custom time frames have the required start times.
+
+    2. **Job Creation**: It sends a request to CrowdStrike to initiate a search job
+    in the selected repository with the formatted query and time range.
+
+    3. **Polling**: The action enters an asynchronous state, storing the `job_id`.
+    In subsequent cycles, it checks the status of the job.
+
+    4. **Data Retrieval**: Once the job status is 'Completed', the action fetches
+    the resulting events.
+
+    5. **Finalization**: The retrieved events are attached to the action's JSON results,
+    and the action completes successfully.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: false
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: null
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: true
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Submit File:
+  ai_description: >-
+    Submits files to the CrowdStrike Falcon Sandbox for automated malware analysis
+    and retrieves the resulting threat intelligence. This action supports both direct
+    file uploads and archives, allowing users to specify the sandbox environment (OS)
+    and network routing (e.g., TOR, Offline). It can optionally check for duplicate
+    submissions to reuse existing reports and supports password-protected documents
+    or archives. As an asynchronous action, it handles the end-to-end process of uploading,
+    initiating analysis, polling for completion, and retrieving the final verdict
+    and report details.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | File Paths | String | Yes | Comma-separated list of local file paths to be submitted
+    for analysis. |
+
+    | Sandbox Environment | String | No | The target OS environment for the analysis
+    (e.g., 'Windows 10, 64-bit', 'Linux Ubuntu 16.04, 64-bit'). |
+
+    | Network Environment | String | No | The network configuration for the sandbox
+    (Default, TOR, Offline, Simulated). |
+
+    | Archive Password | Password | No | The password required to extract files from
+    submitted .zip or .7z archives. |
+
+    | Document Password | Password | No | The password required to open submitted
+    Adobe or Office documents (max 32 characters). |
+
+    | Check Duplicate | Boolean | No | If enabled (default), the action checks if
+    the file was previously submitted and returns the existing report instead of re-analyzing.
+    |
+
+    | Comment | String | No | A descriptive comment to associate with the submission
+    in the CrowdStrike console. |
+
+    | Confidential Submission | Boolean | No | If enabled, the submitted file is only
+    visible to users within your specific customer account. |
+
+
+    ### Additional Notes
+
+    - This action requires a valid CrowdStrike Falcon Sandbox license.
+
+    - The action is asynchronous; it will enter an 'In Progress' state while waiting
+    for the sandbox analysis to complete.
+
+    - Supported archive formats include .zip and .7z.
+
+
+    ### Flow Description
+
+    1. **Upload Stage:** The action uploads the specified files or archives to the
+    CrowdStrike Falcon Sandbox using the provided credentials and passwords.
+
+    2. **Deduplication Check:** If 'Check Duplicate' is true, the action queries CrowdStrike
+    for existing analysis reports matching the file's SHA256 hash.
+
+    3. **Submission Stage:** For new files (or if deduplication is disabled), the
+    action initiates a sandbox analysis job with the configured environment and network
+    settings.
+
+    4. **Status Polling:** The action periodically checks the status of the analysis
+    jobs until they reach a terminal state (success or error).
+
+    5. **Report Retrieval:** Once analysis is finished, the action retrieves the summary
+    report, including the verdict (e.g., malicious, whitelisted) and threat score.
+
+    6. **Result Generation:** The action populates the JSON results and creates data
+    tables containing the analysis summary for each submitted file.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Uploads files or archives to the CrowdStrike Falcon Sandbox and initiates new
+      analysis jobs, which creates new submission records in the external system.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Submit URL:
+  ai_description: >-
+    ### General Description
+
+    Submits URLs to the CrowdStrike Falcon Sandbox for automated threat analysis and
+    detonation. This action allows security analysts to safely examine suspicious
+    URLs in various virtualized environments to determine their threat level, behavior,
+    and associated indicators of compromise (IOCs). It is an asynchronous action that
+    polls for the completion of the analysis before returning the final report.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | URLs | String | Yes | A comma-separated list of URLs to be submitted for sandbox
+    analysis. |
+
+    | Sandbox Environment | Dropdown | No | Specifies the operating system environment
+    for the analysis (e.g., Windows 10 64-bit, Linux Ubuntu). Default is 'Windows
+    10, 64-bit'. |
+
+    | Network Environment | Dropdown | No | Specifies the network configuration for
+    the sandbox (Default, TOR, Offline, Simulated). Default is 'Default'. |
+
+    | Check Duplicate | Boolean | No | If enabled, the action checks if the URL has
+    been previously analyzed and retrieves the existing report instead of performing
+    a new submission. |
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action extracts the target URLs and configuration parameters,
+    then initializes the CrowdStrike manager.
+
+    2. **Duplicate Verification**: If the 'Check Duplicate' parameter is enabled,
+    the action searches for existing submissions in CrowdStrike matching the URL's
+    domain. If a previous report is found, it is queued for retrieval.
+
+    3. **Submission**: For new URLs (or if duplicate checking is disabled), the action
+    sends a POST request to CrowdStrike to initiate a sandbox analysis task with the
+    specified environment and network settings.
+
+    4. **Asynchronous Polling**: The action enters an 'In Progress' state, periodically
+    polling the CrowdStrike API to check the status of the analysis tasks.
+
+    5. **Report Retrieval**: Once the analysis is complete, the action fetches the
+    detailed summary reports, including verdicts, threat scores, and classification
+    tags.
+
+    6. **Output Generation**: The action compiles the results into a JSON object and
+    a summary data table for the user.
+
+
+    ### Additional Notes
+
+    - This action requires a CrowdStrike Falcon Sandbox license.
+
+    - The 'Check Duplicate' feature performs filtering based on the network location
+    (domain) of the URL.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Submits new URLs to the CrowdStrike Falcon Sandbox for analysis, which creates
+      new submission records and initiates detonation tasks in the external system.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Alert:
+  ai_description: >-
+    Updates the status, verdict, and assignment of a specific alert in CrowdStrike
+    Falcon. This action allows analysts to programmatically manage the lifecycle of
+    detections within the CrowdStrike console directly from Google SecOps.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Alert ID** | String | Yes | The unique identifier (Composite ID) of the alert
+    in CrowdStrike that needs to be updated. |
+
+    | **Status** | DDL | No | The new status to assign to the alert. Options include:
+    `Closed`, `In Progress`, `New`, `Reopened`. |
+
+    | **Verdict** | DDL | No | The verdict to apply to the alert. Options include:
+    `True Positive`, `False Positive`. |
+
+    | **Assign To** | String | No | The name of the analyst to whom the alert should
+    be assigned. Providing "Unassign" will remove the current assignment. |
+
+
+    ### Additional Notes
+
+    - At least one of the optional parameters (**Status**, **Verdict**, or **Assign
+    To**) must be provided for the action to execute.
+
+    - The action performs a validation check to ensure the alert exists before attempting
+    the update.
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction**: Retrieves the Alert ID and the desired update values
+    (Status, Verdict, Assign To).
+
+    2. **Validation**: Ensures that at least one update field is populated and validates
+    the DDL selections.
+
+    3. **Pre-update Verification**: Fetches the current details of the alert from
+    CrowdStrike to confirm its existence.
+
+    4. **Update Execution**: Sends a PATCH request to the CrowdStrike API to update
+    the alert's metadata based on the provided parameters.
+
+    5. **Result Retrieval**: Fetches the updated alert details to confirm the changes
+    and returns the full alert object as JSON results.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the status, verdict, and analyst assignment of an alert within the CrowdStrike
+      Falcon platform via a PATCH request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Detection:
+  ai_description: >-
+    ### General Description
+
+    Updates the status and/or the assigned user of a specific detection in CrowdStrike
+    Falcon. This action is primarily used for incident management and workflow orchestration,
+    allowing analysts to programmatically transition detection states or reassign
+    ownership within the CrowdStrike platform.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Detection ID** | String | Yes | The unique identifier of the detection in
+    CrowdStrike Falcon that needs to be updated. |
+
+    | **Status** | Dropdown | Yes | The new status to assign to the detection (e.g.,
+    `new`, `in_progress`, `true_positive`, `false_positive`, `ignored`, `closed`).
+    If set to `Select One`, the **Assign Detection to** parameter must be provided.
+    |
+
+    | **Assign Detection to** | String | No | The email address of the CrowdStrike
+    Falcon user to whom the detection should be assigned. |
+
+
+    ### Additional Notes
+
+    * **Validation Logic:** The action requires either a valid **Status** (anything
+    other than `Select One`) or a value in **Assign Detection to**. If **Status**
+    is `Select One` and no assignee is provided, the action will fail.
+
+    * **User Resolution:** If an email is provided in **Assign Detection to**, the
+    action performs an internal lookup to resolve that email to a CrowdStrike User
+    UUID before performing the update.
+
+    * **Deprecation:** Note that the metadata indicates this action is considered
+    deprecated.
+
+
+    ### Flow Description
+
+    1. **Initialization:** Retrieves integration configuration (API Root, Credentials,
+    SSL settings) and action parameters.
+
+    2. **Validation:** Checks if at least one update (Status or Assignee) is requested.
+    If the status is `Select One` and no assignee is provided, it raises a parameter
+    error.
+
+    3. **User Lookup:** If an assignee email is provided, the action calls the CrowdStrike
+    API to retrieve the corresponding User UUID.
+
+    4. **Update Execution:** Sends a PATCH request to the CrowdStrike Falcon `detects/entities/detects/v2`
+    endpoint with the specified Detection ID, the new status (if provided), and the
+    User UUID (if provided).
+
+    5. **Finalization:** Reports success if the API call completes without error,
+    otherwise logs the failure reason.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the status and/or the assigned user of a detection record within the
+      CrowdStrike Falcon platform via a PATCH request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update IOC Information:
+  ai_description: "Updates metadata for existing custom Indicators of Compromise (IOCs)\
+    \ in CrowdStrike Falcon. This action allows users to modify the description, source,\
+    \ expiration period, and detection policy for specific entities identified within\
+    \ a case.\n\n### Parameters Description\n\n| Parameter | Type | Mandatory | Description\
+    \ |\n| :--- | :--- | :--- | :--- |\n| Description | String | No | Specifies a\
+    \ new description for the custom IOCs. |\n| Source | String | No | Specifies the\
+    \ source for the custom IOCs (e.g., a specific threat intel feed). |\n| Expiration\
+    \ days | Integer | No | The number of days from the current time until the IOC\
+    \ should expire. |\n| Detect policy | Boolean | No | If enabled (True), the IOC\
+    \ will be set to a 'detect' policy, triggering notifications when identified.\
+    \ If disabled (False), no action will be taken. Default is True. |\n\n### Additional\
+    \ Notes\n- **Entity Handling**: Hostname entities are treated as domain IOCs.\
+    \ For URL entities, the action automatically extracts the domain component. \n\
+    - **Hash Support**: Only MD5 and SHA-256 hash types are supported.\n- **Logic**:\
+    \ The action first retrieves the internal CrowdStrike ID for the IOC before applying\
+    \ updates. It also fetches existing IOC details to preserve the current severity\
+    \ level during the update process.\n\n### Flow Description\n1. **Initialization**:\
+    \ Extracts integration configuration (API credentials) and action parameters (Description,\
+    \ Source, Expiration, Policy).\n2. **Entity Filtering**: Identifies supported\
+    \ entities (Hostname, URL, IP Address, and FileHash) from the target list.\n3.\
+    \ **IOC Identification**: For each valid entity, it queries the CrowdStrike API\
+    \ to find the corresponding internal IOC ID.\n4. **Detail Retrieval**: Fetches\
+    \ the current details of the identified IOC to ensure existing attributes like\
+    \ 'severity' are maintained.\n5. **Update Execution**: Performs a PATCH request\
+    \ to CrowdStrike to update the IOC's description, source, expiration date (calculated\
+    \ from 'Expiration days'), and detection policy.\n6. **Result Reporting**: Captures\
+    \ the updated IOC resource data and provides a summary of successful and failed\
+    \ updates in the action output."
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates existing Indicators of Compromise (IOCs) in CrowdStrike Falcon by modifying
+      their description, source, expiration date, and detection policy via a PATCH
+      request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - HOSTNAME
+    - DestinationURL
+    - FILEHASH
+    - ADDRESS
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Identity Protection Detection:
+  ai_description: >-
+    Updates an identity protection detection in CrowdStrike Falcon. This action allows
+    analysts to modify the status and assignment of a specific detection identified
+    by its ID. It requires an Identity Protection license within the CrowdStrike environment.
+
+
+    ### Parameters Description
+
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Detection ID** | String | Yes | The unique identifier of the detection that
+    needs to be updated. |
+
+    | **Status** | Dropdown | No | The new status to assign to the detection. Options
+    include: `New`, `In Progress`, `Closed`, `Reopened`. |
+
+    | **Assign To** | String | No | The name of the analyst to whom the detection
+    should be assigned. Providing "Unassign" will remove the current assignment. |
+
+
+    ### Additional Notes
+
+    - At least one of the optional parameters (**Status** or **Assign To**) must be
+    provided for the action to execute.
+
+    - The action performs a verification step to ensure the detection ID exists before
+    attempting the update.
+
+
+    ### Flow Description
+
+    1. **Parameter Extraction:** Retrieves the Detection ID, Status, and Assignee
+    from the action input.
+
+    2. **Validation:** Checks that at least one update field (Status or Assign To)
+    is populated.
+
+    3. **Existence Check:** Queries the CrowdStrike API to verify that the provided
+    Detection ID is valid and exists.
+
+    4. **Update Execution:** Sends a PATCH request to the CrowdStrike Falcon API to
+    update the detection's metadata.
+
+    5. **Result Retrieval:** Fetches the updated detection details and attaches them
+    as a JSON result to the action output.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the status and/or the assigned analyst of an identity protection detection
+      in the CrowdStrike Falcon platform via a PATCH request.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Update Incident:
+  ai_description: >-
+    ### General Description
+
+    Updates the status and assignment details of an existing incident in CrowdStrike
+    Falcon. This action allows analysts to programmatically manage incident lifecycles
+    by changing their state (e.g., from 'New' to 'In Progress' or 'Closed') and assigning
+    or unassigning analysts. It is primarily used for workflow synchronization between
+    Google SecOps and CrowdStrike.
+
+
+    ### Parameters Description
+
+    | Parameter | Type | Mandatory | Description |
+
+    | :--- | :--- | :--- | :--- |
+
+    | **Customer ID** | String | No | The ID of the customer for which to execute
+    the action. If provided, the 'Assign to' parameter must also be populated. |
+
+    | **Incident ID** | String | Yes | The unique identifier of the CrowdStrike incident
+    that needs to be updated. |
+
+    | **Status** | Dropdown | No | The new status for the incident. Options include:
+    'Closed', 'In Progress', 'New', and 'Reopened'. |
+
+    | **Assign to** | String | No | The name or email of the analyst to whom the incident
+    should be assigned. Use 'Unassign' to remove the current assignment. For names,
+    use the format '{first name} {last name}'. |
+
+
+    ### Additional Notes
+
+    - At least one of the parameters **Status** or **Assign to** must be provided
+    for the action to execute successfully.
+
+    - If a **Customer ID** is specified, the **Assign to** parameter becomes required
+    by the logic.
+
+    - This action is marked as deprecated in the metadata but remains functional for
+    updating incident metadata.
+
+
+    ### Flow Description
+
+    1. **Initialization**: The action initializes the CrowdStrike manager using the
+    provided API credentials and configuration.
+
+    2. **Validation**: It checks that at least one update (Status or Assignee) is
+    requested and validates the conditional requirement between Customer ID and Assignee.
+
+    3. **Incident Verification**: The action verifies that the specified Incident
+    ID exists in the CrowdStrike environment.
+
+    4. **Update Execution**: It sends a request to the CrowdStrike API to update the
+    incident's status and/or assignment based on the input parameters.
+
+    5. **Data Retrieval**: After the update, it fetches the latest state of the incident
+    and returns the updated details as a JSON result.
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Updates the status and/or the assigned analyst of an existing incident in the
+      CrowdStrike Falcon platform.
+    fetches_data: true
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types: []
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: false
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
+Upload IOCs:
+  ai_description: "Uploads Indicators of Compromise (IOCs) to the CrowdStrike Falcon\
+    \ platform to enable detection or prevention across managed endpoints. This action\
+    \ supports Hostname, URL, IP Address, and File Hash entities. For URL entities,\
+    \ the action automatically extracts the domain component. For File Hash entities,\
+    \ it supports MD5 and SHA-256 formats. \n\n### Flow Description\n1. **Parameter\
+    \ Validation**: Validates the provided 'Platform' values and ensures 'Days To\
+    \ Expire' is a positive integer.\n2. **Host Group Resolution**: If a 'Host Group\
+    \ Name' is provided, the action retrieves the corresponding internal ID from CrowdStrike.\n\
+    3. **Entity Filtering**: Identifies supported entities (IP, Hostname, URL, Hash)\
+    \ from the current context.\n4. **IOC Preparation**: For each entity, it determines\
+    \ the specific IOC type (e.g., ipv4, domain, md5). It also validates the 'Action'\
+    \ parameter; while 'Detect' is universal, the 'Block' action is strictly enforced\
+    \ only for File Hash entities.\n5. **API Interaction**: Submits the IOC data to\
+    \ CrowdStrike's indicators API, applying the specified severity, platforms, and\
+    \ expiration date.\n\n### Parameters Description\n| Parameter | Type | Mandatory\
+    \ | Description |\n| :--- | :--- | :--- | :--- |\n| **Platform** | String | Yes\
+    \ | A comma-separated list of platforms (Windows, Linux, Mac) the IOC applies\
+    \ to. |\n| **Severity** | Enum | Yes | The severity level assigned to the IOC\
+    \ (Informational, Low, Medium, High, Critical). |\n| **Comment** | String | No\
+    \ | Additional context or notes to be attached to the IOC in CrowdStrike. |\n\
+    | **Host Group Name** | String | No | The name of a specific host group to which\
+    \ the IOC should be applied. If omitted, the IOC is applied globally. |\n| **Action**\
+    \ | Enum | No | The policy to apply: 'Detect' or 'Block'. Note: 'Block' is only\
+    \ valid for File Hashes; other types default to 'Detect'. |\n| **Days To Expire**\
+    \ | Integer | No | The number of days until the IOC automatically expires. |\n\
+    \n### Additional Notes\n- Hostname entities are treated as domain IOCs.\n- If\
+    \ the 'Action' is set to 'Block' for a non-hash entity (like an IP or Domain),\
+    \ the action will automatically downgrade the policy to 'Detect' for that specific\
+    \ entity to ensure successful upload."
+  capabilities:
+    can_create_case_comments: false
+    can_create_insight: false
+    can_modify_alert_data: false
+    can_mutate_external_data: true
+    can_mutate_internal_data: false
+    can_update_entities: false
+    external_data_mutation_explanation: >-
+      Adds new Indicator of Compromise (IOC) records to the CrowdStrike Falcon platform,
+      which modifies the environment's threat intelligence and detection/prevention
+      policies.
+    fetches_data: false
+    internal_data_mutation_explanation: null
+  categories:
+    enrichment: false
+  entity_usage:
+    entity_types:
+    - ADDRESS
+    - DestinationURL
+    - FILEHASH
+    - HOSTNAME
+    filters_by_additional_properties: false
+    filters_by_alert_identifier: false
+    filters_by_case_identifier: false
+    filters_by_creation_time: false
+    filters_by_entity_type: true
+    filters_by_identifier: false
+    filters_by_is_artifact: false
+    filters_by_is_enriched: false
+    filters_by_is_internal: false
+    filters_by_is_pivot: false
+    filters_by_is_suspicious: false
+    filters_by_is_vulnerable: false
+    filters_by_modification_time: false
