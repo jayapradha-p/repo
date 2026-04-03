@@ -7,15 +7,15 @@ Python Version - 3
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-|Azure Subscription ID||True|None||
-|Azure Active Directory ID||True|None||
-|Api Root||True|None|https://management.azure.com|
-|OAUTH2 Login Endpoint Url||True|None|https://login.microsoftonline.com|
-|Azure Resource Group||True|None||
-|Azure Sentinel Workspace Name||True|None||
-|Client ID||True|None||
-|Client Secret||True|None|None|
-|Verify SSL|||None|False|
+|Azure Subscription ID|None|True|None||
+|Azure Active Directory ID|None|True|None||
+|Api Root|None|True|None|https://management.azure.com|
+|OAUTH2 Login Endpoint Url|None|True|None|https://login.microsoftonline.com|
+|Azure Resource Group|None|True|None||
+|Azure Sentinel Workspace Name|None|True|None||
+|Client ID|None|True|None||
+|Client Secret|None|True|None|None|
+|Verify SSL|None||None|False|
 
 
 #### Dependencies

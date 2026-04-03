@@ -9,23 +9,23 @@ Python Version - 3
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-|Mail Server Address||True|None||
-|Mail address||True|None||
-|Domain|||None||
-|Use Domain For Authentication|||None|False|
-|Use Autodiscover Service|||None|False|
-|Use Delegated Access|||None|False|
-|Username|||None||
-|Password|||None|None|
-|Client ID|||None||
-|Client Secret|||None|None|
-|Tenant (Directory) ID|||None||
-|Redirect URL|||None|http://localhost|
-|Refresh Token|||None|None|
-|Base64 Encoded Private Key|||None|None|
-|Base64 Encoded Certificate|||None|None|
-|Base64 Encoded CA certificate|||None|None|
-|Verify SSL|||None|False|
+|Mail Server Address|None|True|None||
+|Mail address|None|True|None||
+|Domain|None||None||
+|Use Domain For Authentication|None||None|False|
+|Use Autodiscover Service|None||None|False|
+|Use Delegated Access|If enabled, delegated access type will be used. Otherwise, impersonation access type is used. For details on impersonation/delegation and EWS, see the following link https://learn.microsoft.com/en-us/exchange/client-developer/exchange-web-services/impersonation-and-ews-in-exchange.||None|False|
+|Username|None||None||
+|Password|None||None|None|
+|Client ID|None||None||
+|Client Secret|None||None|None|
+|Tenant (Directory) ID|None||None||
+|Redirect URL|None||None|http://localhost|
+|Refresh Token|None||None|None|
+|Base64 Encoded Private Key|Specify a base64 encoded private key that will be used to decrypt the email.||None|None|
+|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to decrypt the email.||None|None|
+|Base64 Encoded CA certificate|Specify a base64 encoded trusted CA certificate for signature verification.||None|None|
+|Verify SSL|None||None|False|
 
 
 #### Dependencies

@@ -7,14 +7,14 @@ Python Version - 3
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-|Client ID||True|None||
-|Client Secret||True|None|None|
-|Username|||None||
-|Password|||None|None|
-|Subscription ID|||None||
-|Tenant ID||True|None||
-|Refresh Token|||None|None|
-|Verify SSL|||None|false|
+|Client ID|None|True|None||
+|Client Secret|None|True|None|None|
+|Username|None||None||
+|Password|None||None|None|
+|Subscription ID|None||None||
+|Tenant ID|None|True|None||
+|Refresh Token|None||None|None|
+|Verify SSL|None||None|false|
 
 
 #### Dependencies

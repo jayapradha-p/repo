@@ -7,19 +7,19 @@ Python Version - 3
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-|Microsoft Entra ID Endpoint||True|None|https://login.microsoftonline.com|
-|Microsoft Graph Endpoint||True|None|https://graph.microsoft.com|
-|Client ID||True|None||
-|Client Secret Value||True|None|None|
-|Microsoft Entra ID Directory ID||True|None||
-|User Mailbox||True|None||
-|Refresh Token||True|None|None|
-|Verify SSL|||None|true|
-|Mail Field Source|||None|true|
-|Base64 Encoded Private Key|||None|None|
-|Base64 Encoded Certificate|||None|None|
-|Base64 Encoded CA certificate|||None|None|
-|Redirect URL|||None|http://localhost|
+|Microsoft Entra ID Endpoint|The Microsoft Entra ID endpoint to connect to (formerly known as Azure AD). The value can be different for different tenant types.|True|None|https://login.microsoftonline.com|
+|Microsoft Graph Endpoint|The Microsoft Graph Endpoint to connect to. The value can be different for different tenant types.|True|None|https://graph.microsoft.com|
+|Client ID|The client (application) ID of the Microsoft Entra application to use in the integration.|True|None||
+|Client Secret Value|The client secret value of the Microsoft Entra app to use in the integration.|True|None|None|
+|Microsoft Entra ID Directory ID|The Microsoft Entra ID (tenant ID) value.|True|None||
+|User Mailbox|The mailbox to use in the integration.|True|None||
+|Refresh Token|The refresh token that is used to authenticate.|True|None|None|
+|Verify SSL|If selected, the integration verifies that the SSL certificate for the connection to the Microsoft Graph server is valid. Selected by default.||None|true|
+|Mail Field Source|If selected, the integration retrieves the mailbox address from the user details "mail" attribute. If not selected, the integration retrieves the mailbox address from the "userPrincipalName" field. Selected by default||None|true|
+|Base64 Encoded Private Key|Specify a base64 encoded private key that will be used to decrypt the email.||None|None|
+|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to decrypt the email.||None|None|
+|Base64 Encoded CA certificate|Specify a base64 encoded trusted CA certificate for signature verification.||None|None|
+|Redirect URL|The Redirect URL that you configured when you created your Microsoft Entra ID application.||None|http://localhost|
 
 
 #### Dependencies
