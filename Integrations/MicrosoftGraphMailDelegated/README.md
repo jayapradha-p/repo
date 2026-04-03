@@ -7,19 +7,19 @@ Python Version - 3
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-|Microsoft Entra ID Endpoint|The Microsoft Entra ID endpoint to connect to (formerly known as Azure AD). The value can be different for different tenant types.|True|None|https://login.microsoftonline.com|
-|Microsoft Graph Endpoint|The Microsoft Graph Endpoint to connect to. The value can be different for different tenant types.|True|None|https://graph.microsoft.com|
-|Client ID|The client (application) ID of the Microsoft Entra application to use in the integration.|True|None||
-|Client Secret Value|The client secret value of the Microsoft Entra app to use in the integration.|True|None|None|
-|Microsoft Entra ID Directory ID|The Microsoft Entra ID (tenant ID) value.|True|None||
-|User Mailbox|The mailbox to use in the integration.|True|None||
-|Refresh Token|The refresh token that is used to authenticate.|True|None|None|
-|Verify SSL|If selected, the integration verifies that the SSL certificate for the connection to the Microsoft Graph server is valid. Selected by default.||None|true|
-|Mail Field Source|If selected, the integration retrieves the mailbox address from the user details "mail" attribute. If not selected, the integration retrieves the mailbox address from the "userPrincipalName" field. Selected by default||None|true|
-|Base64 Encoded Private Key|Specify a base64 encoded private key that will be used to decrypt the email.||None|None|
-|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to decrypt the email.||None|None|
-|Base64 Encoded CA certificate|Specify a base64 encoded trusted CA certificate for signature verification.||None|None|
-|Redirect URL|The Redirect URL that you configured when you created your Microsoft Entra ID application.||None|http://localhost|
+|Microsoft Entra ID Endpoint|The Microsoft Entra ID endpoint to connect to (formerly known as Azure AD). The value can be different for different tenant types.|True|String|https://login.microsoftonline.com|
+|Microsoft Graph Endpoint|The Microsoft Graph Endpoint to connect to. The value can be different for different tenant types.|True|String|https://graph.microsoft.com|
+|Client ID|The client (application) ID of the Microsoft Entra application to use in the integration.|True|String||
+|Client Secret Value|The client secret value of the Microsoft Entra app to use in the integration.|True|Password|*****|
+|Microsoft Entra ID Directory ID|The Microsoft Entra ID (tenant ID) value.|True|String||
+|User Mailbox|The mailbox to use in the integration.|True|String||
+|Refresh Token|The refresh token that is used to authenticate.|True|Password|*****|
+|Verify SSL|If selected, the integration verifies that the SSL certificate for the connection to the Microsoft Graph server is valid. Selected by default.||Boolean|true|
+|Mail Field Source|If selected, the integration retrieves the mailbox address from the user details "mail" attribute. If not selected, the integration retrieves the mailbox address from the "userPrincipalName" field. Selected by default||Boolean|true|
+|Base64 Encoded Private Key|Specify a base64 encoded private key that will be used to decrypt the email.||Password|*****|
+|Base64 Encoded Certificate|Specify a base64 encoded certificate that will be used to decrypt the email.||Password|*****|
+|Base64 Encoded CA certificate|Specify a base64 encoded trusted CA certificate for signature verification.||Password|*****|
+|Redirect URL|The Redirect URL that you configured when you created your Microsoft Entra ID application.||String|http://localhost|
 
 
 #### Dependencies

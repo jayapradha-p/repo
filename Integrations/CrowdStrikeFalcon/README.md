@@ -9,11 +9,11 @@ Python Version - 3
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-|API Root|None||None|https://api.crowdstrike.com|
-|Client API ID|None|True|None||
-|Client API Secret|None|True|None|None|
-|Verify SSL|None||None|False|
-|Customer ID|The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.||None||
+|API Root|None||String|https://api.crowdstrike.com|
+|Client API ID|None|True|String||
+|Client API Secret|None|True|Password|*****|
+|Verify SSL|None||Boolean|False|
+|Customer ID|The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.||String||
 
 
 #### Dependencies

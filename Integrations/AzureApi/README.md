@@ -7,16 +7,16 @@ Python Version - 3
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-|Test URL|Test URL that will be used to validate the authentication to Azure API. Uses a GET request.|True|None||
-|Microsoft Login API Root|The API root of the Microsoft identity platform login service used for Azure API authentication.|True|None|https://login.microsoftonline.com|
-|Microsoft Graph API Root|The API root of the Microsoft Graph service used for Azure API operations.|True|None|https://graph.microsoft.com|
-|Client ID|The Client ID for the Azure API account.|True|None||
-|Client Secret|The Client Secret for the Azure API account.|True|None|None|
-|Tenant ID|The Tenant ID for the Azure API account.|True|None||
-|Refresh Token|The Refresh Token for the Azure API account.||None|None|
-|Scopes|The scopes for the Azure API authentication.|True|None|https://graph.microsoft.com/.default|
-|Verify SSL|If selected, the integration validates the SSL certificate when connecting to the Azure API server. Disabled by default.||None|true|
-|Redirect URL|The Redirect URL associated with the Microsoft Entra ID application.||None|http://localhost|
+|Test URL|Test URL that will be used to validate the authentication to Azure API. Uses a GET request.|True|String||
+|Microsoft Login API Root|The API root of the Microsoft identity platform login service used for Azure API authentication.|True|String|https://login.microsoftonline.com|
+|Microsoft Graph API Root|The API root of the Microsoft Graph service used for Azure API operations.|True|String|https://graph.microsoft.com|
+|Client ID|The Client ID for the Azure API account.|True|String||
+|Client Secret|The Client Secret for the Azure API account.|True|Password|*****|
+|Tenant ID|The Tenant ID for the Azure API account.|True|String||
+|Refresh Token|The Refresh Token for the Azure API account.||Password|*****|
+|Scopes|The scopes for the Azure API authentication.|True|String|https://graph.microsoft.com/.default|
+|Verify SSL|If selected, the integration validates the SSL certificate when connecting to the Azure API server. Disabled by default.||Boolean|true|
+|Redirect URL|The Redirect URL associated with the Microsoft Entra ID application.||String|http://localhost|
 
 
 #### Dependencies

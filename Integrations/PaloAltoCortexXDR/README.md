@@ -7,10 +7,10 @@ Python Version - 3
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-|Api Root|None|True|None|https://api-{fqdn}|
-|Api Key|None|True|None|None|
-|Api Key ID|None|True|None|3|
-|Verify SSL|None||None||
+|Api Root|None|True|String|https://api-{fqdn}|
+|Api Key|None|True|Password|*****|
+|Api Key ID|None|True|Integer|3|
+|Verify SSL|None||Boolean||
 
 
 #### Dependencies
