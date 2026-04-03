@@ -1,0 +1,79 @@
+{
+    "cases": [
+        {
+            "creatorUserId": null,
+            "events": [
+                {
+                    "_fields": {
+                        "baseEventIds": "[]",
+                        "parentEventId": -1,
+                        "deviceEventClassId": "Data Exfiltration",
+                        "deviceProduct": "DLP_Product"
+                    },
+                    "_rawDataFields": {
+                        "applicationProtocol": "TCP",
+                        "categoryOutcome": "blocked",
+                        "destinationAddress": "10.0.0.28",
+                        "destinationHostName": "lab@siemplify.local",
+                        "destinationPort": "770",
+                        "destinationProcessName": "MrlCS.sob",
+                        "destinationUserName": "XWzNr1l@gmail.com",
+                        "deviceAddress": "172.21.135.124",
+                        "deviceEventClassId": "Data Exfiltration",
+                        "deviceHostName": "ckIYC2",
+                        "field_24": "B0:E7:DF:6C:EF:71",
+                        "deviceProduct": "DLP_Product",
+                        "usb": "USB_DEVICE_1",
+                        "deviceVendor": "Vendor",
+                        "eventId": "0aa16009-5bb4-41a3-91ed-81347442ca29",
+                        "managerReceiptTime": "1522059443000",
+                        "message": "Data Exfiltration",
+                        "name": "Data Exfiltration",
+                        "sourceUserName": "User41@siemplify",
+                        "severity": "8",
+                        "sourceAddress": "10.0.0.51",
+                        "cs1": "VID_078654",
+                        "sourceHostName": "AppTransaction.db.siemplify",
+                        "startTime": "1522059443000",
+                        "endTime": "1522059443000",
+                        "sourcetype": "Data Exfiltration"
+                    },
+                    "environment": null,
+                    "sourceSystemName": null,
+                    "extensions": []
+                }
+            ],
+            "environment": null,
+            "sourceSystemName": "Arcsight",
+            "ticketId": "b32eb10c-cab9-4a71-a08b-797151e82193",
+            "description": "Data Exfiltration",
+            "displayId": "b32eb10c-cab9-4a71-a08b-797151e82193",
+            "reason": null,
+            "name": "Data Exfiltration",
+            "deviceVendor": "DLP",
+            "deviceProduct": "DLP_Product",
+            "startTime": 1522059443000,
+            "endTime": 1522059443000,
+            "type": 0,
+            "priority": -1,
+            "ruleGenerator": "Data Exfiltration",
+            "sourceGroupingIdentifier": null,
+            "playbookTriggerKeywords": [],
+            "extensions": [],
+            "attachments": null,
+            "isTrimmed": false,
+            "dataType": 1,
+            "sourceType": 1,
+            "sourceSystemUrl": null,
+            "sourceRuleIdentifier": null,
+            "siemAlertId": null,
+            "updatedFields": [],
+            "alertUpdateSupported": false,
+            "alertMetadata": {},
+            "dataAccessScope": null
+        }
+    ],
+    "type": 0,
+    "connectorIdentifier": null,
+    "debugOutput": null
+}
