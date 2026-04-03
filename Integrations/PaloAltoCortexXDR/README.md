@@ -6,13 +6,10 @@ Cortex XDR - XDR is the world’s first detection and response app that natively
 Python Version - V3_11
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
-
+|----|-----------|-----------|----|------------|
 |Api Root|None|True|None||
-
 |Api Key|None|True|None||
-
 |Api Key ID|None|True|None||
-
 |Verify SSL|None|False|None||
 
 
@@ -69,9 +66,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Incident ID|ID of the incident that needs to be updated.|True|None||
-
 |Comment|Comment for the incident.|True|None||
 
 
@@ -83,7 +78,6 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Comment|Provide additional comment that represents additional information regarding the action.|False|None||
 
 
@@ -101,15 +95,10 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Query|Query that needs to be executed in Palo Alto XDR. Note: don't provide "limit" as part of the query. Action will provide it automatically based on the value provided in the “Max Results To Return” parameter.|True|None||
-
 |Time Frame|Time frame for the results. If “Custom” is selected, you also need to provide "Start Time".|False|None||
-
 |Start Time|Start time for the results. This parameter is mandatory, if “Custom” is selected for the "Time Frame" parameter. Format: ISO 8601.|False|None||
-
 |End Time|End time for the results. Format: ISO 8601. If nothing is provided and "Custom" is selected for the "Time Frame" parameter then this parameter will use current time.|False|None||
-
 |Max Results To Return|How many results to return for the query. Action will append "limit" to the provided query. Default: 50. Maximum: 1000.|False|None||
 
 
@@ -127,11 +116,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Incident ID|ID of the incident that needs to be returned.|True|None||
-
 |Lowest Alert Severity|Lowest severity for the alert to be returned.|False|None||
-
 |Max Alerts To Return|How many alerts to return for the query. Default: 50. Maximum: 1000.|False|None||
 
 
@@ -143,7 +129,6 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Agent ID|A comma-separated list of agent IDs to isolate. This parameter works in conjunction with the provided entities.|False|None||
 
 
@@ -155,9 +140,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Incident ID|The ID of the incident to associate the scan activity with, allowing the results to appear in the incident timeline.|False|None||
-
 |Agent ID|A comma-separated list of agent IDs to include in the scan. This parameter works in conjunction with the provided entities|False|None||
 
 
@@ -175,7 +158,6 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Incident ID|The ID of the incident for which you want to retrieve data.|True|None||
 
 
@@ -187,7 +169,6 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Agent ID|A comma-separated list of agent IDs to unisolate. This parameter works in conjunction with the provided entities.|False|None||
 
 
@@ -199,13 +180,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Assigned User Name|The updated full name of the incident assignee.|False|None||
-
 |Severity|Administrator-defined severity|False|None||
-
 |Status|Updated incident status|False|None||
-
 |Incident ID|The ID of the incident to be updated.|True|None||
 
 
@@ -217,11 +194,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Incident ID|The ID of the incident to be updated.|True|None||
-
 |Status|Updated incident status|True|None||
-
 |Resolve Comment|Descriptive comment explaining the incident change.|False|None||
 
 
@@ -252,43 +226,24 @@ Pull incidents from Palo Alto XDR. Dynamic List works with the “source” para
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Api Root|The API root of the Palo Alto XDR instance.|True|None|https://api-{fqdn}|
-
 |Api Key|The Palo Alto XDR API key.|True|None||
-
 |Api Key ID|The Palo Alto XDR API key ID.|True|None|3|
-
 |Verify SSL|If selected, the integration validates the SSL certificate when connecting to the Palo Alto XDR server.|False|None|true|
-
 |Alerts Count Limit|The maximum number of incidents the connector processes for every iteration. Maximum: 100.|False|None|10|
-
 |Use dynamic list as a blocklist|If selected, the connector uses the dynamic list as a blocklist.|False|None|false|
-
 |Include Historical Artifacts|If selected, the connector retrieves all historical artifacts associated with an alert during the initial ingestion. Enabling this option may increase the volume of data ingested during the first run.|False|None|true|
-
 |Disable Overflow|If selected, the connector ignores the Google SecOps overflow mechanism.|False|None|true|
-
 |Max Days Backwards|The maximum number of days in the past to search for and retrieve incidents.|True|None|24|
-
 |Status Filter|A comma-separated list of alert statuses for the connector to ingest. If no value is provided, the connector defaults to fetching alerts with the New and Under Investigation statuses.|False|None|New,Under Investigation|
-
 |Split Incident Alerts|If selected, the connector separates the individual alerts within a single source incident, creating a distinct SOAR Alert for each one.|False|None|false|
-
 |Lowest Alert Severity To Fetch|The lowest severity of the alerts to retrieve. If no value is provided, the connector ingests alerts with all severity levels. The Lowest Incident SmartScore To Fetch acts as a master filter. If an incident's score meets this threshold, all associated alerts will be processed, regardless of their individual severity filter settings.|False|None||
-
 |Lowest Incident Severity To Fetch|The lowest severity of the incidents to retrieve. If no value is provided, the connector ingest incidents with all severities.|False|None||
-
 |Lowest Incident SmartScore To Fetch|The lowest SmartScore (0 to 100) of the incidents to fetch. This filter operates independently of the severity filter. If no value is provided, the SmartScore filter is ignored.|False|None||
-
 |Environment Field Name|The name of the field where the environment name is stored. If the environment field is missing, the connector uses the default value.|False|None||
-
 |Environment Regex Pattern|A regular expression pattern to run on the value found in the Environment Field Name field. This parameter lets you manipulate the environment field using the regular expression logic. Use the default value .* to retrieve the required raw Environment Field Name value. If the regular expression pattern is null or empty, or the environment value is null, the final environment result is the default environment.|False|None||
-
 |Proxy Server Address|The address of the proxy server to use.|False|None||
-
 |Proxy Username|The proxy username to authenticate with.|False|None||
-
 |Proxy Password|The proxy password to authenticate with.|False|None||
 
 

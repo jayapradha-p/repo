@@ -6,21 +6,14 @@ Azure Security Center is a unified infrastructure security management system tha
 Python Version - V3_11
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
-
+|----|-----------|-----------|----|------------|
 |Client ID|None|True|None||
-
 |Client Secret|None|True|None||
-
 |Username|None|False|None||
-
 |Password|None|False|None||
-
 |Subscription ID|None|False|None||
-
 |Tenant ID|None|True|None||
-
 |Refresh Token|None|False|None||
-
 |Verify SSL|None|False|None||
 
 
@@ -71,7 +64,6 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Redirect URL|Specify the redirect URL that was used when the app was created.|True|None||
 
 
@@ -83,9 +75,7 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Redirect URL|Specify the redirect URL that was used when the app was created.|True|None||
-
 |Authorization Code|Specify the authorization code from action "Get OAuth Authorization Code"|True|None||
 
 
@@ -97,13 +87,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Subscription ID|Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.|False|None||
-
 |Standard Names|Specify a comma-separated list of standard names for which you want to retrieve details. Example: Azure-CIS-1.1.0|True|None||
-
 |State Filter|Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped|False|None||
-
 |Max Standards To Return|Specify how many controls to return per standard.|False|None||
 
 
@@ -115,13 +101,9 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Subscription ID|Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.|False|None||
-
 |Alert ID|Specify an ID of the alert, where you want to update status.|True|None||
-
 |Location|Specify the location of the alert. Example: centralus.|True|None||
-
 |Status|Specify the status for the alert.|True|None||
 
 
@@ -139,11 +121,8 @@ Timeout - 600 Seconds
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Subscription ID|Specify the ID of the subscription for which you want to query information. Note: if subscription ID is provided at the integration level and action level, priority will be given to action configuration.|False|None||
-
 |State Filter|Specify the comma-separated list of states. Example: Failed, Skipped. Only standards with the matching state will be returned. For example, if you specify “Failed”, action will only return failed standards. Possible values: Passed, Failed, Unsupported, Skipped|False|None||
-
 |Max Standards To Return|Specify how many standards to return.|False|None||
 
 
@@ -169,39 +148,22 @@ Pull security alerts from Azure Security Center. Note: whitelist works with aler
 
 |Name|Description|IsMandatory|Type|DefaultValue|
 |----|-----------|-----------|----|------------|
-
 |Environment Field Name|Describes the name of the field where the environment name is stored. If the environment field isn't found, the environment is the default environment.|False|None||
-
 |Environment Regex Pattern|A regex pattern to run on the value found in the "Environment Field Name" field. Default is .* to catch all and return the value unchanged. Used to allow the user to manipulate the environment field via regex logic. If the regex pattern is null or empty, or the environment value is null, the final environment result is the default environment.|False|None|.*|
-
 |Client ID|Client ID of the Microsoft Azure application. |True|None||
-
 |Client Secret|Client Secret of the Microsoft Azure application.|True|None||
-
 |Username|Username of the Microsoft Azure account.|False|None||
-
 |Password|Password of the Microsoft Azure account.|False|None||
-
 |Subscription ID|Subscription ID of the Microsoft Azure application.|True|None||
-
 |Tenant ID|Tenant ID of the Microsoft Azure application.|True|None||
-
 |Refresh Token|Refresh token for the OAuth authorization.|False|None||
-
 |Max Hours Backwards|Number of hours before the first connector iteration to retrieve alerts from. This parameter applies to the initial connector iteration after you enable the connector for the first time, or used as a fallback value in cases where connector's last run timestamp expires.|False|None|1|
-
 |Max Alerts To Fetch|How many alerts to process per one connector iteration.|False|None|50|
-
 |Lowest Severity To Fetch|Lowest severity that will be used to fetch Alert. Possible values: Low, Medium, High|True|None|Low|
-
 |Use whitelist as a blacklist|If enabled, whitelist will be used as a blacklist.|False|None|false|
-
 |Verify SSL|If enabled, verify the SSL certificate for the connection to the Azure Security Center server is valid.|False|None|false|
-
 |Proxy Server Address|The address of the proxy server to use.|False|None||
-
 |Proxy Username|The proxy username to authenticate with.|False|None||
-
 |Proxy Password|The proxy password to authenticate with.|False|None||
 
 

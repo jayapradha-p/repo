@@ -6,7 +6,7 @@ This integration provides first-party AI agents for Google Chronicle. It allows 
 Python Version - V3_11
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
-
+|----|-----------|-----------|----|------------|
 |Verify SSL|If enabled, verify the SSL certificate for the connection.|False|None||
 
 
