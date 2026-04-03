@@ -1,0 +1,99 @@
+{
+    "items": [
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/5",
+            "displayName": "5",
+            "type": 2,
+            "value": ""
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/4",
+            "displayName": "4",
+            "type": 2,
+            "value": ""
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/3",
+            "displayName": "3",
+            "type": 2,
+            "value": "[Alert.Product]"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/2",
+            "displayName": "2",
+            "type": 2,
+            "value": "[Case.FirstTagForCaseName]"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/1",
+            "displayName": "1",
+            "type": 2,
+            "value": "[Alert.RuleGenerator]"
+        }
+    ],
+    "totalSize": 5,
+    "properties": [
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/5",
+            "displayName": "5",
+            "type": 2,
+            "value": ""
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/4",
+            "displayName": "4",
+            "type": 2,
+            "value": ""
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/3",
+            "displayName": "3",
+            "type": 2,
+            "value": "[Alert.Product]"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/2",
+            "displayName": "2",
+            "type": 2,
+            "value": "[Case.FirstTagForCaseName]"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/1",
+            "displayName": "1",
+            "type": 2,
+            "value": "[Alert.RuleGenerator]"
+        }
+    ],
+    "moduleSettingsProperties": [
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/5",
+            "displayName": "5",
+            "type": 2,
+            "value": ""
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/4",
+            "displayName": "4",
+            "type": 2,
+            "value": ""
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/3",
+            "displayName": "3",
+            "type": 2,
+            "value": "[Alert.Product]"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/2",
+            "displayName": "2",
+            "type": 2,
+            "value": "[Case.FirstTagForCaseName]"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CaseTitleSettings/properties/1",
+            "displayName": "1",
+            "type": 2,
+            "value": "[Alert.RuleGenerator]"
+        }
+    ]
+}
