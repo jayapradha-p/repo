@@ -6,7 +6,7 @@ This integration provides first-party AI agents for Google Chronicle. It allows 
 Python Version - V3_11
 #### Parameters
 |Name|Description|IsMandatory|Type|DefaultValue|
-|----|-----------|-----------|----|------------|
+
 |Verify SSL|If enabled, verify the SSL certificate for the connection.|False|None||
 
 
@@ -44,6 +44,21 @@ Python Version - V3_11
 |httpcore-1.0.9-py3-none-any.whl|
 |httplib2-0.31.2-py3-none-any.whl|
 |googleapis_common_protos-1.72.0-py3-none-any.whl|
+
+
+## Actions
+#### Ping
+Use the Ping action to test the connectivity to Google Chronicle.
+Timeout - 600 Seconds
+
+
+
+#### Triage and Investigation Agent
+Performs triage and investigation of Google SIEM alerts.
+Timeout - 1200 Seconds
+
+
+
 
 
 
