@@ -634,13 +634,13 @@ Note that the job is deprecated and will be removed in the next 6 months. Oauth 
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|Mail Server Address|True|String|outlook.office365.com|
-|Mail Address for sending notifications|True|String||
-|Notifications Recipients List|True|String||
-|Client ID|True|String||
+|Mail Server Address||String|outlook.office365.com|
+|Mail Address for sending notifications||String||
+|Notifications Recipients List||String||
+|Client ID||String||
 |Client Secret||Password|*****|
-|Tenant (Directory) ID|True|String||
-|Refresh Token|True|Password|*****|
+|Tenant (Directory) ID||String||
+|Refresh Token||Password|*****|
 
 #### Token Renewal Job
 Token renewal job should be used to periodically update the refresh token configured for the integration. By default, the refresh token expires every 90 days, making integration unusable upon expiration. It is recommended to run this job every 7 or 14 days to make sure that refresh token will be up to date.

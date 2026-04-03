@@ -252,11 +252,11 @@ This job synchronizes Google SecOps Alerts and Palo Alto XDR Incidents. It ensur
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|Environment Name|True|String|Default Environment|
+|Environment Name||String|Default Environment|
 |Api Root||String||
-|Api Key|True|Password|*****|
-|Api Key ID|True|String||
-|Max Hours Backwards|True|Integer|24|
+|Api Key||Password|*****|
+|Api Key ID||String||
+|Max Hours Backwards||Integer|24|
 |User Mapping JSON||String|{"Google SecOps Display Name": "XDR Username"}|
 |Verify SSL||Boolean|true|
 

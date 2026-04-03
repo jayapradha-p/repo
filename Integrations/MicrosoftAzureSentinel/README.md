@@ -474,12 +474,12 @@ Deprecated. This job synchronizes Google SecOps Alerts and Microsoft Sentinel In
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|Environment Name|True|String|Default Environment|
-|Azure Active Directory ID|True|String||
-|OAUTH2 Login Endpoint Url|True|String|https://login.microsoftonline.com|
-|API Root|True|String|https://graph.microsoft.com|
-|Client ID|True|String||
-|Client Secret|True|Password|*****|
+|Environment Name||String|Default Environment|
+|Azure Active Directory ID||String||
+|OAUTH2 Login Endpoint Url||String|https://login.microsoftonline.com|
+|API Root||String|https://graph.microsoft.com|
+|Client ID||String||
+|Client Secret||Password|*****|
 |Max Hours Backwards||Integer|24|
 |Verify SSL||Boolean|true|
 
@@ -488,15 +488,15 @@ Use the Sync Incidents V2 job to synchronize Google SecOps alerts with Microsoft
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|Environment Name|True|String|Default Environment|
-|Azure Subscription ID|True|String||
-|Azure Active Directory ID|True|String||
-|OAUTH2 Login Endpoint Url|True|String|https://login.microsoftonline.com|
-|Management API Root|True|String|https://management.azure.com|
-|Azure Resource Group|True|String||
-|Azure Sentinel Workspace Name|True|String||
-|Client ID|True|String||
-|Client Secret|True|Password|*****|
+|Environment Name||String|Default Environment|
+|Azure Subscription ID||String||
+|Azure Active Directory ID||String||
+|OAUTH2 Login Endpoint Url||String|https://login.microsoftonline.com|
+|Management API Root||String|https://management.azure.com|
+|Azure Resource Group||String||
+|Azure Sentinel Workspace Name||String||
+|Client ID||String||
+|Client Secret||Password|*****|
 |Max Hours Backwards||Integer|24|
 |Sync Assignee||Boolean|false|
 |Verify SSL||Boolean|true|

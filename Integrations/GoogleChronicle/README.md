@@ -518,8 +518,8 @@ Note: This job is only supported from Chronicle SOAR version 6.2.30 and higher.
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|Environment|True|String|Default Environment|
-|API Root|True|String|https://backstory.googleapis.com|
+|Environment||String|Default Environment|
+|API Root||String|https://backstory.googleapis.com|
 |User's Service Account||Password|*****|
 |Workload Identity Email||Password|*****|
 |Verify SSL||Boolean|true|
@@ -530,8 +530,8 @@ This job will synchronize information about Chronicle SOAR Cases and Chronicle S
 
 |Name|IsMandatory|Type|DefaultValue|
 |----|-----------|----|------------|
-|Environment|True|String|Default Environment|
-|API Root|True|String|https://backstory.googleapis.com|
+|Environment||String|Default Environment|
+|API Root||String|https://backstory.googleapis.com|
 |User's Service Account||Password|*****|
 |Workload Identity Email||Password|*****|
 |Max Hours Backwards||String|24|
