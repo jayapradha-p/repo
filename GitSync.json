@@ -6,7 +6,8 @@
         "Visual Family": {},
         "Playbook": {},
         "Connector": {},
-        "Job": {}
+        "Job": {},
+        "Block": {}
     },
     "settings": {
         "update_root_readme": true
