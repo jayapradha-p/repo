@@ -1,12 +1,13 @@
 {
-    "system_version": "6.1.6.186",
+    "system_version": "6.999.9999.3410",
     "readme_addons": {
         "Integration": {},
         "Mappings": {},
         "Visual Family": {},
         "Playbook": {},
         "Connector": {},
-        "Job": {}
+        "Job": {},
+        "Block": {}
     },
     "settings": {
         "update_root_readme": true
