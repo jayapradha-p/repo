@@ -1,0 +1,849 @@
+[
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "CrowdStrikeFalcon",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "API Root",
+                    "value": "https://api.crowdstrike.com",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 125,
+                    "propertyDisplayName": "API Root",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ecfb-d08b-7bc7-9b69-df4eb6024f80"
+                },
+                {
+                    "propertyName": "Client API ID",
+                    "value": "38c5488700bd4741a75ba6a965843a9b",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 126,
+                    "propertyDisplayName": "Client API ID",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ecfb-d08b-7bc7-9b69-df4eb6024f80"
+                },
+                {
+                    "propertyName": "Client API Secret",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": true,
+                    "id": 127,
+                    "propertyDisplayName": "Client API Secret",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ecfb-d08b-7bc7-9b69-df4eb6024f80"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 128,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ecfb-d08b-7bc7-9b69-df4eb6024f80"
+                },
+                {
+                    "propertyName": "Customer ID",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 129,
+                    "propertyDisplayName": "Customer ID",
+                    "propertyDescription": "The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ecfb-d08b-7bc7-9b69-df4eb6024f80"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "AzureMonitor",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "Login API Root",
+                    "value": "https://login.microsoftonline.com",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 20,
+                    "propertyDisplayName": "Login API Root",
+                    "propertyDescription": "The login API root of the Azure Monitor service.",
+                    "integrationIdentifier": "AzureMonitor",
+                    "integrationInstance": "01a0ebfd-d405-79f6-bef6-b0fe551e161e"
+                },
+                {
+                    "propertyName": "API Root",
+                    "value": "https://api.loganalytics.io",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 21,
+                    "propertyDisplayName": "API Root",
+                    "propertyDescription": "The API root of the Azure Monitor service.",
+                    "integrationIdentifier": "AzureMonitor",
+                    "integrationInstance": "01a0ebfd-d405-79f6-bef6-b0fe551e161e"
+                },
+                {
+                    "propertyName": "Tenant ID",
+                    "value": "vvddfvc",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 22,
+                    "propertyDisplayName": "Tenant ID",
+                    "propertyDescription": "The Azure Monitor account tenant ID.",
+                    "integrationIdentifier": "AzureMonitor",
+                    "integrationInstance": "01a0ebfd-d405-79f6-bef6-b0fe551e161e"
+                },
+                {
+                    "propertyName": "Client ID",
+                    "value": "ccc",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 23,
+                    "propertyDisplayName": "Client ID",
+                    "propertyDescription": "The Azure Monitor account Client ID.",
+                    "integrationIdentifier": "AzureMonitor",
+                    "integrationInstance": "01a0ebfd-d405-79f6-bef6-b0fe551e161e"
+                },
+                {
+                    "propertyName": "Client Secret",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": true,
+                    "id": 24,
+                    "propertyDisplayName": "Client Secret",
+                    "propertyDescription": "The Azure Monitor account Client Secret.",
+                    "integrationIdentifier": "AzureMonitor",
+                    "integrationInstance": "01a0ebfd-d405-79f6-bef6-b0fe551e161e"
+                },
+                {
+                    "propertyName": "Workspace ID",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 25,
+                    "propertyDisplayName": "Workspace ID",
+                    "propertyDescription": "The Azure Monitor account Workspace ID.",
+                    "integrationIdentifier": "AzureMonitor",
+                    "integrationInstance": "01a0ebfd-d405-79f6-bef6-b0fe551e161e"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 26,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "If selected, the integration validates the SSL certificate when connecting to the Azure Monitor server. Enabled by default.",
+                    "integrationIdentifier": "AzureMonitor",
+                    "integrationInstance": "01a0ebfd-d405-79f6-bef6-b0fe551e161e"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "Default Environment",
+        "integrationIdentifier": "HTTPV2",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System Default Instance",
+            "settings": [
+                {
+                    "propertyName": "Test URL",
+                    "value": "https://www.virustotal.com/api/v3/metadata",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 3,
+                    "propertyDisplayName": "Test URL",
+                    "propertyDescription": "Test URL that can be used to validate the \"Basic Auth\" authentication or \"API Key\" authentication. Uses a GET request.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Basic Auth Username",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 4,
+                    "propertyDisplayName": "Basic Auth Username",
+                    "propertyDescription": "If you provide \"Basic Auth Username\" and \"Basic Auth Password\" parameters then these parameters will be added as Basic Authentication headers to every action run. Note: you need to provide both \"Basic Auth Password\" and \"Basic Auth Username\".",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Basic Auth Password",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 5,
+                    "propertyDisplayName": "Basic Auth Password",
+                    "propertyDescription": "If you provide \"Basic Auth Username\" and \"Basic Auth Password\" parameters then these parameters will be added as Basic Authentication headers to every action run. Note: you need to provide both \"Basic Auth Password\u201d\" and \"Basic Auth Username\".",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "API Key Field Name",
+                    "value": "x-apikey",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 6,
+                    "propertyDisplayName": "API Key Field Name",
+                    "propertyDescription": "Name of the header that will contain the API key. If you provide \"API Key Field Name\" and \"API Key Secret\" parameters then these parameters will be added to every action run. Note: you need to provide both \"API Key Field Name\" and \"API Key Secret\".",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "API Key Secret",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 7,
+                    "propertyDisplayName": "API Key Secret",
+                    "propertyDescription": "API key secret. If you provide \"API Key Field Name\" and \"API Key Secret\" parameters then these parameters will be added to every action run. Note: you need to provide both \"API Key Field Name\" and \"API Key Secret\".",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request Method",
+                    "value": "Post",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 8,
+                    "propertyDisplayName": "Dedicated Auth API Request Method",
+                    "propertyDescription": "Method that will be used in the Dedicated Auth API flow to generate the access token.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request URL",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 9,
+                    "propertyDisplayName": "Dedicated Auth API Request URL",
+                    "propertyDescription": "API request that will be used in the Dedicated Auth API flow to generate the access token.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request Headers",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 10,
+                    "propertyDisplayName": "Dedicated Auth API Request Headers",
+                    "propertyDescription": "Headers that will be used in the Dedicated Auth API flow to generate the access token.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request Body",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 11,
+                    "propertyDisplayName": "Dedicated Auth API Request Body",
+                    "propertyDescription": "Request Body that will be used in the Dedicated Auth API flow to generate the access token.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request Token Field Name",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 12,
+                    "propertyDisplayName": "Dedicated Auth API Request Token Field Name",
+                    "propertyDescription": "Name of the field that contains the generated access token. This access token can be used inside the actions with {{integration.token}} placeholder. Note: that the response for token generation will be flattened with \"_\" as delimiter.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 13,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "If enabled, verify the SSL certificate for all of the connections done by integration.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "CA Certificate",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 14,
+                    "propertyDisplayName": "CA Certificate",
+                    "propertyDescription": "CA certificate to use to validate the secure connection. Parameter accepts the CA certificate in a form of base64 encoded string.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                },
+                {
+                    "propertyName": "Restrict Domain",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 15,
+                    "propertyDisplayName": "Restrict Domain",
+                    "propertyDescription": "If selected, integration will only allow API requests with the same domain as in \"Test URL\" parameter.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ebd0-40c6-7cb8-b347-5e0d61133ac6"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "*",
+        "integrationIdentifier": "PaloAltoCortexXDR",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "PaloAltoCortexXDR_1",
+            "settings": [
+                {
+                    "propertyName": "Api Root",
+                    "value": "https://api-{fqdn}",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 241,
+                    "propertyDisplayName": "Api Root",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "PaloAltoCortexXDR",
+                    "integrationInstance": "01a0ed50-2ff0-7ae5-b9a3-cd59b7dae233"
+                },
+                {
+                    "propertyName": "Api Key",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": true,
+                    "id": 242,
+                    "propertyDisplayName": "Api Key",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "PaloAltoCortexXDR",
+                    "integrationInstance": "01a0ed50-2ff0-7ae5-b9a3-cd59b7dae233"
+                },
+                {
+                    "propertyName": "Api Key ID",
+                    "value": "3",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Int",
+                    "isMandatory": true,
+                    "id": 243,
+                    "propertyDisplayName": "Api Key ID",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "PaloAltoCortexXDR",
+                    "integrationInstance": "01a0ed50-2ff0-7ae5-b9a3-cd59b7dae233"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 244,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "PaloAltoCortexXDR",
+                    "integrationInstance": "01a0ed50-2ff0-7ae5-b9a3-cd59b7dae233"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "*",
+        "integrationIdentifier": "MicrosoftGraphMail",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "MicrosoftGraphMail_1",
+            "settings": [
+                {
+                    "propertyName": "Azure AD Endpoint",
+                    "value": "https://login.microsoftonline.com",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 222,
+                    "propertyDisplayName": "Azure AD Endpoint",
+                    "propertyDescription": "The Microsoft Entra endpoint to connect to.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Microsoft Graph Endpoint",
+                    "value": "https://graph.microsoft.com",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 223,
+                    "propertyDisplayName": "Microsoft Graph Endpoint",
+                    "propertyDescription": "The Microsoft Graph endpoint to connect to.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Client ID",
+                    "value": "jklldjslkdj",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 224,
+                    "propertyDisplayName": "Client ID",
+                    "propertyDescription": "The client (application) ID of the Microsoft Entra application to use in the integration.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Secret ID",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": true,
+                    "id": 225,
+                    "propertyDisplayName": "Secret ID",
+                    "propertyDescription": "The client secret value of the Microsoft Entra app to use in the integration.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Tenant",
+                    "value": "djklsljdlks",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 226,
+                    "propertyDisplayName": "Tenant",
+                    "propertyDescription": "The Microsoft Entra ID (tenant ID) value.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Default Mailbox",
+                    "value": "djsjdlsk",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 227,
+                    "propertyDisplayName": "Default Mailbox",
+                    "propertyDescription": "The default mailbox to use in the integration.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Mail field source",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 228,
+                    "propertyDisplayName": "Mail field source",
+                    "propertyDescription": "If enabled, user's mailbox address will be fetched from the 'mail' attribute of user's details. Otherwise, user's mailbox address will be fetched from the 'userPrincipalName' field.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Base64 Encoded Private Key",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 229,
+                    "propertyDisplayName": "Base64 Encoded Private Key",
+                    "propertyDescription": "Specify a base64 encoded private key that will be used to decrypt the email.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Base64 Encoded Certificate",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 230,
+                    "propertyDisplayName": "Base64 Encoded Certificate",
+                    "propertyDescription": "Specify a base64 encoded certificate that will be used to decrypt the email.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Base64 Encoded CA certificate",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 231,
+                    "propertyDisplayName": "Base64 Encoded CA certificate",
+                    "propertyDescription": "Specify a base64 encoded trusted CA certificate for signature verification.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 232,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "If selected, the integration verifies that the SSL certificate for the connection to the Microsoft Graph server is valid.",
+                    "integrationIdentifier": "MicrosoftGraphMail",
+                    "integrationInstance": "01a0ed4f-b895-7610-866c-f7aa32d642c2"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "*",
+        "integrationIdentifier": "CrowdStrikeFalcon",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "CrowdStrikeFalcon_1",
+            "settings": [
+                {
+                    "propertyName": "API Root",
+                    "value": "https://api.crowdstrike.com",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 247,
+                    "propertyDisplayName": "API Root",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ed05-c69b-76cc-aa86-40f09886f734"
+                },
+                {
+                    "propertyName": "Client API ID",
+                    "value": "38c5488700bd4741a75ba6a965843a9b",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": true,
+                    "id": 248,
+                    "propertyDisplayName": "Client API ID",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ed05-c69b-76cc-aa86-40f09886f734"
+                },
+                {
+                    "propertyName": "Client API Secret",
+                    "value": "***************",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": true,
+                    "id": 249,
+                    "propertyDisplayName": "Client API Secret",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ed05-c69b-76cc-aa86-40f09886f734"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 250,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ed05-c69b-76cc-aa86-40f09886f734"
+                },
+                {
+                    "propertyName": "Customer ID",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 251,
+                    "propertyDisplayName": "Customer ID",
+                    "propertyDescription": "The customer ID of the tenant in which to execute the integration. For use in multi-tenant (MSSP) environments.",
+                    "integrationIdentifier": "CrowdStrikeFalcon",
+                    "integrationInstance": "01a0ed05-c69b-76cc-aa86-40f09886f734"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "*",
+        "integrationIdentifier": "HTTPV2",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "HTTPV2_1",
+            "settings": [
+                {
+                    "propertyName": "Test URL",
+                    "value": "https://www.virustotal.com/api/v3/metadata",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 160,
+                    "propertyDisplayName": "Test URL",
+                    "propertyDescription": "Test URL that can be used to validate the \"Basic Auth\" authentication or \"API Key\" authentication. Uses a GET request.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Basic Auth Username",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 161,
+                    "propertyDisplayName": "Basic Auth Username",
+                    "propertyDescription": "If you provide \"Basic Auth Username\" and \"Basic Auth Password\" parameters then these parameters will be added as Basic Authentication headers to every action run. Note: you need to provide both \"Basic Auth Password\" and \"Basic Auth Username\".",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Basic Auth Password",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 162,
+                    "propertyDisplayName": "Basic Auth Password",
+                    "propertyDescription": "If you provide \"Basic Auth Username\" and \"Basic Auth Password\" parameters then these parameters will be added as Basic Authentication headers to every action run. Note: you need to provide both \"Basic Auth Password\u201d\" and \"Basic Auth Username\".",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "API Key Field Name",
+                    "value": "x-apikey",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 163,
+                    "propertyDisplayName": "API Key Field Name",
+                    "propertyDescription": "Name of the header that will contain the API key. If you provide \"API Key Field Name\" and \"API Key Secret\" parameters then these parameters will be added to every action run. Note: you need to provide both \"API Key Field Name\" and \"API Key Secret\".",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "API Key Secret",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 164,
+                    "propertyDisplayName": "API Key Secret",
+                    "propertyDescription": "API key secret. If you provide \"API Key Field Name\" and \"API Key Secret\" parameters then these parameters will be added to every action run. Note: you need to provide both \"API Key Field Name\" and \"API Key Secret\".",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request Method",
+                    "value": "Post",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 165,
+                    "propertyDisplayName": "Dedicated Auth API Request Method",
+                    "propertyDescription": "Method that will be used in the Dedicated Auth API flow to generate the access token.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request URL",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 166,
+                    "propertyDisplayName": "Dedicated Auth API Request URL",
+                    "propertyDescription": "API request that will be used in the Dedicated Auth API flow to generate the access token.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request Headers",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 167,
+                    "propertyDisplayName": "Dedicated Auth API Request Headers",
+                    "propertyDescription": "Headers that will be used in the Dedicated Auth API flow to generate the access token.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request Body",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Password",
+                    "isMandatory": false,
+                    "id": 168,
+                    "propertyDisplayName": "Dedicated Auth API Request Body",
+                    "propertyDescription": "Request Body that will be used in the Dedicated Auth API flow to generate the access token.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Dedicated Auth API Request Token Field Name",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 169,
+                    "propertyDisplayName": "Dedicated Auth API Request Token Field Name",
+                    "propertyDescription": "Name of the field that contains the generated access token. This access token can be used inside the actions with {{integration.token}} placeholder. Note: that the response for token generation will be flattened with \"_\" as delimiter.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 170,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "If enabled, verify the SSL certificate for all of the connections done by integration.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "CA Certificate",
+                    "value": "",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "String",
+                    "isMandatory": false,
+                    "id": 171,
+                    "propertyDisplayName": "CA Certificate",
+                    "propertyDescription": "CA certificate to use to validate the secure connection. Parameter accepts the CA certificate in a form of base64 encoded string.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                },
+                {
+                    "propertyName": "Restrict Domain",
+                    "value": "False",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 172,
+                    "propertyDisplayName": "Restrict Domain",
+                    "propertyDescription": "If selected, integration will only allow API requests with the same domain as in \"Test URL\" parameter.",
+                    "integrationIdentifier": "HTTPV2",
+                    "integrationInstance": "01a0ed05-c5f9-71a5-8fc3-4683d24e62e4"
+                }
+            ]
+        }
+    },
+    {
+        "environment": "*",
+        "integrationIdentifier": "GoogleSecOpsAiAgents",
+        "settings": {
+            "instanceDescription": "",
+            "instanceName": "System All Environments Default Instance",
+            "settings": [
+                {
+                    "propertyName": "Verify SSL",
+                    "value": "True",
+                    "creationTimeUnixTimeInMs": 0,
+                    "modificationTimeUnixTimeInMs": 0,
+                    "propertyType": "Boolean",
+                    "isMandatory": false,
+                    "id": 175,
+                    "propertyDisplayName": "Verify SSL",
+                    "propertyDescription": "If enabled, verify the SSL certificate for the connection.",
+                    "integrationIdentifier": "GoogleSecOpsAiAgents",
+                    "integrationInstance": "01a0ebe3-372f-7286-a435-8be657f16ec1"
+                }
+            ]
+        }
+    }
+]
