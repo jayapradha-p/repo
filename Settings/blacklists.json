@@ -1,0 +1,10 @@
+[
+    {
+        "name": "projects/spsstg-lkc4c/locations/us/instances/e3d21505-77a4-4285-9c70-f07bc440c1c5/entitiesBlocklists/1",
+        "id": 1,
+        "entityIdentifier": "test1",
+        "entityType": "*",
+        "action": "DoNotGroupAlerts",
+        "environmentsJson": "[\"*\"]"
+    }
+]
