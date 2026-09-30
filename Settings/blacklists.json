@@ -1,10 +1,12 @@
 [
     {
-        "name": "projects/spsstg-lkc4c/locations/us/instances/e3d21505-77a4-4285-9c70-f07bc440c1c5/entitiesBlocklists/1",
-        "id": 1,
+        "id": 4,
         "entityIdentifier": "test1",
-        "entityType": "*",
-        "action": "DoNotGroupAlerts",
-        "environmentsJson": "[\"*\"]"
+        "entityType": "ADDRESS",
+        "elementType": 0,
+        "scope": 2,
+        "environments": [
+            "Default Environment"
+        ]
     }
 ]
