@@ -1,0 +1,10 @@
+[
+    {
+        "name": "projects/project/locations/location/instances/instance/entitiesBlocklists/10",
+        "id": 10,
+        "entityIdentifier": "test",
+        "entityType": "*",
+        "action": "DoNotGroupAlerts",
+        "environmentsJson": "[\"*\"]"
+    }
+]
