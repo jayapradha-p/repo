@@ -1,0 +1,34 @@
+[
+    {
+        "id": 2,
+        "valueType": 2,
+        "value": "",
+        "slaPeriodType": 0,
+        "slaPeriod": 12.0,
+        "criticalPeriodType": 0,
+        "criticalPeriod": 2.0,
+        "environments": [
+            "*"
+        ],
+        "alertType": 0,
+        "values": [
+            ""
+        ]
+    },
+    {
+        "id": 3,
+        "valueType": 3,
+        "value": "[\"Triage\"]",
+        "slaPeriodType": 0,
+        "slaPeriod": 12.0,
+        "criticalPeriodType": 0,
+        "criticalPeriod": 9.0,
+        "environments": [
+            "*"
+        ],
+        "alertType": null,
+        "values": [
+            "Triage"
+        ]
+    }
+]
