@@ -1,0 +1,186 @@
+{
+    "IsAvailableForCommunity": false,
+    "Identifier": "AzureApi",
+    "ShouldInstalledInSystem": false,
+    "Version": 5.2,
+    "DisplayName": "Azure API",
+    "Description": "Azure API integration was designed for you to execute Azure API without the need of writing any code. This integration version uses Impersonated/Delegated Authentication in Microsoft 365 and requires interactive login of the user on behalf of which integration should communicate with Microsoft 365. To configure this integration, provide all parameters except for Refresh Token, and save the integration configuration, then run \u201cGet Authorization\u201d and \u201cGenerate Token\u201d actions to get the token and then provide it in integration configuration to finish the process. Microsoft 365 and Office 365 deliver the power of cloud productivity to businesses of all sizes, helping save time, money, and free up valued resources. The Microsoft 365 and Office 365 plans combine the familiar Microsoft Office desktop suite with cloud-based versions of Microsoft's next-generation communications and collaboration services (including Office for the web, Microsoft Exchange Online, Microsoft Teams, and Microsoft SharePoint Online) to help users be productive from virtually anywhere through the Internet. This integration uses Microsoft Graph Mail API to communicate with Microsoft 365 and Office 365 services.",
+    "ImageBase64": null,
+    "SvgImage": "<svg width=\"150\" height=\"150\" viewBox=\"0 0 96 96\" xmlns=\"http://www.w3.org/2000/svg\">\n    <path d=\"M33.338 6.544h26.038l-27.03 80.087a4.152 4.152 0 0 1-3.933 2.824H8.149a4.145 4.145 0 0 1-3.928-5.47L29.404 9.368a4.152 4.152 0 0 1 3.934-2.825z\"/>\n    <path d=\"M71.175 60.261h-41.29a1.911 1.911 0 0 0-1.305 3.309l26.532 24.764a4.171 4.171 0 0 0 2.846 1.121h23.38z\"/>\n    <path d=\"M33.338 6.544a4.118 4.118 0 0 0-3.943 2.879L4.252 83.917a4.14 4.14 0 0 0 3.908 5.538h20.787a4.443 4.443 0 0 0 3.41-2.9l5.014-14.777 17.91 16.705a4.237 4.237 0 0 0 2.666.972H81.24L71.024 60.261l-29.781.007L59.47 6.544z\"/>\n    <path d=\"M66.595 9.364a4.145 4.145 0 0 0-3.928-2.82H33.648a4.146 4.146 0 0 1 3.928 2.82l25.184 74.62a4.146 4.146 0 0 1-3.928 5.472h29.02a4.146 4.146 0 0 0 3.927-5.472z\"/>\n</svg>",
+    "IsCustom": false,
+    "PythonVersion": 3,
+    "IntegrationProperties": [
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Test URL",
+            "PropertyDescription": "Test URL that will be used to validate the authentication to Azure API. Uses a GET request.",
+            "PropertyDisplayName": "Test URL",
+            "PropertyType": 2,
+            "IsMandatory": true,
+            "Value": "",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Microsoft Login API Root",
+            "PropertyDescription": "The API root of the Microsoft identity platform login service used for Azure API authentication.",
+            "PropertyDisplayName": "Microsoft Login API Root",
+            "PropertyType": 2,
+            "IsMandatory": true,
+            "Value": "https://login.microsoftonline.com",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Microsoft Graph API Root",
+            "PropertyDescription": "The API root of the Microsoft Graph service used for Azure API operations.",
+            "PropertyDisplayName": "Microsoft Graph API Root",
+            "PropertyType": 2,
+            "IsMandatory": true,
+            "Value": "https://graph.microsoft.com",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Client ID",
+            "PropertyDescription": "The Client ID for the Azure API account.",
+            "PropertyDisplayName": "Client ID",
+            "PropertyType": 2,
+            "IsMandatory": true,
+            "Value": "",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Client Secret",
+            "PropertyDescription": "The Client Secret for the Azure API account.",
+            "PropertyDisplayName": "Client Secret",
+            "PropertyType": 3,
+            "IsMandatory": true,
+            "Value": null,
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Tenant ID",
+            "PropertyDescription": "The Tenant ID for the Azure API account.",
+            "PropertyDisplayName": "Tenant ID",
+            "PropertyType": 2,
+            "IsMandatory": true,
+            "Value": "",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Refresh Token",
+            "PropertyDescription": "The Refresh Token for the Azure API account.",
+            "PropertyDisplayName": "Refresh Token",
+            "PropertyType": 3,
+            "IsMandatory": false,
+            "Value": null,
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Scopes",
+            "PropertyDescription": "The scopes for the Azure API authentication.",
+            "PropertyDisplayName": "Scopes",
+            "PropertyType": 2,
+            "IsMandatory": true,
+            "Value": "https://graph.microsoft.com/.default",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Verify SSL",
+            "PropertyDescription": "If selected, the integration validates the SSL certificate when connecting to the Azure API server. Disabled by default.",
+            "PropertyDisplayName": "Verify SSL",
+            "PropertyType": 0,
+            "IsMandatory": false,
+            "Value": "true",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        },
+        {
+            "IntegrationIdentifier": "AzureApi",
+            "PropertyName": "Redirect URL",
+            "PropertyDescription": "The Redirect URL associated with the Microsoft Entra ID application.",
+            "PropertyDisplayName": "Redirect URL",
+            "PropertyType": 2,
+            "IsMandatory": false,
+            "Value": "http://localhost",
+            "Id": 0,
+            "CreationTimeUnixTimeInMs": 1790847249578,
+            "ModificationTimeUnixTimeInMs": 1790847249578
+        }
+    ],
+    "IntegrationSupportedActions": [
+        {
+            "Name": "Generate Token",
+            "Description": "Use the Generate Token action to obtain a persistent refresh token required for delegated authentication. This token is generated using the authorization URL received from the Get Authorization action. This action doesn't run on Google SecOps entities.",
+            "Id": 188,
+            "CreationTimeUnixTimeInMs": 1790847249587,
+            "ModificationTimeUnixTimeInMs": 1790847249587
+        },
+        {
+            "Name": "Ping",
+            "Description": "Test connectivity.",
+            "Id": 189,
+            "CreationTimeUnixTimeInMs": 1790847249587,
+            "ModificationTimeUnixTimeInMs": 1790847249587
+        },
+        {
+            "Name": "Execute HTTP Request",
+            "Description": "Use the Execute HTTP Request action to construct and execute a customized HTTP API request against a target URL. Note: This action operates in an asynchronous mode when polling an endpoint is necessary to wait until a specific success or failure condition is met in the response body.",
+            "Id": 190,
+            "CreationTimeUnixTimeInMs": 1790847249587,
+            "ModificationTimeUnixTimeInMs": 1790847249587
+        },
+        {
+            "Name": "Get Authorization",
+            "Description": "Use the Get Authorization action to initiate the OAuth flow and obtain a link that contains the required access code for delegated authentication. This action doesn't run on Google SecOps entities.",
+            "Id": 191,
+            "CreationTimeUnixTimeInMs": 1790847249587,
+            "ModificationTimeUnixTimeInMs": 1790847249587
+        }
+    ],
+    "Categories": [
+        "IT & Infrastructure",
+        "Azure",
+        "Cloud"
+    ],
+    "HasConnectors": false,
+    "DocumentationLink": "https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/AzureApi",
+    "IsCertified": false,
+    "UploaderFullName": null,
+    "PublishComment": null,
+    "UploaderEmail": null,
+    "UploaderImageBase64": null,
+    "UploaderProfileLink": null,
+    "MinimumSystemVersion": 0.0,
+    "ProductionIntegrationIdentifier": null,
+    "Type": 0,
+    "Internal": false,
+    "GoogleSecOpsProduct": false,
+    "Id": 0,
+    "CreationTimeUnixTimeInMs": 1790847249578,
+    "ModificationTimeUnixTimeInMs": 1790847249578,
+    "Custom": false
+}
