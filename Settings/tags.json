@@ -1,0 +1,15 @@
+[
+    {
+        "value": "123",
+        "name": "Test1",
+        "propertyName": "hello",
+        "priority": 1,
+        "isPotentialCaseName": false,
+        "environments": [],
+        "type": 3,
+        "compareType": 2,
+        "id": 4,
+        "creationTimeUnixTimeInMs": 1791199499865,
+        "modificationTimeUnixTimeInMs": 1791199499865
+    }
+]
