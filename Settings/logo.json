@@ -1,0 +1,138 @@
+{
+    "items": [
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInSystemEmails",
+            "displayName": "UseInSystemEmails",
+            "type": 0
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInReports",
+            "displayName": "UseInReports",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInLoginScreen",
+            "displayName": "UseInLoginScreen",
+            "type": 0
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInHeader",
+            "displayName": "UseInHeader",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/HasManuallyChanged",
+            "displayName": "HasManuallyChanged",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/FaviconBase64",
+            "displayName": "FaviconBase64",
+            "type": 2
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/CompanyLogo",
+            "displayName": "CompanyLogo",
+            "type": 2
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/ChangeFavicon",
+            "displayName": "ChangeFavicon",
+            "type": 0
+        }
+    ],
+    "totalSize": 8,
+    "properties": [
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInSystemEmails",
+            "displayName": "UseInSystemEmails",
+            "type": 0
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInReports",
+            "displayName": "UseInReports",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInLoginScreen",
+            "displayName": "UseInLoginScreen",
+            "type": 0
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInHeader",
+            "displayName": "UseInHeader",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/HasManuallyChanged",
+            "displayName": "HasManuallyChanged",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/FaviconBase64",
+            "displayName": "FaviconBase64",
+            "type": 2
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/CompanyLogo",
+            "displayName": "CompanyLogo",
+            "type": 2
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/ChangeFavicon",
+            "displayName": "ChangeFavicon",
+            "type": 0
+        }
+    ],
+    "moduleSettingsProperties": [
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInSystemEmails",
+            "displayName": "UseInSystemEmails",
+            "type": 0
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInReports",
+            "displayName": "UseInReports",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInLoginScreen",
+            "displayName": "UseInLoginScreen",
+            "type": 0
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/UseInHeader",
+            "displayName": "UseInHeader",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/HasManuallyChanged",
+            "displayName": "HasManuallyChanged",
+            "type": 0,
+            "value": "False"
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/FaviconBase64",
+            "displayName": "FaviconBase64",
+            "type": 2
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/CompanyLogo",
+            "displayName": "CompanyLogo",
+            "type": 2
+        },
+        {
+            "name": "projects/project/locations/location/instances/instance/moduleSettings/CompanySetting/properties/ChangeFavicon",
+            "displayName": "ChangeFavicon",
+            "type": 0
+        }
+    ]
+}

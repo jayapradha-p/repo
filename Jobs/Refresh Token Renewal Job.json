@@ -1,0 +1,46 @@
+{
+    "name": "projects/project/locations/location/instances/instance/integrations/MicrosoftTeams/jobs/134/jobInstances/5",
+    "id": 0,
+    "job": "Refresh Token Renewal Job",
+    "integration": "MicrosoftTeams",
+    "createTime": 1791369072286,
+    "updateTime": 1791369072286,
+    "custom": true,
+    "script": "# Copyright 2026 Google LLC\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#     http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n\nfrom __future__ import annotations\n\nfrom TIPCommon.base.job import RefreshTokenRenewalJob, validate_param_csv_to_multi_value\n\nfrom MicrosoftConstants import (\n    DEFAULT_API_ROOT,\n    INTEGRATION_NAME,\n    DEFAULT_LOGIN_API_ROOT,\n    TOKEN_RENEWAL_SCRIPT_NAME,\n)\nfrom MicrosoftManager import MicrosoftTeamsManager\nfrom MicrosoftExceptions import MicrosoftTeamsManagerError\n\n\nclass RefreshTokenJob(RefreshTokenRenewalJob):\n    \"\"\"Refresh Token Renewal Job to update refresh token periodically.\"\"\"\n\n    def __init__(self) -> None:\n        super().__init__(TOKEN_RENEWAL_SCRIPT_NAME, INTEGRATION_NAME)\n        self.error_msg = f\"{TOKEN_RENEWAL_SCRIPT_NAME} failed to run because \"\n\n    def _get_integration_envs(self) -> str:\n        \"\"\"Gets the names of environments to refresh token for.\n\n        Returns:\n            str: Environment names.\n        \"\"\"\n        return self.params.integration_environments\n\n    def _get_connector_names(self) -> None:\n        \"\"\"Get the names of connectors to refresh the token.\"\"\"\n\n    def _validate_params(self) -> None:\n        \"\"\"Validate the parameters values.\n\n        Raises:\n            MicrosoftTeamsManagerError: Exception if integration environment is not\n                provided.\n        \"\"\"\n        self.params.integration_environments = validate_param_csv_to_multi_value(\n            param_name=\"Integration Environments\",\n            param_csv_value=self.params.integration_environments,\n        )\n\n        if not self.params.integration_environments:\n            raise MicrosoftTeamsManagerError(\n                f\"{self.error_msg} Integration Environments parameter \"\n                \"is not provided.\"\n            )\n\n    def _refresh_integration_token(\n        self,\n        instance_identifier: str,\n    ) -> None:\n        \"\"\"Renew refresh token and set it in integration's configuration.\n\n        Args:\n            instance_identifier (str): integration instance identifier.\n                e.g.: \"ce0027a2-2b53-4cce-ad08-430df6d002f3\"\n\n        Returns:\n            None\n        \"\"\"\n        refresh_token = self.api_client.new_refresh_token\n        self.soar_job.set_configuration_property(\n            integration_instance_identifier=instance_identifier,\n            property_name=\"Refresh Token\",\n            property_value=refresh_token,\n        )\n\n    def _refresh_connector_token(\n        self,\n        instance_identifier: str,\n    ) -> None:\n        \"\"\"Renew refresh token and set it in connector's configuration.\"\"\"\n\n    def _build_manager_for_instance(\n        self,\n        instance_settings: dict[str, str],\n    ) -> MicrosoftTeamsManager:\n        \"\"\"Build Manager object to get the refresh token for integration instances.\n\n        Args:\n            instance_settings (dict[str, str]): instance configuration settings.\n\n        Returns:\n            MicrosoftTeamsManager: exception while creating\n                MicrosoftTeamsManager object.\n        \"\"\"\n        return MicrosoftTeamsManager(\n            client_id=instance_settings.get(\"Client ID\"),\n            client_secret=instance_settings.get(\"Secret ID\"),\n            tenant=instance_settings.get(\"Tenant\"),\n            refresh_token=instance_settings.get(\"Refresh Token\"),\n            redirect_url=instance_settings.get(\"Redirect URL\"),\n            api_root=instance_settings.get(\"API Root\", DEFAULT_API_ROOT),\n            login_api_root=instance_settings.get(\n                \"Login API Root\",\n                DEFAULT_LOGIN_API_ROOT\n            ),\n        )\n\n\ndef main() -> None:\n    RefreshTokenJob().start()\n\n\nif __name__ == \"__main__\":\n    main()\n",
+    "author": "28087212-f11e-4a6b-9b50-3964967a2990",
+    "agent": "",
+    "uniqueIdentifier": "a9643be5-beca-44d5-8198-17603976f029",
+    "enabled": false,
+    "displayName": "Refresh Token Renewal Job",
+    "description": "Token renewal job should be used to periodically update the refresh token configured for the integration. By default, the refresh token expires every 90 days, making integration unusable upon expiration. It is recommended to run this job every 7 or 14 days to make sure that refresh token will be up to date.",
+    "intervalSeconds": 60,
+    "advanced": false,
+    "advancedConfig": {
+        "timeZone": "Europe/London",
+        "scheduleType": "Once",
+        "oneTimeSchedule": {
+            "startDate": {
+                "year": 2026,
+                "month": 10,
+                "day": 8
+            },
+            "time": {
+                "hours": 10,
+                "minutes": 31,
+                "seconds": 0,
+                "nanos": 0
+            },
+            "interval": 0
+        }
+    },
+    "documentationLink": "https://cloud.google.com/chronicle/docs/soar/marketplace-integrations/microsoft-teams#refresh_token_renewal_job",
+    "parameters": [
+        {
+            "id": 2842,
+            "mandatory": false,
+            "type": "String",
+            "displayName": "Integration Environments",
+            "value": ""
+        }
+    ]
+}

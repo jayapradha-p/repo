@@ -1,0 +1,13 @@
+[
+    {
+        "id": 0,
+        "source": "PaloAltoCortexXDR",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Cortex XDR",
+        "eventName": null,
+        "mappingStatus": null,
+        "changeSource": "ChangeSourceUnspecified",
+        "exampleEventFields": []
+    }
+]

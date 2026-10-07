@@ -1,0 +1,24 @@
+[
+    {
+        "id": 0,
+        "source": "MicrosoftGraphMail",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Graph Mail",
+        "eventName": "Email Received in Monitoring Mailbox",
+        "mappingStatus": null,
+        "changeSource": "ChangeSourceUnspecified",
+        "exampleEventFields": []
+    },
+    {
+        "id": 0,
+        "source": "MicrosoftGraphMail",
+        "familyName": "Default",
+        "familyId": 0,
+        "product": "Graph Mail",
+        "eventName": "Attached Email File",
+        "mappingStatus": null,
+        "changeSource": "ChangeSourceUnspecified",
+        "exampleEventFields": []
+    }
+]
