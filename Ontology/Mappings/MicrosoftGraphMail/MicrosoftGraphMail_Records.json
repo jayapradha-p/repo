@@ -1,24 +1,24 @@
 [
     {
-        "id": 0,
-        "source": "MicrosoftGraphMail",
-        "familyName": "Default",
-        "familyId": 0,
-        "product": "Graph Mail",
-        "eventName": "Email Received in Monitoring Mailbox",
-        "mappingStatus": null,
         "changeSource": "ChangeSourceUnspecified",
-        "exampleEventFields": []
+        "eventName": "Email Received in Monitoring Mailbox",
+        "exampleEventFields": [],
+        "familyId": 0,
+        "familyName": "Default",
+        "id": 0,
+        "mappingStatus": null,
+        "product": "Graph Mail",
+        "source": "MicrosoftGraphMail"
     },
     {
-        "id": 0,
-        "source": "MicrosoftGraphMail",
-        "familyName": "Default",
-        "familyId": 0,
-        "product": "Graph Mail",
-        "eventName": "Attached Email File",
-        "mappingStatus": null,
         "changeSource": "ChangeSourceUnspecified",
-        "exampleEventFields": []
+        "eventName": "Attached Email File",
+        "exampleEventFields": [],
+        "familyId": 0,
+        "familyName": "Default",
+        "id": 0,
+        "mappingStatus": null,
+        "product": "Graph Mail",
+        "source": "MicrosoftGraphMail"
     }
 ]

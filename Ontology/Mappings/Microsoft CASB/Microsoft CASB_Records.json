@@ -1,13 +1,13 @@
 [
     {
-        "id": 0,
-        "source": "Microsoft CASB",
-        "familyName": "Login",
-        "familyId": 0,
-        "product": "Windows:AccessDisabledAccounts",
-        "eventName": "Access Disabled Accounts",
-        "mappingStatus": null,
         "changeSource": "IngestedAlert",
-        "exampleEventFields": []
+        "eventName": "Access Disabled Accounts",
+        "exampleEventFields": [],
+        "familyId": 0,
+        "familyName": "Login",
+        "id": 0,
+        "mappingStatus": null,
+        "product": "Windows:AccessDisabledAccounts",
+        "source": "Microsoft CASB"
     }
 ]

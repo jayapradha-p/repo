@@ -1,0 +1,78 @@
+identifier: 3cae030e-7fab-49f1-b569-4e2872a78847
+original_step_id: 3cae030e-7fab-49f1-b569-4e2872a78847
+parent_step_ids: []
+parent_step_id: ''
+previous_result_condition: '{}'
+instance_name: Siemplify_Assign Case_1
+is_automatic: true
+name: Siemplify_Assign Case
+is_skippable: false
+description: Use the "Assign Case" action to assign the case to a user.
+action_provider: Scripts
+action_name: Siemplify_Assign Case
+integration: Siemplify
+auto_skip_on_failure: false
+is_debug_mock_data: false
+parent_container_id: null
+is_touched_by_ai: false
+start_loop_step_id: null
+type: action
+parameters:
+-   step_id: null
+    playbook_id: null
+    name: AssignedUsers
+    value: null
+-   step_id: null
+    playbook_id: null
+    name: DistinctDuplicateEntities
+    value: null
+-   step_id: null
+    playbook_id: null
+    name: DynamicInjectionInstancePlaceholder
+    value: null
+-   step_id: null
+    playbook_id: null
+    name: FallbackIntegrationInstance
+    value: 01a0ebaa-ed73-7409-bebd-8bc8eee11d41
+-   step_id: null
+    playbook_id: null
+    name: FetchInstanceByName
+    value: 'false'
+-   step_id: null
+    playbook_id: null
+    name: HasApprovalLink
+    value: null
+-   step_id: null
+    playbook_id: null
+    name: IntegrationInstance
+    value: AutomaticEnvironment
+-   step_id: null
+    playbook_id: null
+    name: MessageToAssignee
+    value: null
+-   step_id: null
+    playbook_id: null
+    name: PendingActionTimeout
+    value: null
+-   step_id: null
+    playbook_id: null
+    name: RetryConfiguration
+    value: '{"Enabled":false,"IntervalInSeconds":30,"NumberOfRetries":1}'
+-   step_id: null
+    playbook_id: null
+    name: ScriptName
+    value: Siemplify_Assign Case
+-   step_id: null
+    playbook_id: null
+    name: ScriptParametersEntityFields
+    value: '{"Assigned User":"@CISO","Assignee":"","Case ID":""}'
+-   step_id: null
+    playbook_id: null
+    name: SelectedScopeName
+    value: All entities
+-   step_id: null
+    playbook_id: null
+    name: UseEntitiesLoopScope
+    value: null
+parallel_actions: []
+step_debug_data: null
